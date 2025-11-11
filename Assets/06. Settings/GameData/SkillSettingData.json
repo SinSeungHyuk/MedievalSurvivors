@@ -13,7 +13,7 @@
     "manaCost": 8,
     "elementType": "Ice"
   },
-  "Meteor": {
+  "StoneSlash": {
     "skillName": "메테오",
     "description": "광범위한 지역에 운석을 떨어트립니다.",
     "coefficient": 5.0,

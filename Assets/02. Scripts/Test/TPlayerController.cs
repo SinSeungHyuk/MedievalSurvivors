@@ -1,9 +1,13 @@
+using MS.Skill;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static Unity.Burst.Intrinsics.X86;
 
 
 public class TPlayerController : MonoBehaviour
 {
+    public SkillSystemComponent SSC;
+
     public Vector2 MoveInput;
     public Vector2 MoveDir;
     public float MoveSpeed = 5;
@@ -13,7 +17,13 @@ public class TPlayerController : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();    
+        rb = GetComponent<Rigidbody>();
+        SSC = gameObject.AddComponent<SkillSystemComponent>();
+    }
+
+    private void Start()
+    {
+
     }
 
     private void FixedUpdate()
@@ -30,6 +40,12 @@ public class TPlayerController : MonoBehaviour
                 MoveDir = MoveInput; // MoveInput 자체가 이미 정규화된 2D 방향임
             }
         }
+    }
+
+    public void Test()
+    {
+        SSC.InitSkillActorInfo(this.gameObject, null);
+        SSC.GiveSkill("StoneSlash");
     }
 
     public void OnMove(InputValue inputValue)

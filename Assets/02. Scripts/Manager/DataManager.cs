@@ -24,14 +24,6 @@ namespace MS.Manager
                 {
                     string skillKey = pair.Key; // "Fireball"
                     SkillSettingData data = pair.Value; // SkillSettingData 객체
-
-                    // 상세 로그 출력
-                    Debug.Log($"--- 스킬 키: {skillKey} ---");
-                    Debug.Log($"이름: {data.skillName}");
-                    Debug.Log($"설명: {data.description}");
-                    Debug.Log($"계수: {data.coefficient}");
-                    Debug.Log($"마나 소모: {data.manaCost}");
-                    Debug.Log($"--------------------------");
                 }
             }
             catch (Exception e)
