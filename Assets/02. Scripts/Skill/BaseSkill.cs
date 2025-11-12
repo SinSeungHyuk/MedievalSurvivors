@@ -12,24 +12,31 @@ namespace MS.Skill
         protected SkillSystemComponent owner;
         protected SkillSettingData skillData;
 
-        public float CurrentCooldown { get; protected set; }
-        public int SkillLevel { get; protected set; }
+        private float curCooltime;
+        private int curSkillLevel;
+
+        public bool IsCooltime => curCooltime > 0;
+        public int CurSkillLevel => curSkillLevel;
 
 
-        public void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
+        public virtual void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             owner = _owner;
             skillData = _skillData;
-            SkillLevel = 1;
+            curCooltime = 0;
+            curSkillLevel = 1;
         }
 
         public abstract UniTask ActivateSkill(CancellationToken token);
 
-        public virtual bool CanActivateSkill()
-        {
-            
+        public void SetCooltime() => curCooltime = skillData.Cooltime;
 
-            return true;
+        public void UpdateCooltime(float _deltaTime)
+        {
+            if (curCooltime > 0)
+            {
+                curCooltime -= _deltaTime;
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Manager;
 using System;
@@ -19,6 +20,14 @@ namespace MS.Skill
         public BaseAttributeSet AttributeSet => attributeSet;
         public GameObject Owner => owner;
 
+
+        void Update()
+        {
+            foreach (var skill in ownedSkillDict.Values)
+            {
+                skill.UpdateCooltime(Time.deltaTime);
+            }
+        }
 
         public void InitSkillActorInfo(GameObject _owner, BaseAttributeSet _attributeSet)
         {
@@ -43,8 +52,68 @@ namespace MS.Skill
                     Debug.LogError("SkillSystemComponent::GiveSkill : " + ex.Message);
                 }
             }
+        }
 
-            Debug.Log(ownedSkillDict["StoneSlash"] + " : " + ownedSkillDict["StoneSlash"].SkillLevel);
+        public async UniTask UseSkill(string _skillKey)
+        {
+            if (!ownedSkillDict.TryGetValue(_skillKey, out BaseSkill skillToUse))
+            {
+                Debug.LogWarning($"ownedSkillDict에 {_skillKey}가 없습니다.");
+                return;
+            }
+
+            if (skillToUse.IsCooltime) return;
+
+            CancelSkill(_skillKey);
+
+            CancellationTokenSource cts = new CancellationTokenSource();
+            runningSkillDict[_skillKey] = cts;
+
+            Debug.Log($"{_skillKey} 스킬 사용 시작...");
+
+            try
+            {
+                await skillToUse.ActivateSkill(cts.Token);
+
+                skillToUse.SetCooltime();
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log($"{_skillKey} 스킬 캔슬");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"{_skillKey} 스킬 실행 중 에러: {e.Message}");
+            }
+            finally
+            {
+                // 스킬이 완료되었든, 캔슬되었든, 오류가 났든 실행 목록에서 제거
+                if (runningSkillDict.ContainsKey(_skillKey))
+                {
+                    runningSkillDict.Remove(_skillKey);
+                    cts.Dispose();
+                }
+            }
+        }
+
+        public void CancelSkill(string _skillKey)
+        {
+            if (runningSkillDict.TryGetValue(_skillKey, out CancellationTokenSource cts))
+            {
+                cts.Cancel();
+                cts.Dispose();
+                runningSkillDict.Remove(_skillKey);
+            }
+        }
+
+        public void CancelAllSkills()
+        {
+            foreach (var cts in runningSkillDict.Values)
+            {
+                cts.Cancel();
+                cts.Dispose();
+            }
+            runningSkillDict.Clear();
         }
     }
 }

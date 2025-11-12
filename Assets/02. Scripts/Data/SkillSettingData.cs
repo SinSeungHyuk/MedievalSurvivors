@@ -12,5 +12,7 @@ namespace MS.Data
         public float coefficient;
         public int manaCost;
         public string elementType;
+
+        public float Cooltime;
     }
 }

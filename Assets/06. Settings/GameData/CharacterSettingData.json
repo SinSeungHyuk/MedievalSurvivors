@@ -1,0 +1,14 @@
+{
+  "TestCharacter": {
+    "CharacterName": "TestCharacter",
+    "AttributeSetSettingData": {
+      "Health": 120.0,
+      "MaxHealth": 120.0,
+      "AttackPower": 18.0,
+      "Defense": 8.0,
+      "CriticChance": 0.15,
+      "CriticMultiple": 1.7
+    },
+    "DefaultSkillKey": "StoneSlash"
+  }
+}
