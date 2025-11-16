@@ -7,8 +7,10 @@
       "AttackPower": 18.0,
       "Defense": 8.0,
       "CriticChance": 0.15,
-      "CriticMultiple": 1.7
+      "CriticMultiple": 1.7,
+      "MoveSpeed" : 5.0
     },
-    "DefaultSkillKey": "StoneSlash"
+    "DefaultSkillKey": "StoneSlash",
+    "DefaultWeaponKey": "Staff02Polyart"
   }
 }

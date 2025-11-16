@@ -55,22 +55,7 @@ public class TPlayerController : MonoBehaviour
 
     public void Test()
     {
-        if (DataManager.Instance.CharacterSettingData.TryGetValue("TestCharacter", out CharacterSettingData _characterData))
-        {
-            PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
-            playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
 
-            SSC.InitSkillActorInfo(this.gameObject, playerAttributeSet);
-            SSC.GiveSkill(_characterData.DefaultSkillKey);
-
-            Debug.Log("=================================================");
-            Debug.Log($"[캐릭터 초기화 테스트] {_characterData.CharacterName}");
-
-            // 1. AttributeSet 스탯 출력 (BaseAttributeSet 공통 속성)
-            Debug.Log("--- 📊 스탯 정보 ---");
-            Debug.Log($"MaxHealth: {SSC.AttributeSet.MaxHealth}, Health: {SSC.AttributeSet.Health}");
-            Debug.Log($"AttackPower: {SSC.AttributeSet.AttackPower}, Defense: {SSC.AttributeSet.Defense}");
-        }
     }
 
     public void OnMove(InputValue inputValue)

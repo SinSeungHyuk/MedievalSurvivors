@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Mesh
+  m_EditorClassIdentifier: 
+  m_GroupName: Mesh
+  m_GUID: 7fb09d851866284469ac566ab9754b5a
+  m_SerializeEntries:
+  - m_GUID: 199d5221dad59a74aa0d8d47e83e6e03
+    m_Address: Staff01PolyArt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c0ecfd652b241a49bd3082fed66c356
+    m_Address: Staff02Polyart
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4568399afa0fdc64bb50a337c6acb100
+    m_Address: Staff03PolyArt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c365a70c0a71fd843930a75237263e0e, type: 2}
+    - {fileID: 11400000, guid: 009188826e3445d44863777d0faad14a, type: 2}

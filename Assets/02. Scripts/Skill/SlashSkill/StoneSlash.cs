@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
+using MS.Core;
 using MS.Data;
+using MS.Manager;
 using MS.Skill;
 using System.Threading;
 using UnityEngine;
@@ -19,11 +21,18 @@ namespace MS.Skill
             playerAttributeSet = _owner.AttributeSet as PlayerAttributeSet;
         }
 
-        public override UniTask ActivateSkill(CancellationToken token)
+        public override async UniTask ActivateSkill(CancellationToken token)
         {
-            Debug.Log($"{skillData.skillName} »ç¿ë!!");
+            //ownerSSC.Owner.Animator.SetTrigger("Attack01");
+            //ownerSSC.Owner.Animator.speed = 0.2f;
 
-            return UniTask.CompletedTask;
+            ownerSSC.Owner.Animator.SetBool("Attack02Casting", true);
+
+            GameplayCueManager.Instance.PlayCue("GC_Test", ownerSSC.Owner);
+
+            await UniTask.Delay(3000);
+
+            ownerSSC.Owner.Animator.SetBool("Attack02Casting", false);
         }
     }
 }

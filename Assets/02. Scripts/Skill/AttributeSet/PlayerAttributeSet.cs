@@ -15,5 +15,6 @@ public class PlayerAttributeSet : BaseAttributeSet
         Defense = _characterData.Defense;
         CriticChance = _characterData.CriticChance;
         CriticMultiple = _characterData.CriticMultiple;
+        MoveSpeed = _characterData.MoveSpeed;
     }
 }

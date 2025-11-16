@@ -10,8 +10,8 @@ namespace MS.Manager
 {
     public class DataManager : Singleton<DataManager>
     {
-        public Dictionary<string, SkillSettingData> SkillSettingData { get; private set; }
-        public Dictionary<string, CharacterSettingData> CharacterSettingData { get; private set; }
+        public Dictionary<string, SkillSettingData> DictSkillSettingData { get; private set; }
+        public Dictionary<string, CharacterSettingData> DictCharacterSettingData { get; private set; }
 
 
         public async UniTask LoadAllGameSettingDataAsync()
@@ -19,10 +19,10 @@ namespace MS.Manager
             try
             {
                 TextAsset skillJson = await AddressableManager.Instance.LoadResourceAsync<TextAsset>("SkillSettingData");
-                SkillSettingData = JsonConvert.DeserializeObject<Dictionary<string, SkillSettingData>>(skillJson.text);
+                DictSkillSettingData = JsonConvert.DeserializeObject<Dictionary<string, SkillSettingData>>(skillJson.text);
 
                 TextAsset characterJson = await AddressableManager.Instance.LoadResourceAsync<TextAsset>("CharacterSettingData");
-                CharacterSettingData = JsonConvert.DeserializeObject<Dictionary<string, CharacterSettingData>>(characterJson.text);
+                DictCharacterSettingData = JsonConvert.DeserializeObject<Dictionary<string, CharacterSettingData>>(characterJson.text);
 
                 
             }

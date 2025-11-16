@@ -2,13 +2,14 @@ using UnityEngine;
 using Core;
 using Cysharp.Threading.Tasks;
 using System;
+using MS.Field;
 
 namespace MS.Manager
 {
     public class GameManager : MonoSingleton<GameManager>
     {
         // TODO :: TEST
-        public TPlayerController player;
+        public PlayerCharacter player;
 
 
         protected override void Awake()
@@ -29,9 +30,13 @@ namespace MS.Manager
             try
             {
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
-                // ... 그 외 기타 비동기 로드 후 로딩 종료
 
-                player.Test();
+
+                // TODO :: 임시로 시작하자마자 로드
+                await ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10);
+                await GameplayCueManager.Instance.LoadGameplayCueAsync();
+
+                await player.InitPlayer("TestCharacter");
             }
             catch (Exception e)
             {

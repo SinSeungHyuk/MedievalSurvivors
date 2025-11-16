@@ -10,6 +10,7 @@ namespace MS.Data
         public string CharacterName { get; set; }
         public AttributeSetSettingData AttributeSetSettingData { get; set; }
         public string DefaultSkillKey { get; set; } // 장착중인 기본스킬 키값
+        public string DefaultWeaponKey { get; set; }
     }
 
     [Serializable]
@@ -23,5 +24,7 @@ namespace MS.Data
 
         public float CriticChance { get; set; }
         public float CriticMultiple { get; set; }
+
+        public float MoveSpeed { get; set; }
     }
 }

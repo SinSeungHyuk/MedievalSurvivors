@@ -8,5 +8,7 @@ public class BaseAttributeSet
     public float AttackPower { get; protected set; } 
     public float Defense { get; protected set; }
 
+    public float MoveSpeed { get; protected set; }
+
     // TODO :: 상속받아서 각자 InitAttributeSet(Data)로 초기 세팅하기
 }

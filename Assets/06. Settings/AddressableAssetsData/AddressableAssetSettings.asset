@@ -57,13 +57,16 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 5db924e9ca05ccf4f9641dcaca225ea9, type: 2}
+  - {fileID: 11400000, guid: 106794118b97a5048b1951d72fc818fd, type: 2}
+  - {fileID: 11400000, guid: d3b68e1d040e1014ea1abe552ad5067d, type: 2}
+  - {fileID: 11400000, guid: b5629b74a900a6e4497e3375f12527b9, type: 2}
   - {fileID: 11400000, guid: c09deea8c95228c4d89797b00de3b56c, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
@@ -110,6 +113,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Test
+    - GameplayCue
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: cb9e6f56c0fd5544dbf5f3c76ad6a9de, type: 2}
