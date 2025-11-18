@@ -24,6 +24,22 @@ namespace MS.Skill
         public FieldCharacter Owner => owner;
 
 
+        // TODO :: GIZMO
+        [Header("Gizmo Test Settings")]
+        [SerializeField] private float testAttackRadius = 2.0f;
+        [SerializeField] private float testForwardOffset = 2.0f;
+        [SerializeField] private bool showGizmos = true;
+        private void OnDrawGizmosSelected()
+        {
+            if (!showGizmos) return;
+
+            Gizmos.color = Color.red;
+
+            Vector3 center = transform.position + (transform.forward * testForwardOffset);
+            Gizmos.DrawWireSphere(center, testAttackRadius);
+        }
+
+
         void Update()
         {
             foreach (var skill in ownedSkillDict.Values)
@@ -40,7 +56,7 @@ namespace MS.Skill
 
         public void GiveSkill(string _skillKey)
         {
-            if (DataManager.Instance.DictSkillSettingData.TryGetValue(_skillKey, out SkillSettingData _skillData))
+            if (DataManager.Instance.SkillSettingDataDict.TryGetValue(_skillKey, out SkillSettingData _skillData))
             {
                 // namespace 규칙이 반드시 보장되어야 합니다.
                 var skillType = Type.GetType("MS.Skill." +  _skillKey);

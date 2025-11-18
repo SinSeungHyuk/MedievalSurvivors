@@ -28,11 +28,28 @@ namespace MS.Skill
 
             ownerSSC.Owner.Animator.SetBool("Attack02Casting", true);
 
-            GameplayCueManager.Instance.PlayCue("GC_Test", ownerSSC.Owner);
 
             await UniTask.Delay(3000);
 
+            GameplayCueManager.Instance.PlayCue("GC_Test", ownerSSC.Owner);
             ownerSSC.Owner.Animator.SetBool("Attack02Casting", false);
+
+            CheckHit();
+        }
+
+
+        private float attackRadius = 2.0f;
+        private float forwardOffset = 2.0f;
+        private void CheckHit()
+        {
+            Vector3 center = ownerSSC.Owner.transform.position + (ownerSSC.Owner.transform.forward * forwardOffset);
+            Collider[] hitColliders = Physics.OverlapSphere(center, attackRadius);
+
+            foreach (var hit in hitColliders)
+            {
+                if (hit.gameObject == ownerSSC.Owner.gameObject) continue;
+                Debug.Log($"[StoneSlash] Hit : {hit.name}");
+            }
         }
     }
 }

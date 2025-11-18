@@ -30,7 +30,7 @@ namespace MS.Field
             if (rb != null)
             {
                 Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
-                Vector3 targetVelocity = moveDirection * player.SSC.AttributeSet.MoveSpeed;
+                Vector3 targetVelocity = moveDirection * player.SSC.AttributeSet.MoveSpeed.Value;
                 rb.linearVelocity = targetVelocity;
 
                 float moveValue = moveDirection.sqrMagnitude;

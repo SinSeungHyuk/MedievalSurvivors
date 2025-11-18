@@ -1,14 +1,30 @@
+using System;
 using UnityEngine;
 
 public class BaseAttributeSet
 {
-    public float Health { get; protected set; }
-    public float MaxHealth { get; protected set; }
+    // 현재체력, 최대체력
+    public event Action<float, float> OnHealthChanged; 
 
-    public float AttackPower { get; protected set; } 
-    public float Defense { get; protected set; }
+    private float health;
 
-    public float MoveSpeed { get; protected set; }
+    public Stat MaxHealth { get; protected set; }
+    public Stat AttackPower { get; protected set; } 
+    public Stat Defense { get; protected set; }
+    public Stat MoveSpeed { get; protected set; }
 
-    // TODO :: 상속받아서 각자 InitAttributeSet(Data)로 초기 세팅하기
+
+    public float Health
+    {
+        get => health;
+        protected set
+        {
+            float clampedValue = Mathf.Clamp(value, 0, MaxHealth.Value);
+            if (health != clampedValue)
+            {
+                health = clampedValue;
+                OnHealthChanged?.Invoke(health, MaxHealth.Value);
+            }
+        }
+    }
 }

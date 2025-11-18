@@ -21,6 +21,7 @@ namespace MS.Field
         public FieldObjectLifeState ObjectLifeState { get; protected set; }
 
         public Vector3 Position => transform.position;
+        public Quaternion Rotation => transform.rotation;
 
     }
 }

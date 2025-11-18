@@ -11,6 +11,7 @@ namespace MS.Core
         [Header("Effects")]
         public string EffectKey; 
         public Vector3 EffectOffset;
+        public Vector3 EffectRotation;
         public bool AttachToOwner;
 
         [Header("Sounds")]
@@ -23,14 +24,18 @@ namespace MS.Core
 
         public virtual void Play(FieldObject _owner)
         {
-            Debug.Log($"Cue Àç»ý : {EffectKey}");
-
             if (!string.IsNullOrEmpty(EffectKey))
             {
+                Vector3 spawnPosition =
+                    _owner.Position +
+                    _owner.transform.TransformDirection(EffectOffset);
+                Quaternion spawnRotation =
+                    _owner.Rotation * Quaternion.Euler(EffectRotation);
+
                 EffectManager.Instance.PlayEffect(
                     EffectKey,
-                    _owner.transform.position + EffectOffset,
-                    _owner.transform.rotation
+                    spawnPosition,
+                    spawnRotation
                 );
             }
 

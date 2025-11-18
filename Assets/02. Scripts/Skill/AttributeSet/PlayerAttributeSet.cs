@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class PlayerAttributeSet : BaseAttributeSet
 {
-    public float CriticChance { get; protected set; }
-    public float CriticMultiple { get; protected set; }
+    public Stat CriticChance { get; protected set; }
+    public Stat CriticMultiple { get; protected set; }
 
     
     public void InitAttributeSet(AttributeSetSettingData _characterData)
     {
-        Health = _characterData.Health;
-        MaxHealth = _characterData.MaxHealth;
-        AttackPower = _characterData.AttackPower;
-        Defense = _characterData.Defense;
-        CriticChance = _characterData.CriticChance;
-        CriticMultiple = _characterData.CriticMultiple;
-        MoveSpeed = _characterData.MoveSpeed;
+        MaxHealth = new Stat(_characterData.MaxHealth);
+        Health = _characterData.MaxHealth;
+        AttackPower = new Stat(_characterData.AttackPower);
+        Defense = new Stat(_characterData.Defense);
+        CriticChance = new Stat(_characterData.CriticChance);
+        CriticMultiple = new Stat(_characterData.CriticMultiple);
+        MoveSpeed = new Stat(_characterData.MoveSpeed);
     }
 }

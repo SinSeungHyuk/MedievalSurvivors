@@ -14,7 +14,7 @@ namespace MS.Manager
 {
     public class GameplayCueManager : Singleton<GameplayCueManager>
     {
-        private Dictionary<string, GameplayCue> dictGameplayCue = new Dictionary<string, GameplayCue>();
+        private Dictionary<string, GameplayCue> gameplayCueDict = new Dictionary<string, GameplayCue>();
 
 
         public async UniTask LoadGameplayCueAsync()
@@ -31,9 +31,9 @@ namespace MS.Manager
 
                 foreach (GameplayCue cue in loadedCues)
                 {
-                    if (cue != null && !dictGameplayCue.ContainsKey(cue.name))
+                    if (cue != null && !gameplayCueDict.ContainsKey(cue.name))
                     {
-                        dictGameplayCue.Add(cue.name, cue);
+                        gameplayCueDict.Add(cue.name, cue);
                         Debug.Log($"Cue ·Îµå !!! {cue.name}");
                     }
                 }
@@ -48,7 +48,7 @@ namespace MS.Manager
         {
             if (string.IsNullOrEmpty(_cueKey) || _owner == null) return;
 
-            if (dictGameplayCue.TryGetValue(_cueKey, out GameplayCue cueToPlay))
+            if (gameplayCueDict.TryGetValue(_cueKey, out GameplayCue cueToPlay))
             {
                 cueToPlay.Play(_owner);
             }

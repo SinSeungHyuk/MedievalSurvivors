@@ -21,7 +21,7 @@ namespace MS.Field
             ObjectType = FieldObjectType.Player;
             ObjectLifeState = FieldObjectLifeState.Live;
 
-            if (!DataManager.Instance.DictCharacterSettingData.TryGetValue(_characKey, out CharacterSettingData _characterData))
+            if (!DataManager.Instance.CharacterSettingDataDict.TryGetValue(_characKey, out CharacterSettingData _characterData))
             {
                 Debug.LogError($"InitPlayer Key Missing : {_characKey}");
                 return;
