@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Field;
 using MS.Manager;
+using MS.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -12,8 +13,6 @@ namespace MS.Skill
 {
     public class SkillSystemComponent : MonoBehaviour
     {
-
-
         private Dictionary<string, BaseSkill> ownedSkillDict = new Dictionary<string, BaseSkill>();
         private Dictionary<string, CancellationTokenSource> runningSkillDict = new Dictionary<string, CancellationTokenSource>();
 
@@ -26,8 +25,8 @@ namespace MS.Skill
 
         // TODO :: GIZMO
         [Header("Gizmo Test Settings")]
-        [SerializeField] private float testAttackRadius = 2.0f;
-        [SerializeField] private float testForwardOffset = 2.0f;
+        [SerializeField] private float testAttackRadius = 5.0f;
+        [SerializeField] private float testForwardOffset = 3.0f;
         [SerializeField] private bool showGizmos = true;
         private void OnDrawGizmosSelected()
         {
@@ -108,6 +107,27 @@ namespace MS.Skill
                     runningSkillDict.Remove(_skillKey);
                     cts.Dispose();
                 }
+            }
+        }
+
+        public void TakeDamage(DamageInfo _damageInfo)
+        {
+            if (attributeSet.Health <= 0) return;
+
+            float finalDamage = _damageInfo.Damage;
+
+            // TODO :: 방어력, 약점속성 계산으로 최종 데미지 결정
+            finalDamage = BattleUtils.CalcDefenseStat(finalDamage, attributeSet.Defense.Value);
+            attributeSet.Health -= finalDamage;
+
+            // TODO :: 넉백,데미지 텍스트
+            //ShowDamageText(finalDamage, damageInfo.IsCritical, damageInfo.AttributeType);
+            //ApplyKnockback(damageInfo);
+
+            Debug.Log($"[피격] {owner.name}가 {finalDamage}의 피해를 입음 (남은 체력: {attributeSet.Health})");
+            if (attributeSet.Health <= 0)
+            {
+                //Die();
             }
         }
 

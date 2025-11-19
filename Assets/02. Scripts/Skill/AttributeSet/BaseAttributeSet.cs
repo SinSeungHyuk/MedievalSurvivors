@@ -17,7 +17,7 @@ public class BaseAttributeSet
     public float Health
     {
         get => health;
-        protected set
+        set
         {
             float clampedValue = Mathf.Clamp(value, 0, MaxHealth.Value);
             if (health != clampedValue)

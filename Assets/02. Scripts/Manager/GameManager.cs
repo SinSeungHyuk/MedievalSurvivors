@@ -10,6 +10,7 @@ namespace MS.Manager
     {
         // TODO :: TEST
         public PlayerCharacter player;
+        public MonsterCharacter monster;
 
 
         protected override void Awake()
@@ -37,6 +38,7 @@ namespace MS.Manager
                 await GameplayCueManager.Instance.LoadGameplayCueAsync();
 
                 await player.InitPlayer("TestCharacter");
+                monster.InitMonster("TestMonster");
             }
             catch (Exception e)
             {

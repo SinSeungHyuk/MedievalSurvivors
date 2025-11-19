@@ -1,9 +1,10 @@
 using Cysharp.Threading.Tasks;
-using MS.Core;
 using MS.Data;
+using MS.Field;
 using MS.Manager;
-using MS.Skill;
+using MS.Utils;
 using System.Threading;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -38,17 +39,30 @@ namespace MS.Skill
         }
 
 
-        private float attackRadius = 2.0f;
-        private float forwardOffset = 2.0f;
+        private float attackRadius = 5.0f;
+        private float forwardOffset = 3.0f;
         private void CheckHit()
         {
-            Vector3 center = ownerSSC.Owner.transform.position + (ownerSSC.Owner.transform.forward * forwardOffset);
-            Collider[] hitColliders = Physics.OverlapSphere(center, attackRadius);
-
+            Vector3 center = ownerSSC.Owner.Position + (ownerSSC.Owner.transform.forward * forwardOffset);
+            Collider[] hitColliders = Physics.OverlapSphere(center, attackRadius, Settings.MonsterLayer);
             foreach (var hit in hitColliders)
             {
                 if (hit.gameObject == ownerSSC.Owner.gameObject) continue;
-                Debug.Log($"[StoneSlash] Hit : {hit.name}");
+
+                if (hit.gameObject.TryGetComponent(out SkillSystemComponent targetSSC))
+                {
+                    // 데미지 정보 생성
+                    DamageInfo damageInfo = new DamageInfo(
+                        _attacker: ownerSSC.Owner,
+                        _target: targetSSC.Owner,
+                        _attributeType: EDamageAttributeType.Fire,
+                        _damage: 30f,
+                        _isCritic: false,
+                        _knockbackForce: 5f
+                    );
+
+                    targetSSC.TakeDamage(damageInfo);
+                }
             }
         }
     }
