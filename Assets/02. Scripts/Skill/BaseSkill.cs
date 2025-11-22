@@ -1,8 +1,10 @@
 using Cysharp.Threading.Tasks;
 using MS.Data;
+using MS.Field;
 using MS.Skill;
 using System.Threading;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 
 namespace MS.Skill
@@ -10,6 +12,7 @@ namespace MS.Skill
     public abstract class BaseSkill
     {
         protected SkillSystemComponent ownerSSC;
+        protected FieldCharacter owner;
         protected SkillSettingData skillData;
 
         private float curCooltime;
@@ -22,6 +25,7 @@ namespace MS.Skill
         public virtual void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             ownerSSC = _owner;
+            owner = ownerSSC.Owner;
             skillData = _skillData;
             curCooltime = 0;
             curSkillLevel = 1;

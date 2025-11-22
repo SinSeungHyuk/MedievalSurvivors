@@ -12,30 +12,60 @@ namespace MS.Skill
 {
     public class StoneSlash : BaseSkill
     {
-        private PlayerAttributeSet playerAttributeSet;
-
-
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             base.InitSkill(_owner, _skillData);
-
-            playerAttributeSet = _owner.AttributeSet as PlayerAttributeSet;
         }
 
         public override async UniTask ActivateSkill(CancellationToken token)
         {
-            //ownerSSC.Owner.Animator.SetTrigger("Attack01");
-            //ownerSSC.Owner.Animator.speed = 0.2f;
+            owner.Animator.SetTrigger("Attack01");
+            //owner.Animator.speed = 0.2f;
 
-            ownerSSC.Owner.Animator.SetBool("Attack02Casting", true);
+            //owner.Animator.SetBool("Attack02Casting", true);
 
+            //var testProjectile = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
+            //    "Projectile_StoneSlash", owner, Settings.MonsterLayer);
+            //testProjectile.InitProjectile(owner.transform.forward, 5f);
+            //testProjectile.SetDuration(15f);
+            //testProjectile.SetHitCallback((_skillObject, _ssc) =>
+            //{
+            //    DamageInfo damageInfo = new DamageInfo(
+            //            _attacker: owner,
+            //            _target: _ssc.Owner,
+            //            _attributeType: EDamageAttributeType.Fire,
+            //            _damage: 40f,
+            //            _isCritic: false,
+            //            _knockbackForce: 5f
+            //        );
+            //    _ssc.TakeDamage(damageInfo);
+            //});
 
-            await UniTask.Delay(3000);
+            var testProjectile = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
+                "Projectile_StoneSlash", owner, Settings.MonsterLayer);
+            testProjectile.InitProjectile(owner.transform.forward, 5f);
+            testProjectile.SetDuration(15f);
+            testProjectile.SetHitCallback((_skillObject, _ssc) =>
+            {
+                DamageInfo damageInfo = new DamageInfo(
+                        _attacker: owner,
+                        _target: _ssc.Owner,
+                        _attributeType: EDamageAttributeType.Fire,
+                        _damage: 40f,
+                        _isCritic: false,
+                        _knockbackForce: 5f
+                    );
+                _ssc.TakeDamage(damageInfo);
+            });
 
-            GameplayCueManager.Instance.PlayCue("GC_Test", ownerSSC.Owner);
-            ownerSSC.Owner.Animator.SetBool("Attack02Casting", false);
+            await UniTask.Yield();
 
-            CheckHit();
+            //await UniTask.Delay(3000);
+
+            //GameplayCueManager.Instance.PlayCue("GC_Test", owner);
+            //owner.Animator.SetBool("Attack02Casting", false);
+
+            //CheckHit();
         }
 
 
@@ -43,17 +73,17 @@ namespace MS.Skill
         private float forwardOffset = 3.0f;
         private void CheckHit()
         {
-            Vector3 center = ownerSSC.Owner.Position + (ownerSSC.Owner.transform.forward * forwardOffset);
+            Vector3 center = owner.Position + (owner.transform.forward * forwardOffset);
             Collider[] hitColliders = Physics.OverlapSphere(center, attackRadius, Settings.MonsterLayer);
             foreach (var hit in hitColliders)
             {
-                if (hit.gameObject == ownerSSC.Owner.gameObject) continue;
+                if (hit.gameObject == owner.gameObject) continue;
 
                 if (hit.gameObject.TryGetComponent(out SkillSystemComponent targetSSC))
                 {
                     // 데미지 정보 생성
                     DamageInfo damageInfo = new DamageInfo(
-                        _attacker: ownerSSC.Owner,
+                        _attacker: owner,
                         _target: targetSSC.Owner,
                         _attributeType: EDamageAttributeType.Fire,
                         _damage: 30f,

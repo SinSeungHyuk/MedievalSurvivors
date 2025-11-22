@@ -6,7 +6,7 @@ using MS.Field;
 
 namespace MS.Manager
 {
-    public class GameManager : MonoSingleton<GameManager>
+    public partial class GameManager : MonoSingleton<GameManager>
     {
         // TODO :: TEST
         public PlayerCharacter player;
@@ -18,12 +18,16 @@ namespace MS.Manager
             base.Awake();
 
             Application.targetFrameRate = 60;
-
         }
 
-        public void Start()
+        private void Start()
         {
             StartGameAsync();
+        }
+
+        private void Update()
+        {
+            SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
         }
 
         public async void StartGameAsync()
@@ -32,9 +36,9 @@ namespace MS.Manager
             {
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
 
-
                 // TODO :: 임시로 시작하자마자 로드
-                await ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10);
+                await LoadAllEffectAsync();
+                await LoadAllSkillObjectAsync();
                 await GameplayCueManager.Instance.LoadGameplayCueAsync();
 
                 await player.InitPlayer("TestCharacter");

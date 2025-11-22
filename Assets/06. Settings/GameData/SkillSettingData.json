@@ -21,6 +21,6 @@
     "coefficient": 5.0,
     "manaCost": 50,
     "elementType": "Fire",
-    "Cooltime" : 5
+    "Cooltime" : 2
   }
 }
