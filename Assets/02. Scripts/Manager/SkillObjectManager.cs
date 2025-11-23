@@ -16,14 +16,12 @@ namespace MS.Manager
 
         public T SpawnSkillObject<T>(string _key, FieldCharacter _owner, LayerMask _targetLayer) where T : SkillObject
         {
-            T skillObject = ObjectPoolManager.Instance.Get(_key).GetComponent<T>();
+            T skillObject = ObjectPoolManager.Instance.Get(_key, _owner.transform).GetComponent<T>();
 
             if (skillObject != null)
             {
-                Debug.Log("SO Spawn");
                 skillObjectList.Add(skillObject);
                 skillObject.InitSkillObject(_key, _owner , _targetLayer);
-                skillObject.transform.position = _owner.Position;
             }
             return skillObject;
         }
@@ -43,6 +41,14 @@ namespace MS.Manager
                 skillObjectList.Remove(releaseObject);
             }
             releaseSkillObjectList.Clear();
+        }
+
+        public void OnFixedUpdate(float _fixedDeltaTime)
+        {
+            foreach (SkillObject skillObject in skillObjectList)
+            {
+                skillObject.OnFixedUpdate(_fixedDeltaTime);
+            }
         }
     }
 }

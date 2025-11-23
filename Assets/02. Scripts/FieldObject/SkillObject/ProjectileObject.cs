@@ -11,8 +11,6 @@ namespace MS.Field
 
         public void InitProjectile(Vector3 _moveDir, float _moveSpeed)
         {
-            GetComponent<Rigidbody>().linearVelocity = _moveDir * moveSpeed;
-
             moveDir = _moveDir;
             moveSpeed = _moveSpeed;
         }
@@ -35,8 +33,11 @@ namespace MS.Field
         public override void OnUpdate(float _deltaTime)
         {
             base.OnUpdate(_deltaTime);
+        }
 
-            //transform.position += (moveDir * moveSpeed * _deltaTime);
+        public override void OnFixedUpdate(float _fixedDeltaTime)
+        {
+            transform.position += (moveDir * moveSpeed * _fixedDeltaTime);
         }
     }
 }

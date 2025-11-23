@@ -32,6 +32,8 @@ namespace MS.Field
             }
         }
 
+        public virtual void OnFixedUpdate(float _fixedDeltaTime) { }
+
         public void InitSkillObject(string _skillObjectKey, FieldCharacter _owner, LayerMask _targetLayer)
         {
             ObjectLifeState = FieldObjectLifeState.Live;
@@ -45,8 +47,6 @@ namespace MS.Field
             duration = INFINITE_DURATION;
             maxAttackCount = 1;
             hitCountPerAttack = 1;
-
-            Debug.Log("InitSkillObject");
         }
 
         public void SetHitCountPerAttack(int _hitCountPerAttack) 

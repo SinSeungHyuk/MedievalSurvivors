@@ -41,21 +41,16 @@ namespace MS.Skill
             //    _ssc.TakeDamage(damageInfo);
             //});
 
-            var testProjectile = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
-                "Projectile_StoneSlash", owner, Settings.MonsterLayer);
-            testProjectile.InitProjectile(owner.transform.forward, 5f);
+            var testProjectile = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>(
+                "Area_StoneSlash", owner, Settings.PlayerLayer);
+            testProjectile.InitArea(2f);
+            testProjectile.transform.position = new Vector3(owner.Position.x + 10f, owner.Position.y, owner.Position.z + 10f);
             testProjectile.SetDuration(15f);
+            testProjectile.SetMaxHitCount(5);
+            testProjectile.SetHitCountPerAttack(2);
             testProjectile.SetHitCallback((_skillObject, _ssc) =>
             {
-                DamageInfo damageInfo = new DamageInfo(
-                        _attacker: owner,
-                        _target: _ssc.Owner,
-                        _attributeType: EDamageAttributeType.Fire,
-                        _damage: 40f,
-                        _isCritic: false,
-                        _knockbackForce: 5f
-                    );
-                _ssc.TakeDamage(damageInfo);
+                Debug.Log($"Player hit!");
             });
 
             await UniTask.Yield();

@@ -15,7 +15,7 @@ namespace MS.Manager
                 return null;
             }
 
-            GameObject instance = ObjectPoolManager.Instance.Get(effectKey);
+            GameObject instance = ObjectPoolManager.Instance.Get(effectKey, position, rotation);
             if (instance == null)
             {
                 Debug.LogError($"[EffectManager] 풀에서 '{effectKey}'를 가져오는데 실패했습니다.");
@@ -31,9 +31,6 @@ namespace MS.Manager
             }
 
             effectComponent.InitEffect(effectKey);
-
-            instance.transform.position = position;
-            instance.transform.rotation = rotation;
 
             return effectComponent;
         }

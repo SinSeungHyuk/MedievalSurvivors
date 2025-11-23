@@ -26,6 +26,7 @@ namespace MS.Manager
             try
             {
                 await ObjectPoolManager.Instance.CreatePoolAsync("Projectile_StoneSlash", 10);
+                await ObjectPoolManager.Instance.CreatePoolAsync("Area_StoneSlash", 10);
                 // ...
             }
             catch (Exception e)

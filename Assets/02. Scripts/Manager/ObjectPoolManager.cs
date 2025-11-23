@@ -69,7 +69,31 @@ namespace MS.Manager
             Debug.Log($"[PoolManager] 풀 생성 완료: '{key}' (수량: {initialCount})");
         }
 
-        public GameObject Get(string key)
+        public GameObject Get(string key, Vector3 pos, Quaternion rot)
+        {
+            GameObject instance = Get(key);
+            if (instance)
+            {
+                instance.transform.position = pos;
+                instance.transform.rotation = rot;
+                instance.SetActive(true);
+            }
+            return instance;
+        }
+
+        public GameObject Get(string key, Transform transform)
+        {
+            GameObject instance = Get(key);
+            if (instance)
+            {
+                instance.transform.position = transform.position;
+                instance.transform.rotation = transform.rotation;
+                instance.SetActive(true);
+            }
+            return instance;
+        }
+
+        private GameObject Get(string key)
         {
             if (!_pool.TryGetValue(key, out Stack<GameObject> pool))
             {
@@ -80,11 +104,8 @@ namespace MS.Manager
             if (pool.Count > 0)
             {
                 GameObject instance = pool.Pop();
-                instance.SetActive(true);
                 return instance;
             }
-
-            Debug.LogWarning($"[PoolManager] Get: '{key}' 풀이 비어있어 1개 새로 생성합니다.");
 
             if (!_loadedAssetHandles.TryGetValue(key, out var handle))
             {
@@ -93,6 +114,7 @@ namespace MS.Manager
             }
 
             GameObject newInstance = Instantiate(handle.Result, _poolParent);
+
             return newInstance;
         }
 

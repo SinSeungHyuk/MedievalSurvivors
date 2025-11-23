@@ -30,6 +30,11 @@ namespace MS.Manager
             SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
         }
 
+        private void FixedUpdate()
+        {
+            SkillObjectManager.Instance.OnFixedUpdate(Time.fixedDeltaTime);
+        }
+
         public async void StartGameAsync()
         {
             try
