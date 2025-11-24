@@ -1,8 +1,9 @@
-using UnityEngine;
 using Core;
 using Cysharp.Threading.Tasks;
-using System;
 using MS.Field;
+using MS.Mode;
+using System;
+using UnityEngine;
 
 namespace MS.Manager
 {
@@ -11,6 +12,8 @@ namespace MS.Manager
         // TODO :: TEST
         public PlayerCharacter player;
         public MonsterCharacter monster;
+
+        private GameModeBase curGameMode;
 
 
         protected override void Awake()
@@ -27,6 +30,8 @@ namespace MS.Manager
 
         private void Update()
         {
+            if (curGameMode != null)
+                curGameMode.OnUpdate(Time.deltaTime);
             SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
         }
 
@@ -53,6 +58,12 @@ namespace MS.Manager
             {
                 Debug.LogException(e);
             }
+        }
+
+        public void ChangeMode(GameModeBase _mode)
+        {
+            curGameMode = _mode;
+            curGameMode.StartMode();
         }
     }
 }
