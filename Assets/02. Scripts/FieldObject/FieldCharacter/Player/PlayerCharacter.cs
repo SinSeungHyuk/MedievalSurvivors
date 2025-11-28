@@ -16,7 +16,7 @@ namespace MS.Field
         public bool IsMovementLocked { get; private set; }
 
 
-        public async UniTask InitPlayer(string _characKey)
+        public void InitPlayer(string _characKey)
         {
             ObjectType = FieldObjectType.Player;
             ObjectLifeState = FieldObjectLifeState.Live;
@@ -25,14 +25,6 @@ namespace MS.Field
             {
                 Debug.LogError($"InitPlayer Key Missing : {_characKey}");
                 return;
-            }
-
-            Mesh weaponMesh = await AddressableManager.Instance.LoadResourceAsync<Mesh>(_characterData.DefaultWeaponKey);
-            Transform weapon = TransformExtensions.FindChildDeep(gameObject.transform, "Weapon");
-            if (weapon)
-            {
-                MeshFilter weaponMeshFilter = weapon.GetComponent<MeshFilter>();
-                weaponMeshFilter.mesh = weaponMesh;
             }
 
             PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
@@ -45,7 +37,6 @@ namespace MS.Field
         public void SetMovementLock(bool isLocked)
         {
             IsMovementLocked = isLocked;
-            Debug.Log("무브 락 " + isLocked);
         }
 
         #region TEST 
@@ -54,8 +45,6 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                Debug.Log("E키 눌림! 상호작용!");
-                //animator.SetTrigger("Attack01");
                 SSC.UseSkill("StoneSlash").Forget();
             }
         }

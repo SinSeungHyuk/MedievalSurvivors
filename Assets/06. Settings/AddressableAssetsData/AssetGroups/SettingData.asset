@@ -26,6 +26,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Test
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4293b1e9c14ebfe429783b0ef993cf7e
+    m_Address: StageSettingData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0516c3b352fb6548b8ac8ef44e6579f
     m_Address: SkillSettingData
     m_ReadOnly: 0

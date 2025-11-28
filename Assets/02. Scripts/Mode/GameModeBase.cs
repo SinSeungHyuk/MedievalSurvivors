@@ -1,4 +1,5 @@
 using MS.Core.StateMachine;
+using MS.Manager;
 using UnityEngine;
 
 namespace MS.Mode
@@ -8,7 +9,8 @@ namespace MS.Mode
         protected MSStateMachine<GameModeBase> modeStateMachine;
 
 
-        public GameModeBase() {
+        public GameModeBase() 
+        {
             modeStateMachine = new MSStateMachine<GameModeBase>(this);
         }
 
@@ -20,6 +22,13 @@ namespace MS.Mode
         public virtual void OnUpdate(float _deltaTime)
         {
             modeStateMachine.OnUpdate(_deltaTime);
+
+            SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
+        }
+
+        public virtual void OnFixedUpdate(float _fixedDeltaTime)
+        {
+            SkillObjectManager.Instance.OnFixedUpdate(Time.fixedDeltaTime);
         }
 
         public virtual void EndMode() { }

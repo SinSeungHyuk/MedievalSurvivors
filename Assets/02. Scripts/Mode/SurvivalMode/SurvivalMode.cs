@@ -1,9 +1,18 @@
+using MS.Data;
 using UnityEngine;
 
 namespace MS.Mode
 {
-    public class SurvivalMode : GameModeBase
+    public partial class SurvivalMode : GameModeBase
     {
+        private StageSettingData stageSettingData;
+
+
+        public SurvivalMode(StageSettingData _stageSettingData) : base()
+        {
+            stageSettingData = _stageSettingData;
+        }
+
         public enum SurvivalModeState
         {
             LoadStart,
@@ -13,26 +22,8 @@ namespace MS.Mode
 
         protected override void OnRegisterStates()
         {
-            modeStateMachine.RegisterState((int)SurvivalModeState.LoadStart, OnEnterPlay, OnUpdatePlay, OnExitPlay);
-
+            modeStateMachine.RegisterState((int)SurvivalModeState.LoadStart, OnLoadEnter, OnLoadUpdate, OnLoadExit);
             modeStateMachine.TransitState((int)SurvivalModeState.LoadStart);
-            Debug.Log("OnRegisterStates");
-        }
-
-        // TODO :: test
-        private void OnEnterPlay(int _prev, object[] _params)
-        {
-            Debug.Log("Play State Enter");
-        }
-
-        private void OnUpdatePlay(float _dt)
-        {
-            
-        }
-
-        private void OnExitPlay(int _next)
-        {
-            
         }
     }
 }

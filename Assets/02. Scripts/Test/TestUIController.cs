@@ -1,3 +1,4 @@
+using MS.Data;
 using MS.Manager;
 using MS.Mode;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class TestUIController : MonoBehaviour
         BtnTest.onClick.AddListener(()
             =>
         {
-            GameManager.Instance.ChangeMode(new SurvivalMode());
+            GameManager.Instance.ChangeMode(new SurvivalMode(DataManager.Instance.StageSettingDataDict["Stage1"]));
 
             Debug.Log("BtnTest");
         });

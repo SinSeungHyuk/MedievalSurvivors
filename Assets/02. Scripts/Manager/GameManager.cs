@@ -32,12 +32,14 @@ namespace MS.Manager
         {
             if (curGameMode != null)
                 curGameMode.OnUpdate(Time.deltaTime);
-            SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
+            
         }
 
         private void FixedUpdate()
         {
-            SkillObjectManager.Instance.OnFixedUpdate(Time.fixedDeltaTime);
+            if (curGameMode != null)
+                curGameMode.OnFixedUpdate(Time.fixedDeltaTime);
+            
         }
 
         public async void StartGameAsync()
@@ -51,8 +53,7 @@ namespace MS.Manager
                 await LoadAllSkillObjectAsync();
                 await GameplayCueManager.Instance.LoadGameplayCueAsync();
 
-                await player.InitPlayer("TestCharacter");
-                monster.InitMonster("TestMonster");
+                //await player.InitPlayer("TestCharacter");
             }
             catch (Exception e)
             {
