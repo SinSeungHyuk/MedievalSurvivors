@@ -136,12 +136,10 @@ namespace MS.Manager
 
         public void ClearAllPools()
         {
-            foreach (var pool in _pool.Values)
+            if (_poolParent != null)
             {
-                foreach (var instance in pool)
-                {
-                    Destroy(instance);
-                }
+                Destroy(_poolParent.gameObject);
+                _poolParent = new GameObject("ObjectPool").transform;
             }
             _pool.Clear();
 

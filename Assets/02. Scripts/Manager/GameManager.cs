@@ -15,6 +15,8 @@ namespace MS.Manager
 
         private GameModeBase curGameMode;
 
+        public GameModeBase CurGameMode => curGameMode;
+
 
         protected override void Awake()
         {
@@ -47,13 +49,7 @@ namespace MS.Manager
             try
             {
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
-
-                // TODO :: 임시로 시작하자마자 로드
-                await LoadAllEffectAsync();
-                await LoadAllSkillObjectAsync();
-                await GameplayCueManager.Instance.LoadGameplayCueAsync();
-
-                //await player.InitPlayer("TestCharacter");
+                await GameplayCueManager.Instance.LoadAllGameplayCueAsync();
             }
             catch (Exception e)
             {

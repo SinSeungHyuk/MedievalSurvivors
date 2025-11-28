@@ -1,12 +1,19 @@
 using Core;
+using Cysharp.Threading.Tasks;
 using MS.Core;
+using MS.Field;
 using MS.Manager;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MS.Manager
 {
     public class EffectManager : Singleton<EffectManager>
     {
+        private List<MSEffect> effectList = new List<MSEffect>();
+
+
         public MSEffect PlayEffect(string effectKey, Vector3 position, Quaternion rotation)
         {
             if (string.IsNullOrEmpty(effectKey))
@@ -31,8 +38,27 @@ namespace MS.Manager
             }
 
             effectComponent.InitEffect(effectKey);
+            effectList.Add(effectComponent);
 
             return effectComponent;
+        }
+
+        public void ClearEffect()
+        {
+            effectList.Clear();
+        }
+
+        public async UniTask LoadAllEffectAsync()
+        {
+            try
+            {
+                await ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10);
+                // ...
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
     }
 }

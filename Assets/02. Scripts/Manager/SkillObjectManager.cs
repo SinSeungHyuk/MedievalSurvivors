@@ -1,7 +1,9 @@
 using Core;
+using Cysharp.Threading.Tasks;
 using MS.Field;
 using MS.Skill;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,6 +50,25 @@ namespace MS.Manager
             foreach (SkillObject skillObject in skillObjectList)
             {
                 skillObject.OnFixedUpdate(_fixedDeltaTime);
+            }
+        }
+
+        public void ClearSkillObject()
+        {
+            skillObjectList.Clear();
+        }
+
+        public async UniTask LoadAllSkillObjectAsync()
+        {
+            try
+            {
+                await ObjectPoolManager.Instance.CreatePoolAsync("Projectile_StoneSlash", 10);
+                await ObjectPoolManager.Instance.CreatePoolAsync("Area_StoneSlash", 10);
+                // ...
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
             }
         }
     }

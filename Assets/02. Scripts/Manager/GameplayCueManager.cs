@@ -17,7 +17,7 @@ namespace MS.Manager
         private Dictionary<string, GameplayCue> gameplayCueDict = new Dictionary<string, GameplayCue>();
 
 
-        public async UniTask LoadGameplayCueAsync()
+        public async UniTask LoadAllGameplayCueAsync()
         {
             try
             {

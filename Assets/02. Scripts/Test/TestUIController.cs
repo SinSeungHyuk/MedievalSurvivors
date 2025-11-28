@@ -6,17 +6,22 @@ using UnityEngine.UI;
 
 public class TestUIController : MonoBehaviour
 {
-    [SerializeField] private Button BtnTest;
+    [SerializeField] private Button BtnModeStart;
+    [SerializeField] private Button BtnClear;
 
 
     void Start()
     {
-        BtnTest.onClick.AddListener(()
+        BtnModeStart.onClick.AddListener(()
             =>
         {
             GameManager.Instance.ChangeMode(new SurvivalMode(DataManager.Instance.StageSettingDataDict["Stage1"]));
+        });
 
-            Debug.Log("BtnTest");
+        BtnClear.onClick.AddListener(()
+             =>
+        {
+            GameManager.Instance.CurGameMode.EndMode();
         });
     }
 

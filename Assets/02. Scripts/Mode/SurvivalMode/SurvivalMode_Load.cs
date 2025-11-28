@@ -24,14 +24,16 @@ namespace MS.Mode
 
         private async UniTaskVoid LoadSurvivalModeAsync()
         {
+            await EffectManager.Instance.LoadAllEffectAsync();
+            await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
+            await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
+
             GameObject map = await AddressableManager.Instance.LoadResourceAsync<GameObject>(stageSettingData.MapKey);
             FieldMap mapInstance = GameObject.Instantiate(
                 map,
                 Vector3.zero,
                 Quaternion.identity
             ).GetComponent<FieldMap>();
-
-            await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
         }
     }
 }
