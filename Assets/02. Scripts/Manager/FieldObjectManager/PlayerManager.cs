@@ -38,6 +38,7 @@ namespace MS.Manager
             }
 
             player.InitPlayer(_key);
+            CameraManager.Instance.InitMainCamera(player.transform);
 
             return player;
         }

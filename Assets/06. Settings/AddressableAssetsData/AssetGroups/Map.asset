@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Map
   m_GUID: 7d4337cf5ae064645a5491f903941e34
   m_SerializeEntries:
-  - m_GUID: daa4195cc7efa45489d2251d00552f95
+  - m_GUID: e17a483a39a0ac942a9cb34ebbcc3c89
     m_Address: Map_Stage1
     m_ReadOnly: 0
     m_SerializedLabels: []
