@@ -40,6 +40,9 @@ namespace MS.Manager
             player.InitPlayer(_key);
             CameraManager.Instance.InitMainCamera(player.transform);
 
+            // todo test
+            GameManager.Instance.player = player;
+
             return player;
         }
     }

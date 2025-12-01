@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Effect
   m_GUID: d599b4f33fb7f9f4aae729096d9893f5
   m_SerializeEntries:
+  - m_GUID: 1eb833340b41fb444b576c4dced8d4dc
+    m_Address: Eff_Teleport
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3407e378c048bb5438424b28c7740b48
     m_Address: Eff_StoneSlash
     m_ReadOnly: 0

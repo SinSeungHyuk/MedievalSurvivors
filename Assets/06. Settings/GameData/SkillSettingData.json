@@ -7,7 +7,7 @@
     "elementType": "Fire",
     "Cooltime" : 5
   },
-  "IceBolt": {
+  "Teleport": {
     "skillName": "얼음 화살",
     "description": "적을 느리게 하는 얼음 화살을 발사합니다.",
     "coefficient": 1.2,

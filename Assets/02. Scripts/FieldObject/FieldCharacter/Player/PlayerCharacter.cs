@@ -13,6 +13,7 @@ namespace MS.Field
 {
     public class PlayerCharacter : FieldCharacter
     {
+        public PlayerController PlayerController {  get; private set; }
         public bool IsMovementLocked { get; private set; }
 
 
@@ -20,6 +21,7 @@ namespace MS.Field
         {
             ObjectType = FieldObjectType.Player;
             ObjectLifeState = FieldObjectLifeState.Live;
+            PlayerController = GetComponent<PlayerController>();
 
             if (!DataManager.Instance.CharacterSettingDataDict.TryGetValue(_characKey, out CharacterSettingData _characterData))
             {
@@ -32,6 +34,7 @@ namespace MS.Field
 
             SSC.InitSkillActorInfo(this, playerAttributeSet);
             SSC.GiveSkill(_characterData.DefaultSkillKey);
+            SSC.GiveSkill("Teleport");
         }
 
         public void SetMovementLock(bool isLocked)
@@ -45,7 +48,8 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("StoneSlash").Forget();
+                //SSC.UseSkill("StoneSlash").Forget();
+                SSC.UseSkill("Teleport").Forget();
             }
         }
         #endregion

@@ -53,6 +53,7 @@ namespace MS.Manager
             try
             {
                 await ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10);
+                await ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 3);
                 // ...
             }
             catch (Exception e)

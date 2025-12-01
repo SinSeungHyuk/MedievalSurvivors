@@ -12,6 +12,9 @@ namespace MS.Field
         private Rigidbody rb;
         private Vector2 moveInput;
 
+        public Vector3 MoveDir { get; private set; }
+        public Rigidbody Rb => rb;
+
 
         private void Awake()
         {
@@ -29,14 +32,14 @@ namespace MS.Field
             }
             if (rb != null)
             {
-                Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
-                Vector3 targetVelocity = moveDirection * player.SSC.AttributeSet.MoveSpeed.Value;
+                MoveDir = new Vector3(moveInput.x, 0f, moveInput.y);
+                Vector3 targetVelocity = MoveDir * player.SSC.AttributeSet.MoveSpeed.Value;
                 rb.linearVelocity = targetVelocity;
 
-                float moveValue = moveDirection.sqrMagnitude;
+                float moveValue = MoveDir.sqrMagnitude;
                 if (moveValue > 0.01f)
                 {
-                    rb.MoveRotation(Quaternion.LookRotation(moveDirection, Vector3.up));
+                    rb.MoveRotation(Quaternion.LookRotation(MoveDir, Vector3.up));
                 }
                 player.Animator.SetFloat("Speed", moveValue);
             }

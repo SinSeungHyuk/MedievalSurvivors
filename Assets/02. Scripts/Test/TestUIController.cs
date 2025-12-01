@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Manager;
 using MS.Mode;
@@ -8,6 +9,7 @@ public class TestUIController : MonoBehaviour
 {
     [SerializeField] private Button BtnModeStart;
     [SerializeField] private Button BtnClear;
+    [SerializeField] private Button BtnTP;
 
 
     void Start()
@@ -22,6 +24,12 @@ public class TestUIController : MonoBehaviour
              =>
         {
             GameManager.Instance.CurGameMode.EndMode();
+        });
+
+        BtnTP.onClick.AddListener(()
+            =>
+        {
+            GameManager.Instance.player.SSC.UseSkill("Teleport").Forget();
         });
     }
 
