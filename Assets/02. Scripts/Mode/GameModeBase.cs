@@ -24,6 +24,7 @@ namespace MS.Mode
             modeStateMachine.OnUpdate(_deltaTime);
 
             SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
+            MonsterManager.Instance.OnUpdate(Time.deltaTime);
         }
 
         public virtual void OnFixedUpdate(float _fixedDeltaTime)

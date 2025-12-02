@@ -29,7 +29,7 @@ public class TestUIController : MonoBehaviour
         BtnTP.onClick.AddListener(()
             =>
         {
-            GameManager.Instance.player.SSC.UseSkill("Teleport").Forget();
+            PlayerManager.Instance.Player.SSC.UseSkill("Teleport").Forget();
         });
     }
 

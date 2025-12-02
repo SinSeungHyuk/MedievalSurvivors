@@ -20,7 +20,7 @@ namespace MS.Manager
             GameObject playerResource = await AddressableManager.Instance.LoadResourceAsync<GameObject>("PlayerCharacter");
             player = PlayerCharacter.Instantiate(
                 playerResource,
-                Vector3.zero,
+                new Vector3(0,8,0),
                 Quaternion.identity
             ).GetComponent< PlayerCharacter>();
 
@@ -39,9 +39,6 @@ namespace MS.Manager
 
             player.InitPlayer(_key);
             CameraManager.Instance.InitMainCamera(player.transform);
-
-            // todo test
-            GameManager.Instance.player = player;
 
             return player;
         }

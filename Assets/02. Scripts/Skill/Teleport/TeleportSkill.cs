@@ -27,7 +27,7 @@ namespace MS.Skill
             Vector3 moveDir = playerController.MoveDir;
             if (moveDir == Vector3.zero) moveDir = owner.transform.forward;
 
-            float teleportRange = 15f;
+            float teleportRange = 10f;
             Vector3 currentPos = rb.position;
             Vector3 targetPos = currentPos + (moveDir.normalized * teleportRange);
 

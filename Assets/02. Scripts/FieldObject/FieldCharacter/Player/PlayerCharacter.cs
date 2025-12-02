@@ -17,11 +17,17 @@ namespace MS.Field
         public bool IsMovementLocked { get; private set; }
 
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            PlayerController = GetComponent<PlayerController>();
+        }
+
         public void InitPlayer(string _characKey)
         {
             ObjectType = FieldObjectType.Player;
             ObjectLifeState = FieldObjectLifeState.Live;
-            PlayerController = GetComponent<PlayerController>();
 
             if (!DataManager.Instance.CharacterSettingDataDict.TryGetValue(_characKey, out CharacterSettingData _characterData))
             {

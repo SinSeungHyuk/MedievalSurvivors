@@ -26,11 +26,16 @@ namespace MS.Mode
         {
             await EffectManager.Instance.LoadAllEffectAsync();
             await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
+            await MonsterManager.Instance.LoadAllMonsterAsync(); // todo :: 스테이지에 나오는 몬스터만 로드하도록 수정
 
             GameObject map = await AddressableManager.Instance.LoadResourceAsync<GameObject>(stageSettingData.MapKey);
             FieldMap mapInstance = GameObject.Instantiate(map,Vector3.zero, Quaternion.identity).GetComponent<FieldMap>();
             
             await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
+
+
+            // todo test
+            MonsterManager.Instance.SpawnMonster("TestMonster", new Vector3(5, 8, 5), Quaternion.identity);
         }
     }
 }

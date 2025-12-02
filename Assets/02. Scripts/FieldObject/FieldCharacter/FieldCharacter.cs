@@ -12,7 +12,7 @@ namespace MS.Field
         public Animator Animator => animator;
 
 
-        private void Awake()
+        virtual protected void Awake()
         {
             SSC = gameObject.AddComponent<SkillSystemComponent>();
             animator = GetComponent<Animator>();
