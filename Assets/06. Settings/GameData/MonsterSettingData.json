@@ -1,6 +1,6 @@
 {
-  "TestMonster": {
-    "MonsterName": "TestMonster",
+  "Skeleton_Tier1": {
+    "MonsterName": "Skeleton_Tier1",
     "AttributeSetSettingData": {
       "MaxHealth": 120.0,
       "AttackPower": 18.0,

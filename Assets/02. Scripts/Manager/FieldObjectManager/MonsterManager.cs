@@ -16,7 +16,7 @@ namespace MS.Manager
 
         public MonsterCharacter SpawnMonster(string _key, Vector3 _spawnPos, Quaternion _spawnRot)
         {
-            MonsterCharacter monster = ObjectPoolManager.Instance.Get("MonsterCharacter", _spawnPos, _spawnRot).GetComponent<MonsterCharacter>();
+            MonsterCharacter monster = ObjectPoolManager.Instance.Get(_key, _spawnPos, _spawnRot).GetComponent<MonsterCharacter>();
 
             if (monster != null)
             {
@@ -45,7 +45,7 @@ namespace MS.Manager
         {
             try
             {
-                await ObjectPoolManager.Instance.CreatePoolAsync("MonsterCharacter", 10);
+                await ObjectPoolManager.Instance.CreatePoolAsync("Skeleton_Tier1", 10);
                 // ...
             }
             catch (Exception e)

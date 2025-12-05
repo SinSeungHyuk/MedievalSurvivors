@@ -35,7 +35,7 @@ namespace MS.Mode
 
 
             // todo test
-            MonsterManager.Instance.SpawnMonster("TestMonster", new Vector3(5, 8, 5), Quaternion.identity);
+            MonsterManager.Instance.SpawnMonster("Skeleton_Tier1", new Vector3(5, 8, 5), Quaternion.identity);
         }
     }
 }
