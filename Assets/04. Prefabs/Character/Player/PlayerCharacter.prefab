@@ -1268,10 +1268,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9074206301535808311}
   - component: {fileID: 2370232053324917927}
+  - component: {fileID: 4934634663625816504}
+  - component: {fileID: 8269009758958501499}
   - component: {fileID: 4653916434453051122}
   - component: {fileID: 590360450459504808}
   - component: {fileID: 6570867462960750102}
-  - component: {fileID: 2847757982405285112}
   m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -1318,7 +1319,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-<<<<<<< Updated upstream
 --- !u!136 &4934634663625816504
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1369,8 +1369,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
-=======
->>>>>>> Stashed changes
 --- !u!114 &4653916434453051122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,31 +1423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102eda19a3ae99e47b72bafa67928606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &2847757982405285112
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5604481502207706432}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 200
-  m_Radius: 60
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.1
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 100, z: 0}
 --- !u!1 &5637819081245347509
 GameObject:
   m_ObjectHideFlags: 0

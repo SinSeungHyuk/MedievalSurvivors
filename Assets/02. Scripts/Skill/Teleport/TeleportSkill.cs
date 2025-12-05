@@ -11,40 +11,35 @@ namespace MS.Skill
     public class Teleport : BaseSkill
     {
         private PlayerController playerController;
-        private CharacterController cc;
+        private Rigidbody rb;
+
 
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             base.InitSkill(_owner, _skillData);
 
-            PlayerCharacter player = owner.GetComponent<PlayerCharacter>();
-            playerController = player.PlayerController;
-            cc = playerController.CC;
+            playerController = owner.GetComponent<PlayerCharacter>().PlayerController;
+            rb = playerController.Rb;
         }
 
         public override async UniTask ActivateSkill(CancellationToken token)
         {
             Vector3 moveDir = playerController.MoveDir;
+            if (moveDir == Vector3.zero) moveDir = owner.transform.forward;
 
-            if (moveDir == Vector3.zero)
-            {
-                moveDir = owner.transform.forward;
-            }
-
-            float teleportRange = 5f;
-            Vector3 currentPos = owner.transform.position;
+            float teleportRange = 10f;
+            Vector3 currentPos = rb.position;
             Vector3 targetPos = currentPos + (moveDir.normalized * teleportRange);
 
             NavMeshHit hit;
             if (NavMesh.Raycast(currentPos, targetPos, out hit, NavMesh.AllAreas))
             {
-                targetPos = hit.position; 
+                targetPos = hit.position;
             }
 
-            cc.enabled = false;
+            rb.MovePosition(targetPos);
+
             EffectManager.Instance.PlayEffect("Eff_Teleport", owner.Position, owner.Rotation);
-            owner.transform.position = targetPos;
-            cc.enabled = true;
 
             await UniTask.CompletedTask;
         }
