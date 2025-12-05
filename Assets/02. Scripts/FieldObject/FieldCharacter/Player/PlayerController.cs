@@ -1,48 +1,55 @@
 using MS.Skill;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Unity.Burst.Intrinsics.X86;
-
 
 namespace MS.Field
 {
     public class PlayerController : MonoBehaviour
     {
         private PlayerCharacter player;
-        private Rigidbody rb;
+        private CharacterController characterController;
         private Vector2 moveInput;
+        private float moveSpeed;
+        private float verticalVelocity;
 
         public Vector3 MoveDir { get; private set; }
-        public Rigidbody Rb => rb;
+        public CharacterController CC => characterController;
 
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody>();
+            characterController = GetComponent<CharacterController>();
             player = GetComponent<PlayerCharacter>();
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (player.SSC.AttributeSet == null || player.IsMovementLocked)
             {
-                rb.linearVelocity = Vector2.zero;
                 moveInput = Vector2.zero;
                 return;
             }
-            if (rb != null)
-            {
-                MoveDir = new Vector3(moveInput.x, 0f, moveInput.y);
-                Vector3 targetVelocity = MoveDir * player.SSC.AttributeSet.MoveSpeed.Value;
-                rb.linearVelocity = targetVelocity;
 
-                float moveValue = MoveDir.sqrMagnitude;
-                if (moveValue > 0.01f)
-                {
-                    rb.MoveRotation(Quaternion.LookRotation(MoveDir, Vector3.up));
-                }
-                player.Animator.SetFloat("Speed", moveValue);
+            CalculateMovement();
+        }
+
+        private void CalculateMovement()
+        {
+            if (!CC.isGrounded) verticalVelocity += Physics.gravity.y * Time.deltaTime;
+            else verticalVelocity = 0f;
+
+            MoveDir = new Vector3(moveInput.x, 0f, moveInput.y);
+            moveSpeed = player.SSC.AttributeSet.MoveSpeed.Value;
+            
+            Vector3 finalMove = (MoveDir * moveSpeed) + (Vector3.up * verticalVelocity);
+            characterController.Move(finalMove * Time.deltaTime);
+
+            float moveValue = MoveDir.sqrMagnitude;
+            if (moveValue > 0.01f)
+            {
+                transform.rotation = Quaternion.LookRotation(MoveDir);
             }
+            player.Animator.SetFloat("Speed", moveValue);
         }
 
         public void OnMove(InputValue inputValue)
@@ -51,4 +58,3 @@ namespace MS.Field
         }
     }
 }
-
