@@ -20,7 +20,7 @@ namespace MS.Manager
             GameObject playerResource = await AddressableManager.Instance.LoadResourceAsync<GameObject>("PlayerCharacter");
             player = PlayerCharacter.Instantiate(
                 playerResource,
-                new Vector3(0,8,0),
+                new Vector3(0,10,0),
                 Quaternion.identity
             ).GetComponent< PlayerCharacter>();
 
