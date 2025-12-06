@@ -1,6 +1,8 @@
 using MS.Skill;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.AI;
+using MS.Utils;
 
 namespace MS.Field
 {
@@ -9,7 +11,6 @@ namespace MS.Field
         private PlayerCharacter player;
         private CharacterController characterController;
         private Vector2 moveInput;
-        private float moveSpeed;
         private float verticalVelocity;
 
         public Vector3 MoveDir { get; private set; }
@@ -27,29 +28,45 @@ namespace MS.Field
             if (player.SSC.AttributeSet == null || player.IsMovementLocked)
             {
                 moveInput = Vector2.zero;
-                return;
             }
 
-            CalculateMovement();
+            HandleGravity();
+            HandleMovement();
         }
 
-        private void CalculateMovement()
+        private void HandleGravity()
         {
-            if (!CC.isGrounded) verticalVelocity += Physics.gravity.y * Time.deltaTime;
-            else verticalVelocity = 0f;
+            if (characterController.isGrounded)
+                verticalVelocity = -2f;
+            else
+                verticalVelocity += Physics.gravity.y * Time.deltaTime;
+        }
 
+        private void HandleMovement()
+        {
             MoveDir = new Vector3(moveInput.x, 0f, moveInput.y);
-            moveSpeed = player.SSC.AttributeSet.MoveSpeed.Value;
-            
-            Vector3 finalMove = (MoveDir * moveSpeed) + (Vector3.up * verticalVelocity);
-            characterController.Move(finalMove * Time.deltaTime);
+            float inputMagnitude = MoveDir.sqrMagnitude;
 
-            float moveValue = MoveDir.sqrMagnitude;
-            if (moveValue > 0.01f)
+            Vector3 finalMoveVelocity = Vector3.up * verticalVelocity;
+
+            if (inputMagnitude > 0.01f)
             {
+                float moveSpeed = player.SSC.AttributeSet.MoveSpeed.Value;
+                Vector3 targetPosition = transform.position + (MoveDir * moveSpeed * Time.deltaTime);
+
+                // NavMesh 위에서 AllAreas 중 이동가능한 위치를 반환
+                if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+                {
+                    Vector3 moveOffset = hit.position - transform.position;
+                    moveOffset.y = 0f;
+                    finalMoveVelocity += moveOffset / Time.deltaTime;
+                }
+
                 transform.rotation = Quaternion.LookRotation(MoveDir);
             }
-            player.Animator.SetFloat("Speed", moveValue);
+
+            characterController.Move(finalMoveVelocity * Time.deltaTime);
+            player.Animator.SetFloat(Settings.AnimHashSpeed, inputMagnitude);
         }
 
         public void OnMove(InputValue inputValue)

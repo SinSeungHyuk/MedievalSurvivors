@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MS.Data
@@ -8,8 +9,15 @@ namespace MS.Data
     public class StageSettingData
     {
         public string MapKey { get; set; }
-        //public List<string> MonsterKey { get; set; }
+        public List<MonsterSpawnInfo> MonsterSpawnInfoPerWave { get; set; }
+        public List<string> BossMonsterSpawnInfoPerWave { get; set; }
     }
 
-    // todo 몬스터의 스폰 정보
+
+    [Serializable]
+    public class MonsterSpawnInfo
+    {
+        public string MonsterKey { get; set; }
+        public int MonsterSpawnRate { get; set; }
+    }
 }
