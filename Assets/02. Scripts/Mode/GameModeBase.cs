@@ -1,4 +1,5 @@
 using MS.Core.StateMachine;
+using MS.Field;
 using MS.Manager;
 using UnityEngine;
 
@@ -7,6 +8,10 @@ namespace MS.Mode
     public abstract class GameModeBase
     {
         protected MSStateMachine<GameModeBase> modeStateMachine;
+        protected FieldMap curFieldMap;
+
+        public FieldMap CurFieldMap => curFieldMap;
+
 
 
         public GameModeBase() 

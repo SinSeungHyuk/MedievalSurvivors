@@ -10,6 +10,7 @@ public class TestUIController : MonoBehaviour
     [SerializeField] private Button BtnModeStart;
     [SerializeField] private Button BtnClear;
     [SerializeField] private Button BtnTP;
+    [SerializeField] private Button BtnSpawn;
 
 
     void Start()
@@ -31,11 +32,14 @@ public class TestUIController : MonoBehaviour
         {
             PlayerManager.Instance.Player.SSC.UseSkill("Teleport").Forget();
         });
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        BtnSpawn.onClick.AddListener(()
+            =>
+        {
+            // todo test
+            Vector3 spawnPos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
+
+            MonsterManager.Instance.SpawnMonster("Skeleton_Tier1", spawnPos, Quaternion.identity);
+        });
     }
 }

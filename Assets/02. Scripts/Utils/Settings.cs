@@ -6,6 +6,7 @@ namespace MS.Utils
     public static class Settings
     {
         #region BATTLE SETTING
+        public static int MaxWaveCount = 5;
         public static int BattleScalingConstant = 100;
         #endregion
 

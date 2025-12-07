@@ -1,20 +1,53 @@
 using MS.Utils;
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 namespace MS.Field
 {
     public class FieldMap : MonoBehaviour
     {
-        private Transform playerSpawnPoint;
+        [SerializeField] private float minSpawnDistance = 10f;
+        [SerializeField] private float maxSpawnDistance = 20f;
+        [SerializeField] private int maxSpawnAttempts = 30;
+        [SerializeField] private float navMeshSampleRange = 1.0f;
 
-
-        public Transform PlayerSpawnPoint => playerSpawnPoint;
+        private List<Transform> floorList = new List<Transform>();
+        private List<Transform> navBlockerList = new List<Transform>();
 
 
         private void Awake()
         {
-            playerSpawnPoint = TransformExtensions.FindChildDeep(this.gameObject.transform, "PlayerSpawnPoint");
+            for (int i =1; i<= Settings.MaxWaveCount; i++)
+            {
+                floorList.Add(TransformExtensions.FindChildDeep(this.gameObject.transform, "Floor_" + i));
+            }
+
+            for (int i = 1; i <= Settings.MaxWaveCount; i++)
+            {
+                navBlockerList.Add(TransformExtensions.FindChildDeep(this.gameObject.transform, "NavBlocker_" + i));
+            }
+        }
+
+        public Vector3 GetRandomSpawnPoint(Vector3 playerPos)
+        {
+            for (int i = 0; i < maxSpawnAttempts; i++)
+            {
+                Vector2 randomDir = Random.insideUnitCircle.normalized;
+                float randomDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
+                Vector3 spawnOffset = new Vector3(randomDir.x, 0f, randomDir.y) * randomDistance;
+
+                Vector3 targetPosition = playerPos + spawnOffset;
+
+                if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, navMeshSampleRange, NavMesh.AllAreas))
+                {
+                    return hit.position;
+                }
+            }
+
+            return playerPos;
         }
     }
 }
