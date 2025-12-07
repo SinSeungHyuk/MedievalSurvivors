@@ -9,13 +9,10 @@ namespace MS.Field
 {
     public class FieldMap : MonoBehaviour
     {
-        [SerializeField] private float minSpawnDistance = 10f;
-        [SerializeField] private float maxSpawnDistance = 20f;
-        [SerializeField] private int maxSpawnAttempts = 30;
-        [SerializeField] private float navMeshSampleRange = 1.0f;
-
         private List<Transform> floorList = new List<Transform>();
         private List<Transform> navBlockerList = new List<Transform>();
+
+        private int maxSpawnAttempts = 50;
 
 
         private void Awake()
@@ -36,12 +33,12 @@ namespace MS.Field
             for (int i = 0; i < maxSpawnAttempts; i++)
             {
                 Vector2 randomDir = Random.insideUnitCircle.normalized;
-                float randomDistance = Random.Range(minSpawnDistance, maxSpawnDistance);
+                float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance);
                 Vector3 spawnOffset = new Vector3(randomDir.x, 0f, randomDir.y) * randomDistance;
 
                 Vector3 targetPosition = playerPos + spawnOffset;
 
-                if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, navMeshSampleRange, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, 1f, NavMesh.AllAreas))
                 {
                     return hit.position;
                 }

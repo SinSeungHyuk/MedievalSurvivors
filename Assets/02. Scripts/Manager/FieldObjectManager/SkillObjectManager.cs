@@ -62,9 +62,14 @@ namespace MS.Manager
         {
             try
             {
-                await ObjectPoolManager.Instance.CreatePoolAsync("Projectile_StoneSlash", 10);
-                await ObjectPoolManager.Instance.CreatePoolAsync("Area_StoneSlash", 10);
-                // ...
+                var tasks = new List<UniTask>
+                {
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projectile_StoneSlash", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_StoneSlash", 10),
+                    // ...
+                };
+
+                await UniTask.WhenAll(tasks);
             }
             catch (Exception e)
             {

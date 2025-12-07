@@ -26,12 +26,14 @@ namespace MS.Mode
         {
             await EffectManager.Instance.LoadAllEffectAsync();
             await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
-            await MonsterManager.Instance.LoadAllMonsterAsync(); // todo :: 스테이지에 나오는 몬스터만 로드하도록 수정
+            await MonsterManager.Instance.LoadAllMonsterAsync(stageSettingData); // todo :: 스테이지에 나오는 몬스터만 로드하도록 수정
 
             GameObject map = await AddressableManager.Instance.LoadResourceAsync<GameObject>(stageSettingData.MapKey);
             curFieldMap = GameObject.Instantiate(map,Vector3.zero, Quaternion.identity).GetComponent<FieldMap>();
-            
-            await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
+
+            player = await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
+
+            modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
         }
     }
 }

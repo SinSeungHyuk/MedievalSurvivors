@@ -52,9 +52,14 @@ namespace MS.Manager
         {
             try
             {
-                await ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10);
-                await ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 3);
-                // ...
+                var tasks = new List<UniTask>
+                {
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 3),
+                    // ... 
+                };
+
+                await UniTask.WhenAll(tasks);
             }
             catch (Exception e)
             {

@@ -1,5 +1,37 @@
 {
   "Stage1": {
-    "MapKey": "Map_Stage1"
+    "MapKey": "Map_Stage1",
+    "WaveSpawnInfoList": [
+      {
+        "MonsterSpawnInfoList": [
+          {
+            "MonsterKey": "Skeleton_Tier1",
+            "MonsterSpawnRate": 70
+          },
+          {
+            "MonsterKey": "Skeleton_Tier2",
+            "MonsterSpawnRate": 30
+          }
+        ],
+        "BossMonsterKey": null,
+        "SpawnInterval": 2.5,
+        "CountPerSpawn": 3
+      },
+      {
+        "MonsterSpawnInfoList": [
+          {
+            "MonsterKey": "Skeleton_Tier1",
+            "MonsterSpawnRate": 40
+          },
+          {
+            "MonsterKey": "Skeleton_Tier2",
+            "MonsterSpawnRate": 60
+          }
+        ],
+        "BossMonsterKey": "Skeleton_Tier3",
+        "SpawnInterval": 5.0,
+        "CountPerSpawn": 5
+      }
+    ]
   }
 }
