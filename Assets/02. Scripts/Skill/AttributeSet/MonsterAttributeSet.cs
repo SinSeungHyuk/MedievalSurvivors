@@ -4,8 +4,8 @@ using UnityEngine;
 public class MonsterAttributeSet : BaseAttributeSet
 {
     public Stat DropEXP { get; protected set; }
-    public Stat DropItem { get; protected set; }
-
+    public Stat AttackRange { get; protected set; }
+    
 
     public void InitAttributeSet(MonsterAttributeSetSettingData _monsterData)
     {
@@ -13,8 +13,8 @@ public class MonsterAttributeSet : BaseAttributeSet
         Health = _monsterData.MaxHealth;
         AttackPower = new Stat(_monsterData.AttackPower);
         Defense = new Stat(_monsterData.Defense);
-        DropEXP = new Stat(_monsterData.DropEXP);
-        DropItem = new Stat(_monsterData.DropItem);
         MoveSpeed = new Stat(_monsterData.MoveSpeed);
+        AttackRange = new Stat(_monsterData.AttackRange);
+        DropEXP = new Stat(_monsterData.DropEXP);
     }
 }

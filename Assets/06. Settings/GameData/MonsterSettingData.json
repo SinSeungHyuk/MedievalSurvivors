@@ -6,10 +6,17 @@
       "AttackPower": 18.0,
       "Defense": 8.0,
       "MoveSpeed": 5.0,
-      "DropEXP": 5.0, 
-      "DropItem": 0.05  
+      "AttackRange": 3.0,
+      "DropEXP": 5.0
     },
+    "DropItemKey": "DropItem_Key_Placeholder",
     "WeaknessAttributeType": "Fire",
-    "DefaultSkillKey": "StoneSlash"
+    "SkillList": [
+      {
+        "SkillKey": "StoneSlash",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Onehand_Attack_A"
+      }
+    ]
   }
 }

@@ -18,7 +18,7 @@ namespace MS.Skill
 
         public override async UniTask ActivateSkill(CancellationToken token)
         {
-            owner.Animator.SetTrigger("Attack01");
+            //owner.Animator.SetTrigger("Attack01");
             //owner.Animator.speed = 0.2f;
 
             //owner.Animator.SetBool("Attack02Casting", true);
@@ -40,17 +40,17 @@ namespace MS.Skill
             //    _ssc.TakeDamage(damageInfo);
             //});
 
-            var testProjectile = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>(
-                "Area_StoneSlash", owner, Settings.PlayerLayer);
-            testProjectile.InitArea(2f);
-            testProjectile.transform.position = new Vector3(owner.Position.x + 10f, owner.Position.y, owner.Position.z + 10f);
-            testProjectile.SetDuration(15f);
-            testProjectile.SetMaxHitCount(5);
-            testProjectile.SetHitCountPerAttack(2);
-            testProjectile.SetHitCallback((_skillObject, _ssc) =>
-            {
-                Debug.Log($"Player hit!");
-            });
+            //var testProjectile = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>(
+            //    "Area_StoneSlash", owner, Settings.PlayerLayer);
+            //testProjectile.InitArea(2f);
+            //testProjectile.transform.position = new Vector3(owner.Position.x + 10f, owner.Position.y, owner.Position.z + 10f);
+            //testProjectile.SetDuration(15f);
+            //testProjectile.SetMaxHitCount(5);
+            //testProjectile.SetHitCountPerAttack(2);
+            //testProjectile.SetHitCallback((_skillObject, _ssc) =>
+            //{
+            //    Debug.Log($"Player hit!");
+            //});
 
             await UniTask.Yield();
 

@@ -1,5 +1,7 @@
 using MS.Skill;
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,8 +12,9 @@ namespace MS.Data
     {
         public string MonsterName { get; set; }
         public MonsterAttributeSetSettingData AttributeSetSettingData { get; set; }
+        public string DropItemKey { get; set; }
         public EDamageAttributeType WeaknessAttributeType { get; set; } // 약점 속성
-        public string DefaultSkillKey { get; set; } // 장착중인 기본스킬 키값
+        public List<MonsterSkillSettingData> SkillList { get; set; } // 장착중인 기본스킬 리스트
     }
 
     [Serializable]
@@ -21,7 +24,15 @@ namespace MS.Data
         public float AttackPower { get; set; }
         public float Defense { get; set; }
         public float MoveSpeed { get; set; }
+        public float AttackRange { get; set; }
         public float DropEXP { get; set; }
-        public float DropItem { get; set; }
+    }
+
+    [Serializable]
+    public class MonsterSkillSettingData
+    {
+        public string SkillKey { get; set; }
+        public int SkillActivateRate { get; set; } // 스킬의 발동 확률
+        public string AnimTriggerKey { get; set; } // 스킬의 애니메이터 트리거 키
     }
 }
