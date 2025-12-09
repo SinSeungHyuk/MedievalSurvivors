@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using MS.Core.StateMachine;
 using MS.Data;
 using MS.Manager;
+using MS.Utils;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,10 @@ namespace MS.Field
         private MSStateMachine<MonsterCharacter> monsterStateMachine;
         private List<MonsterSkillSettingData> skillList = new List<MonsterSkillSettingData>();
         private NavMeshAgent navMeshAgent;
-        private Animator animator;
 
         public enum MonsterState
         {
+            Idle,
             Trace,
             Attack,
             Dead,
@@ -30,11 +31,12 @@ namespace MS.Field
         {
             base.Awake();
 
-            animator = GetComponent<Animator>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             monsterStateMachine = new MSStateMachine<MonsterCharacter>(this);
+            monsterStateMachine.RegisterState((int)MonsterState.Idle, OnIdleEnter, OnIdleUpdate, OnIdleExit);
             monsterStateMachine.RegisterState((int)MonsterState.Trace, OnTraceEnter, OnTraceUpdate, OnTraceExit);
             monsterStateMachine.RegisterState((int)MonsterState.Attack, OnAttackEnter, OnAttackUpdate, OnAttackExit);
+            monsterStateMachine.RegisterState((int)MonsterState.Dead, OnDeadEnter, OnDeadUpdate, OnDeadExit);
         }
 
         public void InitMonster(string _monsterKey)
@@ -65,7 +67,8 @@ namespace MS.Field
                 navMeshAgent.enabled = true;
             }
             navMeshAgent.stoppingDistance = _monsterData.AttributeSetSettingData.AttackRange - 1f;
-            monsterStateMachine.TransitState((int)MonsterState.Trace);
+            navMeshAgent.speed = _monsterData.AttributeSetSettingData.MoveSpeed;
+            monsterStateMachine.TransitState((int)MonsterState.Idle);
         }
 
         public void OnUpdate(float _deltaTime)
@@ -74,12 +77,44 @@ namespace MS.Field
         }
 
 
+        #region Idle
+        private float elapsedIdleTime = 0f;
+        private void OnIdleEnter(int _prev, object[] _params)
+        {
+            navMeshAgent.ResetPath();
+            Animator.SetTrigger(Settings.AnimHashIdle);
+            elapsedIdleTime = 0f;
+        }
+        private void OnIdleUpdate(float _dt)
+        {
+            elapsedIdleTime += _dt;
+            if (elapsedIdleTime > 0.2f)
+            {
+                monsterStateMachine.TransitState((int)MonsterState.Trace);
+            }
+        }
+        private void OnIdleExit(int _next)
+        {
+            
+        }
+        #endregion
+
         #region Trace
         private float attackRange = 0f;
         private void OnTraceEnter(int _prev, object[] _params)
         {
-            navMeshAgent.destination = PlayerManager.Instance.Player.Position;
+            navMeshAgent.isStopped = false;
+
             attackRange = ((MonsterAttributeSet)(SSC.AttributeSet)).AttackRange.Value;
+            if ((PlayerManager.Instance.Player.Position - Position).sqrMagnitude < (attackRange * attackRange))
+            {
+                monsterStateMachine.TransitState((int)MonsterState.Attack);
+            }
+            else
+            {
+                navMeshAgent.destination = PlayerManager.Instance.Player.Position;
+                Animator.SetTrigger(Settings.AnimHashRun);
+            }
         }
         private void OnTraceUpdate(float _dt)
         {
@@ -92,7 +127,7 @@ namespace MS.Field
         }
         private void OnTraceExit(int _next)
         {
-            navMeshAgent.isStopped = true;
+            
         }
         #endregion
 
@@ -100,6 +135,8 @@ namespace MS.Field
         private MonsterSkillSettingData currentSkillData;
         private void OnAttackEnter(int _prev, object[] _params)
         {
+            navMeshAgent.isStopped = true;
+
             // 소유한 스킬리스트에서 랜덤으로 사용할 스킬 선택
             MonsterSkillSettingData skillData = null;
             int totalRatio = skillList.Sum(x => x.SkillActivateRate);
@@ -117,25 +154,42 @@ namespace MS.Field
             currentSkillData = skillData;
 
             SSC.UseSkill(skillData.SkillKey).Forget(); // 해당 공격이 쿨타임이면 내부적으로 사용을 안함
-            animator.SetTrigger(skillData.AnimTriggerKey); // 공격 애니메이션 재생
+            Animator.SetTrigger(skillData.AnimTriggerKey); // 공격 애니메이션 재생
         }
         private void OnAttackUpdate(float _dt)
         {
             if (currentSkillData == null) return;
 
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName(currentSkillData.AnimTriggerKey) && stateInfo.normalizedTime >= 1.0f)
+            AnimatorStateInfo stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName(currentSkillData.AnimTriggerKey) && stateInfo.normalizedTime >= 0.95f)
             {
-                monsterStateMachine.TransitState((int)MonsterState.Trace);
+                monsterStateMachine.TransitState((int)MonsterState.Idle);
             }
         }
         private void OnAttackExit(int _next)
         {
-            navMeshAgent.isStopped = false;
+           
         }
         #endregion
 
         #region Dead
+        private void OnDeadEnter(int _prev, object[] _params)
+        {
+            navMeshAgent.ResetPath();
+            Animator.SetTrigger(Settings.AnimHashDead);
+        }
+        private void OnDeadUpdate(float _dt)
+        {
+            elapsedIdleTime += _dt;
+            if (elapsedIdleTime > 0.2f)
+            {
+                
+            }
+        }
+        private void OnDeadExit(int _next)
+        {
+
+        }
         #endregion
     }
 }

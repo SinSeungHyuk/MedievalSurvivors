@@ -5,7 +5,7 @@
       "MaxHealth": 120.0,
       "AttackPower": 18.0,
       "Defense": 8.0,
-      "MoveSpeed": 5.0,
+      "MoveSpeed": 3.0,
       "AttackRange": 3.0,
       "DropEXP": 5.0
     },

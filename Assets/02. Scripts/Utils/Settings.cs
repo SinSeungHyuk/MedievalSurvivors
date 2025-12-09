@@ -22,6 +22,9 @@ namespace MS.Utils
 
         #region ANIMATION
         public static int AnimHashSpeed = Animator.StringToHash("Speed");
+        public static int AnimHashRun = Animator.StringToHash("Run");
+        public static int AnimHashIdle = Animator.StringToHash("Idle");
+        public static int AnimHashDead = Animator.StringToHash("Dead");
         #endregion
     }
 }
