@@ -4,7 +4,7 @@ using UnityEngine;
 public class BaseAttributeSet
 {
     // 현재체력, 최대체력
-    public event Action<float, float> OnHealthChanged; 
+    public event Action<float, float> OnHealthChanged;
 
     private float health;
 

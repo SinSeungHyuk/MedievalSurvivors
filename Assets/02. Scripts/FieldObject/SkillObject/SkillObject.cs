@@ -45,7 +45,7 @@ namespace MS.Field
 
             elapsedTime = 0;
             duration = INFINITE_DURATION;
-            maxAttackCount = 1;
+            maxAttackCount = INFINITE_ATTACK;
             hitCountPerAttack = 1;
         }
 

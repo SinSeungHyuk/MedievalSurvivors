@@ -14,6 +14,7 @@ namespace MS.Field
 {
     public class MonsterCharacter : FieldCharacter
     {
+        private string monsterKey;
         private MSStateMachine<MonsterCharacter> monsterStateMachine;
         private List<MonsterSkillSettingData> skillList = new List<MonsterSkillSettingData>();
         private NavMeshAgent navMeshAgent;
@@ -31,6 +32,8 @@ namespace MS.Field
         {
             base.Awake();
 
+            SSC.OnDead += OnDeadCallback;
+
             navMeshAgent = GetComponent<NavMeshAgent>();
             monsterStateMachine = new MSStateMachine<MonsterCharacter>(this);
             monsterStateMachine.RegisterState((int)MonsterState.Idle, OnIdleEnter, OnIdleUpdate, OnIdleExit);
@@ -43,6 +46,7 @@ namespace MS.Field
         {
             ObjectType = FieldObjectType.Monster;
             ObjectLifeState = FieldObjectLifeState.Live;
+            monsterKey = _monsterKey;
 
             if (!DataManager.Instance.MonsterSettingDataDict.TryGetValue(_monsterKey, out MonsterSettingData _monsterData))
             {
@@ -52,7 +56,7 @@ namespace MS.Field
 
             MonsterAttributeSet monsterAttributeSet = new MonsterAttributeSet();
             monsterAttributeSet.InitAttributeSet(_monsterData.AttributeSetSettingData);
-            SSC.InitSkillActorInfo(this, monsterAttributeSet);
+            SSC.InitSSC(this, monsterAttributeSet);
 
             foreach (var skillInfo in _monsterData.SkillList)
             {
@@ -77,20 +81,29 @@ namespace MS.Field
         }
 
 
+        private void OnDeadCallback()
+        {
+            monsterStateMachine.TransitState((int)MonsterState.Dead);
+        }
+
         #region Idle
         private float elapsedIdleTime = 0f;
         private void OnIdleEnter(int _prev, object[] _params)
         {
             navMeshAgent.ResetPath();
             Animator.SetTrigger(Settings.AnimHashIdle);
+            attackRange = ((MonsterAttributeSet)(SSC.AttributeSet)).AttackRange.Value;
             elapsedIdleTime = 0f;
         }
-        private void OnIdleUpdate(float _dt)
+        private void OnIdleUpdate(float _dt) // Idle => Attack or Trace
         {
             elapsedIdleTime += _dt;
             if (elapsedIdleTime > 0.2f)
             {
-                monsterStateMachine.TransitState((int)MonsterState.Trace);
+                if ((PlayerManager.Instance.Player.Position - Position).sqrMagnitude < (attackRange * attackRange))
+                    monsterStateMachine.TransitState((int)MonsterState.Attack);
+                else
+                    monsterStateMachine.TransitState((int)MonsterState.Trace);
             }
         }
         private void OnIdleExit(int _next)
@@ -104,19 +117,10 @@ namespace MS.Field
         private void OnTraceEnter(int _prev, object[] _params)
         {
             navMeshAgent.isStopped = false;
-
-            attackRange = ((MonsterAttributeSet)(SSC.AttributeSet)).AttackRange.Value;
-            if ((PlayerManager.Instance.Player.Position - Position).sqrMagnitude < (attackRange * attackRange))
-            {
-                monsterStateMachine.TransitState((int)MonsterState.Attack);
-            }
-            else
-            {
-                navMeshAgent.destination = PlayerManager.Instance.Player.Position;
-                Animator.SetTrigger(Settings.AnimHashRun);
-            }
+            navMeshAgent.destination = PlayerManager.Instance.Player.Position;
+            Animator.SetTrigger(Settings.AnimHashRun);
         }
-        private void OnTraceUpdate(float _dt)
+        private void OnTraceUpdate(float _dt) // Trace => Attack
         {
             navMeshAgent.destination = PlayerManager.Instance.Player.Position;
             
@@ -133,9 +137,11 @@ namespace MS.Field
 
         #region Attack
         private MonsterSkillSettingData currentSkillData;
+        private bool isSkillUsed = false;
         private void OnAttackEnter(int _prev, object[] _params)
         {
             navMeshAgent.isStopped = true;
+            isSkillUsed = false;
 
             // 소유한 스킬리스트에서 랜덤으로 사용할 스킬 선택
             MonsterSkillSettingData skillData = null;
@@ -152,16 +158,31 @@ namespace MS.Field
                 }
             }
             currentSkillData = skillData;
-
-            SSC.UseSkill(skillData.SkillKey).Forget(); // 해당 공격이 쿨타임이면 내부적으로 사용을 안함
-            Animator.SetTrigger(skillData.AnimTriggerKey); // 공격 애니메이션 재생
         }
-        private void OnAttackUpdate(float _dt)
+        private void OnAttackUpdate(float _dt) // Attack => Idle
         {
             if (currentSkillData == null) return;
 
+            if (!isSkillUsed)
+            {
+                Vector3 direction = PlayerManager.Instance.Player.Position - transform.position;
+                direction.y = 0;
+                if (direction != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction); // 플레이어를 향해 회전
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _dt * 5f);
+                }
+                if (!SSC.IsCooltime(currentSkillData.SkillKey))
+                {
+                    SSC.UseSkill(currentSkillData.SkillKey).Forget();
+                    Animator.SetTrigger(currentSkillData.AnimTriggerKey);
+                    isSkillUsed = true;
+                }
+                return;
+            }
+
             AnimatorStateInfo stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName(currentSkillData.AnimTriggerKey) && stateInfo.normalizedTime >= 0.95f)
+            if (stateInfo.IsName(currentSkillData.AnimTriggerKey) && stateInfo.normalizedTime >= 1f)
             {
                 monsterStateMachine.TransitState((int)MonsterState.Idle);
             }
@@ -173,17 +194,21 @@ namespace MS.Field
         #endregion
 
         #region Dead
+        private float elapsedDeadTime = 0f;
         private void OnDeadEnter(int _prev, object[] _params)
         {
+            elapsedDeadTime = 0f;
             navMeshAgent.ResetPath();
             Animator.SetTrigger(Settings.AnimHashDead);
+            SSC.CancelAllSkills();
+            ObjectLifeState = FieldObjectLifeState.Death;
         }
         private void OnDeadUpdate(float _dt)
         {
-            elapsedIdleTime += _dt;
-            if (elapsedIdleTime > 0.2f)
+            elapsedDeadTime += _dt;
+            if (elapsedDeadTime > 2f)
             {
-                
+                ObjectPoolManager.Instance.Return(monsterKey, this.gameObject);
             }
         }
         private void OnDeadExit(int _next)

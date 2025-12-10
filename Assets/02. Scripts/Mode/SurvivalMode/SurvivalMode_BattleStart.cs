@@ -26,60 +26,59 @@ namespace MS.Mode
 
 
 
-            string monsterKey = "";
-            int totalRatio = curWaveSpawnInfo.MonsterSpawnInfoList.Sum(x => x.MonsterSpawnRate);
-            int ratioSum = 0;
-            int randomRate = Random.Range(0, totalRatio);
-            foreach (var monsterInfo in curWaveSpawnInfo.MonsterSpawnInfoList)
-            {
-                ratioSum += monsterInfo.MonsterSpawnRate;
-                if (randomRate < ratioSum)
-                {
-                    monsterKey = monsterInfo.MonsterKey;
-                    break;
-                }
-            }
-
-            Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
-            MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
+            //string monsterKey = "";
+            //int totalRatio = curWaveSpawnInfo.MonsterSpawnInfoList.Sum(x => x.MonsterSpawnRate);
+            //int ratioSum = 0;
+            //int randomRate = Random.Range(0, totalRatio);
+            //foreach (var monsterInfo in curWaveSpawnInfo.MonsterSpawnInfoList)
+            //{
+            //    ratioSum += monsterInfo.MonsterSpawnRate;
+            //    if (randomRate < ratioSum)
+            //    {
+            //        monsterKey = monsterInfo.MonsterKey;
+            //        break;
+            //    }
+            //}
+            //Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+            //MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
         }
 
         private void OnBattleStartUpdate(float _dt)
         {
-            //elapsedWaveTime += _dt;
+            elapsedWaveTime += _dt;
 
-            //if (elapsedSpawnTime < curWaveSpawnInfo.SpawnInterval)
-            //{
-            //    elapsedSpawnTime += _dt;
-            //    return;
-            //}
-            //elapsedSpawnTime = 0f;
+            if (elapsedSpawnTime < curWaveSpawnInfo.SpawnInterval)
+            {
+                elapsedSpawnTime += _dt;
+                return;
+            }
+            elapsedSpawnTime = 0f;
 
-            //for (int i =0; i< curWaveSpawnInfo.CountPerSpawn;i++)
-            //{
-            //    string monsterKey = "";
-            //    int totalRatio = curWaveSpawnInfo.MonsterSpawnInfoList.Sum(x => x.MonsterSpawnRate);
-            //    int ratioSum = 0;
-            //    int randomRate = Random.Range(0, totalRatio);
-            //    foreach (var monsterInfo in curWaveSpawnInfo.MonsterSpawnInfoList)
-            //    {
-            //        ratioSum += monsterInfo.MonsterSpawnRate;
-            //        if (randomRate < ratioSum)
-            //        {
-            //            monsterKey = monsterInfo.MonsterKey;
-            //            break;
-            //        }
-            //    }
+            for (int i = 0; i < curWaveSpawnInfo.CountPerSpawn; i++)
+            {
+                string monsterKey = "";
+                int totalRatio = curWaveSpawnInfo.MonsterSpawnInfoList.Sum(x => x.MonsterSpawnRate);
+                int ratioSum = 0;
+                int randomRate = Random.Range(0, totalRatio);
+                foreach (var monsterInfo in curWaveSpawnInfo.MonsterSpawnInfoList)
+                {
+                    ratioSum += monsterInfo.MonsterSpawnRate;
+                    if (randomRate < ratioSum)
+                    {
+                        monsterKey = monsterInfo.MonsterKey;
+                        break;
+                    }
+                }
 
-            //    Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
-            //    MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
-            //}
+                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+                MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
+            }
 
-            //if (elapsedWaveTime > Settings.WaveTimer)
-            //{
-            //    elapsedWaveTime = 0f;
-            //    Debug.Log("Next Wave !! ");
-            //}
+            if (elapsedWaveTime > Settings.WaveTimer)
+            {
+                elapsedWaveTime = 0f;
+                Debug.Log("Next Wave !! ");
+            }
         }
 
         private void OnBattleStartExit(int _next)

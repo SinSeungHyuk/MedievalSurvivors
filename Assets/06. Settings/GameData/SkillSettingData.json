@@ -1,12 +1,4 @@
 {
-  "Fireball": {
-    "skillName": "화염구",
-    "description": "전방에 화염구를 발사합니다.",
-    "coefficient": 1.5,
-    "manaCost": 10,
-    "elementType": "Fire",
-    "Cooltime" : 5
-  },
   "Teleport": {
     "skillName": "얼음 화살",
     "description": "적을 느리게 하는 얼음 화살을 발사합니다.",
@@ -15,11 +7,30 @@
     "elementType": "Ice",
     "Cooltime" : 5
   },
+  "FOBS": {
+    "skillName": "FOBS",
+    "description": "광범위한 지역에 운석을 떨어트립니다.",
+    "coefficient": 5.0,
+    "manaCost": 50,
+    "elementType": "Fire",
+    "Cooltime" : 2
+  },
   "StoneSlash": {
     "skillName": "StoneSlash",
     "description": "광범위한 지역에 운석을 떨어트립니다.",
     "coefficient": 5.0,
     "manaCost": 50,
+    "elementType": "Fire",
+    "Cooltime" : 2
+  },
+
+
+
+    "OnehandAttackA": {
+    "skillName": "화염구",
+    "description": "전방에 화염구를 발사합니다.",
+    "coefficient": 1.5,
+    "manaCost": 10,
     "elementType": "Fire",
     "Cooltime" : 2
   }

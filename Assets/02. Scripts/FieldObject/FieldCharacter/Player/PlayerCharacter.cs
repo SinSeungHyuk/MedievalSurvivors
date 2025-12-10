@@ -38,9 +38,12 @@ namespace MS.Field
             PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
             playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
 
-            SSC.InitSkillActorInfo(this, playerAttributeSet);
+            SSC.InitSSC(this, playerAttributeSet);
             SSC.GiveSkill(_characterData.DefaultSkillKey);
             SSC.GiveSkill("Teleport");
+
+            // TODO TEST
+            SSC.GiveSkill("FOBS");
         }
 
         public void SetMovementLock(bool isLocked)
@@ -54,8 +57,8 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                //SSC.UseSkill("StoneSlash").Forget();
-                SSC.UseSkill("Teleport").Forget();
+                SSC.UseSkill("FOBS").Forget();
+                //SSC.UseSkill("Teleport").Forget();
             }
         }
         #endregion

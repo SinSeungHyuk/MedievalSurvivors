@@ -13,6 +13,8 @@ namespace MS.Skill
 {
     public class SkillSystemComponent : MonoBehaviour
     {
+        public event Action OnDead;
+
         private Dictionary<string, BaseSkill> ownedSkillDict = new Dictionary<string, BaseSkill>();
         private Dictionary<string, CancellationTokenSource> runningSkillDict = new Dictionary<string, CancellationTokenSource>();
 
@@ -47,8 +49,9 @@ namespace MS.Skill
             }
         }
 
-        public void InitSkillActorInfo(FieldCharacter _owner, BaseAttributeSet _attributeSet)
+        public void InitSSC(FieldCharacter _owner, BaseAttributeSet _attributeSet)
         {
+            ownedSkillDict.Clear();
             owner = _owner;
             attributeSet = _attributeSet;
         }
@@ -127,10 +130,24 @@ namespace MS.Skill
             Debug.Log($"[피격] {owner.name}가 {finalDamage}의 피해를 입음 (남은 체력: {attributeSet.Health})");
             if (attributeSet.Health <= 0)
             {
-                //Die();
+                OnDead?.Invoke();
             }
         }
 
+        #region Skill Util
+        public bool IsCooltime(string _skillKey)
+        {
+            if (ownedSkillDict.TryGetValue(_skillKey, out BaseSkill skill))
+            {
+                return skill.IsCooltime;
+            }
+
+            return true;
+        }
+        #endregion
+
+
+        #region Skill Cancel
         public void CancelSkill(string _skillKey)
         {
             if (runningSkillDict.TryGetValue(_skillKey, out CancellationTokenSource cts))
@@ -140,7 +157,6 @@ namespace MS.Skill
                 runningSkillDict.Remove(_skillKey);
             }
         }
-
         public void CancelAllSkills()
         {
             foreach (var cts in runningSkillDict.Values)
@@ -150,5 +166,6 @@ namespace MS.Skill
             }
             runningSkillDict.Clear();
         }
+        #endregion
     }
 }

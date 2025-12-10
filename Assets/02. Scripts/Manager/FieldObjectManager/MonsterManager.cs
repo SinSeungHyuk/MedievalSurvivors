@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using static MS.Field.FieldObject;
 
 namespace MS.Manager
 {
@@ -30,12 +31,42 @@ namespace MS.Manager
 
         public void OnUpdate(float _deltaTime)
         {
-            foreach (MonsterCharacter monster in monsterList)
+            for (int i = monsterList.Count - 1; i >= 0; i--)
             {
+                var monster = monsterList[i];
+                // 리스트 제거 기준 : 실제로 인게임에 존재하는지로 판단
+                if (monster == null || !monster.gameObject.activeSelf)
+                {
+                    monsterList.RemoveAt(i);
+                    continue;
+                }
                 monster.OnUpdate(_deltaTime);
             }
         }
 
+        public MonsterCharacter GetNearestMonster(Vector3 _targetPos, float _searchRange = float.MaxValue)
+        {
+            MonsterCharacter nearestMonster = null;
+            float minDistanceSqr = _searchRange * _searchRange;
+
+            for (int i = 0; i < monsterList.Count; i++)
+            {
+                MonsterCharacter monster = monsterList[i];
+
+                if (monster.ObjectLifeState != FieldObjectLifeState.Live)
+                    continue;
+
+                float distanceSqr = (monster.transform.position - _targetPos).sqrMagnitude;
+
+                if (distanceSqr < minDistanceSqr)
+                {
+                    minDistanceSqr = distanceSqr;
+                    nearestMonster = monster;
+                }
+            }
+
+            return nearestMonster;
+        }
 
         public void ClearMonster()
         {
@@ -72,7 +103,7 @@ namespace MS.Manager
                 var tasks = new List<UniTask>();
                 foreach (var key in uniqueMonsterKeys)
                 {
-                    tasks.Add(ObjectPoolManager.Instance.CreatePoolAsync(key, 50));
+                    tasks.Add(ObjectPoolManager.Instance.CreatePoolAsync(key, 5));
                 }
 
                 await UniTask.WhenAll(tasks);
