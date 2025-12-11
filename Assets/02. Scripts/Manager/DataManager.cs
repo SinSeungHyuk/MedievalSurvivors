@@ -14,7 +14,8 @@ namespace MS.Manager
         public Dictionary<string, CharacterSettingData> CharacterSettingDataDict { get; private set; }
         public Dictionary<string, MonsterSettingData> MonsterSettingDataDict { get; private set; }
         public Dictionary<string, StageSettingData> StageSettingDataDict { get; private set; }
-
+        public Dictionary<string, ItemSettingData> ItemSettingDataDict { get; private set; }
+        
 
         public async UniTask LoadAllGameSettingDataAsync()
         {
@@ -31,6 +32,9 @@ namespace MS.Manager
 
                 TextAsset stageJson = await AddressableManager.Instance.LoadResourceAsync<TextAsset>("StageSettingData");
                 StageSettingDataDict = JsonConvert.DeserializeObject<Dictionary<string, StageSettingData>>(stageJson.text);
+
+                TextAsset itemJson = await AddressableManager.Instance.LoadResourceAsync<TextAsset>("ItemSettingData");
+                ItemSettingDataDict = JsonConvert.DeserializeObject<Dictionary<string, ItemSettingData>>(itemJson.text);
             }
             catch (Exception e)
             {

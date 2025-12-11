@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6057485464142742092
+--- !u!1001 &2093558152713227676
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
       propertyPath: m_Name
-      value: Coin_001
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,20 +74,35 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3414405982030155379}
+      addedObject: {fileID: -2574204228236341723}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4823801812738133852}
   m_SourcePrefab: {fileID: 100100000, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
---- !u!1 &6400155198842421021 stripped
+--- !u!1 &1282604356441829581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
-  m_PrefabInstance: {fileID: 6057485464142742092}
+  m_PrefabInstance: {fileID: 2093558152713227676}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &-3414405982030155379
-MeshCollider:
+--- !u!114 &-2574204228236341723
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6400155198842421021}
+  m_GameObject: {fileID: 1282604356441829581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac22f2809df2a414aa5f92707c7cfd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &4823801812738133852
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282604356441829581}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -96,10 +111,9 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8899949700950356083, guid: 62dfe77cb94f4c443b7ccc8b2136b8e2, type: 3}
+  serializedVersion: 3
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}

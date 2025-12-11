@@ -35,7 +35,7 @@ namespace MS.Manager
             {
                 var monster = monsterList[i];
                 // 리스트 제거 기준 : 실제로 인게임에 존재하는지로 판단
-                if (monster == null || !monster.gameObject.activeSelf)
+                if (monster == null || monster.ObjectLifeState == FieldObjectLifeState.Death)
                 {
                     monsterList.RemoveAt(i);
                     continue;

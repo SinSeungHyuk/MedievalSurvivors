@@ -9,7 +9,7 @@
       "AttackRange": 2.5,
       "DropEXP": 5.0
     },
-    "DropItemKey": "DropItem_Key_Placeholder",
+    "DropItemKey": "Coin",
     "WeaknessAttributeType": "Fire",
     "SkillList": [
       {

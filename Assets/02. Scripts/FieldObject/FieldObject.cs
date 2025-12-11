@@ -9,6 +9,7 @@ namespace MS.Field
             Player,
             Monster,
             SkillObject,
+            FieldItem,
         }
         public enum FieldObjectLifeState
         {

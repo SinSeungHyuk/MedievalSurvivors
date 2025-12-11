@@ -1,0 +1,12 @@
+{
+  "Coin": {
+    "GameplayCueKey": "GC_Test",
+    "ItemType": "Coin",
+    "ItemValue": 10.0
+  },
+  "Hp": {
+    "GameplayCueKey": "GC_Acquire_Health",
+    "ItemType": "Hp",
+    "ItemValue": 50.0
+  }
+}

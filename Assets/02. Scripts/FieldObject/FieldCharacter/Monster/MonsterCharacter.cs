@@ -15,6 +15,7 @@ namespace MS.Field
     public class MonsterCharacter : FieldCharacter
     {
         private string monsterKey;
+        private string dropItemKey;
         private MSStateMachine<MonsterCharacter> monsterStateMachine;
         private List<MonsterSkillSettingData> skillList = new List<MonsterSkillSettingData>();
         private NavMeshAgent navMeshAgent;
@@ -63,6 +64,7 @@ namespace MS.Field
                 SSC.GiveSkill(skillInfo.SkillKey);
             }
             skillList = _monsterData.SkillList;
+            dropItemKey = _monsterData.DropItemKey;
 
             NavMeshHit hit;
             if (NavMesh.SamplePosition(Position, out hit, 5.0f, NavMesh.AllAreas))
@@ -201,13 +203,16 @@ namespace MS.Field
             navMeshAgent.ResetPath();
             Animator.SetTrigger(Settings.AnimHashDead);
             SSC.CancelAllSkills();
-            ObjectLifeState = FieldObjectLifeState.Death;
+            ObjectLifeState = FieldObjectLifeState.Dying;
+
+            FieldItemManager.Instance.SpawnFieldItem(dropItemKey, Position);
         }
         private void OnDeadUpdate(float _dt)
         {
             elapsedDeadTime += _dt;
             if (elapsedDeadTime > 2f)
             {
+                ObjectLifeState = FieldObjectLifeState.Death;
                 ObjectPoolManager.Instance.Return(monsterKey, this.gameObject);
             }
         }
