@@ -1,37 +1,29 @@
 {
   "Teleport": {
-    "skillName": "얼음 화살",
-    "description": "적을 느리게 하는 얼음 화살을 발사합니다.",
-    "coefficient": 1.2,
-    "manaCost": 8,
-    "elementType": "Ice",
-    "Cooltime" : 5
+    "SkillName": "순간이동",
+    "Description": "바라보고 있는 방향으로 순간이동합니다.",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Move" : 5.0
+    }
   },
   "FOBS": {
-    "skillName": "FOBS",
-    "description": "광범위한 지역에 운석을 떨어트립니다.",
-    "coefficient": 5.0,
-    "manaCost": 50,
-    "elementType": "Fire",
-    "Cooltime" : 2
-  },
-  "StoneSlash": {
-    "skillName": "StoneSlash",
-    "description": "광범위한 지역에 운석을 떨어트립니다.",
-    "coefficient": 5.0,
-    "manaCost": 50,
-    "elementType": "Fire",
-    "Cooltime" : 2
+    "SkillName": "궤도폭격",
+    "Description": "가장 가까운 지역에 무수히 많은 폭격을 일으킵니다.",
+    "AttributeType": "Electric",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 5.0,
+      "Damage" : 0.3
+    }
   },
 
 
-
-    "OnehandAttackA": {
-    "skillName": "화염구",
-    "description": "전방에 화염구를 발사합니다.",
-    "coefficient": 1.5,
-    "manaCost": 10,
-    "elementType": "Fire",
-    "Cooltime" : 2
+  "OnehandAttackA": {
+    "Cooltime" : 2,
+    "SkillValueDict": {
+      "Default" : 10.0,
+      "Damage" : 0.4
+    }
   }
 }

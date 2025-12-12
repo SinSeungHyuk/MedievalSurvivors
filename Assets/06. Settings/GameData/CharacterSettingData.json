@@ -1,15 +1,21 @@
 {
-  "TestCharacter": {
-    "CharacterName": "TestCharacter",
-    "AttributeSetSettingData": {
-      "MaxHealth": 120.0,
-      "AttackPower": 18.0,
-      "Defense": 8.0,
-      "CriticChance": 0.15,
-      "CriticMultiple": 1.7,
-      "MoveSpeed" : 5.0
-    },
-    "DefaultSkillKey": "StoneSlash",
-    "DefaultWeaponKey": "Staff02Polyart"
+  "LevelSettingData": {
+    "BaseExp": 50.0,
+    "IncreaseExpPerLevel": 5.0
+  },
+  "CharacterSettingDataDict": {
+    "TestCharacter": {
+      "CharacterName": "TestCharacter",
+      "AttributeSetSettingData": {
+        "MaxHealth": 120.0,
+        "AttackPower": 18.0,
+        "Defense": 8.0,
+        "CriticChance": 0.15,
+        "CriticMultiple": 1.7,
+        "MoveSpeed": 5.0
+      },
+      "DefaultSkillKey": "StoneSlash",
+      "DefaultWeaponKey": "Staff02Polyart"
+    }
   }
 }

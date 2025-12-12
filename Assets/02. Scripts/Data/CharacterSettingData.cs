@@ -1,15 +1,28 @@
 using System;
-using UnityEngine;
-
+using System.Collections.Generic;
 
 namespace MS.Data
 {
+    [Serializable]
+    public class GameCharacterSettingData
+    {
+        public LevelSettingData LevelSettingData { get; set; }
+        public Dictionary<string, CharacterSettingData> CharacterSettingDataDict { get; set; }
+    }
+
+    [Serializable]
+    public class LevelSettingData
+    {
+        public float BaseExp { get; set; }
+        public float IncreaseExpPerLevel { get; set; }
+    }
+
     [Serializable]
     public class CharacterSettingData
     {
         public string CharacterName { get; set; }
         public AttributeSetSettingData AttributeSetSettingData { get; set; }
-        public string DefaultSkillKey { get; set; } // 장착중인 기본스킬 키값
+        public string DefaultSkillKey { get; set; }
         public string DefaultWeaponKey { get; set; }
     }
 

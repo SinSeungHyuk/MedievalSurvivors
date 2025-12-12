@@ -24,7 +24,7 @@ namespace MS.Manager
                 Quaternion.identity
             ).GetComponent< PlayerCharacter>();
 
-            if (!DataManager.Instance.CharacterSettingDataDict.TryGetValue(_key, out CharacterSettingData _characterData))
+            if (!DataManager.Instance.CharacterSettingData.CharacterSettingDataDict.TryGetValue(_key, out CharacterSettingData _characterData))
             {
                 return null;
             }

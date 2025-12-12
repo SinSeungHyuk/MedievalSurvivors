@@ -11,7 +11,7 @@ namespace MS.Manager
     public class DataManager : Singleton<DataManager>
     {
         public Dictionary<string, SkillSettingData> SkillSettingDataDict { get; private set; }
-        public Dictionary<string, CharacterSettingData> CharacterSettingDataDict { get; private set; }
+        public GameCharacterSettingData CharacterSettingData { get; private set; }
         public Dictionary<string, MonsterSettingData> MonsterSettingDataDict { get; private set; }
         public Dictionary<string, StageSettingData> StageSettingDataDict { get; private set; }
         public Dictionary<string, ItemSettingData> ItemSettingDataDict { get; private set; }
@@ -25,7 +25,7 @@ namespace MS.Manager
                 SkillSettingDataDict = JsonConvert.DeserializeObject<Dictionary<string, SkillSettingData>>(skillJson.text);
 
                 TextAsset characterJson = await AddressableManager.Instance.LoadResourceAsync<TextAsset>("CharacterSettingData");
-                CharacterSettingDataDict = JsonConvert.DeserializeObject<Dictionary<string, CharacterSettingData>>(characterJson.text);
+                CharacterSettingData = JsonConvert.DeserializeObject<GameCharacterSettingData>(characterJson.text);
 
                 TextAsset monsterJson = await AddressableManager.Instance.LoadResourceAsync<TextAsset>("MonsterSettingData");
                 MonsterSettingDataDict = JsonConvert.DeserializeObject<Dictionary<string, MonsterSettingData>>(monsterJson.text);
