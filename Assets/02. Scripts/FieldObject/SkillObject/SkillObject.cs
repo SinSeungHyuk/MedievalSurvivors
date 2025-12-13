@@ -15,6 +15,8 @@ namespace MS.Field
         protected LayerMask targetLayer;
         protected int hitCountPerAttack;
         protected int maxAttackCount;
+        protected FieldObject traceTarget;
+        protected Vector3 targetOffset;
 
         private string skillObjectKey;
         private float duration;
@@ -31,8 +33,6 @@ namespace MS.Field
                 ObjectLifeState = FieldObjectLifeState.Death;
             }
         }
-
-        public virtual void OnFixedUpdate(float _fixedDeltaTime) { }
 
         public void InitSkillObject(string _skillObjectKey, FieldCharacter _owner, LayerMask _targetLayer)
         {
@@ -57,6 +57,14 @@ namespace MS.Field
             => duration = _duration;
         public void SetHitCallback(Action<SkillObject, SkillSystemComponent> _onHitCallback)
             => onHitCallback = _onHitCallback;
+
+        public void SetTraceTarget(FieldObject _target, Vector3 _offset = default)
+        {
+            traceTarget = _target;
+            targetOffset = _offset;
+        }
+        public void ClearTraceTarget() 
+            => traceTarget = null;
 
         protected bool IsValidTarget(Collider _other, out SkillSystemComponent _ssc)
         {

@@ -19,13 +19,15 @@ namespace MS.Skill
         public override async UniTask ActivateSkill(CancellationToken token)
         {
             float damage = ownerSSC.AttributeSet.AttackPower.Value * skillData.SkillValueDict[ESkillValueType.Damage] + skillData.SkillValueDict[ESkillValueType.Default];
-            float speedDebuff = skillData.SkillValueDict[ESkillValueType.Buff];
+            float speedBuff = skillData.SkillValueDict[ESkillValueType.Buff];
+            ownerSSC.AttributeSet.MoveSpeed.AddBonusStat("SlashGreen", EBonusType.Percentage, speedBuff);
 
-            var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_Blizzard", owner, Settings.MonsterLayer);
-            skillObject.InitArea(0.2f);
-            skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
-            skillObject.SetDuration(4f);
-            skillObject.SetMaxHitCount(17);
+            var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_SlashGreen", owner, Settings.MonsterLayer);
+            skillObject.InitArea();
+            skillObject.SetDuration(2.5f);
+            skillObject.SetDelay(1f);
+            skillObject.SetTraceTarget(owner, new Vector3(0f, 0.5f, 0f));
+            skillObject.SetMaxHitCount(1);
             skillObject.SetHitCountPerAttack(1);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
@@ -38,12 +40,11 @@ namespace MS.Skill
                         _knockbackForce: 0f
                     );
                 _ssc.TakeDamage(damageInfo);
-
-                _ssc.AttributeSet.MoveSpeed.AddBonusStat("Blizzard", EBonusType.Percentage, speedDebuff);
             });
 
+            await UniTask.WaitForSeconds(1);
 
-            await UniTask.CompletedTask;
+            ownerSSC.AttributeSet.MoveSpeed.RemoveBonusStat("SlashGreen");
         }
     }
 }

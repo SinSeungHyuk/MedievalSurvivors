@@ -56,7 +56,7 @@
     "Cooltime" : 5,
     "SkillValueDict": {
       "Default" : 2.0,
-      "Damage" : 0.2,
+      "Damage" : 0.2
     }
   },
   "FastCrystal": {
@@ -66,7 +66,38 @@
     "Cooltime" : 5,
     "SkillValueDict": {
       "Default" : 3.0,
+      "Damage" : 0.5
+    }
+  },
+  "SlashBlue": {
+    "SkillName": "블루 슬래쉬",
+    "Description": "사방에 파란색 검기를 날립니다.",
+    "AttributeType": "Ice",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 3.0,
+      "Damage" : 0.5
+    }
+  },
+  "SlashGreen": {
+    "SkillName": "그린 슬래쉬",
+    "Description": "이동속도가 잠시 증가하며 사방에 초록색 검기를 날립니다.",
+    "AttributeType": "Wind",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 3.0,
       "Damage" : 0.5,
+      "Buff" : 100
+    }
+  },
+  "SlashOrange": {
+    "SkillName": "레드 슬래쉬",
+    "Description": "사방에 불꽃 검기를 날립니다.",
+    "AttributeType": "Fire",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 3.0,
+      "Damage" : 0.5
     }
   },
 

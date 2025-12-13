@@ -32,11 +32,6 @@ namespace MS.Mode
             MonsterManager.Instance.OnUpdate(Time.deltaTime);
         }
 
-        public virtual void OnFixedUpdate(float _fixedDeltaTime)
-        {
-            SkillObjectManager.Instance.OnFixedUpdate(Time.fixedDeltaTime);
-        }
-
         public virtual void EndMode() { }
 
         protected abstract void OnRegisterStates();

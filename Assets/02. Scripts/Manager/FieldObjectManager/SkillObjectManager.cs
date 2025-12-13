@@ -45,14 +45,6 @@ namespace MS.Manager
             releaseSkillObjectList.Clear();
         }
 
-        public void OnFixedUpdate(float _fixedDeltaTime)
-        {
-            foreach (SkillObject skillObject in skillObjectList)
-            {
-                skillObject.OnFixedUpdate(_fixedDeltaTime);
-            }
-        }
-
         public void ClearSkillObject()
         {
             skillObjectList.Clear();

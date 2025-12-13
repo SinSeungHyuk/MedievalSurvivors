@@ -41,6 +41,14 @@ namespace MS.Field
         {
             base.OnUpdate(_deltaTime);
 
+            if (traceTarget != null)
+            {
+                if (traceTarget.ObjectLifeState == FieldObjectLifeState.Live)
+                    transform.position = traceTarget.Position + targetOffset;
+                else
+                    ClearTraceTarget();
+            }
+
             // 1. 스킬 최초 사용시 딜레이 적용
             if (delayTime > 0f && elapsedDelayTime < delayTime)
             {

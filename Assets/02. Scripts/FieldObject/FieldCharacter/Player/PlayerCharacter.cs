@@ -48,7 +48,9 @@ namespace MS.Field
             SSC.GiveSkill("Blizzard");
             SSC.GiveSkill("FastCrystal");
             SSC.GiveSkill("CrystalFront");
-            SSC.GiveSkill("BigCrystal");
+            SSC.GiveSkill("BigCrystal"); 
+            SSC.GiveSkill("SlashBlue"); 
+            SSC.GiveSkill("SlashGreen");
         }
 
         public void SetMovementLock(bool isLocked)
@@ -56,16 +58,14 @@ namespace MS.Field
             IsMovementLocked = isLocked;
         }
 
-        #region TEST 
         // TODO :: INPUT TEST
         public void OnInteract(InputValue value)
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("BigCrystal").Forget();
+                SSC.UseSkill("SlashGreen").Forget();
                 //SSC.UseSkill("Teleport").Forget();
             }
         }
-        #endregion
     }
 }

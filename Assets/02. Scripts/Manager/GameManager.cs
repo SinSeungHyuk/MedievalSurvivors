@@ -34,14 +34,6 @@ namespace MS.Manager
         {
             if (curGameMode != null)
                 curGameMode.OnUpdate(Time.deltaTime);
-            
-        }
-
-        private void FixedUpdate()
-        {
-            if (curGameMode != null)
-                curGameMode.OnFixedUpdate(Time.fixedDeltaTime);
-            
         }
 
         public async void StartGameAsync()

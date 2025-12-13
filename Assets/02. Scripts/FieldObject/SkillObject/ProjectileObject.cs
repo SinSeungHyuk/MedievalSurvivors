@@ -33,11 +33,17 @@ namespace MS.Field
         public override void OnUpdate(float _deltaTime)
         {
             base.OnUpdate(_deltaTime);
-        }
 
-        public override void OnFixedUpdate(float _fixedDeltaTime)
-        {
-            transform.position += (moveDir * moveSpeed * _fixedDeltaTime);
+            if (traceTarget != null && traceTarget.ObjectLifeState == FieldObjectLifeState.Live)
+            {
+                Vector3 targetPos = traceTarget.Position + targetOffset;
+                transform.position = Vector3.MoveTowards(Position, targetPos, moveSpeed * _deltaTime);
+                transform.LookAt(targetPos);
+            }
+            else
+            {
+                transform.position += (moveDir * moveSpeed * _deltaTime);
+            }
         }
     }
 }
