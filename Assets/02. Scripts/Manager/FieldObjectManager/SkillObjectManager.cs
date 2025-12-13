@@ -64,8 +64,6 @@ namespace MS.Manager
             {
                 var tasks = new List<UniTask>
                 {
-                    ObjectPoolManager.Instance.CreatePoolAsync("Projectile_StoneSlash", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Area_StoneSlash", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_FOBS", 10),
                     // ...
                 };

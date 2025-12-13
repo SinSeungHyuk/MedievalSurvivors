@@ -90,6 +90,7 @@ public class Stat
         }
 
         // 모든 깡수치를 더하고 거기에 모든 % 수치를 합연산
-        return finalFlat * (1 + (totalPercent / 100f));
+        float calculatedValue = finalFlat * (1 + (totalPercent / 100f));
+        return Mathf.Max(0f, calculatedValue);
     }
 }

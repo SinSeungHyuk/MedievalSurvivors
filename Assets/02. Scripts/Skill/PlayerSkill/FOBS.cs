@@ -26,6 +26,7 @@ namespace MS.Skill
             skillObject.SetDuration(4f);
             skillObject.SetMaxHitCount(int.MaxValue);
             skillObject.SetHitCountPerAttack(1);
+            skillObject.SetDelay(3f);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
                 DamageInfo damageInfo = new DamageInfo(
