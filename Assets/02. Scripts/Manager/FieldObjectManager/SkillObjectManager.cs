@@ -67,6 +67,14 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_FOBS", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_Blizzard", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_Meteor", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_BigCrystal", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_CrystalFront", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_FastCrystal", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_Plexus", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_RedExplosion", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashBlue", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashGreen", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashOrange", 10),
                     // ...
                 };
 

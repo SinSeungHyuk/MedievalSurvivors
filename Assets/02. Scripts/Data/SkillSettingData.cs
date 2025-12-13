@@ -24,6 +24,5 @@ namespace MS.Data
         Buff,               // 버프 효과 배율 (예: 0.15 = 15% 증가)
         Duration,           // 지속 시간 (예: 버프 지속 시간)
         Casting,            // 캐스팅 시간
-        Delay,              // 스킬 지연시간 (예: 1초 후 폭발)
     }
 }

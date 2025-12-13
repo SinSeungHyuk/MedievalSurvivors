@@ -57,6 +57,7 @@ namespace MS.Field
 
             MonsterAttributeSet monsterAttributeSet = new MonsterAttributeSet();
             monsterAttributeSet.InitAttributeSet(_monsterData.AttributeSetSettingData);
+            monsterAttributeSet.MoveSpeed.OnValueChanged -= OnMoveSpeedChanged;
             monsterAttributeSet.MoveSpeed.OnValueChanged += OnMoveSpeedChanged;
             SSC.InitSSC(this, monsterAttributeSet);
 

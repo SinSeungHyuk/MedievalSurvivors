@@ -56,8 +56,8 @@ namespace MS.Skill
 
             //await UniTask.Delay(3000);
 
-            //GameplayCueManager.Instance.PlayCue("GC_Test", owner);
             //owner.Animator.SetBool("Attack02Casting", false);
+            //GameplayCueManager.Instance.PlayCue("GC_Test", owner);
 
             //CheckHit();
         }

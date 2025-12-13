@@ -13,7 +13,7 @@ namespace MS.Field
         private float elapsedDelayTime;
 
 
-        public void InitArea(float _attackInterval)
+        public void InitArea(float _attackInterval = 0)
         {
             attackInterval = _attackInterval;
             elapsedAttackTime = _attackInterval;

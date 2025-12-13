@@ -38,6 +38,37 @@
       "Buff" : -90
     }
   },
+  "BigCrystal": {
+    "SkillName": "빅 크리스탈",
+    "Description": "거대한 얼음 수정을 떨어트립니다.",
+    "AttributeType": "Ice",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 10.0,
+      "Damage" : 0.7,
+      "Casting" : 3
+    }
+  },
+  "CrystalFront": {
+    "SkillName": "얼음길",
+    "Description": "전방으로 얼음조각을 뿌립니다.",
+    "AttributeType": "Ice",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 2.0,
+      "Damage" : 0.2,
+    }
+  },
+  "FastCrystal": {
+    "SkillName": "패스트 크리스탈",
+    "Description": "빠르게 얼음 수정을 떨어트립니다.",
+    "AttributeType": "Ice",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 3.0,
+      "Damage" : 0.5,
+    }
+  },
 
 
   "OnehandAttackA": {

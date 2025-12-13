@@ -21,6 +21,9 @@ namespace MS.Utils
         #endregion
 
         #region ANIMATION
+        public static int AnimHashAttack = Animator.StringToHash("Attack01");
+        public static int AnimHashCasting = Animator.StringToHash("Attack02Casting");
+
         public static int AnimHashSpeed = Animator.StringToHash("Speed");
         public static int AnimHashRun = Animator.StringToHash("Run");
         public static int AnimHashIdle = Animator.StringToHash("Idle");
