@@ -17,6 +17,27 @@
       "Damage" : 0.3
     }
   },
+  "Meteor": {
+    "SkillName": "메테오",
+    "Description": "가장 가까운 지역에 운석들을 떨어트립니다.",
+    "AttributeType": "Fire",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 2.5,
+      "Damage" : 0.5
+    }
+  },
+  "Blizzard": {
+    "SkillName": "눈보라",
+    "Description": "가장 가까운 지역에 눈보라를 일으킵니다.",
+    "AttributeType": "Ice",
+    "Cooltime" : 5,
+    "SkillValueDict": {
+      "Default" : 4.0,
+      "Damage" : 0.2,
+      "Buff" : -90
+    }
+  },
 
 
   "OnehandAttackA": {

@@ -65,6 +65,8 @@ namespace MS.Manager
                 var tasks = new List<UniTask>
                 {
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_FOBS", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_Blizzard", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_Meteor", 10),
                     // ...
                 };
 

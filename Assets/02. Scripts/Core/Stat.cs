@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,23 +18,16 @@ public struct BonusStat
 [System.Serializable]
 public class Stat
 {
+    // 스탯 변경 이벤트
+    public event Action<float> OnValueChanged;
+
     // 보너스 스탯을 얻은 키로 관리하는 보너스 스탯 딕셔너리
     private Dictionary<string, BonusStat> bonusStatDict = new Dictionary<string, BonusStat>();
 
     private float baseValue;
-    public float BaseValue
-    {
-        get => baseValue;
-        set
-        {
-            baseValue = value;
-        }
-    }
+    public float BaseValue => baseValue;
 
-    public float Value
-    {
-        get => CalcValue();
-    }
+    public float Value => CalcValue();
 
 
     public Stat(float _baseValue)
@@ -54,6 +48,8 @@ public class Stat
         {
             bonusStatDict.Add(_key, newBonusStat);
         }
+
+        OnValueChanged?.Invoke(Value);
     }
 
     public void RemoveBonusStat(string _key)
@@ -61,6 +57,7 @@ public class Stat
         if (bonusStatDict.ContainsKey(_key))
         {
             bonusStatDict.Remove(_key);
+            OnValueChanged?.Invoke(Value);
         }
     }
 
@@ -69,6 +66,7 @@ public class Stat
         if (bonusStatDict.Count > 0)
         {
             bonusStatDict.Clear();
+            OnValueChanged?.Invoke(Value);
         }
     }
 

@@ -44,6 +44,8 @@ namespace MS.Field
 
             // TODO TEST
             SSC.GiveSkill("FOBS");
+            SSC.GiveSkill("Meteor");
+            SSC.GiveSkill("Blizzard");
         }
 
         public void SetMovementLock(bool isLocked)
@@ -57,7 +59,7 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("FOBS").Forget();
+                SSC.UseSkill("Blizzard").Forget();
                 //SSC.UseSkill("Teleport").Forget();
             }
         }

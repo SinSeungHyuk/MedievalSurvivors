@@ -26,13 +26,12 @@ namespace MS.Skill
             skillObject.SetDuration(4f);
             skillObject.SetMaxHitCount(int.MaxValue);
             skillObject.SetHitCountPerAttack(1);
-            skillObject.SetDelay(3f);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
                 DamageInfo damageInfo = new DamageInfo(
                         _attacker: owner,
                         _target: _ssc.Owner,
-                        _attributeType: EDamageAttributeType.Electric,
+                        _attributeType: skillData.AttributeType,
                         _damage: damage,
                         _isCritic: false,
                         _knockbackForce: 0f

@@ -58,7 +58,11 @@ namespace MS.Field
             if (elapsedAttackTime < attackInterval)
                 return;
 
-            // 3. 유효한 대상에게 히트콜백 적용
+            // 3. 남은 타격횟수 계산 (Area는 Duration으로 공격종료 판단)
+            if (maxAttackCount <= 0) return;
+            maxAttackCount--;
+
+            // 4. 유효한 대상에게 히트콜백 적용
             for (int i = attackTargetList.Count - 1; i >= 0; i--)
             {
                 var attackTarget = attackTargetList[i];
@@ -74,11 +78,6 @@ namespace MS.Field
                 }
             }
             elapsedAttackTime = 0f;
-            
-            // 4. 남은 타격횟수 계산
-            maxAttackCount--;
-            if (maxAttackCount <= 0)
-                ObjectLifeState = FieldObjectLifeState.Death;
         }
     }
 }

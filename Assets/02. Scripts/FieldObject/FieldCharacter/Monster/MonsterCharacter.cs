@@ -57,6 +57,7 @@ namespace MS.Field
 
             MonsterAttributeSet monsterAttributeSet = new MonsterAttributeSet();
             monsterAttributeSet.InitAttributeSet(_monsterData.AttributeSetSettingData);
+            monsterAttributeSet.MoveSpeed.OnValueChanged += OnMoveSpeedChanged;
             SSC.InitSSC(this, monsterAttributeSet);
 
             foreach (var skillInfo in _monsterData.SkillList)
@@ -83,10 +84,18 @@ namespace MS.Field
         }
 
 
+        #region Callback
         private void OnDeadCallback()
         {
             monsterStateMachine.TransitState((int)MonsterState.Dead);
         }
+
+        private void OnMoveSpeedChanged(float _newSpeed)
+        {
+            navMeshAgent.speed = _newSpeed;
+        }
+        #endregion
+
 
         #region Idle
         private float elapsedIdleTime = 0f;
