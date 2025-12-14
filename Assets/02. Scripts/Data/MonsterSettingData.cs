@@ -13,7 +13,6 @@ namespace MS.Data
         public string MonsterName { get; set; }
         public MonsterAttributeSetSettingData AttributeSetSettingData { get; set; }
         public string DropItemKey { get; set; }
-        public EDamageAttributeType WeaknessAttributeType { get; set; } // 약점 속성
         public List<MonsterSkillSettingData> SkillList { get; set; } // 장착중인 기본스킬 리스트
     }
 
@@ -25,7 +24,7 @@ namespace MS.Data
         public float Defense { get; set; }
         public float MoveSpeed { get; set; }
         public float AttackRange { get; set; }
-        public float DropEXP { get; set; }
+        public EDamageAttributeType WeaknessAttributeType { get; set; } // 약점 속성
     }
 
     [Serializable]

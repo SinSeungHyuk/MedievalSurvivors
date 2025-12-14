@@ -63,7 +63,7 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("SlashGreen").Forget();
+                SSC.UseSkill("FOBS").Forget();
                 //SSC.UseSkill("Teleport").Forget();
             }
         }

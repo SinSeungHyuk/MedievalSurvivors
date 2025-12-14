@@ -14,7 +14,7 @@
           }
         ],
         "BossMonsterKey": null,
-        "SpawnInterval": 2.5,
+        "SpawnInterval": 5,
         "CountPerSpawn": 1
       },
       {

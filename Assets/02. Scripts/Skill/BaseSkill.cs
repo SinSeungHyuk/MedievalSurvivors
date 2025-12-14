@@ -2,9 +2,9 @@ using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Field;
 using MS.Skill;
+using MS.Utils;
 using System.Threading;
 using UnityEngine;
-using static UnityEngine.UI.GridLayoutGroup;
 
 
 namespace MS.Skill
@@ -34,6 +34,18 @@ namespace MS.Skill
         public abstract UniTask ActivateSkill(CancellationToken token);
 
         public void SetCooltime() => curCooltime = skillData.Cooltime;
+
+
+        #region Util
+        // 스킬 캐스팅 세팅 (플레이어만 호출할 함수)
+        public async UniTask SetSkillCasting(CancellationToken token)
+        {
+            owner.Animator.SetBool(Settings.AnimHashCasting, true);
+            await UniTask.WaitForSeconds(skillData.SkillValueDict[ESkillValueType.Casting]);
+            owner.Animator.SetBool(Settings.AnimHashCasting, false);
+        }
+        #endregion
+
 
         public void UpdateCooltime(float _deltaTime)
         {

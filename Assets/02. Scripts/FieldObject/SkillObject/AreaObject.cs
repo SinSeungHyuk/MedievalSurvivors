@@ -41,6 +41,7 @@ namespace MS.Field
         {
             base.OnUpdate(_deltaTime);
 
+            // 0. 대상 추적
             if (traceTarget != null)
             {
                 if (traceTarget.ObjectLifeState == FieldObjectLifeState.Live)

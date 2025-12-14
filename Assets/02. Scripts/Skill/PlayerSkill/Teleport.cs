@@ -27,7 +27,7 @@ namespace MS.Skill
             Vector3 moveDir = playerController.MoveDir;
             if (moveDir == Vector3.zero) moveDir = owner.transform.forward;
 
-            float teleportRange = skillData.SkillValueDict[ESkillValueType.Move];
+            float teleportRange = skillData.GetValue(ESkillValueType.Move);
             Vector3 currentPos = owner.Position;
             Vector3 targetPos = currentPos + (moveDir.normalized * teleportRange);
 

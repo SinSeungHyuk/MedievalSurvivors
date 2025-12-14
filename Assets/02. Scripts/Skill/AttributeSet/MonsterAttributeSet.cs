@@ -1,9 +1,10 @@
 using MS.Data;
+using MS.Skill;
 using UnityEngine;
 
 public class MonsterAttributeSet : BaseAttributeSet
 {
-    public Stat DropEXP { get; protected set; }
+    public EDamageAttributeType WeaknessAttributeType { get; protected set; }
     public Stat AttackRange { get; protected set; }
     
 
@@ -15,6 +16,6 @@ public class MonsterAttributeSet : BaseAttributeSet
         Defense = new Stat(_monsterData.Defense);
         MoveSpeed = new Stat(_monsterData.MoveSpeed);
         AttackRange = new Stat(_monsterData.AttackRange);
-        DropEXP = new Stat(_monsterData.DropEXP);
+        WeaknessAttributeType = _monsterData.WeaknessAttributeType;
     }
 }

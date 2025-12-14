@@ -11,14 +11,18 @@ namespace MS.Skill
 {
     public class FOBS : BaseSkill
     {
+        private PlayerAttributeSet playerAttriSet;
+
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             base.InitSkill(_owner, _skillData);
+
+            playerAttriSet = (_owner.AttributeSet) as PlayerAttributeSet;
         }
 
         public override async UniTask ActivateSkill(CancellationToken token)
         {
-            float damage = ownerSSC.AttributeSet.AttackPower.Value * skillData.SkillValueDict[ESkillValueType.Damage] + skillData.SkillValueDict[ESkillValueType.Default];
+            owner.Animator.SetTrigger(Settings.AnimHashAttack);
 
             var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_FOBS", owner, Settings.MonsterLayer);
             skillObject.InitArea(0.2f);
@@ -28,14 +32,17 @@ namespace MS.Skill
             skillObject.SetHitCountPerAttack(1);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
+                float damage = BattleUtils.CalcSkillBaseDamage(ownerSSC.AttributeSet.AttackPower.Value, skillData);
+                bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, playerAttriSet.CriticChance.Value, playerAttriSet.CriticMultiple.Value, out float finalDamage);
+
                 DamageInfo damageInfo = new DamageInfo(
-                        _attacker: owner,
-                        _target: _ssc.Owner,
-                        _attributeType: skillData.AttributeType,
-                        _damage: damage,
-                        _isCritic: false,
-                        _knockbackForce: 0f
-                    );
+                    _attacker: owner,
+                    _target: _ssc.Owner,
+                    _attributeType: skillData.AttributeType,
+                    _damage: finalDamage,
+                    _isCritic: isCritic,
+                    _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
+                );
                 _ssc.TakeDamage(damageInfo);
             });
 

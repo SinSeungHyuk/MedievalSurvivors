@@ -11,17 +11,20 @@ namespace MS.Skill
 {
     public class RedExplosion : BaseSkill
     {
+        private PlayerAttributeSet playerAttriSet;
+
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             base.InitSkill(_owner, _skillData);
+
+            playerAttriSet = (_owner.AttributeSet) as PlayerAttributeSet;
         }
 
         public override async UniTask ActivateSkill(CancellationToken token)
         {
-            float damage = ownerSSC.AttributeSet.AttackPower.Value * skillData.SkillValueDict[ESkillValueType.Damage] + skillData.SkillValueDict[ESkillValueType.Default];
-            float speedDebuff = skillData.SkillValueDict[ESkillValueType.Buff];
+            owner.Animator.SetTrigger(Settings.AnimHashAttack);
 
-            var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_Blizzard", owner, Settings.MonsterLayer);
+            var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_RedExplosion", owner, Settings.MonsterLayer);
             skillObject.InitArea(0.2f);
             skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
             skillObject.SetDuration(4f);
@@ -29,16 +32,20 @@ namespace MS.Skill
             skillObject.SetHitCountPerAttack(1);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
+                float damage = BattleUtils.CalcSkillBaseDamage(ownerSSC.AttributeSet.AttackPower.Value, skillData);
+                bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, playerAttriSet.CriticChance.Value, playerAttriSet.CriticMultiple.Value, out float finalDamage);
+
                 DamageInfo damageInfo = new DamageInfo(
-                        _attacker: owner,
-                        _target: _ssc.Owner,
-                        _attributeType: skillData.AttributeType,
-                        _damage: damage,
-                        _isCritic: false,
-                        _knockbackForce: 0f
-                    );
+                    _attacker: owner,
+                    _target: _ssc.Owner,
+                    _attributeType: skillData.AttributeType,
+                    _damage: finalDamage,
+                    _isCritic: isCritic,
+                    _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
+                );
                 _ssc.TakeDamage(damageInfo);
 
+                float speedDebuff = skillData.GetValue(ESkillValueType.Buff);
                 _ssc.AttributeSet.MoveSpeed.AddBonusStat("Blizzard", EBonusType.Percentage, speedDebuff);
             });
 
