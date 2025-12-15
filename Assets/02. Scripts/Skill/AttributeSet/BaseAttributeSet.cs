@@ -1,3 +1,4 @@
+using MS.Skill;
 using System;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class BaseAttributeSet
     public Stat AttackPower { get; protected set; } 
     public Stat Defense { get; protected set; }
     public Stat MoveSpeed { get; protected set; }
+    public EDamageAttributeType WeaknessAttributeType { get; protected set; } // 약점 속성
 
 
     public float Health
@@ -27,4 +29,6 @@ public class BaseAttributeSet
             }
         }
     }
+
+    public float HealthRatio => Health / MaxHealth.Value;
 }

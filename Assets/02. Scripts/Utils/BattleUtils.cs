@@ -1,4 +1,5 @@
 using MS.Data;
+using MS.Skill;
 using UnityEngine;
 
 
@@ -15,6 +16,15 @@ namespace MS.Utils
             finalDamage = MathUtils.DecreaseByPercent(finalDamage, defensePercent);
 
             return finalDamage;
+        }
+
+        // 약점 속성 계산
+        public static float CalcWeaknessAttribute(float _finalDamage, EDamageAttributeType _damageType, EDamageAttributeType _weaknessType)
+        {
+            if ((_damageType & _weaknessType) != 0)
+                _finalDamage *= Settings.WeaknessAttributeMultiple;
+
+            return _finalDamage;
         }
 
         // 스킬 기본데미지 계산

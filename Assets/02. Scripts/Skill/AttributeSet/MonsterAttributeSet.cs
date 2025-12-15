@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterAttributeSet : BaseAttributeSet
 {
-    public EDamageAttributeType WeaknessAttributeType { get; protected set; }
     public Stat AttackRange { get; protected set; }
     
 

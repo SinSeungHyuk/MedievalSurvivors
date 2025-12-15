@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MS.Field
 {
-    public class FieldCharacter : FieldObject
+    public abstract class FieldCharacter : FieldObject
     {
         private Animator animator;
 
@@ -17,5 +17,7 @@ namespace MS.Field
             SSC = gameObject.AddComponent<SkillSystemComponent>();
             animator = GetComponent<Animator>();
         }
+
+        public abstract void ApplyKnockback(Vector3 _dir, float _force);
     }
 }

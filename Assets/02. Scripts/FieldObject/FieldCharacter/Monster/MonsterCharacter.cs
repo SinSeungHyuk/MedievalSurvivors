@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using MS.Core.StateMachine;
 using MS.Data;
 using MS.Manager;
@@ -82,6 +83,30 @@ namespace MS.Field
         public void OnUpdate(float _deltaTime)
         {
             monsterStateMachine.OnUpdate(_deltaTime);
+        }
+
+        public override void ApplyKnockback(Vector3 _dir, float _force)
+        {
+            if (ObjectLifeState != FieldObjectLifeState.Live) return;
+
+            navMeshAgent.isStopped = true;
+            navMeshAgent.ResetPath();
+
+            DOVirtual.Float(_force, 0, 0.2f, (currentForce) =>
+            {
+                if (ObjectLifeState != FieldObjectLifeState.Live) return;
+
+                Vector3 moveVec = _dir * currentForce * Time.deltaTime;
+                navMeshAgent.Move(moveVec);
+            })
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                if (ObjectLifeState == FieldObjectLifeState.Live)
+                {
+                    navMeshAgent.isStopped = false;
+                }
+            });
         }
 
 

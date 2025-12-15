@@ -7,10 +7,9 @@
       "Defense": 8.0,
       "MoveSpeed": 3.0,
       "AttackRange": 2.5,
-      "DropEXP": 5.0
+      "WeaknessAttributeType": "Fire"
     },
     "DropItemKey": "Coin",
-    "WeaknessAttributeType": "Fire",
     "SkillList": [
       {
         "SkillKey": "OnehandAttackA",

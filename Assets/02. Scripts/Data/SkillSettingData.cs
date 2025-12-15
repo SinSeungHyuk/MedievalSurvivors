@@ -13,6 +13,7 @@ namespace MS.Data
         public string Description { get; set; }
         public EDamageAttributeType AttributeType { get; set; }
         public float Cooltime { get; set; }
+        public bool IsPostUseCooltime { get; set; } // 스킬을 사용한 후에 쿨타임이 시작되는지 여부
         public Dictionary<ESkillValueType, float> SkillValueDict { get; set; }
 
 

@@ -25,7 +25,8 @@ namespace MS.Skill
             owner.Animator.SetTrigger(Settings.AnimHashAttack);
 
             var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_Blizzard", owner, Settings.MonsterLayer);
-            skillObject.InitArea(0.2f);
+            skillObject.InitArea();
+            skillObject.SetAttackInterval(0.2f);
             skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
             skillObject.SetDuration(4f);
             skillObject.SetMaxHitCount(17);

@@ -58,12 +58,17 @@ namespace MS.Field
             IsMovementLocked = isLocked;
         }
 
+        public override void ApplyKnockback(Vector3 _dir, float _force)
+        {
+
+        }
+
         // TODO :: INPUT TEST
         public void OnInteract(InputValue value)
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("FOBS").Forget();
+                SSC.UseSkill("SlashBlue").Forget();
                 //SSC.UseSkill("Teleport").Forget();
             }
         }

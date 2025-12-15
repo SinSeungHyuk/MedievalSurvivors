@@ -19,6 +19,7 @@ namespace MS.Skill
         private int curSkillLevel;
 
         public bool IsCooltime => curCooltime > 0;
+        public bool IsPostUseCooltime => skillData.IsPostUseCooltime;
         public int CurSkillLevel => curSkillLevel;
 
 

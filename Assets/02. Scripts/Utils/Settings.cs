@@ -8,6 +8,7 @@ namespace MS.Utils
         #region BATTLE SETTING
         public static int MaxWaveCount = 5;
         public static int BattleScalingConstant = 100;
+        public static float WeaknessAttributeMultiple = 1.3f; // 약점속성 추가 데미지
 
         public static float DefaultMinSpawnDistance = 5f; // 몬스터 스폰 플레이어 최소거리
         public static float DefaultMaxSpawnDistance = 10f;

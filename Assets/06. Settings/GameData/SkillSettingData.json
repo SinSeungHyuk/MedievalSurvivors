@@ -43,6 +43,7 @@
     "Description": "거대한 얼음 수정을 떨어트립니다.",
     "AttributeType": "Ice",
     "Cooltime" : 5,
+    "IsPostUseCooltime" : true,
     "SkillValueDict": {
       "Default" : 10.0,
       "Damage" : 0.7,
@@ -76,7 +77,8 @@
     "Cooltime" : 5,
     "SkillValueDict": {
       "Default" : 3.0,
-      "Damage" : 0.5
+      "Damage" : 0.5,
+      "Knockback" : 50
     }
   },
   "SlashGreen": {

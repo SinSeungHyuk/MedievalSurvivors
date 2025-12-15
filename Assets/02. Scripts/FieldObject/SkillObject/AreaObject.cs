@@ -13,15 +13,20 @@ namespace MS.Field
         private float elapsedDelayTime;
 
 
-        public void InitArea(float _attackInterval = 0)
+        public void InitArea()
         {
-            attackInterval = _attackInterval;
-            elapsedAttackTime = _attackInterval;
+            attackInterval = 0f;
+            elapsedAttackTime = 0f;
             delayTime = 0f;
         }
 
-        public void SetDelay(float _delay) 
+        public void SetDelay(float _delay)
             => delayTime = _delay;
+        public void SetAttackInterval(float _attackInterval)
+        {
+            attackInterval = _attackInterval;
+            elapsedAttackTime = attackInterval;
+        }
 
 
         public void OnTriggerEnter(Collider _other)

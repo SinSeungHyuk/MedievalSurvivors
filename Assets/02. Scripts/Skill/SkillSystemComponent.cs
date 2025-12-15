@@ -77,11 +77,7 @@ namespace MS.Skill
 
         public async UniTask UseSkill(string _skillKey)
         {
-            if (!ownedSkillDict.TryGetValue(_skillKey, out BaseSkill skillToUse))
-            {
-                return;
-            }
-
+            if (!ownedSkillDict.TryGetValue(_skillKey, out BaseSkill skillToUse)) return;
             if (skillToUse.IsCooltime) return;
 
             CancelSkill(_skillKey);
@@ -91,7 +87,7 @@ namespace MS.Skill
 
             try
             {
-                skillToUse.SetCooltime();
+                if (!skillToUse.IsPostUseCooltime) skillToUse.SetCooltime();
                 await skillToUse.ActivateSkill(cts.Token);
             }
             catch (OperationCanceledException)
@@ -104,6 +100,8 @@ namespace MS.Skill
             }
             finally
             {
+                if (skillToUse.IsPostUseCooltime) skillToUse.SetCooltime();
+
                 // 스킬이 완료되었든, 캔슬되었든, 오류가 났든 실행 목록에서 제거
                 if (runningSkillDict.ContainsKey(_skillKey))
                 {
@@ -119,19 +117,31 @@ namespace MS.Skill
 
             float finalDamage = _damageInfo.Damage;
 
-            // TODO :: 방어력, 약점속성 계산으로 최종 데미지 결정
+            // 방어력, 약점속성 계산으로 최종 데미지 결정
+            finalDamage = BattleUtils.CalcWeaknessAttribute(finalDamage, _damageInfo.AttributeType, attributeSet.WeaknessAttributeType);
             finalDamage = BattleUtils.CalcDefenseStat(finalDamage, attributeSet.Defense.Value);
             attributeSet.Health -= finalDamage;
 
             // TODO :: 넉백,데미지 텍스트
+            ApplyKnockback(_damageInfo);
             //ShowDamageText(finalDamage, damageInfo.IsCritical, damageInfo.AttributeType);
-            //ApplyKnockback(damageInfo);
 
             Debug.Log($"[피격] {owner.name}가 {finalDamage}의 피해를 입음 (남은 체력: {attributeSet.Health})");
             if (attributeSet.Health <= 0)
             {
                 OnDead?.Invoke();
             }
+        }
+
+        private void ApplyKnockback(DamageInfo _damageInfo)
+        {
+            if (_damageInfo.KnockbackForce <= 0 || _damageInfo.Attacker == null) return;
+
+            // onwer(피격자) <-> Attacker(공격자) 넉백의 방향 구하기
+            Vector3 knockbackDir = (owner.Position - _damageInfo.Attacker.Position).normalized;
+            knockbackDir.y = 0;
+
+            owner.ApplyKnockback(knockbackDir, _damageInfo.KnockbackForce);
         }
 
         #region Skill Util
