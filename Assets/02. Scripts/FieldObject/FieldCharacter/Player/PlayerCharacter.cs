@@ -14,6 +14,7 @@ namespace MS.Field
     public class PlayerCharacter : FieldCharacter
     {
         public PlayerController PlayerController {  get; private set; }
+        public PlayerLevelSystem LevelSystem { get; private set; }
         public bool IsMovementLocked { get; private set; }
 
 
@@ -22,6 +23,7 @@ namespace MS.Field
             base.Awake();
 
             PlayerController = GetComponent<PlayerController>();
+            LevelSystem = GetComponent<PlayerLevelSystem>();
         }
 
         public void InitPlayer(string _characKey)
@@ -34,6 +36,8 @@ namespace MS.Field
                 Debug.LogError($"InitPlayer Key Missing : {_characKey}");
                 return;
             }
+
+            LevelSystem.InitLevelSystem(); // 레벨 세팅
 
             PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
             playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
@@ -68,7 +72,7 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("SlashBlue").Forget();
+                SSC.UseSkill("FOBS").Forget();
                 //SSC.UseSkill("Teleport").Forget();
             }
         }

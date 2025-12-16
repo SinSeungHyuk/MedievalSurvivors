@@ -28,10 +28,16 @@ namespace MS.Field
 
         protected override void OnAcquire(PlayerCharacter _player)
         {
+            if (_player == null)
+            {
+                Debug.Log("OnAcquire :: Player null");
+                return;
+            }
+
             switch (itemType)
             {
                 case EItemType.Coin:
-                    Debug.Log($"Coin Acquire : {itemValue}");
+                    _player.LevelSystem.CurExp += itemValue;
                     break;
                 case EItemType.Hp:
                     // _player.Heal(itemValue);

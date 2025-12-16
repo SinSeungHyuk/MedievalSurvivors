@@ -13,7 +13,7 @@
     "AttributeType": "Electric",
     "Cooltime" : 5,
     "SkillValueDict": {
-      "Default" : 5.0,
+      "Default" : 50.0,
       "Damage" : 0.3
     }
   },

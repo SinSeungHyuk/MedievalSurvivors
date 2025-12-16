@@ -1,6 +1,9 @@
+using DG.Tweening;
+using MS.Manager;
 using MS.Utils;
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -45,6 +48,13 @@ namespace MS.Field
             }
 
             return playerPos;
+        }
+
+        public void ActivateNextFloor(int _floorIdx)
+        {
+            CameraManager.Instance.ShakeCamera(4f, 5f);
+            floorList[_floorIdx].transform.DOMoveY(6f, 5f).OnComplete(()
+                => navBlockerList[_floorIdx].gameObject.SetActive(false));
         }
     }
 }

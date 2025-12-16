@@ -12,8 +12,9 @@ namespace MS.Utils
 
         public static float DefaultMinSpawnDistance = 5f; // 몬스터 스폰 플레이어 최소거리
         public static float DefaultMaxSpawnDistance = 10f;
+        public static float BossScaleMultiple = 1.5f;
 
-        public static float WaveTimer = 30f; // 웨이브 당 시간
+        public static float WaveTimer = 6f; // 웨이브 당 시간
         #endregion
 
         #region LAYERMASK SETTING

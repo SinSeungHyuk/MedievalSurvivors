@@ -17,6 +17,7 @@ namespace MS.Field
     {
         private string monsterKey;
         private string dropItemKey;
+        private bool isBoss;
         private MSStateMachine<MonsterCharacter> monsterStateMachine;
         private List<MonsterSkillSettingData> skillList = new List<MonsterSkillSettingData>();
         private NavMeshAgent navMeshAgent;
@@ -49,6 +50,7 @@ namespace MS.Field
             ObjectType = FieldObjectType.Monster;
             ObjectLifeState = FieldObjectLifeState.Live;
             monsterKey = _monsterKey;
+            isBoss = false;
 
             if (!DataManager.Instance.MonsterSettingDataDict.TryGetValue(_monsterKey, out MonsterSettingData _monsterData))
             {
@@ -83,6 +85,12 @@ namespace MS.Field
         public void OnUpdate(float _deltaTime)
         {
             monsterStateMachine.OnUpdate(_deltaTime);
+        }
+
+        public void SetBossMonster()
+        {
+            transform.localScale *= Settings.BossScaleMultiple;
+            isBoss = true;
         }
 
         public override void ApplyKnockback(Vector3 _dir, float _force)

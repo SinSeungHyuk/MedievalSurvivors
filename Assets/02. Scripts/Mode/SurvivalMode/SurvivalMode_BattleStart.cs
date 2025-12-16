@@ -23,24 +23,6 @@ namespace MS.Mode
             curWaveSpawnInfo = stageSettingData.WaveSpawnInfoList[0];
             elapsedWaveTime = 0f;
             elapsedSpawnTime = 0f;
-
-
-
-            //string monsterKey = "";
-            //int totalRatio = curWaveSpawnInfo.MonsterSpawnInfoList.Sum(x => x.MonsterSpawnRate);
-            //int ratioSum = 0;
-            //int randomRate = Random.Range(0, totalRatio);
-            //foreach (var monsterInfo in curWaveSpawnInfo.MonsterSpawnInfoList)
-            //{
-            //    ratioSum += monsterInfo.MonsterSpawnRate;
-            //    if (randomRate < ratioSum)
-            //    {
-            //        monsterKey = monsterInfo.MonsterKey;
-            //        break;
-            //    }
-            //}
-            //Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
-            //MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
         }
 
         private void OnBattleStartUpdate(float _dt)
@@ -77,7 +59,11 @@ namespace MS.Mode
             if (elapsedWaveTime > Settings.WaveTimer)
             {
                 elapsedWaveTime = 0f;
-                Debug.Log("Next Wave !! ");
+                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+                MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
+                boss.SetBossMonster();
+
+                CurFieldMap.ActivateNextFloor(curWaveCount);
             }
         }
 

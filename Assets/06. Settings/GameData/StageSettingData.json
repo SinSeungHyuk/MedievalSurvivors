@@ -13,7 +13,7 @@
             "MonsterSpawnRate": 0
           }
         ],
-        "BossMonsterKey": null,
+        "BossMonsterKey": "Skeleton_Tier2",
         "SpawnInterval": 5,
         "CountPerSpawn": 1
       },
