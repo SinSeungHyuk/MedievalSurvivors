@@ -1,0 +1,122 @@
+{
+  "MaxHealthNormal": {
+    "StatType": "MaxHealth",
+    "Grade": "Normal",
+    "RewardValue": 10.0
+  },
+  "MaxHealthRare": {
+    "StatType": "MaxHealth",
+    "Grade": "Rare",
+    "RewardValue": 20.0
+  },
+  "MaxHealthUnique": {
+    "StatType": "MaxHealth",
+    "Grade": "Unique",
+    "RewardValue": 30.0
+  },
+  "MaxHealthLegendary": {
+    "StatType": "MaxHealth",
+    "Grade": "Legendary",
+    "RewardValue": 50.0
+  },
+  "AttackPowerNormal": {
+    "StatType": "AttackPower",
+    "Grade": "Normal",
+    "RewardValue": 5.0
+  },
+  "AttackPowerRare": {
+    "StatType": "AttackPower",
+    "Grade": "Rare",
+    "RewardValue": 10.0
+  },
+  "AttackPowerUnique": {
+    "StatType": "AttackPower",
+    "Grade": "Unique",
+    "RewardValue": 15.0
+  },
+  "AttackPowerLegendary": {
+    "StatType": "AttackPower",
+    "Grade": "Legendary",
+    "RewardValue": 25.0
+  },
+  "DefenseNormal": {
+    "StatType": "Defense",
+    "Grade": "Normal",
+    "RewardValue": 2.0
+  },
+  "DefenseRare": {
+    "StatType": "Defense",
+    "Grade": "Rare",
+    "RewardValue": 5.0
+  },
+  "DefenseUnique": {
+    "StatType": "Defense",
+    "Grade": "Unique",
+    "RewardValue": 8.0
+  },
+  "DefenseLegendary": {
+    "StatType": "Defense",
+    "Grade": "Legendary",
+    "RewardValue": 12.0
+  },
+  "MoveSpeedNormal": {
+    "StatType": "MoveSpeed",
+    "Grade": "Normal",
+    "RewardValue": 1.0
+  },
+  "MoveSpeedRare": {
+    "StatType": "MoveSpeed",
+    "Grade": "Rare",
+    "RewardValue": 2.0
+  },
+  "MoveSpeedUnique": {
+    "StatType": "MoveSpeed",
+    "Grade": "Unique",
+    "RewardValue": 3.0
+  },
+  "MoveSpeedLegendary": {
+    "StatType": "MoveSpeed",
+    "Grade": "Legendary",
+    "RewardValue": 5.0
+  },
+  "CriticChanceNormal": {
+    "StatType": "CriticChance",
+    "Grade": "Normal",
+    "RewardValue": 1.0
+  },
+  "CriticChanceRare": {
+    "StatType": "CriticChance",
+    "Grade": "Rare",
+    "RewardValue": 2.5
+  },
+  "CriticChanceUnique": {
+    "StatType": "CriticChance",
+    "Grade": "Unique",
+    "RewardValue": 5.0
+  },
+  "CriticChanceLegendary": {
+    "StatType": "CriticChance",
+    "Grade": "Legendary",
+    "RewardValue": 10.0
+  },
+  "CriticMultipleNormal": {
+    "StatType": "CriticMultiple",
+    "Grade": "Normal",
+    "RewardValue": 10.0
+  },
+  "CriticMultipleRare": {
+    "StatType": "CriticMultiple",
+    "Grade": "Rare",
+    "RewardValue": 20.0
+  },
+  "CriticMultipleUnique": {
+    "StatType": "CriticMultiple",
+    "Grade": "Unique",
+    "RewardValue": 35.0
+  },
+  "CriticMultipleLegendary": {
+    "StatType": "CriticMultiple",
+    "Grade": "Legendary",
+    "RewardValue": 50.0
+  }
+}
