@@ -41,6 +41,7 @@ namespace MS.Manager
             try
             {
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
+                await StringTable.Instance.LoadStringTable();
                 await GameplayCueManager.Instance.LoadAllGameplayCueAsync();
             }
             catch (Exception e)

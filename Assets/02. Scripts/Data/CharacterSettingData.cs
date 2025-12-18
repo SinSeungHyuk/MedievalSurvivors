@@ -20,7 +20,6 @@ namespace MS.Data
     [Serializable]
     public class CharacterSettingData
     {
-        public string CharacterName { get; set; }
         public AttributeSetSettingData AttributeSetSettingData { get; set; }
         public string DefaultSkillKey { get; set; }
         public string DefaultWeaponKey { get; set; }

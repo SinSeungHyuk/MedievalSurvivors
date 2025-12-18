@@ -2,6 +2,7 @@ using MS.Skill;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static MS.Field.FieldObject;
 
 
 namespace MS.Data
@@ -9,8 +10,7 @@ namespace MS.Data
     [Serializable]
     public class SkillSettingData
     {
-        public string SkillName { get; set; }
-        public string Description { get; set; }
+        public FieldObjectType OwnerType { get; set; }
         public EDamageAttributeType AttributeType { get; set; }
         public float Cooltime { get; set; }
         public bool IsPostUseCooltime { get; set; } // 스킬을 사용한 후에 쿨타임이 시작되는지 여부

@@ -19,4 +19,18 @@ public class PlayerAttributeSet : BaseAttributeSet
         CriticMultiple = new Stat(_characterData.CriticMultiple);
         MoveSpeed = new Stat(_characterData.MoveSpeed);
     }
+
+    public Stat GetStatByType(EStatType _type)
+    {
+        return _type switch
+        {
+            EStatType.MaxHealth => MaxHealth,
+            EStatType.AttackPower => AttackPower,
+            EStatType.Defense => Defense,
+            EStatType.MoveSpeed => MoveSpeed,
+            EStatType.CriticChance => CriticChance,
+            EStatType.CriticMultiple => CriticMultiple,
+            _ => null
+        };
+    }
 }

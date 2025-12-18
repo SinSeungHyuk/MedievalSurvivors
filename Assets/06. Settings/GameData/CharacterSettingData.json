@@ -5,7 +5,6 @@
   },
   "CharacterSettingDataDict": {
     "TestCharacter": {
-      "CharacterName": "TestCharacter",
       "AttributeSetSettingData": {
         "MaxHealth": 120.0,
         "AttackPower": 18.0,

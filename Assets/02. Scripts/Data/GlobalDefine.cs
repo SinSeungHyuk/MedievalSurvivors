@@ -6,10 +6,10 @@ namespace MS.Data
 {
     public enum EGrade
     {
-        Normal = 0,
-        Rare,
-        Unique,
-        Legendary
+        Normal = 50,
+        Rare = 35,
+        Unique = 10,
+        Legendary = 5
     }
 
 }

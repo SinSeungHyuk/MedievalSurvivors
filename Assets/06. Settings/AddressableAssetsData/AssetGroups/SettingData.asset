@@ -31,8 +31,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5567f05ee38b4464bac7331ca979bc6c
+    m_Address: StatRewardSettingData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b78979b3964b1b94d9a6c726caf91f23
     m_Address: ItemSettingData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb79deb4fa052dc4a8824e4b73fb8cdb
+    m_Address: StringTable
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

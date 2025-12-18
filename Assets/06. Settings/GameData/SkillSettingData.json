@@ -1,114 +1,103 @@
 {
   "Teleport": {
-    "SkillName": "순간이동",
-    "Description": "바라보고 있는 방향으로 순간이동합니다.",
-    "Cooltime" : 5,
+    "OwnerType": "Player",
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Move" : 5.0
+      "Move": 5.0
     }
   },
   "FOBS": {
-    "SkillName": "궤도폭격",
-    "Description": "가장 가까운 지역에 무수히 많은 폭격을 일으킵니다.",
+    "OwnerType": "Player",
     "AttributeType": "Electric",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 50.0,
-      "Damage" : 0.3
+      "Default": 50.0,
+      "Damage": 0.3
     }
   },
   "Meteor": {
-    "SkillName": "메테오",
-    "Description": "가장 가까운 지역에 운석들을 떨어트립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Fire",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 2.5,
-      "Damage" : 0.5
+      "Default": 2.5,
+      "Damage": 0.5
     }
   },
   "Blizzard": {
-    "SkillName": "눈보라",
-    "Description": "가장 가까운 지역에 눈보라를 일으킵니다.",
+    "OwnerType": "Player",
     "AttributeType": "Ice",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 4.0,
-      "Damage" : 0.2,
-      "Buff" : -90
+      "Default": 4.0,
+      "Damage": 0.2,
+      "Buff": -90
     }
   },
   "BigCrystal": {
-    "SkillName": "빅 크리스탈",
-    "Description": "거대한 얼음 수정을 떨어트립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Ice",
-    "Cooltime" : 5,
-    "IsPostUseCooltime" : true,
+    "Cooltime": 5,
+    "IsPostUseCooltime": true,
     "SkillValueDict": {
-      "Default" : 10.0,
-      "Damage" : 0.7,
-      "Casting" : 3
+      "Default": 10.0,
+      "Damage": 0.7,
+      "Casting": 3
     }
   },
   "CrystalFront": {
-    "SkillName": "얼음길",
-    "Description": "전방으로 얼음조각을 뿌립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Ice",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 2.0,
-      "Damage" : 0.2
+      "Default": 2.0,
+      "Damage": 0.2
     }
   },
   "FastCrystal": {
-    "SkillName": "패스트 크리스탈",
-    "Description": "빠르게 얼음 수정을 떨어트립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Ice",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 3.0,
-      "Damage" : 0.5
+      "Default": 3.0,
+      "Damage": 0.5
     }
   },
   "SlashBlue": {
-    "SkillName": "블루 슬래쉬",
-    "Description": "사방에 파란색 검기를 날립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Ice",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 3.0,
-      "Damage" : 0.5,
-      "Knockback" : 50
+      "Default": 3.0,
+      "Damage": 0.5,
+      "Knockback": 50
     }
   },
   "SlashGreen": {
-    "SkillName": "그린 슬래쉬",
-    "Description": "이동속도가 잠시 증가하며 사방에 초록색 검기를 날립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Wind",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 3.0,
-      "Damage" : 0.5,
-      "Buff" : 100
+      "Default": 3.0,
+      "Damage": 0.5,
+      "Buff": 100
     }
   },
   "SlashOrange": {
-    "SkillName": "레드 슬래쉬",
-    "Description": "사방에 불꽃 검기를 날립니다.",
+    "OwnerType": "Player",
     "AttributeType": "Fire",
-    "Cooltime" : 5,
+    "Cooltime": 5,
     "SkillValueDict": {
-      "Default" : 3.0,
-      "Damage" : 0.5
+      "Default": 3.0,
+      "Damage": 0.5
     }
   },
-
-
   "OnehandAttackA": {
-    "Cooltime" : 2,
+    "OwnerType": "Monster",
+    "Cooltime": 2,
     "SkillValueDict": {
-      "Default" : 10.0,
-      "Damage" : 0.4
+      "Default": 10.0,
+      "Damage": 0.4
     }
   }
 }

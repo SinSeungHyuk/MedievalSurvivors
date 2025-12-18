@@ -10,7 +10,6 @@ namespace MS.Data
     [Serializable]
     public class MonsterSettingData
     {
-        public string MonsterName { get; set; }
         public MonsterAttributeSetSettingData AttributeSetSettingData { get; set; }
         public string DropItemKey { get; set; }
         public List<MonsterSkillSettingData> SkillList { get; set; } // 장착중인 기본스킬 리스트
