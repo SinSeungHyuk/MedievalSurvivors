@@ -6,16 +6,27 @@
         "MonsterSpawnInfoList": [
           {
             "MonsterKey": "Skeleton_Tier1",
+            "MonsterSpawnRate": 100
+          }
+        ],
+        "BossMonsterKey": "Skeleton_Tier2",
+        "SpawnInterval": 4,
+        "CountPerSpawn": 1
+      },
+      {
+        "MonsterSpawnInfoList": [
+          {
+            "MonsterKey": "Skeleton_Tier1",
             "MonsterSpawnRate": 70
           },
           {
             "MonsterKey": "Skeleton_Tier2",
-            "MonsterSpawnRate": 0
+            "MonsterSpawnRate": 30
           }
         ],
-        "BossMonsterKey": "Skeleton_Tier2",
-        "SpawnInterval": 5,
-        "CountPerSpawn": 1
+        "BossMonsterKey": "Skeleton_Tier3",
+        "SpawnInterval": 4,
+        "CountPerSpawn": 2
       },
       {
         "MonsterSpawnInfoList": [
@@ -25,12 +36,54 @@
           },
           {
             "MonsterKey": "Skeleton_Tier2",
-            "MonsterSpawnRate": 60
+            "MonsterSpawnRate": 30
+          },
+          {
+            "MonsterKey": "Skeleton_Tier3",
+            "MonsterSpawnRate": 30
           }
         ],
-        "BossMonsterKey": "Skeleton_Tier3",
-        "SpawnInterval": 5.0,
-        "CountPerSpawn": 5
+        "BossMonsterKey": "Skeleton_Tier4",
+        "SpawnInterval": 3,
+        "CountPerSpawn": 2
+      },
+      {
+        "MonsterSpawnInfoList": [
+          {
+            "MonsterKey": "Skeleton_Tier3",
+            "MonsterSpawnRate": 30
+          },
+          {
+            "MonsterKey": "Skeleton_Tier4",
+            "MonsterSpawnRate": 30
+          },
+          {
+            "MonsterKey": "Skeleton_Tier5",
+            "MonsterSpawnRate": 40
+          }
+        ],
+        "BossMonsterKey": "Skeleton_Tier9",
+        "SpawnInterval": 3,
+        "CountPerSpawn": 3
+      },
+      {
+        "MonsterSpawnInfoList": [
+          {
+            "MonsterKey": "Skeleton_Tier5",
+            "MonsterSpawnRate": 40
+          },
+          {
+            "MonsterKey": "Skeleton_Tier6",
+            "MonsterSpawnRate": 30
+          },
+          {
+            "MonsterKey": "Skeleton_Tier7",
+            "MonsterSpawnRate": 30
+          }
+        ],
+        "BossMonsterKey": "Skeleton_Tier10",
+        "SpawnInterval": 3,
+        "CountPerSpawn": 4
       }
     ]
   }

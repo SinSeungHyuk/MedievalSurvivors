@@ -1,6 +1,15 @@
 {
   "MonsterName" : {
-    "Skeleton_Tier1" : "스켈레톤"
+    "Skeleton_Tier1": "낡은 해골",
+    "Skeleton_Tier2": "해골 보병",
+    "Skeleton_Tier3": "해골 궁수",
+    "Skeleton_Tier4": "해골 파수꾼",
+    "Skeleton_Tier5": "해골 투사",
+    "Skeleton_Tier6": "해골 저격수",
+    "Skeleton_Tier7": "해골 기사",
+    "Skeleton_Tier8": "해골 중갑병",
+    "Skeleton_Tier9": "해골 수호자",
+    "Skeleton_Tier10": "해골 사령관"
   },
   "CharacterName" : {
     "TestCharacter" : "테스트캐릭터"

@@ -6,14 +6,14 @@
   "CharacterSettingDataDict": {
     "TestCharacter": {
       "AttributeSetSettingData": {
-        "MaxHealth": 120.0,
-        "AttackPower": 18.0,
-        "Defense": 8.0,
-        "CriticChance": 50,
-        "CriticMultiple": 2,
-        "MoveSpeed": 5.0
+        "MaxHealth": 100.0,
+        "AttackPower": 15.0,
+        "Defense": 0.0,
+        "CriticChance": 5,
+        "CriticMultiple": 1.5,
+        "MoveSpeed": 4.0
       },
-      "DefaultSkillKey": "StoneSlash",
+      "DefaultSkillKey": "CrystalFront",
       "DefaultWeaponKey": "Staff02Polyart"
     }
   }

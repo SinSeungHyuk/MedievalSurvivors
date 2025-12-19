@@ -1,10 +1,10 @@
 {
   "Skeleton_Tier1": {
     "AttributeSetSettingData": {
-      "MaxHealth": 120.0,
-      "AttackPower": 18.0,
-      "Defense": 8.0,
-      "MoveSpeed": 3.0,
+      "MaxHealth": 40.0,
+      "AttackPower": 6.0,
+      "Defense": 0.0,
+      "MoveSpeed": 2.5,
       "AttackRange": 2.5,
       "WeaknessAttributeType": "Fire"
     },
@@ -14,6 +14,268 @@
         "SkillKey": "OnehandAttackA",
         "SkillActivateRate": 100,
         "AnimTriggerKey": "Onehand_Attack_A"
+      },
+      {
+        "SkillKey": "OnehandAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Onehand_Attack_B"
+      },
+      {
+        "SkillKey": "OnehandAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Onehand_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier2": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 55.0,
+      "AttackPower": 7.0,
+      "Defense": 5.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 2.5,
+      "WeaknessAttributeType": "Ice"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "SheildAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_A"
+      },
+      {
+        "SkillKey": "SheildAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_B"
+      },
+      {
+        "SkillKey": "SheildAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier3": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 50.0,
+      "AttackPower": 15.0,
+      "Defense": 2.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 15.0,
+      "WeaknessAttributeType": "Electric"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "BowAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Bow_Attack_A"
+      },
+      {
+        "SkillKey": "BowAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Bow_Attack_B"
+      },
+      {
+        "SkillKey": "BowAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Bow_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier4": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 90.0,
+      "AttackPower": 12.0,
+      "Defense": 15.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 2.5,
+      "WeaknessAttributeType": "Wind"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "SheildAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_A"
+      },
+      {
+        "SkillKey": "SheildAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_B"
+      },
+      {
+        "SkillKey": "SheildAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier5": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 130.0,
+      "AttackPower": 35.0,
+      "Defense": 10.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 3.5,
+      "WeaknessAttributeType": "Saint"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "TwoHandAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "TwoHand_Attack_A"
+      },
+      {
+        "SkillKey": "TwoHandAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "TwoHand_Attack_B"
+      },
+      {
+        "SkillKey": "TwoHandAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "TwoHand_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier6": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 110.0,
+      "AttackPower": 55.0,
+      "Defense": 5.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 16.0,
+      "WeaknessAttributeType": "Dark"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "BowAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Bow_Attack_A"
+      },
+      {
+        "SkillKey": "BowAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Bow_Attack_B"
+      },
+      {
+        "SkillKey": "BowAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Bow_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier7": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 220.0,
+      "AttackPower": 25.0,
+      "Defense": 35.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 2.5,
+      "WeaknessAttributeType": "Fire"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "SheildAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_A"
+      },
+      {
+        "SkillKey": "SheildAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_B"
+      },
+      {
+        "SkillKey": "SheildAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier8": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 350.0,
+      "AttackPower": 30.0,
+      "Defense": 50.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 2.5,
+      "WeaknessAttributeType": "Ice"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "SheildAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_A"
+      },
+      {
+        "SkillKey": "SheildAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_B"
+      },
+      {
+        "SkillKey": "SheildAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier9": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 500.0,
+      "AttackPower": 40.0,
+      "Defense": 75.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 2.5,
+      "WeaknessAttributeType": "Electric"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "SheildAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_A"
+      },
+      {
+        "SkillKey": "SheildAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_B"
+      },
+      {
+        "SkillKey": "SheildAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "Sheild_Attack_C"
+      }
+    ]
+  },
+  "Skeleton_Tier10": {
+    "AttributeSetSettingData": {
+      "MaxHealth": 750.0,
+      "AttackPower": 180.0,
+      "Defense": 60.0,
+      "MoveSpeed": 2.5,
+      "AttackRange": 4.5,
+      "WeaknessAttributeType": "Saint"
+    },
+    "DropItemKey": "Coin",
+    "SkillList": [
+      {
+        "SkillKey": "TwoHandAttackA",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "TwoHand_Attack_A"
+      },
+      {
+        "SkillKey": "TwoHandAttackB",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "TwoHand_Attack_B"
+      },
+      {
+        "SkillKey": "TwoHandAttackC",
+        "SkillActivateRate": 100,
+        "AnimTriggerKey": "TwoHand_Attack_C"
       }
     ]
   }
