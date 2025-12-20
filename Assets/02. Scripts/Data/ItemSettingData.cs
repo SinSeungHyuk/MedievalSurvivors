@@ -14,6 +14,8 @@ namespace MS.Data
     public enum EItemType
     {
         Coin,
-        Hp,
+        RedCrystal,
+        GreenCrystal,
+        BlueCrystal,
     }
 }

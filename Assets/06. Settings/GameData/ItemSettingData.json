@@ -4,9 +4,19 @@
     "ItemType": "Coin",
     "ItemValue": 10.0
   },
-  "Hp": {
-    "GameplayCueKey": "GC_Acquire_Health",
-    "ItemType": "Hp",
+  "BlueCrystal": {
+    "GameplayCueKey": "GC_Acquire_BlueCrystal",
+    "ItemType": "BlueCrystal",
+    "ItemValue": 50.0
+  },
+  "RedCrystal": {
+    "GameplayCueKey": "GC_Acquire_RedCrystal",
+    "ItemType": "RedCrystal",
+    "ItemValue": 50.0
+  },
+  "GreenCrystal": {
+    "GameplayCueKey": "GC_Acquire_GreenCrystal",
+    "ItemType": "GreenCrystal",
     "ItemValue": 50.0
   }
 }

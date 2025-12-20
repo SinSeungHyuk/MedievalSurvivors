@@ -21,9 +21,12 @@ namespace MS.Field
 
             transform.position = new Vector3(Position.x, Position.y + 0.5f, Position.z);
 
-            rotationTween = transform.DORotate(new Vector3(0, 360, 0), 2f, RotateMode.FastBeyond360)
-                .SetEase(Ease.Linear)
-                .SetLoops(-1, LoopType.Restart);
+            if (_data.ItemType == EItemType.Coin)
+            {
+                rotationTween = transform.DORotate(new Vector3(0, 360, 0), 2f, RotateMode.FastBeyond360)
+                    .SetEase(Ease.Linear)
+                    .SetLoops(-1, LoopType.Restart);
+            }
         }
 
         protected override void OnAcquire(PlayerCharacter _player)
@@ -39,7 +42,13 @@ namespace MS.Field
                 case EItemType.Coin:
                     _player.LevelSystem.CurExp += itemValue;
                     break;
-                case EItemType.Hp:
+                case EItemType.RedCrystal:
+                    // _player.Heal(itemValue);
+                    break;
+                case EItemType.GreenCrystal:
+                    // _player.Heal(itemValue);
+                    break;
+                case EItemType.BlueCrystal:
                     // _player.Heal(itemValue);
                     break;
             }

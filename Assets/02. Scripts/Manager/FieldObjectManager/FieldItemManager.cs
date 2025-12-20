@@ -44,6 +44,9 @@ namespace MS.Manager
                 var tasks = new List<UniTask>
                 {
                     ObjectPoolManager.Instance.CreatePoolAsync("Coin", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("BlueCrystal", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("GreenCrystal", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("RedCrystal", 10),
                     // ...
                 };
 

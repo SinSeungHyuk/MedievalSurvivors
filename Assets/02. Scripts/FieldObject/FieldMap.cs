@@ -31,7 +31,7 @@ namespace MS.Field
             }
         }
 
-        public Vector3 GetRandomSpawnPoint(Vector3 playerPos)
+        public Vector3 GetRandomSpawnPoint(Vector3 _origin)
         {
             for (int i = 0; i < maxSpawnAttempts; i++)
             {
@@ -39,7 +39,7 @@ namespace MS.Field
                 float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance);
                 Vector3 spawnOffset = new Vector3(randomDir.x, 0f, randomDir.y) * randomDistance;
 
-                Vector3 targetPosition = playerPos + spawnOffset;
+                Vector3 targetPosition = _origin + spawnOffset;
 
                 if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, 1f, NavMesh.AllAreas))
                 {
@@ -47,7 +47,7 @@ namespace MS.Field
                 }
             }
 
-            return playerPos;
+            return _origin;
         }
 
         public void ActivateNextFloor(int _floorIdx)

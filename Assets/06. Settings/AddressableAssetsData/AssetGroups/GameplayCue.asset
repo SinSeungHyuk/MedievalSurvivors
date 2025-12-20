@@ -15,6 +15,21 @@ MonoBehaviour:
   m_GroupName: GameplayCue
   m_GUID: 79eeb076b3fd22d409ea041e767d819b
   m_SerializeEntries:
+  - m_GUID: 3cdb4525de5e52d4c9ec7db882eaaa32
+    m_Address: GC_Acquire_GreenCrystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40e75f7fbd2a27e418c0769a45b0be96
+    m_Address: GC_Acquire_RedCrystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58de33f7349e5044896a40e206d70388
+    m_Address: GC_Acquire_BlueCrystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6904f5ff69b6d1d46a375ba4aa89aa59
     m_Address: GC_Test
     m_ReadOnly: 0

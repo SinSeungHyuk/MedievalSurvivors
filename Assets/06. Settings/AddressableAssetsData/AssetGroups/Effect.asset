@@ -20,8 +20,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3138a83bedbd6ad4481ba0b061da2eb6
+    m_Address: Eff_GainBuff
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3407e378c048bb5438424b28c7740b48
     m_Address: Eff_StoneSlash
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 356cf4dca1465b54fabbb8cd9b1cd190
+    m_Address: Eff_GainHp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a164e676dbbd6e54587237e619372c98
+    m_Address: Eff_GainMoveSpeed
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

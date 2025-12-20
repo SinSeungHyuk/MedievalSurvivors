@@ -84,6 +84,13 @@ public class TestUIController : MonoBehaviour
                 playerSkillKeys.RemoveAt(randomIndex);
             }
 
+
+            Vector3 pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
+            FieldItemManager.Instance.SpawnFieldItem("BlueCrystal", pos);
+            pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
+            FieldItemManager.Instance.SpawnFieldItem("GreenCrystal", pos);
+            pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
+            FieldItemManager.Instance.SpawnFieldItem("RedCrystal", pos);
         });
 
         BtnSpawn.onClick.AddListener(()
