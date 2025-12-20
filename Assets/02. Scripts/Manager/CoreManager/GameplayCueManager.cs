@@ -3,8 +3,6 @@ using Cysharp.Threading.Tasks;
 using MS.Core;
 using MS.Data;
 using MS.Field;
-using MS.Manager;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +32,6 @@ namespace MS.Manager
                     if (cue != null && !gameplayCueDict.ContainsKey(cue.name))
                     {
                         gameplayCueDict.Add(cue.name, cue);
-                        Debug.Log($"Cue ·Îµå !!! {cue.name}");
                     }
                 }
             }

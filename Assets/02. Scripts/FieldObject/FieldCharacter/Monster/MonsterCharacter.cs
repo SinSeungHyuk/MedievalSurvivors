@@ -45,6 +45,23 @@ namespace MS.Field
             monsterStateMachine.RegisterState((int)MonsterState.Dead, OnDeadEnter, OnDeadUpdate, OnDeadExit);
         }
 
+        private void OnEnable()
+        {
+            if (SSC != null)
+            {
+                SSC.OnDead += OnDeadCallback;
+                SSC.OnHit += OnHitCallback; 
+            }
+        }
+        private void OnDisable()
+        {
+            if (SSC != null)
+            {
+                SSC.OnDead -= OnDeadCallback;
+                SSC.OnHit -= OnHitCallback;
+            }
+        }
+
         public void InitMonster(string _monsterKey)
         {
             ObjectType = FieldObjectType.Monster;
@@ -119,6 +136,11 @@ namespace MS.Field
 
 
         #region Callback
+        private void OnHitCallback(int _damage, bool _isCritic)
+        {
+            EffectManager.Instance.PlayEffect("Eff_MonsterHit", Position, Rotation);
+        }
+
         private void OnDeadCallback()
         {
             monsterStateMachine.TransitState((int)MonsterState.Dead);

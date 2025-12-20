@@ -32,11 +32,13 @@ namespace MS.Core
                 Quaternion spawnRotation =
                     _owner.Rotation * Quaternion.Euler(EffectRotation);
 
-                EffectManager.Instance.PlayEffect(
+                MSEffect effect = EffectManager.Instance.PlayEffect(
                     EffectKey,
                     spawnPosition,
                     spawnRotation
                 );
+
+                if (AttachToOwner) effect.SetTraceTarget(_owner, EffectOffset);
             }
 
             if (!string.IsNullOrEmpty(SoundKey))

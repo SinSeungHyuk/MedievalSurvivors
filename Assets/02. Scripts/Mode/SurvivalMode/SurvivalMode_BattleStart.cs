@@ -58,12 +58,12 @@ namespace MS.Mode
 
             if (elapsedWaveTime > Settings.WaveTimer)
             {
-                elapsedWaveTime = 0f;
-                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
-                MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
-                boss.SetBossMonster();
+                //elapsedWaveTime = 0f;
+                //Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+                //MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
+                //boss.SetBossMonster();
 
-                CurFieldMap.ActivateNextFloor(curWaveCount);
+                //CurFieldMap.ActivateNextFloor(curWaveCount);
             }
         }
 

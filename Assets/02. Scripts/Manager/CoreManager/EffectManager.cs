@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace MS.Manager
 {
     public class EffectManager : Singleton<EffectManager>
@@ -43,6 +44,15 @@ namespace MS.Manager
             return effectComponent;
         }
 
+        public void OnUpdate(float _deltaTime)
+        {
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                var effect = effectList[i];
+                effect.OnUpdate(_deltaTime);
+            }
+        }
+
         public void ClearEffect()
         {
             effectList.Clear();
@@ -56,6 +66,10 @@ namespace MS.Manager
                 {
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 3),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainBuff", 3),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainHp", 3),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainMoveSpeed", 3),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_MonsterHit", 10),
                     // ... 
                 };
 

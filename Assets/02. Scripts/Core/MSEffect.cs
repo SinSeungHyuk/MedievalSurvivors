@@ -1,5 +1,8 @@
+using MS.Field;
 using MS.Manager;
+using System;
 using UnityEngine;
+using static MS.Field.FieldObject;
 
 
 namespace MS.Core
@@ -7,26 +10,30 @@ namespace MS.Core
     [RequireComponent(typeof(ParticleSystem))]
     public class MSEffect : MonoBehaviour
     {
-        private ParticleSystem _particle;
+        private ParticleSystem particle;
+        private float duration;
+        private float elapsedTime;
+        private FieldObject traceTarget;
+        private Vector3 targetOffset;
 
         public string PoolKey { get; set; }
 
 
         void Awake()
         {
-            _particle = GetComponent<ParticleSystem>();
-            if (_particle != null)
+            particle = GetComponent<ParticleSystem>();
+            if (particle != null)
             {
-                var main = _particle.main;
+                var main = particle.main;
                 main.stopAction = ParticleSystemStopAction.Callback;
             }
         }
 
         void OnEnable()
         {
-            if (_particle != null)
+            if (particle != null)
             {
-                _particle.Play();
+                particle.Play();
             }
         }
 
@@ -35,9 +42,39 @@ namespace MS.Core
             ObjectPoolManager.Instance.Return(PoolKey, this.gameObject);
         }
 
+        public void OnUpdate(float _deltaTime)
+        {
+            if (traceTarget != null)
+            {
+                if (traceTarget.ObjectLifeState == FieldObjectLifeState.Live)
+                    transform.position = traceTarget.Position + targetOffset;
+                else
+                    ClearTraceTarget();
+            }
+
+            elapsedTime += _deltaTime;
+            if (elapsedTime >= duration)
+            {
+                particle.Stop();
+            }
+        }
+
         public void InitEffect(string _poolKey)
         {
             PoolKey = _poolKey;
+            duration = float.MaxValue;
+            elapsedTime = 0f;
         }
+
+        public void SetDuration(float _duration)
+            => duration = _duration;
+
+        public void SetTraceTarget(FieldObject _target, Vector3 _offset = default)
+        {
+            traceTarget = _target;
+            targetOffset = _offset;
+        }
+        public void ClearTraceTarget()
+            => traceTarget = null;
     }
 }

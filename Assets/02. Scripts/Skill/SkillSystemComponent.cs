@@ -13,6 +13,7 @@ namespace MS.Skill
 {
     public class SkillSystemComponent : MonoBehaviour
     {
+        public event Action<int, bool> OnHit;
         public event Action OnDead;
 
         private Dictionary<string, BaseSkill> ownedSkillDict = new Dictionary<string, BaseSkill>();
@@ -120,11 +121,11 @@ namespace MS.Skill
             // 방어력, 약점속성 계산으로 최종 데미지 결정
             finalDamage = BattleUtils.CalcWeaknessAttribute(finalDamage, _damageInfo.AttributeType, attributeSet.WeaknessAttributeType);
             finalDamage = BattleUtils.CalcDefenseStat(finalDamage, attributeSet.Defense.Value);
-            attributeSet.Health -= finalDamage;
 
-            // TODO :: 넉백,데미지 텍스트
+            attributeSet.Health -= finalDamage;
             ApplyKnockback(_damageInfo);
-            //ShowDamageText(finalDamage, damageInfo.IsCritical, damageInfo.AttributeType);
+
+            OnHit?.Invoke((int)finalDamage, _damageInfo.IsCritic);
 
             Debug.Log($"[피격] {owner.name}가 {finalDamage}의 피해를 입음 (남은 체력: {attributeSet.Health})");
             if (attributeSet.Health <= 0)

@@ -17,5 +17,7 @@ namespace MS.Data
         RedCrystal,
         GreenCrystal,
         BlueCrystal,
+
+        BossChest,
     }
 }

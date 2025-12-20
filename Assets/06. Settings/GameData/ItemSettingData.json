@@ -18,5 +18,9 @@
     "GameplayCueKey": "GC_Acquire_GreenCrystal",
     "ItemType": "GreenCrystal",
     "ItemValue": 50.0
+  },
+  "BossChest": {
+    "GameplayCueKey": "GC_Acquire_BossChest",
+    "ItemType": "BossChest"
   }
 }

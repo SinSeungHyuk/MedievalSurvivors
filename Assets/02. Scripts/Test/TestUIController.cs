@@ -91,6 +91,9 @@ public class TestUIController : MonoBehaviour
             FieldItemManager.Instance.SpawnFieldItem("GreenCrystal", pos);
             pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
             FieldItemManager.Instance.SpawnFieldItem("RedCrystal", pos);
+
+            pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
+            FieldItemManager.Instance.SpawnFieldItem("BossChest", pos);
         });
 
         BtnSpawn.onClick.AddListener(()

@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class InteractionItem : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+
+namespace MS.Field
+{
+    public class InteractionItem : FieldItem
     {
-        
+        protected override void OnAcquire(PlayerCharacter _player)
+        {
+            
+        }
     }
 }

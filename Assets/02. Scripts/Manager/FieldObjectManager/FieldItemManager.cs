@@ -47,6 +47,7 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("BlueCrystal", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("GreenCrystal", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("RedCrystal", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("BossChest", 10),
                     // ...
                 };
 

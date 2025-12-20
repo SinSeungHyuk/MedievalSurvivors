@@ -51,7 +51,6 @@ namespace MS.Field
             SSC.GiveSkill("Meteor");
             SSC.GiveSkill("Blizzard");
             SSC.GiveSkill("FastCrystal");
-            SSC.GiveSkill("CrystalFront");
             SSC.GiveSkill("BigCrystal"); 
             SSC.GiveSkill("SlashBlue"); 
             SSC.GiveSkill("SlashGreen");
