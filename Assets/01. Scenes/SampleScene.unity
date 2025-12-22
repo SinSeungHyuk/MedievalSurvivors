@@ -1021,8 +1021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6baa6c7516a3e499d408e8f386c2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  monster: {fileID: 0}
 --- !u!4 &666080031
 Transform:
   m_ObjectHideFlags: 0
@@ -1173,8 +1171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
-  AmplitudeGain: 1
-  FrequencyGain: 1
+  AmplitudeGain: 0
+  FrequencyGain: 0
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1007378649
 GameObject:

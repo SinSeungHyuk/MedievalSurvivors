@@ -10,6 +10,7 @@ namespace MS.Field
     {
         private string fieldItemKey;
         private string gameplayCueKey;
+        protected EItemType itemType;
 
         public string FieldItemKey => fieldItemKey;
 
@@ -18,6 +19,7 @@ namespace MS.Field
         {
             fieldItemKey = _itemKey;
             gameplayCueKey = _itemData.GameplayCueKey;
+            itemType = _itemData.ItemType;
 
             ObjectLifeState = FieldObjectLifeState.Live;
             ObjectType = FieldObjectType.FieldItem;

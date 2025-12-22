@@ -30,12 +30,8 @@ namespace MS.Manager
             }
 
             Mesh weaponMesh = await AddressableManager.Instance.LoadResourceAsync<Mesh>(_characterData.DefaultWeaponKey);
-            Transform weapon = TransformExtensions.FindChildDeep(player.gameObject.transform, "Weapon");
-            if (weapon)
-            {
-                MeshFilter weaponMeshFilter = weapon.GetComponent<MeshFilter>();
-                weaponMeshFilter.mesh = weaponMesh;
-            }
+            MeshFilter weaponMeshFilter = player.gameObject.transform.FindChildComponentDeep<MeshFilter>("Weapon");
+            if (weaponMeshFilter) weaponMeshFilter.mesh = weaponMesh;
 
             player.InitPlayer(_key);
             CameraManager.Instance.InitMainCamera(player.transform);

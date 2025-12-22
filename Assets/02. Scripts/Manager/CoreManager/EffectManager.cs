@@ -64,6 +64,8 @@ namespace MS.Manager
             {
                 var tasks = new List<UniTask>
                 {
+                    ObjectPoolManager.Instance.CreatePoolAsync("DamageText", 30),
+
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 3),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainBuff", 3),

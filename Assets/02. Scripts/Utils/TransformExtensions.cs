@@ -22,5 +22,15 @@ namespace MS.Utils
             }
             return null;
         }
+
+        public static T FindChildComponentDeep<T>(this Transform parent, string childName) where T : Component
+        {
+            var findTransform = FindChildDeep(parent, childName);
+            if (findTransform != null)
+            {
+                return findTransform.GetComponent<T>();
+            }
+            return null;
+        }
     }
 }

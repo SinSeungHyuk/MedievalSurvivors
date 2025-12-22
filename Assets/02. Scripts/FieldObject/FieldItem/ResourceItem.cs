@@ -8,7 +8,6 @@ namespace MS.Field
     public class ResourceFieldItem : FieldItem
     {
         private float itemValue;
-        private EItemType itemType;
         private Tween rotationTween;
 
 
@@ -17,7 +16,6 @@ namespace MS.Field
             base.InitFieldItem(_key, _data);
 
             itemValue = _data.ItemValue;
-            itemType = _data.ItemType;
 
             transform.position = new Vector3(Position.x, Position.y + 0.5f, Position.z);
 

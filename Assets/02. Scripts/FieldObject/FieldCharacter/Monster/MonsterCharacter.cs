@@ -139,6 +139,7 @@ namespace MS.Field
         private void OnHitCallback(int _damage, bool _isCritic)
         {
             EffectManager.Instance.PlayEffect("Eff_MonsterHit", Position, Rotation);
+            UIManager.Instance.ShowDamageText(Position,_damage, _isCritic);
         }
 
         private void OnDeadCallback()

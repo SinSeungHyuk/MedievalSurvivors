@@ -22,12 +22,12 @@ namespace MS.Field
         {
             for (int i =1; i<= Settings.MaxWaveCount; i++)
             {
-                floorList.Add(TransformExtensions.FindChildDeep(this.gameObject.transform, "Floor_" + i));
+                floorList.Add(this.gameObject.transform.FindChildDeep("Floor_" + i));
             }
 
             for (int i = 1; i <= Settings.MaxWaveCount; i++)
             {
-                navBlockerList.Add(TransformExtensions.FindChildDeep(this.gameObject.transform, "NavBlocker_" + i));
+                navBlockerList.Add(this.gameObject.transform.FindChildDeep("NavBlocker_" + i));
             }
         }
 

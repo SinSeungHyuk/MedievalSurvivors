@@ -9,10 +9,6 @@ namespace MS.Manager
 {
     public partial class GameManager : MonoSingleton<GameManager>
     {
-        // TODO :: TEST
-        public PlayerCharacter player;
-        public MonsterCharacter monster;
-
         private GameModeBase curGameMode;
 
         public GameModeBase CurGameMode => curGameMode;
