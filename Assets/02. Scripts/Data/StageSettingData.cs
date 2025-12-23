@@ -20,6 +20,7 @@ namespace MS.Data
         public string BossMonsterKey { get; set; }
         public float SpawnInterval { get; set; }
         public int CountPerSpawn { get; set; } // 동시에 스폰되는 몬스터 수
+        public float FieldItemSpawnChance { get; set; }
     }
 
     [Serializable]

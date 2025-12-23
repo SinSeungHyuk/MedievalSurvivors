@@ -1,6 +1,8 @@
 using MS.Data;
 using MS.Field;
 using MS.Manager;
+using MS.Utils;
+using System;
 using UnityEngine;
 
 namespace MS.Mode
@@ -35,6 +37,16 @@ namespace MS.Mode
             SkillObjectManager.Instance.ClearSkillObject();
             EffectManager.Instance.ClearEffect();
             ObjectPoolManager.Instance.ClearAllPools();
+        }
+
+
+        private void OnMonsterDead()
+        {
+            if (MathUtils.IsSuccess(stageSettingData.WaveSpawnInfoList[curWaveCount - 1].FieldItemSpawnChance))
+            {
+                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+                FieldItemManager.Instance.SpawnRandomFieldItem(spawnPos);
+            }
         }
     }
 }

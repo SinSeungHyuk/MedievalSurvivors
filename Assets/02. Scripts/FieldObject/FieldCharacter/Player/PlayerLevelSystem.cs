@@ -8,7 +8,7 @@ namespace MS.Field
     public class PlayerLevelSystem : MonoBehaviour
     {
         public event Action<float, float> OnExpChanged;
-        public event Action OnLevelUp;
+        public event Action OnLevelUpCallback;
 
         private float curExp;
         private float maxExp;
@@ -45,7 +45,7 @@ namespace MS.Field
             curLevel++;
             maxExp += (maxExp * (increaseValue * 0.01f));
 
-            OnLevelUp?.Invoke();
+            OnLevelUpCallback?.Invoke();
         }
     }
 }

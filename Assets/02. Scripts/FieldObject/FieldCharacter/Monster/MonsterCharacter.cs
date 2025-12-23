@@ -35,7 +35,7 @@ namespace MS.Field
         {
             base.Awake();
 
-            SSC.OnDead += OnDeadCallback;
+            SSC.OnDeadCallback += OnDeadCallback;
 
             navMeshAgent = GetComponent<NavMeshAgent>();
             monsterStateMachine = new MSStateMachine<MonsterCharacter>(this);
@@ -49,16 +49,15 @@ namespace MS.Field
         {
             if (SSC != null)
             {
-                SSC.OnDead += OnDeadCallback;
-                SSC.OnHit += OnHitCallback; 
+                SSC.OnDeadCallback += OnDeadCallback;
+                SSC.OnHitCallback += OnHitCallback; 
             }
         }
         private void OnDisable()
         {
             if (SSC != null)
             {
-                SSC.OnDead -= OnDeadCallback;
-                SSC.OnHit -= OnHitCallback;
+                SSC.ClearSSC();
             }
         }
 
@@ -77,7 +76,6 @@ namespace MS.Field
 
             MonsterAttributeSet monsterAttributeSet = new MonsterAttributeSet();
             monsterAttributeSet.InitAttributeSet(_monsterData.AttributeSetSettingData);
-            monsterAttributeSet.MoveSpeed.OnValueChanged -= OnMoveSpeedChanged;
             monsterAttributeSet.MoveSpeed.OnValueChanged += OnMoveSpeedChanged;
             SSC.InitSSC(this, monsterAttributeSet);
 

@@ -26,19 +26,18 @@ namespace MS.UI
 
         public void InitDamageText(int _damage, bool _isCritic)
         {
-            transform.localScale = _isCritic ? baseScale * 1.5f : baseScale;
+            transform.localScale = _isCritic ? baseScale * 1.2f : baseScale;
 
             if (mainCam != null)
                 transform.rotation = mainCam.transform.rotation;
 
             txtDamage.text = _damage.ToString();
-
             txtDamage.color = _isCritic ? Settings.Critical : Color.white;
 
-            AnimateAndReturn().Forget();
+            DamageTextEffectAsync().Forget();
         }
 
-        private async UniTaskVoid AnimateAndReturn()
+        private async UniTaskVoid DamageTextEffectAsync()
         {
             float elapsedTime = 0f;
             CancellationToken token = this.GetCancellationTokenOnDestroy();
@@ -55,11 +54,6 @@ namespace MS.UI
                 await UniTask.Yield(PlayerLoopTiming.Update, token);
             }
 
-            ReturnToPool();
-        }
-
-        private void ReturnToPool()
-        {
             ObjectPoolManager.Instance.Return("DamageText", this.gameObject);
         }
     }

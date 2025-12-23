@@ -13,8 +13,8 @@ namespace MS.Skill
 {
     public class SkillSystemComponent : MonoBehaviour
     {
-        public event Action<int, bool> OnHit;
-        public event Action OnDead;
+        public event Action<int, bool> OnHitCallback;
+        public event Action OnDeadCallback;
 
         private Dictionary<string, BaseSkill> ownedSkillDict = new Dictionary<string, BaseSkill>();
         private Dictionary<string, CancellationTokenSource> runningSkillDict = new Dictionary<string, CancellationTokenSource>();
@@ -52,7 +52,6 @@ namespace MS.Skill
 
         public void InitSSC(FieldCharacter _owner, BaseAttributeSet _attributeSet)
         {
-            ownedSkillDict.Clear();
             owner = _owner;
             attributeSet = _attributeSet;
         }
@@ -125,12 +124,12 @@ namespace MS.Skill
             attributeSet.Health -= finalDamage;
             ApplyKnockback(_damageInfo);
 
-            OnHit?.Invoke((int)finalDamage, _damageInfo.IsCritic);
+            OnHitCallback?.Invoke((int)finalDamage, _damageInfo.IsCritic);
 
             Debug.Log($"[피격] {owner.name}가 {finalDamage}의 피해를 입음 (남은 체력: {attributeSet.Health})");
             if (attributeSet.Health <= 0)
             {
-                OnDead?.Invoke();
+                OnDeadCallback?.Invoke();
             }
         }
 
@@ -178,5 +177,12 @@ namespace MS.Skill
             runningSkillDict.Clear();
         }
         #endregion
+
+        public void ClearSSC()
+        {
+            ownedSkillDict.Clear();
+            OnDeadCallback = null;
+            OnHitCallback = null;
+        }
     }
 }

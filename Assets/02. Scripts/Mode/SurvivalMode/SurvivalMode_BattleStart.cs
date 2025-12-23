@@ -53,7 +53,8 @@ namespace MS.Mode
                 }
 
                 Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
-                MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
+                MonsterCharacter monster = MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
+                monster.SSC.OnDeadCallback += OnMonsterDead;
             }
 
             if (elapsedWaveTime > Settings.WaveTimer)

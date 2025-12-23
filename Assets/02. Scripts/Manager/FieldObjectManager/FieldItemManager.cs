@@ -32,6 +32,17 @@ namespace MS.Manager
             }
         }
 
+        public void SpawnRandomFieldItem(Vector3 _spawnPos)
+        {
+            int minIndex = (int)EItemType.RedCrystal;
+            int maxIndex = (int)EItemType.BlueCrystal;
+
+            int randomIndex = UnityEngine.Random.Range(minIndex, maxIndex + 1);
+            string randomKey = ((EItemType)randomIndex).ToString();
+
+            SpawnFieldItem(randomKey, _spawnPos);
+        }
+
         public void ClearFieldItem()
         {
             fieldItemList.Clear();
