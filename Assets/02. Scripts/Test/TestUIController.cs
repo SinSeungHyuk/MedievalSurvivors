@@ -83,26 +83,12 @@ public class TestUIController : MonoBehaviour
                 rewards.Add(playerSkillKeys[randomIndex]);
                 playerSkillKeys.RemoveAt(randomIndex);
             }
-
-
-            Vector3 pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
-            FieldItemManager.Instance.SpawnFieldItem("BlueCrystal", pos);
-            pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
-            FieldItemManager.Instance.SpawnFieldItem("GreenCrystal", pos);
-            pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
-            FieldItemManager.Instance.SpawnFieldItem("RedCrystal", pos);
-
-            pos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
-            FieldItemManager.Instance.SpawnFieldItem("BossChest", pos);
         });
 
         BtnSpawn.onClick.AddListener(()
             =>
         {
-            // todo test
-            Vector3 spawnPos = GameManager.Instance.CurGameMode.CurFieldMap.GetRandomSpawnPoint(PlayerManager.Instance.Player.Position);
 
-            MonsterManager.Instance.SpawnMonster("Skeleton_Tier1", spawnPos, Quaternion.identity);
         });
     }
 }

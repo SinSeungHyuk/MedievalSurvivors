@@ -17,7 +17,7 @@ namespace MS.Field
 
             itemValue = _data.ItemValue;
 
-            transform.position = new Vector3(Position.x, Position.y + 0.5f, Position.z);
+            transform.position = new Vector3(Position.x, Position.y + 1f, Position.z);
 
             if (_data.ItemType == EItemType.Coin)
             {
@@ -40,14 +40,14 @@ namespace MS.Field
                 case EItemType.Coin:
                     _player.LevelSystem.CurExp += itemValue;
                     break;
-                case EItemType.RedCrystal:
-                    // _player.Heal(itemValue);
+                case EItemType.RedCrystal: // 공격력 버프
+                    
                     break;
-                case EItemType.GreenCrystal:
-                    // _player.Heal(itemValue);
+                case EItemType.GreenCrystal: // 체력회복
+                    _player.SSC.AttributeSet.Health += itemValue;
                     break;
-                case EItemType.BlueCrystal:
-                    // _player.Heal(itemValue);
+                case EItemType.BlueCrystal: // 이동속도 증가
+                    
                     break;
             }
 

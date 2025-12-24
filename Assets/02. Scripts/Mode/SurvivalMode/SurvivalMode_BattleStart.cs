@@ -52,7 +52,7 @@ namespace MS.Mode
                     }
                 }
 
-                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, curWaveCount);
                 MonsterCharacter monster = MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
                 monster.SSC.OnDeadCallback += OnMonsterDead;
             }

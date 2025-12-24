@@ -11,14 +11,4 @@ namespace MS.Data
         public EGrade Grade { get; set; }
         public float RewardValue { get; set; }
     }
-
-    public enum EStatType
-    {
-        MaxHealth,
-        AttackPower,
-        Defense,
-        MoveSpeed,
-        CriticChance,
-        CriticMultiple,
-    }
 }

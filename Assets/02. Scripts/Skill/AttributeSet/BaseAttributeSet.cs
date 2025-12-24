@@ -1,6 +1,21 @@
+using MS.Data;
 using MS.Skill;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+
+
+public enum EStatType
+{
+    MaxHealth,
+    AttackPower,
+    Defense,
+    MoveSpeed,
+    CriticChance,
+    CriticMultiple,
+
+    AttackRange,    // 몬스터 전용 스탯
+}
 
 public class BaseAttributeSet
 {
@@ -8,6 +23,8 @@ public class BaseAttributeSet
     public event Action<float, float> OnHealthChanged;
 
     private float health;
+
+    protected Dictionary<EStatType, Stat> statDict = new Dictionary<EStatType, Stat>();
 
     public Stat MaxHealth { get; protected set; }
     public Stat AttackPower { get; protected set; } 
@@ -31,4 +48,20 @@ public class BaseAttributeSet
     }
 
     public float HealthRatio => Health / MaxHealth.Value;
+
+
+    #region Util
+    public Stat GetStatByType(EStatType _type)
+    {
+        if (statDict.TryGetValue(_type, out Stat _stat))
+            return _stat;
+        return null;
+    }
+    public float GetStatValueByType(EStatType _type)
+    {
+        if (statDict.TryGetValue(_type, out Stat _stat))
+            return _stat.Value;
+        return -1f;
+    }
+    #endregion
 }

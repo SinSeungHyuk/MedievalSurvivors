@@ -31,12 +31,12 @@ namespace MS.Field
             }
         }
 
-        public Vector3 GetRandomSpawnPoint(Vector3 _origin)
+        public Vector3 GetRandomSpawnPoint(Vector3 _origin, int _waveCount)
         {
             for (int i = 0; i < maxSpawnAttempts; i++)
             {
                 Vector2 randomDir = Random.insideUnitCircle.normalized;
-                float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance);
+                float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance + (_waveCount * 5.0f));
                 Vector3 spawnOffset = new Vector3(randomDir.x, 0f, randomDir.y) * randomDistance;
 
                 Vector3 targetPosition = _origin + spawnOffset;

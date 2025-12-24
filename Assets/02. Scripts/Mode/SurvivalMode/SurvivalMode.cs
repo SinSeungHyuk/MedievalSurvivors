@@ -44,7 +44,7 @@ namespace MS.Mode
         {
             if (MathUtils.IsSuccess(stageSettingData.WaveSpawnInfoList[curWaveCount - 1].FieldItemSpawnChance))
             {
-                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position);
+                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, curWaveCount);
                 FieldItemManager.Instance.SpawnRandomFieldItem(spawnPos);
             }
         }

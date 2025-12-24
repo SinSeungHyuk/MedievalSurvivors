@@ -16,5 +16,11 @@ public class MonsterAttributeSet : BaseAttributeSet
         MoveSpeed = new Stat(_monsterData.MoveSpeed);
         AttackRange = new Stat(_monsterData.AttackRange);
         WeaknessAttributeType = _monsterData.WeaknessAttributeType;
+
+        statDict.Add(EStatType.MaxHealth, MaxHealth);
+        statDict.Add(EStatType.AttackPower, AttackPower);
+        statDict.Add(EStatType.Defense, Defense);
+        statDict.Add(EStatType.MoveSpeed, MoveSpeed);
+        statDict.Add(EStatType.AttackRange, AttackRange);
     }
 }
