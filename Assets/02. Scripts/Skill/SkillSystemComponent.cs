@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86;
 
 
 namespace MS.Skill
@@ -18,6 +19,9 @@ namespace MS.Skill
 
         private Dictionary<string, BaseSkill> ownedSkillDict = new Dictionary<string, BaseSkill>();
         private Dictionary<string, CancellationTokenSource> runningSkillDict = new Dictionary<string, CancellationTokenSource>();
+
+        private Dictionary<string, StatusEffect> statusEffectDict = new Dictionary<string, StatusEffect>();
+        private List<string> removeStatusEffectList = new List<string>();
 
         private BaseAttributeSet attributeSet;
         private FieldCharacter owner;
@@ -46,8 +50,23 @@ namespace MS.Skill
         {
             foreach (var skill in ownedSkillDict.Values)
             {
-                skill.UpdateCooltime(Time.deltaTime);
+                skill.OnUpdate(Time.deltaTime);
             }
+
+            foreach (var effectPair in statusEffectDict)
+            {
+                effectPair.Value.OnUpdate(Time.deltaTime);
+                if (effectPair.Value.IsFinished)
+                {
+                    effectPair.Value.OnEnd();
+                    removeStatusEffectList.Add(effectPair.Key);
+                }
+            }
+            foreach (var key in removeStatusEffectList)
+            {
+                statusEffectDict.Remove(key);
+            }
+            removeStatusEffectList.Clear();
         }
 
         public void InitSSC(FieldCharacter _owner, BaseAttributeSet _attributeSet)
@@ -119,7 +138,7 @@ namespace MS.Skill
 
             // 방어력, 약점속성 계산으로 최종 데미지 결정
             finalDamage = BattleUtils.CalcWeaknessAttribute(finalDamage, _damageInfo.AttributeType, attributeSet.WeaknessAttributeType);
-            finalDamage = BattleUtils.CalcDefenseStat(finalDamage, attributeSet.Defense.Value);
+            finalDamage = BattleUtils.CalcDefenseStat(finalDamage, attributeSet.GetStatValueByType(EStatType.Defense));
 
             attributeSet.Health -= finalDamage;
             ApplyKnockback(_damageInfo);
@@ -142,6 +161,20 @@ namespace MS.Skill
             knockbackDir.y = 0;
 
             owner.ApplyKnockback(knockbackDir, _damageInfo.KnockbackForce);
+        }
+
+        public void ApplyStatusEffect(string _key, StatusEffect _statusEffect)
+        {
+            if (_statusEffect == null) return;
+
+            if (statusEffectDict.TryGetValue( _key, out StatusEffect _existEffect))
+            {
+                _existEffect.OnEnd(); // 기존에 적용되어 있던 효과의 OnEnd 호출
+                statusEffectDict.Remove(_key);
+            }
+
+            statusEffectDict[_key] = _statusEffect;
+            _statusEffect.OnApply();
         }
 
         #region Skill Util
@@ -181,6 +214,7 @@ namespace MS.Skill
         public void ClearSSC()
         {
             ownedSkillDict.Clear();
+            statusEffectDict.Clear();
             OnDeadCallback = null;
             OnHitCallback = null;
         }

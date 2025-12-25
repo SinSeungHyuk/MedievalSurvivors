@@ -11,13 +11,9 @@ namespace MS.Skill
 {
     public class FOBS : BaseSkill
     {
-        private PlayerAttributeSet playerAttriSet;
-
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             base.InitSkill(_owner, _skillData);
-
-            playerAttriSet = (_owner.AttributeSet) as PlayerAttributeSet;
         }
 
         public override async UniTask ActivateSkill(CancellationToken token)
@@ -33,8 +29,8 @@ namespace MS.Skill
             skillObject.SetHitCountPerAttack(1);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
-                float damage = BattleUtils.CalcSkillBaseDamage(ownerSSC.AttributeSet.AttackPower.Value, skillData);
-                bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, playerAttriSet.CriticChance.Value, playerAttriSet.CriticMultiple.Value, out float finalDamage);
+                float damage = BattleUtils.CalcSkillBaseDamage(attributeSet.GetStatValueByType(EStatType.AttackPower), skillData);
+                bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, attributeSet.GetStatValueByType(EStatType.CriticChance), attributeSet.GetStatValueByType(EStatType.CriticMultiple), out float finalDamage);
 
                 DamageInfo damageInfo = new DamageInfo(
                     _attacker: owner,

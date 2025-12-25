@@ -14,16 +14,6 @@
         "SkillKey": "OnehandAttackA",
         "SkillActivateRate": 100,
         "AnimTriggerKey": "Onehand_Attack_A"
-      },
-      {
-        "SkillKey": "OnehandAttackB",
-        "SkillActivateRate": 100,
-        "AnimTriggerKey": "Onehand_Attack_B"
-      },
-      {
-        "SkillKey": "OnehandAttackC",
-        "SkillActivateRate": 100,
-        "AnimTriggerKey": "Onehand_Attack_C"
       }
     ]
   },

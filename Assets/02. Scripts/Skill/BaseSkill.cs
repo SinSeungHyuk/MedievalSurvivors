@@ -12,6 +12,7 @@ namespace MS.Skill
     public abstract class BaseSkill
     {
         protected SkillSystemComponent ownerSSC;
+        protected BaseAttributeSet attributeSet;
         protected FieldCharacter owner;
         protected SkillSettingData skillData;
 
@@ -26,6 +27,7 @@ namespace MS.Skill
         public virtual void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
             ownerSSC = _owner;
+            attributeSet = ownerSSC.AttributeSet;
             owner = ownerSSC.Owner;
             skillData = _skillData;
             curCooltime = 0;
@@ -48,7 +50,7 @@ namespace MS.Skill
         #endregion
 
 
-        public void UpdateCooltime(float _deltaTime)
+        public void OnUpdate(float _deltaTime)
         {
             if (curCooltime > 0)
             {

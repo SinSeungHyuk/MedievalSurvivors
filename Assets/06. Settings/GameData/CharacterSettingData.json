@@ -5,13 +5,20 @@
   },
   "CharacterSettingDataDict": {
     "TestCharacter": {
-      "AttributeSetSettingData": {
+"AttributeSetSettingData": {
         "MaxHealth": 100.0,
-        "AttackPower": 15.0,
+        "AttackPower": 10.0,
         "Defense": 0.0,
-        "CriticChance": 5,
+        "Evasion": 0.0,
+        "MoveSpeed": 4.0,
+        "CriticChance": 5.0,
         "CriticMultiple": 1.5,
-        "MoveSpeed": 4.0
+        "LifeSteal": 0.0,
+        "CooltimeAccel": 0.0,
+        "ProjectileCount": 0.0,
+        "AreaRange": 0.0,
+        "Knockback": 0.0,
+        "CoinBonus": 0.0
       },
       "DefaultSkillKey": "CrystalFront",
       "DefaultWeaponKey": "Staff02Polyart"

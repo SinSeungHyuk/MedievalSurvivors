@@ -1,5 +1,6 @@
 using DG.Tweening;
 using MS.Data;
+using MS.Skill;
 using UnityEngine;
 
 
@@ -41,13 +42,13 @@ namespace MS.Field
                     _player.LevelSystem.CurExp += itemValue;
                     break;
                 case EItemType.RedCrystal: // 공격력 버프
-                    
+                    _player.ApplyStatEffect("RedCrystal", EStatType.AttackPower, itemValue, EBonusType.Flat, 5f);
                     break;
                 case EItemType.GreenCrystal: // 체력회복
                     _player.SSC.AttributeSet.Health += itemValue;
                     break;
                 case EItemType.BlueCrystal: // 이동속도 증가
-                    
+                    _player.ApplyStatEffect("BlueCrystal", EStatType.MoveSpeed, itemValue, EBonusType.Flat, 5f);
                     break;
             }
 

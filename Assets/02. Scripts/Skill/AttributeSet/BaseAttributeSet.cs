@@ -10,9 +10,17 @@ public enum EStatType
     MaxHealth,
     AttackPower,
     Defense,
+    Evasion,
     MoveSpeed,
     CriticChance,
     CriticMultiple,
+    LifeSteal,
+    CooltimeAccel,
+    ProjectileCount,
+    AreaRange,
+    Knockback,
+    CoinBonus,
+
 
     AttackRange,    // 몬스터 전용 스탯
 }

@@ -158,7 +158,7 @@ namespace MS.Field
         {
             navMeshAgent.ResetPath();
             Animator.SetTrigger(Settings.AnimHashIdle);
-            attackRange = ((MonsterAttributeSet)(SSC.AttributeSet)).AttackRange.Value;
+            attackRange = SSC.AttributeSet.GetStatValueByType(EStatType.AttackRange);
             elapsedIdleTime = 0f;
         }
         private void OnIdleUpdate(float _dt) // Idle => Attack or Trace

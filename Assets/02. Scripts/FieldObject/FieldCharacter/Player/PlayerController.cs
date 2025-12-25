@@ -51,7 +51,7 @@ namespace MS.Field
 
             if (inputMagnitude > 0.01f)
             {
-                float moveSpeed = player.SSC.AttributeSet.MoveSpeed.Value;
+                float moveSpeed = player.SSC.AttributeSet.GetStatValueByType(EStatType.MoveSpeed);
                 Vector3 targetPosition = transform.position + (MoveDir * moveSpeed * Time.deltaTime);
 
                 // NavMesh 위에서 AllAreas 중 이동가능한 위치를 반환

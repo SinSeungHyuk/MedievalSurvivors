@@ -31,8 +31,15 @@ namespace MS.Data
         public float MaxHealth { get; set; }
         public float AttackPower { get; set; }
         public float Defense { get; set; }
+        public float Evasion { get; set; }
+        public float MoveSpeed { get; set; }
         public float CriticChance { get; set; }
         public float CriticMultiple { get; set; }
-        public float MoveSpeed { get; set; }
+        public float LifeSteal { get; set; }
+        public float CooltimeAccel { get; set; }
+        public float ProjectileCount { get; set; }
+        public float AreaRange { get; set; }
+        public float Knockback { get; set; }
+        public float CoinBonus { get; set; }
     }
 }
