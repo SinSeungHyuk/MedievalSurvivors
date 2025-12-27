@@ -38,8 +38,8 @@ namespace MS.Data
         public float LifeSteal { get; set; }
         public float CooltimeAccel { get; set; }
         public float ProjectileCount { get; set; }
-        public float AreaRange { get; set; }
-        public float Knockback { get; set; }
-        public float CoinBonus { get; set; }
+        public float AreaRangeMultiple { get; set; }
+        public float KnockbackMultiple { get; set; }
+        public float CoinMultiple { get; set; }
     }
 }

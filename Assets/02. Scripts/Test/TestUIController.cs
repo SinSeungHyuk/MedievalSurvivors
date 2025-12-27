@@ -3,6 +3,7 @@ using MS.Data;
 using MS.Field;
 using MS.Manager;
 using MS.Mode;
+using MS.Skill;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,7 +89,8 @@ public class TestUIController : MonoBehaviour
         BtnSpawn.onClick.AddListener(()
             =>
         {
-
+            PlayerManager.Instance.Player.ApplyStatEffect("test", EStatType.CoinMultiple, 1, EBonusType.Flat);
+            //PlayerManager.Instance.Player.ApplyStatEffect("test", EStatType.AreaRangeMultiple, 1, EBonusType.Flat);
         });
     }
 }

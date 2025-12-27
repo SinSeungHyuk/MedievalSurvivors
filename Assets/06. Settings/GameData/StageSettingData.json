@@ -5,12 +5,12 @@
       {
         "MonsterSpawnInfoList": [
           {
-            "MonsterKey": "Skeleton_Tier1",
+            "MonsterKey": "Skeleton_Tier3",
             "MonsterSpawnRate": 100
           }
         ],
         "BossMonsterKey": "Skeleton_Tier2",
-        "SpawnInterval": 2,
+        "SpawnInterval": 5,
         "CountPerSpawn": 1,
         "FieldItemSpawnChance": 70.0
       },

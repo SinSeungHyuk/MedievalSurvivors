@@ -35,11 +35,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 41a5fe52c9cf9bd498e4990465299d84
-    m_Address: Projectile_StoneSlash
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46009f57772e5e743bec9df57a49ed66
     m_Address: Area_FastCrystal
     m_ReadOnly: 0
@@ -72,6 +67,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1ae5055f08b8284d9e996465d1d37e3
     m_Address: Area_BigCrystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cff4c024d20095a458a66e6e0d47bf1b
+    m_Address: Projec_MonsterArrow
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

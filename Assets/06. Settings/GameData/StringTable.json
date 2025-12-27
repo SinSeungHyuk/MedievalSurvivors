@@ -20,6 +20,9 @@
     "Unique": "유니크",
     "Legendary": "전설"
   },
+  "Battle": {
+    "Evasion" : "회피!"
+  },
   "StatType": {
     "MaxHealth": "최대 체력",
     "AttackPower": "공격력",

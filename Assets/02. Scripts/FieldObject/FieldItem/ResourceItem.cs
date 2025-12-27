@@ -39,6 +39,11 @@ namespace MS.Field
             switch (itemType)
             {
                 case EItemType.Coin:
+                    float CoinMultiple = _player.SSC.AttributeSet.GetStatValueByType(EStatType.CoinMultiple);
+                    if (CoinMultiple > 0)
+                    {
+                        itemValue *= CoinMultiple;
+                    }
                     _player.LevelSystem.CurExp += itemValue;
                     break;
                 case EItemType.RedCrystal: // 공격력 버프

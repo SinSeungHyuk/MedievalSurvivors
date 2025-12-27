@@ -133,6 +133,14 @@ namespace MS.Skill
         public void TakeDamage(DamageInfo _damageInfo)
         {
             if (attributeSet.Health <= 0) return;
+            if (attributeSet.GetStatValueByType(EStatType.Evasion) > 0)
+            {
+                if (BattleUtils.CalcEvasionStat(attributeSet.GetStatValueByType(EStatType.Evasion)))
+                {
+                    UIManager.Instance.ShowEvasionText(_damageInfo.Target.Position);
+                    return;
+                }
+            }
 
             float finalDamage = _damageInfo.Damage;
 
@@ -143,9 +151,20 @@ namespace MS.Skill
             attributeSet.Health -= finalDamage;
             ApplyKnockback(_damageInfo);
 
+            // 공격자 생명흡수 적용
+            float lifeSteal = _damageInfo.Attacker.SSC.attributeSet.GetStatValueByType(EStatType.LifeSteal);
+            if (lifeSteal > 0 && _damageInfo.Attacker.SSC.attributeSet.HealthRatio != 1)
+            {
+                if (MathUtils.IsSuccess(lifeSteal))
+                {
+                    _damageInfo.Attacker.SSC.attributeSet.Health += Settings.LifeStealValue;
+                    GameplayCueManager.Instance.PlayCue("GC_Acquire_GreenCrystal", _damageInfo.Attacker);
+                    Debug.Log($"[피흡] (남은 체력: {_damageInfo.Attacker.SSC.attributeSet.Health})");
+                }
+            }
+
             OnHitCallback?.Invoke((int)finalDamage, _damageInfo.IsCritic);
 
-            Debug.Log($"[피격] {owner.name}가 {finalDamage}의 피해를 입음 (남은 체력: {attributeSet.Health})");
             if (attributeSet.Health <= 0)
             {
                 OnDeadCallback?.Invoke();
@@ -160,7 +179,15 @@ namespace MS.Skill
             Vector3 knockbackDir = (owner.Position - _damageInfo.Attacker.Position).normalized;
             knockbackDir.y = 0;
 
-            owner.ApplyKnockback(knockbackDir, _damageInfo.KnockbackForce);
+            // 공격자의 넉백파워 스탯반영
+            float knockbackForce = _damageInfo.KnockbackForce;
+            float AttackerKnockbackStat = _damageInfo.Attacker.SSC.attributeSet.GetStatValueByType(EStatType.KnockbackMultiple);
+            if (AttackerKnockbackStat > 0)
+            {
+                knockbackForce *= AttackerKnockbackStat;
+            }
+
+            owner.ApplyKnockback(knockbackDir, knockbackForce);
         }
 
         public void ApplyStatusEffect(string _key, StatusEffect _statusEffect)

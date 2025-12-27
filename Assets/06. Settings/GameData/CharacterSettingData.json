@@ -9,16 +9,16 @@
         "MaxHealth": 100.0,
         "AttackPower": 10.0,
         "Defense": 0.0,
-        "Evasion": 0.0,
+        "Evasion": 150.0,
         "MoveSpeed": 4.0,
         "CriticChance": 5.0,
         "CriticMultiple": 1.5,
-        "LifeSteal": 0.0,
-        "CooltimeAccel": 0.0,
+        "LifeSteal": 50.0,
+        "CooltimeAccel": 100.0,
         "ProjectileCount": 0.0,
-        "AreaRange": 0.0,
-        "Knockback": 0.0,
-        "CoinBonus": 0.0
+        "AreaRangeMultiple": 1.0,
+        "KnockbackMultiple": 1.0,
+        "CoinMultiple": 1.0
       },
       "DefaultSkillKey": "CrystalFront",
       "DefaultWeaponKey": "Staff02Polyart"

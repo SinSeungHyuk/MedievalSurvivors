@@ -18,6 +18,12 @@ namespace MS.Field
             attackInterval = 0f;
             elapsedAttackTime = 0f;
             delayTime = 0f;
+
+            float areaRange = owner.SSC.AttributeSet.GetStatValueByType(EStatType.AreaRangeMultiple);
+            if (areaRange > 0)
+            {
+                transform.localScale *= areaRange;
+            }
         }
 
         public void SetDelay(float _delay)

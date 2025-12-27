@@ -11,9 +11,9 @@ public class PlayerAttributeSet : BaseAttributeSet
     public Stat LifeSteal { get; protected set; }
     public Stat CooltimeAccel { get; protected set; }
     public Stat ProjectileCount { get; protected set; }
-    public Stat AreaRange { get; protected set; }
-    public Stat Knockback { get; protected set; }
-    public Stat CoinBonus { get; protected set; }
+    public Stat AreaRangeMultiple { get; protected set; }
+    public Stat KnockbackMultiple { get; protected set; }
+    public Stat CoinMultiple { get; protected set; }
 
     public void InitAttributeSet(AttributeSetSettingData _characterData)
     {
@@ -28,9 +28,9 @@ public class PlayerAttributeSet : BaseAttributeSet
         LifeSteal = new Stat(_characterData.LifeSteal);
         CooltimeAccel = new Stat(_characterData.CooltimeAccel);
         ProjectileCount = new Stat(_characterData.ProjectileCount);
-        AreaRange = new Stat(_characterData.AreaRange);
-        Knockback = new Stat(_characterData.Knockback);
-        CoinBonus = new Stat(_characterData.CoinBonus);
+        AreaRangeMultiple = new Stat(_characterData.AreaRangeMultiple);
+        KnockbackMultiple = new Stat(_characterData.KnockbackMultiple);
+        CoinMultiple = new Stat(_characterData.CoinMultiple);
 
         statDict.Add(EStatType.MaxHealth, MaxHealth);
         statDict.Add(EStatType.AttackPower, AttackPower);
@@ -42,8 +42,8 @@ public class PlayerAttributeSet : BaseAttributeSet
         statDict.Add(EStatType.LifeSteal, LifeSteal);
         statDict.Add(EStatType.CooltimeAccel, CooltimeAccel);
         statDict.Add(EStatType.ProjectileCount, ProjectileCount);
-        statDict.Add(EStatType.AreaRange, AreaRange);
-        statDict.Add(EStatType.Knockback, Knockback);
-        statDict.Add(EStatType.CoinBonus, CoinBonus);
+        statDict.Add(EStatType.AreaRangeMultiple, AreaRangeMultiple);
+        statDict.Add(EStatType.KnockbackMultiple, KnockbackMultiple);
+        statDict.Add(EStatType.CoinMultiple, CoinMultiple);
     }
 }

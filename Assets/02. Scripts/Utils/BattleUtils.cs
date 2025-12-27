@@ -18,6 +18,13 @@ namespace MS.Utils
             return finalDamage;
         }
 
+        // 회피 계산
+        public static bool CalcEvasionStat(float _evasion)
+        {
+            float evasionPercent = MathUtils.BattleScaling(_evasion);
+            return MathUtils.IsSuccess(evasionPercent);
+        }
+
         // 약점 속성 계산
         public static float CalcWeaknessAttribute(float _finalDamage, EDamageAttributeType _damageType, EDamageAttributeType _weaknessType)
         {

@@ -89,6 +89,7 @@ namespace MS.Manager
             {
                 instance.transform.position = transform.position;
                 instance.transform.rotation = transform.rotation;
+                instance.transform.localScale = Vector3.one;
                 instance.SetActive(true);
             }
             return instance;

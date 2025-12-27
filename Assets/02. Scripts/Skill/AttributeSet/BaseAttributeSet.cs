@@ -17,9 +17,9 @@ public enum EStatType
     LifeSteal,
     CooltimeAccel,
     ProjectileCount,
-    AreaRange,
-    Knockback,
-    CoinBonus,
+    AreaRangeMultiple,
+    KnockbackMultiple,
+    CoinMultiple,
 
 
     AttackRange,    // 몬스터 전용 스탯

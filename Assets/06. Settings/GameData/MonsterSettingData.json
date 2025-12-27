@@ -51,7 +51,7 @@
       "AttackPower": 15.0,
       "Defense": 2.0,
       "MoveSpeed": 2.5,
-      "AttackRange": 15.0,
+      "AttackRange": 7.0,
       "WeaknessAttributeType": "Electric"
     },
     "DropItemKey": "Coin",
@@ -60,16 +60,6 @@
         "SkillKey": "BowAttackA",
         "SkillActivateRate": 100,
         "AnimTriggerKey": "Bow_Attack_A"
-      },
-      {
-        "SkillKey": "BowAttackB",
-        "SkillActivateRate": 100,
-        "AnimTriggerKey": "Bow_Attack_B"
-      },
-      {
-        "SkillKey": "BowAttackC",
-        "SkillActivateRate": 100,
-        "AnimTriggerKey": "Bow_Attack_C"
       }
     ]
   },

@@ -37,6 +37,18 @@ namespace MS.UI
             DamageTextEffectAsync().Forget();
         }
 
+        public void InitEvasionText()
+        {
+            transform.localScale = baseScale;
+            if (mainCam != null)
+                transform.rotation = mainCam.transform.rotation;
+
+            txtDamage.text = StringTable.Instance.Get("Battle", "Evasion");
+            txtDamage.color = Settings.Green;
+
+            DamageTextEffectAsync().Forget();
+        }
+
         private async UniTaskVoid DamageTextEffectAsync()
         {
             float elapsedTime = 0f;

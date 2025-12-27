@@ -67,6 +67,7 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashBlue", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashGreen", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashOrange", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projec_MonsterArrow", 10),
                     // ...
                 };
 

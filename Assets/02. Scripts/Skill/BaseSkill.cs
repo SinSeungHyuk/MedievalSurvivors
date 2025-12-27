@@ -36,7 +36,18 @@ namespace MS.Skill
 
         public abstract UniTask ActivateSkill(CancellationToken token);
 
-        public void SetCooltime() => curCooltime = skillData.Cooltime;
+        public void SetCooltime()
+        {
+            float cooltime = skillData.Cooltime;
+            float cooltimeAccel = attributeSet.GetStatValueByType(EStatType.CooltimeAccel);
+            if (cooltimeAccel > 0)
+            {
+                float cooltimePercent = MathUtils.BattleScaling(cooltimeAccel);
+                cooltime = MathUtils.DecreaseByPercent(cooltime, cooltimePercent);
+            }
+
+            curCooltime = cooltime;
+        }
 
 
         #region Util

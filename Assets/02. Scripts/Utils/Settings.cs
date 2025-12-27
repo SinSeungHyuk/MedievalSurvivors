@@ -9,6 +9,7 @@ namespace MS.Utils
         public static int MaxWaveCount = 5;
         public static int BattleScalingConstant = 100;
         public static float WeaknessAttributeMultiple = 1.3f; // 약점속성 추가 데미지
+        public static int LifeStealValue = 1;
 
         public static float DefaultMinSpawnDistance = 5f; // 스폰시 플레이어와 최소 간격
         public static float DefaultMaxSpawnDistance = 10f;

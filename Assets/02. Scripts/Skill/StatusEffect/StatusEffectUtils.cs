@@ -6,7 +6,7 @@ namespace MS.Skill
 {
     public static class StatusEffectUtils
     {
-        public static void ApplyStatEffect(this FieldCharacter _target, string _key, EStatType _statType, float _value, EBonusType _bonusType, float _duration)
+        public static void ApplyStatEffect(this FieldCharacter _target, string _key, EStatType _statType, float _value, EBonusType _bonusType, float _duration = -1)
         {
             StatusEffect effect = new StatusEffect();
             effect.InitStatusEffect(_duration);
