@@ -9,10 +9,10 @@
             "MonsterSpawnRate": 100
           }
         ],
-        "BossMonsterKey": "Skeleton_Tier2",
+        "BossMonsterKey": "Skeleton_Tier1",
         "SpawnInterval": 5,
         "CountPerSpawn": 1,
-        "FieldItemSpawnChance": 70.0
+        "FieldItemSpawnChance": 10.0
       },
       {
         "MonsterSpawnInfoList": [

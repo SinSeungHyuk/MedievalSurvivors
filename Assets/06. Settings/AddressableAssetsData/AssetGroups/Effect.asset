@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52c7d057cba585641bb68312c10d7791
+    m_Address: Eff_BossPortal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b21333b068a5084ba09535839bee3c8
     m_Address: Eff_MonsterHit
     m_ReadOnly: 0

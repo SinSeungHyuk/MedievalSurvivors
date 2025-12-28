@@ -72,6 +72,7 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainHp", 3),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainMoveSpeed", 3),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_MonsterHit", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_BossPortal", 1),
                     // ... 
                 };
 

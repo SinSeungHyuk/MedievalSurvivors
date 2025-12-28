@@ -15,6 +15,35 @@ namespace MS.Manager
         private Dictionary<string, GameplayCue> gameplayCueDict = new Dictionary<string, GameplayCue>();
 
 
+        public void PlayCue(string _cueKey, FieldObject _owner)
+        {
+            if (string.IsNullOrEmpty(_cueKey) || _owner == null) return;
+
+            if (gameplayCueDict.TryGetValue(_cueKey, out GameplayCue cueToPlay))
+            {
+                cueToPlay.Play(_owner);
+            }
+            else
+            {
+                Debug.LogWarning($"[GameplayCueManager] '{_cueKey}' 키에 해당하는 큐를 찾을 수 없습니다.");
+            }
+        }
+
+        public void PlayCue(string _cueKey, Vector3 _pos)
+        {
+            if (string.IsNullOrEmpty(_cueKey)) return;
+
+            if (gameplayCueDict.TryGetValue(_cueKey, out GameplayCue cueToPlay))
+            {
+                cueToPlay.Play(_pos);
+            }
+            else
+            {
+                Debug.LogWarning($"[GameplayCueManager] '{_cueKey}' 키에 해당하는 큐를 찾을 수 없습니다.");
+            }
+        }
+
+
         public async UniTask LoadAllGameplayCueAsync()
         {
             try
@@ -38,20 +67,6 @@ namespace MS.Manager
             catch (Exception e)
             {
                 Debug.LogError($"[DataManager] 데이터 로드 실패: {e.Message}");
-            }
-        }
-
-        public void PlayCue(string _cueKey, FieldObject _owner)
-        {
-            if (string.IsNullOrEmpty(_cueKey) || _owner == null) return;
-
-            if (gameplayCueDict.TryGetValue(_cueKey, out GameplayCue cueToPlay))
-            {
-                cueToPlay.Play(_owner);
-            }
-            else
-            {
-                Debug.LogWarning($"[GameplayCueManager] '{_cueKey}' 키에 해당하는 큐를 찾을 수 없습니다.");
             }
         }
     }

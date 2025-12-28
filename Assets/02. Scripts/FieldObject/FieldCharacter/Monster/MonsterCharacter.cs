@@ -22,6 +22,8 @@ namespace MS.Field
         private List<MonsterSkillSettingData> skillList = new List<MonsterSkillSettingData>();
         private NavMeshAgent navMeshAgent;
 
+        public bool IsBoss => isBoss;
+
         public enum MonsterState
         {
             Idle,
@@ -204,6 +206,7 @@ namespace MS.Field
         #region Attack
         private MonsterSkillSettingData currentSkillData;
         private bool isSkillUsed = false;
+        private float elapsedTime = 0f;
         private void OnAttackEnter(int _prev, object[] _params)
         {
             navMeshAgent.isStopped = true;
@@ -247,10 +250,11 @@ namespace MS.Field
                 return;
             }
 
-            AnimatorStateInfo stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName(currentSkillData.AnimTriggerKey) && stateInfo.normalizedTime >= 1f)
+            elapsedTime += _dt;
+            if (elapsedTime >= currentSkillData.SkillDuration)
             {
                 monsterStateMachine.TransitState((int)MonsterState.Idle);
+                elapsedTime = 0f;
             }
         }
         private void OnAttackExit(int _next)

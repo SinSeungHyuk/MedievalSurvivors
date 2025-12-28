@@ -32,5 +32,6 @@ namespace MS.Data
         public string SkillKey { get; set; }
         public int SkillActivateRate { get; set; } // 스킬의 발동 확률
         public string AnimTriggerKey { get; set; } // 스킬의 애니메이터 트리거 키
+        public float SkillDuration { get; set; } // 스킬 사용 시간 (이 시간동안 공격상태에 머무름)
     }
 }

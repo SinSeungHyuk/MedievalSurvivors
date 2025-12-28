@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using MS.Manager;
 using MS.Utils;
@@ -50,11 +51,16 @@ namespace MS.Field
             return _origin;
         }
 
-        public void ActivateNextFloor(int _floorIdx)
+        public async UniTask ActivateNextFloor(int _floorIdx)
         {
             CameraManager.Instance.ShakeCamera(4f, 5f);
-            floorList[_floorIdx].transform.DOMoveY(6f, 5f).OnComplete(()
-                => navBlockerList[_floorIdx].gameObject.SetActive(false));
+
+            await floorList[_floorIdx].transform
+                .DOMoveY(6f, 5f)
+                .SetEase(Ease.OutQuad)
+                .ToUniTask(cancellationToken: this.GetCancellationTokenOnDestroy());
+
+            navBlockerList[_floorIdx].gameObject.SetActive(false);
         }
     }
 }

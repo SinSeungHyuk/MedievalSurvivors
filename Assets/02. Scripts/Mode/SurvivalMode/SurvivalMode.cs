@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Field;
 using MS.Manager;
@@ -40,6 +41,7 @@ namespace MS.Mode
         }
 
 
+        #region Mode Callback
         private void OnMonsterDead()
         {
             if (MathUtils.IsSuccess(stageSettingData.WaveSpawnInfoList[curWaveCount - 1].FieldItemSpawnChance))
@@ -47,6 +49,14 @@ namespace MS.Mode
                 Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, curWaveCount);
                 FieldItemManager.Instance.SpawnRandomFieldItem(spawnPos);
             }
+            // TODO :: UI 업데이트 (킬카운트)
         }
+
+        private void OnBossMonsterDead()
+        {
+            // 다음 웨이브로 넘어가는 연출 호출하기 + UI 업데이트
+            ActivateNextWaveAsync().Forget();
+        }
+        #endregion
     }
 }
