@@ -26,10 +26,17 @@
   "StatType": {
     "MaxHealth": "최대 체력",
     "AttackPower": "공격력",
-    "Defense": "방어력",
+    "Defense": "방어",
     "MoveSpeed": "이동 속도",
     "CriticChance": "치명타 확률",
-    "CriticMultiple": "치명타 배수"
+    "CriticMultiple": "치명타 배수",
+    "Evasion": "회피",
+    "LifeSteal": "생명 흡수",
+    "CooltimeAccel": "쿨타임 가속",
+    "ProjectileCount": "추가 투사체",
+    "AreaRangeMultiple": "범위 배수",
+    "KnockbackMultiple": "넉백 배수",
+    "CoinMultiple": "코인 배수"
   },
   "SkillName": {
     "Teleport": "순간이동",

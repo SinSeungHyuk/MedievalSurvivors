@@ -105,35 +105,7 @@
       "Damage": 1.0
     }
   },
-  "OnehandAttackB": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
-  "OnehandAttackC": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
   "SheildAttackA": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
-  "SheildAttackB": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
-  "SheildAttackC": {
     "OwnerType": "Monster",
     "Cooltime": 2,
     "SkillValueDict": {
@@ -147,35 +119,7 @@
       "Damage": 1.0
     }
   },
-  "BowAttackB": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
-  "BowAttackC": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
   "TwoHandAttackA": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
-  "TwoHandAttackB": {
-    "OwnerType": "Monster",
-    "Cooltime": 2,
-    "SkillValueDict": {
-      "Damage": 1.0
-    }
-  },
-  "TwoHandAttackC": {
     "OwnerType": "Monster",
     "Cooltime": 2,
     "SkillValueDict": {

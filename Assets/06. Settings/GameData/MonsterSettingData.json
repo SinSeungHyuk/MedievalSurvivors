@@ -90,7 +90,7 @@
         "SkillKey": "TwoHandAttackA",
         "SkillActivateRate": 100,
         "AnimTriggerKey": "TwoHand_Attack_A",
-        "SkillDuration" : 2.0
+        "SkillDuration" : 2.5
       }
     ]
   },
@@ -185,7 +185,7 @@
         "SkillKey": "TwoHandAttackA",
         "SkillActivateRate": 100,
         "AnimTriggerKey": "TwoHand_Attack_A",
-        "SkillDuration" : 2.0
+        "SkillDuration" : 2.5
       }
     ]
   }
