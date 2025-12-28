@@ -37,7 +37,7 @@ namespace MS.Field
             for (int i = 0; i < maxSpawnAttempts; i++)
             {
                 Vector2 randomDir = Random.insideUnitCircle.normalized;
-                float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance + (_waveCount * 5.0f));
+                float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance + (_waveCount-1 * 5.0f));
                 Vector3 spawnOffset = new Vector3(randomDir.x, 0f, randomDir.y) * randomDistance;
 
                 Vector3 targetPosition = _origin + spawnOffset;
@@ -53,10 +53,10 @@ namespace MS.Field
 
         public async UniTask ActivateNextFloor(int _floorIdx)
         {
-            CameraManager.Instance.ShakeCamera(4f, 5f);
+            CameraManager.Instance.ShakeCamera(4f, 7f);
 
             await floorList[_floorIdx].transform
-                .DOMoveY(6f, 5f)
+                .DOMoveY(6f, 7f)
                 .SetEase(Ease.OutQuad)
                 .ToUniTask(cancellationToken: this.GetCancellationTokenOnDestroy());
 

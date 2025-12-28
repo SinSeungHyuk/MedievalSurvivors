@@ -66,6 +66,8 @@ namespace MS.Core
                     spawnPosition,
                     Quaternion.Euler(EffectRotation)
                 );
+
+                if (EffectDuration > 0) effect.SetDuration(EffectDuration);
             }
 
             if (!string.IsNullOrEmpty(SoundKey))

@@ -55,7 +55,7 @@ namespace MS.Core
             elapsedTime += _deltaTime;
             if (elapsedTime >= duration)
             {
-                ObjectPoolManager.Instance.Return(PoolKey, this.gameObject);
+                particle.Stop();
             }
         }
 

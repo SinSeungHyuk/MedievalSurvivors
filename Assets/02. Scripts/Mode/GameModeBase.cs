@@ -27,9 +27,6 @@ namespace MS.Mode
         public virtual void OnUpdate(float _deltaTime)
         {
             modeStateMachine.OnUpdate(_deltaTime);
-
-            SkillObjectManager.Instance.OnUpdate(Time.deltaTime);
-            MonsterManager.Instance.OnUpdate(Time.deltaTime);
         }
 
         public virtual void EndMode() { }

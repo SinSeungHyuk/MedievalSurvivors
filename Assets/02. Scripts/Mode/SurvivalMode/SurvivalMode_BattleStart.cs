@@ -80,7 +80,7 @@ namespace MS.Mode
 
             // TODO :: UI ¾Ë¸²
             GameplayCueManager.Instance.PlayCue("GC_BossPortal", spawnPos);
-            await UniTask.WaitForSeconds(1f);
+            await UniTask.WaitForSeconds(1.5f);
 
             MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
             boss.SetBossMonster();
@@ -91,6 +91,7 @@ namespace MS.Mode
         {
             isActivateNextFloor = true;
 
+            await UniTask.WaitForSeconds(1.5f);
             await CurFieldMap.ActivateNextFloor(curWaveCount);
 
             elapsedWaveTime = 0f;

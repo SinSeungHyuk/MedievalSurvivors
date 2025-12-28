@@ -38,6 +38,16 @@ namespace MS.Mode
             SkillObjectManager.Instance.ClearSkillObject();
             EffectManager.Instance.ClearEffect();
             ObjectPoolManager.Instance.ClearAllPools();
+            MonsterManager.Instance.ClearMonster();
+        }
+
+        public override void OnUpdate(float _dt)
+        {
+            base.OnUpdate(_dt);
+
+            SkillObjectManager.Instance.OnUpdate(_dt);
+            MonsterManager.Instance.OnUpdate(_dt);
+            EffectManager.Instance.OnUpdate(_dt);
         }
 
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   EffectKey: Eff_BossPortal
   EffectOffset: {x: 0, y: 2.5, z: 0}
   EffectRotation: {x: 0, y: 0, z: 0}
-  EffectDuration: 2
+  EffectDuration: 5
   AttachToOwner: 0
   SoundKey: 
   CameraShakeIntensity: 0
