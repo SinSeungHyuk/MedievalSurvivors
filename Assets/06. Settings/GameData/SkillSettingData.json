@@ -121,7 +121,7 @@
   },
   "TwoHandAttackA": {
     "OwnerType": "Monster",
-    "Cooltime": 2,
+    "Cooltime": 2.5,
     "SkillValueDict": {
       "Damage": 1.0
     }

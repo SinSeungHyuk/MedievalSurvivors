@@ -3,6 +3,7 @@ using MS.Data;
 using MS.Field;
 using MS.Manager;
 using MS.Skill;
+using MS.UI;
 using MS.Utils;
 using System;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace MS.Field
 {
     public class PlayerCharacter : FieldCharacter
     {
+        private HPBar hpBar;
+
         public PlayerController PlayerController {  get; private set; }
         public PlayerLevelSystem LevelSystem { get; private set; }
         public bool IsMovementLocked { get; private set; }
@@ -24,6 +27,7 @@ namespace MS.Field
 
             PlayerController = GetComponent<PlayerController>();
             LevelSystem = GetComponent<PlayerLevelSystem>();
+            hpBar = GetComponentInChildren<HPBar>();
         }
 
         public void InitPlayer(string _characKey)
@@ -37,14 +41,15 @@ namespace MS.Field
                 return;
             }
 
-            LevelSystem.InitLevelSystem(); // 레벨 세팅
-
             PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
             playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
 
             SSC.InitSSC(this, playerAttributeSet);
             SSC.GiveSkill(_characterData.DefaultSkillKey);
             SSC.GiveSkill("Teleport");
+
+            LevelSystem.InitLevelSystem(); // 레벨 세팅
+            hpBar.InitHPBar(this);
 
             // TODO TEST
             SSC.GiveSkill("FOBS");

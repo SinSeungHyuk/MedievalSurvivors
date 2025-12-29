@@ -32,8 +32,8 @@ namespace MS.Skill
 
         // TODO :: GIZMO
         [Header("Gizmo Test Settings")]
-        [SerializeField] private float testAttackRadius = 5.0f;
-        [SerializeField] private float testForwardOffset = 3.0f;
+        [SerializeField] private float testAttackRadius = 1.0f;
+        [SerializeField] private float testForwardOffset = 1.4f;
         [SerializeField] private bool showGizmos = true;
         private void OnDrawGizmosSelected()
         {

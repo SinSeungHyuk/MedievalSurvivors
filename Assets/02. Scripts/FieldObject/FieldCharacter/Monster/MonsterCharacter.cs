@@ -3,6 +3,7 @@ using DG.Tweening;
 using MS.Core.StateMachine;
 using MS.Data;
 using MS.Manager;
+using MS.Skill;
 using MS.Utils;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -107,6 +108,10 @@ namespace MS.Field
         public void SetBossMonster()
         {
             transform.localScale *= Settings.BossScaleMultiple;
+            this.ApplyStatEffect("BossMaxHealth", EStatType.MaxHealth, 250, EBonusType.Percentage);
+            this.ApplyStatEffect("BossAttackPower", EStatType.AttackPower, 200, EBonusType.Percentage);
+            SSC.AttributeSet.Health = SSC.AttributeSet.GetStatValueByType(EStatType.MaxHealth);
+            dropItemKey = "BossChest"; // 보스는 보스상자를 떨구도록 드랍키 변경
             isBoss = true;
         }
 

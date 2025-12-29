@@ -81,7 +81,7 @@
       "AttackPower": 35.0,
       "Defense": 10.0,
       "MoveSpeed": 2.5,
-      "AttackRange": 3.5,
+      "AttackRange": 2.7,
       "WeaknessAttributeType": "Saint"
     },
     "DropItemKey": "Coin",
@@ -100,7 +100,7 @@
       "AttackPower": 55.0,
       "Defense": 5.0,
       "MoveSpeed": 2.5,
-      "AttackRange": 16.0,
+      "AttackRange": 8.0,
       "WeaknessAttributeType": "Dark"
     },
     "DropItemKey": "Coin",
@@ -176,7 +176,7 @@
       "AttackPower": 180.0,
       "Defense": 60.0,
       "MoveSpeed": 2.5,
-      "AttackRange": 4.5,
+      "AttackRange": 2.7,
       "WeaknessAttributeType": "Saint"
     },
     "DropItemKey": "Coin",
