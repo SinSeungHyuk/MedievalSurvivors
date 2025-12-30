@@ -1,14 +1,27 @@
 using Core;
 using MS.UI;
+using MS.Utils;
+using System;
 using UnityEngine;
 
 
 namespace MS.Manager
 {
-    public class UIManager : Singleton<UIManager>
+    public class UIManager : MonoSingleton<UIManager>
     {
+        private Transform viewCanvas;
+        private Transform popupCanvas;
+        private Transform systemCanvas;
 
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            viewCanvas = transform.FindChildDeep("ViewCanvas");
+            popupCanvas = transform.FindChildDeep("PopupCanvas");
+            systemCanvas = transform.FindChildDeep("SystemCanvas");
+        }
 
 
         #region Damage Text
