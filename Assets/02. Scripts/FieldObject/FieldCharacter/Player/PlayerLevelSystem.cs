@@ -1,3 +1,4 @@
+using MS.Core;
 using MS.Manager;
 using System;
 using UnityEngine;
@@ -7,45 +8,44 @@ namespace MS.Field
 {
     public class PlayerLevelSystem : MonoBehaviour
     {
-        public event Action<float, float> OnExpChanged;
-        public event Action OnLevelUpCallback;
-
-        private float curExp;
-        private float maxExp;
-        private int curLevel;
-
-        public float CurExp
-        {
-            get => curExp;
-            set
-            {
-                curExp = value;
-                while (curExp >= maxExp)
-                {
-                    curExp -= maxExp;
-                    LevelUp();
-                }
-                OnExpChanged?.Invoke(curExp, maxExp);
-            }
-        }
-
-        public int CurLevel => curLevel;
+        public MSReactProp<float> MaxExp { get; private set; } = new MSReactProp<float>();
+        public MSReactProp<float> CurExp { get; private set; } = new MSReactProp<float>();
+        public MSReactProp<int> CurLevel { get; private set; } = new MSReactProp<int>();
+        public MSReactProp<int> Gold { get; private set; } = new MSReactProp<int>();
 
 
         public void InitLevelSystem()
         {
-            curLevel = 1;
-            curExp = 0;
-            maxExp = DataManager.Instance.CharacterSettingData.LevelSettingData.BaseExp;
+            MaxExp.Value = DataManager.Instance.CharacterSettingData.LevelSettingData.BaseExp;
+            CurExp.Value = 0f;
+            CurLevel.Value = 1;
+            Gold.Value = 0;
         }
 
-        private void LevelUp()
+        public void AddExp(float _amount)
         {
-            float increaseValue = DataManager.Instance.CharacterSettingData.LevelSettingData.IncreaseExpPerLevel;
-            curLevel++;
-            maxExp += (maxExp * (increaseValue * 0.01f));
+            float curExp = CurExp.Value + _amount;
+            float curMaxExp = MaxExp.Value;
+            int curLevel = CurLevel.Value;
 
-            OnLevelUpCallback?.Invoke();
+            float increaseValue = DataManager.Instance.CharacterSettingData.LevelSettingData.IncreaseExpPerLevel;
+            bool isLevelUp = false;
+
+            while (curExp >= curMaxExp)
+            {
+                curExp -= curMaxExp;
+                curLevel++;
+                curMaxExp += (curMaxExp * (increaseValue * 0.01f));
+                isLevelUp = true;
+            }
+
+            if (isLevelUp)
+            {
+                CurLevel.Value = curLevel;
+                MaxExp.Value = curMaxExp;
+            }
+
+            CurExp.Value = curExp;
         }
     }
 }

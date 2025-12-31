@@ -1,7 +1,9 @@
 using Cysharp.Threading.Tasks;
+using MS.Core;
 using MS.Data;
 using MS.Field;
 using MS.Manager;
+using MS.UI;
 using MS.Utils;
 using System;
 using UnityEngine;
@@ -12,6 +14,11 @@ namespace MS.Mode
     {
         private StageSettingData stageSettingData;
         private PlayerCharacter player;
+        private BattlePanel battlePanel;
+
+        public MSReactProp<int> KillCount { get; private set; } = new MSReactProp<int>(0);
+        public MSReactProp<int> CurWaveCount { get; private set; } = new MSReactProp<int>(1);
+        public MSReactProp<float> CurWaveTimer { get; private set; } = new MSReactProp<float>(1f);
 
 
         public SurvivalMode(StageSettingData _stageSettingData) : base()
@@ -54,17 +61,20 @@ namespace MS.Mode
         #region Mode Callback
         private void OnMonsterDead()
         {
-            if (MathUtils.IsSuccess(stageSettingData.WaveSpawnInfoList[curWaveCount - 1].FieldItemSpawnChance))
+            if (MathUtils.IsSuccess(stageSettingData.WaveSpawnInfoList[CurWaveCount.Value - 1].FieldItemSpawnChance))
             {
-                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, curWaveCount);
+                Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
                 FieldItemManager.Instance.SpawnRandomFieldItem(spawnPos);
             }
             // TODO :: UI 업데이트 (킬카운트)
+
+            KillCount.Value++;
         }
 
         private void OnBossMonsterDead()
         {
             // 다음 웨이브로 넘어가는 연출 호출하기 + UI 업데이트
+            KillCount.Value++;
             ActivateNextWaveAsync().Forget();
         }
         #endregion

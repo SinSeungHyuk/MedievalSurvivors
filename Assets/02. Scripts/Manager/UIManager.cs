@@ -1,7 +1,11 @@
 using Core;
+using Cysharp.Threading.Tasks;
+using MS.Core;
 using MS.UI;
 using MS.Utils;
 using System;
+using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 
@@ -9,9 +13,14 @@ namespace MS.Manager
 {
     public class UIManager : MonoSingleton<UIManager>
     {
+        private Dictionary<string, GameObject> uiPrefabDict = new Dictionary<string, GameObject>(); // 어드레서블을 통해 로드한 UI 원본
+        private Dictionary<string, BaseUI> cachedUIDict = new Dictionary<string, BaseUI>(); // 실제 씬에 배치되어 있는 캐시
+
         private Transform viewCanvas;
         private Transform popupCanvas;
         private Transform systemCanvas;
+
+        private BaseUI curViewUI;
 
 
         protected override void Awake()
@@ -23,6 +32,43 @@ namespace MS.Manager
             systemCanvas = transform.FindChildDeep("SystemCanvas");
         }
 
+
+        #region Show UI
+        public T ShowView<T>(string _key) where T : BaseUI
+        {
+            curViewUI?.Close();
+
+            if (cachedUIDict.TryGetValue(_key, out BaseUI _viewUI))
+            {
+                _viewUI.Show();
+                curViewUI = _viewUI;
+                return curViewUI.GetComponent<T>();
+            }
+            if (uiPrefabDict.TryGetValue(_key, out GameObject _loadUI))
+            {
+                BaseUI viewInstance = Instantiate(_loadUI, viewCanvas).GetComponent<BaseUI>();
+                viewInstance.name = _key;
+                viewInstance.Show();
+
+                cachedUIDict.Add(_key, viewInstance);
+                curViewUI = viewInstance;
+                return curViewUI.GetComponent<T>();
+            }
+
+            Debug.LogError($"[UIManager] ShowView :: Key '{_key}' not found.");
+            return null;
+        }
+
+        //public BasePopup ShowPopup(string _key)
+        //{
+
+        //}
+
+        //public BaseUI ShowSystemUI(string _key)
+        //{
+
+        //}
+        #endregion
 
         #region Damage Text
         public void ShowDamageText(Vector3 _pos, int _damage, bool _isCritic)
@@ -38,5 +84,32 @@ namespace MS.Manager
             damageText.InitEvasionText();
         }
         #endregion
+
+
+        public async UniTask LoadAllUIPrefabAsync()
+        {
+            try
+            {
+                IList<GameObject> loadedUIs = await AddressableManager.Instance.LoadResourcesLabelAsync<GameObject>("UI");
+
+                if (loadedUIs == null)
+                {
+                    Debug.LogError("[UIManager] BaseUI 로드에 실패했습니다.");
+                    return;
+                }
+
+                foreach (GameObject baseUI in loadedUIs)
+                {
+                    if (baseUI != null && !uiPrefabDict.ContainsKey(baseUI.name))
+                    {
+                        uiPrefabDict.Add(baseUI.name, baseUI);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"[UIManager] 로드 실패: {e.Message}");
+            }
+        }
     }
 }

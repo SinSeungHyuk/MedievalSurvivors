@@ -23,8 +23,7 @@ MonoBehaviour:
   - m_GUID: 31e2755f5568713468873bec71efba79
     m_Address: CharacterSettingData
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Test
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4293b1e9c14ebfe429783b0ef993cf7e
     m_Address: StageSettingData
@@ -49,8 +48,7 @@ MonoBehaviour:
   - m_GUID: d0516c3b352fb6548b8ac8ef44e6579f
     m_Address: SkillSettingData
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Test
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

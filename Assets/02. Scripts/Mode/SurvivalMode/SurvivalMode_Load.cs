@@ -1,6 +1,8 @@
 using Cysharp.Threading.Tasks;
+using MS.Data;
 using MS.Field;
 using MS.Manager;
+using MS.UI;
 using UnityEngine;
 
 namespace MS.Mode
@@ -33,6 +35,11 @@ namespace MS.Mode
             curFieldMap = GameObject.Instantiate(map,Vector3.zero, Quaternion.identity).GetComponent<FieldMap>();
 
             player = await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
+
+            battlePanel = UIManager.Instance.ShowView<BattlePanel>("BattlePanel");
+            BattlePanelData data = new BattlePanelData(this, player);
+            battlePanel.InitBattlePanel(data);
+
 
             modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
         }

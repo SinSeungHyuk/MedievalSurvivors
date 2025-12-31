@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using MS.Core;
 using MS.Data;
 using MS.Field;
 using MS.Manager;
@@ -11,10 +12,8 @@ namespace MS.Mode
 {
     public partial class SurvivalMode
     {
-        private int curWaveCount;  // 현재 진행중인 웨이브 카운트
         private WaveSpawnInfo curWaveSpawnInfo; // 현재 진행중인 웨이브 스폰정보
 
-        private float elapsedWaveTime;
         private float elapsedSpawnTime;
 
         private bool isActivateNextFloor = false; // 다음 웨이브 연출 중인지 여부
@@ -23,9 +22,7 @@ namespace MS.Mode
 
         private void OnBattleStartEnter(int _prev, object[] _params)
         {
-            curWaveCount = 1;
             curWaveSpawnInfo = stageSettingData.WaveSpawnInfoList[0];
-            elapsedWaveTime = 0f;
             elapsedSpawnTime = 0f;
         }
 
@@ -54,14 +51,14 @@ namespace MS.Mode
                         }
                     }
 
-                    Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, curWaveCount);
+                    Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
                     MonsterCharacter monster = MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
                     monster.SSC.OnDeadCallback += OnMonsterDead;
                 }
             }
 
-            elapsedWaveTime += _dt;
-            if (!isBossLive && elapsedWaveTime > Settings.WaveTimer)
+            CurWaveTimer.Value += _dt;
+            if (!isBossLive && CurWaveTimer.Value > Settings.WaveTimer)
             {
                 SpawnBossAsync().Forget();
             }
@@ -76,7 +73,7 @@ namespace MS.Mode
         private async UniTask SpawnBossAsync()
         {
             isBossLive = true;
-            Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, curWaveCount);
+            Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
 
             // TODO :: UI 알림
             GameplayCueManager.Instance.PlayCue("GC_BossPortal", spawnPos);
@@ -92,14 +89,14 @@ namespace MS.Mode
             isActivateNextFloor = true;
 
             await UniTask.WaitForSeconds(1.5f);
-            await CurFieldMap.ActivateNextFloor(curWaveCount);
+            await CurFieldMap.ActivateNextFloor(CurWaveCount.Value);
 
-            elapsedWaveTime = 0f;
+            CurWaveTimer.Value = 0f;
             elapsedSpawnTime = 0f;
             isActivateNextFloor = false;
             isBossLive = false;
-            curWaveCount++;
-            curWaveSpawnInfo = stageSettingData.WaveSpawnInfoList[curWaveCount - 1];
+            curWaveSpawnInfo = stageSettingData.WaveSpawnInfoList[CurWaveCount.Value]; // 웨이브 카운트를 증가시키기 전에 스폰정보부터 교체
+            CurWaveCount.Value++;
         }
     }
 }

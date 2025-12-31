@@ -44,7 +44,7 @@ namespace MS.Field
                     {
                         itemValue *= CoinMultiple;
                     }
-                    _player.LevelSystem.CurExp += itemValue;
+                    _player.LevelSystem.AddExp(itemValue);
                     break;
                 case EItemType.RedCrystal: // 공격력 버프
                     _player.ApplyStatEffect("RedCrystal", EStatType.AttackPower, itemValue, EBonusType.Flat, 5f);

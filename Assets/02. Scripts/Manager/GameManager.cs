@@ -2,6 +2,7 @@ using Core;
 using Cysharp.Threading.Tasks;
 using MS.Field;
 using MS.Mode;
+using MS.UI;
 using System;
 using UnityEngine;
 
@@ -39,6 +40,9 @@ namespace MS.Manager
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
                 await StringTable.Instance.LoadStringTable();
                 await GameplayCueManager.Instance.LoadAllGameplayCueAsync();
+                await UIManager.Instance.LoadAllUIPrefabAsync();
+
+                UIManager.Instance.ShowView<BaseUI>("MainPanel");
             }
             catch (Exception e)
             {

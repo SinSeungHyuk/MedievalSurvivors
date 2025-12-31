@@ -15,10 +15,22 @@ MonoBehaviour:
   m_GroupName: UI
   m_GUID: 1da62a44c002bcb45b9e479c5f841733
   m_SerializeEntries:
+  - m_GUID: 711dfb11193c31843b12960747794dbe
+    m_Address: MainPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75a0506895f7a23458b498ee94961304
     m_Address: DamageText
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84e4634dfe5ef8a4cad697d7855d5ab3
+    m_Address: BattlePanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}
