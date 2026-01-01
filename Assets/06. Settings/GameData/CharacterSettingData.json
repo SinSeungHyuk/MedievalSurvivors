@@ -18,7 +18,7 @@
         "ProjectileCount": 0.0,
         "AreaRangeMultiple": 1.0,
         "KnockbackMultiple": 1.0,
-        "CoinMultiple": 1.0
+        "CoinMultiple": 1.5
       },
       "DefaultSkillKey": "CrystalFront",
       "DefaultWeaponKey": "Staff02Polyart"

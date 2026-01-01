@@ -1,6 +1,7 @@
 using MS.Core;
 using MS.Field;
 using MS.Mode;
+using System;
 
 namespace MS.Data
 {
@@ -14,6 +15,8 @@ namespace MS.Data
         public MSReactProp<float> PlayerMaxExp { get; private set; }
         public MSReactProp<float> PlayerCurExp { get; private set; }
 
+        public event Action OnBossSpawned;
+
 
         public BattlePanelData(SurvivalMode _mode, PlayerCharacter _player)
         {
@@ -25,6 +28,8 @@ namespace MS.Data
             PlayerLevel = _player.LevelSystem.CurLevel;
             PlayerMaxExp = _player.LevelSystem.MaxExp;
             PlayerCurExp = _player.LevelSystem.CurExp;
+
+            _mode.OnBossSpawned += () => OnBossSpawned?.Invoke();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace MS.Mode
     public partial class SurvivalMode
     {
         private WaveSpawnInfo curWaveSpawnInfo; // 현재 진행중인 웨이브 스폰정보
+        private float curWaveTime; // 현재 웨이브 총 시간
 
         private float elapsedSpawnTime;
 
@@ -24,6 +25,8 @@ namespace MS.Mode
         {
             curWaveSpawnInfo = stageSettingData.WaveSpawnInfoList[0];
             elapsedSpawnTime = 0f;
+            curWaveTime = Settings.WaveTimer;
+            CurWaveTimer.Value = curWaveTime;
         }
 
         private void OnBattleStartUpdate(float _dt)
@@ -57,10 +60,13 @@ namespace MS.Mode
                 }
             }
 
-            CurWaveTimer.Value += _dt;
-            if (!isBossLive && CurWaveTimer.Value > Settings.WaveTimer)
+            if (!isBossLive)
             {
-                SpawnBossAsync().Forget();
+                CurWaveTimer.Value -= _dt;
+                if (CurWaveTimer.Value <= 0)
+                {
+                    SpawnBossAsync().Forget();
+                }
             }
         }
 
@@ -77,6 +83,8 @@ namespace MS.Mode
 
             // TODO :: UI 알림
             GameplayCueManager.Instance.PlayCue("GC_BossPortal", spawnPos);
+            OnBossSpawned?.Invoke();
+
             await UniTask.WaitForSeconds(1.5f);
 
             MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
@@ -91,7 +99,8 @@ namespace MS.Mode
             await UniTask.WaitForSeconds(1.5f);
             await CurFieldMap.ActivateNextFloor(CurWaveCount.Value);
 
-            CurWaveTimer.Value = 0f;
+            curWaveTime += Settings.AddWaveTimePerWave;
+            CurWaveTimer.Value = curWaveTime;
             elapsedSpawnTime = 0f;
             isActivateNextFloor = false;
             isBossLive = false;

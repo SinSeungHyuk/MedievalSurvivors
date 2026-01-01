@@ -1,16 +1,25 @@
+using MS.Field;
+using MS.Utils;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ExpBar : MonoBehaviour
+namespace MS.UI
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class ExpBar : MonoBehaviour
     {
-        
-    }
+        private Image imgBar;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        public void InitExpBar()
+        {
+            imgBar = transform.FindChildComponentDeep<Image>("ResourceBar");
+            imgBar.fillAmount = 0;
+        }
+
+        public void UpdateExpBar(float _ratio)
+        {
+            imgBar.fillAmount = _ratio;
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace MS.Mode
 {
     public partial class SurvivalMode : GameModeBase
     {
+        public event Action OnBossSpawned;
+
         private StageSettingData stageSettingData;
         private PlayerCharacter player;
         private BattlePanel battlePanel;

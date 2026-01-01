@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 namespace MS.Manager
@@ -30,6 +31,12 @@ namespace MS.Manager
             viewCanvas = transform.FindChildDeep("ViewCanvas");
             popupCanvas = transform.FindChildDeep("PopupCanvas");
             systemCanvas = transform.FindChildDeep("SystemCanvas");
+
+            BaseUI titlePanel = transform.FindChildComponentDeep<BaseUI>("TitlePanel");
+            BaseUI loadingPanel = transform.FindChildComponentDeep<BaseUI>("LoadingPanel");
+            cachedUIDict.Add("TitlePanel", titlePanel);
+            cachedUIDict.Add("LoadingPanel", loadingPanel);
+            curViewUI = titlePanel;
         }
 
 
@@ -64,10 +71,34 @@ namespace MS.Manager
 
         //}
 
-        //public BaseUI ShowSystemUI(string _key)
-        //{
+        public BaseUI ShowSystemUI(string _key)
+        {
+            if (cachedUIDict.TryGetValue(_key, out BaseUI _systemUI))
+            {
+                _systemUI.Show();
+                return _systemUI;
+            }
+            if (uiPrefabDict.TryGetValue(_key, out GameObject _loadUI))
+            {
+                BaseUI viewInstance = Instantiate(_loadUI, viewCanvas).GetComponent<BaseUI>();
+                viewInstance.name = _key;
+                viewInstance.Show();
 
-        //}
+                cachedUIDict.Add(_key, viewInstance);
+                return viewInstance;
+            }
+
+            Debug.LogError($"[UIManager] ShowView :: Key '{_key}' not found.");
+            return null;
+        }
+
+        public void CloseUI(string _key)
+        {
+            if (cachedUIDict.TryGetValue(_key, out BaseUI ui))
+                ui.Close();
+            else
+                Debug.LogWarning($"[UIManager] CloseUI : {_key}");
+        }
         #endregion
 
         #region Damage Text

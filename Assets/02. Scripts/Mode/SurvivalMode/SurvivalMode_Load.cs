@@ -26,6 +26,8 @@ namespace MS.Mode
 
         private async UniTaskVoid LoadSurvivalModeAsync()
         {
+            UIManager.Instance.ShowSystemUI("LoadingPanel");
+
             await EffectManager.Instance.LoadAllEffectAsync();
             await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
             await FieldItemManager.Instance.LoadAllFieldItemAsync();
@@ -42,6 +44,7 @@ namespace MS.Mode
 
 
             modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
+            UIManager.Instance.CloseUI("LoadingPanel");
         }
     }
 }

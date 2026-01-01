@@ -24,6 +24,7 @@ namespace MS.Field
 
         public void AddExp(float _amount)
         {
+            Gold.Value += (int)_amount;
             float curExp = CurExp.Value + _amount;
             float curMaxExp = MaxExp.Value;
             int curLevel = CurLevel.Value;

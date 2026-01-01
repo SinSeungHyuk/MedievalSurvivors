@@ -22,27 +22,26 @@ namespace MS.Manager
             Application.targetFrameRate = 60;
         }
 
-        private void Start()
-        {
-            StartGameAsync();
-        }
-
         private void Update()
         {
             if (curGameMode != null)
                 curGameMode.OnUpdate(Time.deltaTime);
         }
 
-        public async void StartGameAsync()
+        public async UniTask StartGameAsync()
         {
             try
             {
+                UIManager.Instance.ShowSystemUI("LoadingPanel");
+
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
                 await StringTable.Instance.LoadStringTable();
                 await GameplayCueManager.Instance.LoadAllGameplayCueAsync();
                 await UIManager.Instance.LoadAllUIPrefabAsync();
 
                 UIManager.Instance.ShowView<BaseUI>("MainPanel");
+
+                UIManager.Instance.CloseUI("LoadingPanel");
             }
             catch (Exception e)
             {

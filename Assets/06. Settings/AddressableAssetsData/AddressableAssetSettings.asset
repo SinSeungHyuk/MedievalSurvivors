@@ -63,6 +63,7 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 220954b6833823c44ab78f4293b5b848, type: 2}
   - {fileID: 11400000, guid: b880107989ab4434c85e8dc9fea8cbd5, type: 2}
   - {fileID: 11400000, guid: 5db924e9ca05ccf4f9641dcaca225ea9, type: 2}
   - {fileID: 11400000, guid: 64572aaf639b55441831f46a3e8654d2, type: 2}
@@ -83,7 +84,7 @@ MonoBehaviour:
       m_ProfileName: Default
       m_Values:
       - m_Id: 1114f12e8eb054c4b89c745dc38fad91
-        m_Value: CCDBuildData/ManagedEnvironment/ManagedBucket/ManagedBadge
+        m_Value: CCDBuildData/ea1537bd-15fd-4ac4-913a-2eb8cc32ec8e/be59c30b-33f5-48f7-9cc5-2f8861fc7e1b/latest
       - m_Id: 24e86746e059fc64a87cb36c0c616b87
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 96c608c4db02e654a9e6c173b59c37d2
@@ -93,7 +94,7 @@ MonoBehaviour:
       - m_Id: a6eef2cc2acd15a46aefa7a0b9978042
         m_Value: ccd
       - m_Id: c026a503b8a412246bc24aa2932df324
-        m_Value: https://8e8f7d9e-6ca8-47ee-aa66-304dac87014d.client-api.unity3dusercontent.com/client_api/v1/environments/{CcdManager.EnvironmentName}/buckets/{CcdManager.BucketId}/release_by_badge/{CcdManager.Badge}/entry_by_path/content/?path=
+        m_Value: https://8e8f7d9e-6ca8-47ee-aa66-304dac87014d.client-api.unity3dusercontent.com/client_api/v1/environments/ccd/buckets/be59c30b-33f5-48f7-9cc5-2f8861fc7e1b/release_by_badge/latest/entry_by_path/content/?path=
     m_ProfileEntryNames:
     - m_Id: 1114f12e8eb054c4b89c745dc38fad91
       m_Name: Remote.BuildPath
@@ -133,8 +134,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc58ee8b2b46f154b999070decfe91a6, type: 2}
   m_ActiveProfileId: 758b86f60d97a2541aea06d8ea4fb845
   m_CcdManagedData:
-    EnvironmentId: ea1537bd-15fd-4ac4-913a-2eb8cc32ec8e
-    EnvironmentName: ccd
-    BucketId: be59c30b-33f5-48f7-9cc5-2f8861fc7e1b
-    Badge: latest
+    EnvironmentId: 
+    EnvironmentName: 
+    BucketId: 
+    Badge: 
     State: 0
