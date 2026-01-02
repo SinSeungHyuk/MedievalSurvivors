@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c728f7cc6548f24cadceb6478fa25cc
+    m_Address: bone_skull
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34d9a1c8832b3cc44b0b3e55ab3fd0ab
     m_Address: TitleVideo
     m_ReadOnly: 0

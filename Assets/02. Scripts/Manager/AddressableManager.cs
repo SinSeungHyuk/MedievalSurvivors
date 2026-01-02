@@ -50,7 +50,7 @@ namespace MS.Manager
         }
 
         // 리소스 하나를 로드
-        public async UniTask<T> LoadResourceAsync<T>(string key, CancellationToken ct = default) where T : Object
+        public async UniTask<T> LoadResourceAsync<T>(string key) where T : Object
         {
             if (loadedHandles.ContainsKey(key))
             {
@@ -62,7 +62,7 @@ namespace MS.Manager
                 AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(key);
                 loadedHandles.Add(key, handle);
 
-                await handle.WithCancellation(ct);
+                await handle;
 
                 return handle.Result;
             }
@@ -72,6 +72,26 @@ namespace MS.Manager
                 if (loadedHandles.ContainsKey(key)) loadedHandles.Remove(key);
                 return null;
             }
+        }
+
+        // 리소스 '동기적' 로드
+        public T LoadResource<T>(string key) where T : Object
+        {
+            if (loadedHandles.ContainsKey(key))
+            {
+                return loadedHandles[key].Result as T;
+            }
+
+            AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(key);
+            handle.WaitForCompletion();
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                loadedHandles.Add(key, handle);
+                return handle.Result;
+            }
+
+            return null;
         }
 
         public void ReleaseGroup(string groupLabel)

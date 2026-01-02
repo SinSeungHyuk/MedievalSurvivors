@@ -58,7 +58,7 @@ namespace MS.Field
             SSC.GiveSkill("FastCrystal");
             SSC.GiveSkill("BigCrystal"); 
             SSC.GiveSkill("SlashBlue"); 
-            SSC.GiveSkill("SlashGreen");
+           
         }
 
         public void SetMovementLock(bool isLocked)
@@ -76,8 +76,8 @@ namespace MS.Field
         {
             if (value.isPressed)
             {
-                SSC.UseSkill("Blizzard").Forget();
-                //SSC.UseSkill("Teleport").Forget();
+                //SSC.UseSkill("Blizzard").Forget();
+                SSC.GiveSkill("SlashGreen");
             }
         }
     }

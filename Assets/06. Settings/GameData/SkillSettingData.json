@@ -76,6 +76,7 @@
   },
   "SlashGreen": {
     "OwnerType": "Player",
+    "IconKey" : "bone_skull",
     "AttributeType": "Wind",
     "Cooltime": 5,
     "IsPostUseCooltime": true,

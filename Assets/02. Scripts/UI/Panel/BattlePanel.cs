@@ -1,14 +1,11 @@
 using MS.Data;
-using MS.Field;
-using MS.Mode;
 using MS.Utils;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace MS.UI
 {
-    using TMPro;
-
     public class BattlePanel : BaseUI
     {
         private ExpBar expBar;
@@ -17,6 +14,7 @@ namespace MS.UI
         private TextMeshProUGUI txtTimer;
         private TextMeshProUGUI txtWaveCount;
         private TextMeshProUGUI txtLevel;
+        private List<SkillSlot> skillSlotList = new List<SkillSlot>();
 
         private BattlePanelData curData;
 
@@ -36,6 +34,7 @@ namespace MS.UI
             curData.PlayerCurExp.Subscribe(OnExpChanged);
 
             curData.OnBossSpawned += OnBossSpawnedCallback;
+            curData.OnSkillAdded += OnSkillAdded;
         }
 
         private void FindUIComponents()
@@ -46,6 +45,13 @@ namespace MS.UI
             txtTimer = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtTimer");
             txtWaveCount = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtWaveCount");
             txtLevel = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtLevel");
+
+            for (int i=1; i<=6;i++)
+            {
+                SkillSlot skillSlot = transform.FindChildComponentDeep<SkillSlot>("SkillSlot_"+i);
+                skillSlotList.Add(skillSlot);
+            }
+
         }
 
         #region Bind
@@ -85,6 +91,11 @@ namespace MS.UI
         private void OnBossSpawnedCallback()
         {
             txtTimer.text = "Boss";
+        }
+
+        private void OnSkillAdded(string _skillKey, SkillSettingData _skillData)
+        {
+            skillSlotList[0].InitSkillSlot(_skillKey, _skillData);
         }
         #endregion
 

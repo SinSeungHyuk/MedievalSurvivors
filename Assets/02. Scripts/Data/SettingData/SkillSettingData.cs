@@ -11,6 +11,7 @@ namespace MS.Data
     public class SkillSettingData
     {
         public FieldObjectType OwnerType { get; set; }
+        public string IconKey { get; set; }
         public EDamageAttributeType AttributeType { get; set; }
         public float Cooltime { get; set; }
         public bool IsPostUseCooltime { get; set; } // 스킬을 사용한 후에 쿨타임이 시작되는지 여부
@@ -21,8 +22,8 @@ namespace MS.Data
         {
             SkillValueDict.TryGetValue(_valueType, out float value);
             return value;
-        }
     }
+        }
 
     public enum ESkillValueType
     {

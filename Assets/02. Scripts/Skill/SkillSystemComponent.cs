@@ -7,13 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
-using static Unity.Burst.Intrinsics.X86;
 
 
 namespace MS.Skill
 {
     public class SkillSystemComponent : MonoBehaviour
     {
+        public event Action<string, SkillSettingData> OnSkillAdded;
         public event Action<int, bool> OnHitCallback;
         public event Action OnDeadCallback;
 
@@ -86,6 +86,7 @@ namespace MS.Skill
                     BaseSkill skillInstance = (BaseSkill)Activator.CreateInstance(skillType);
                     skillInstance.InitSkill(this, _skillData);
                     ownedSkillDict.Add(_skillKey, skillInstance);
+                    OnSkillAdded?.Invoke(_skillKey, _skillData);
                 }
                 catch (Exception ex)
                 {

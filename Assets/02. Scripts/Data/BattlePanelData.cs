@@ -16,6 +16,7 @@ namespace MS.Data
         public MSReactProp<float> PlayerCurExp { get; private set; }
 
         public event Action OnBossSpawned;
+        public event Action<string, SkillSettingData> OnSkillAdded;
 
 
         public BattlePanelData(SurvivalMode _mode, PlayerCharacter _player)
@@ -30,6 +31,7 @@ namespace MS.Data
             PlayerCurExp = _player.LevelSystem.CurExp;
 
             _mode.OnBossSpawned += () => OnBossSpawned?.Invoke();
+            _player.SSC.OnSkillAdded += (_skillKey, _skillData) => OnSkillAdded?.Invoke(_skillKey, _skillData);
         }
     }
 }
