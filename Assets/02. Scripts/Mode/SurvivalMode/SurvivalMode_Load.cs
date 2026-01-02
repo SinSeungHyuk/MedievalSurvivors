@@ -4,6 +4,7 @@ using MS.Field;
 using MS.Manager;
 using MS.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MS.Mode
 {
@@ -39,8 +40,10 @@ namespace MS.Mode
             player = await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
 
             battlePanel = UIManager.Instance.ShowView<BattlePanel>("BattlePanel");
-            BattlePanelData data = new BattlePanelData(this, player);
+            BattlePanelViewModel data = new BattlePanelViewModel(this, player);
             battlePanel.InitBattlePanel(data);
+
+            player.InitPlayer("TestCharacter"); // todo
 
 
             modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);

@@ -16,10 +16,12 @@ namespace MS.UI
         private TextMeshProUGUI txtLevel;
         private List<SkillSlot> skillSlotList = new List<SkillSlot>();
 
-        private BattlePanelData curData;
+        private BattlePanelViewModel curData;
+
+        private int curSkillSlotIndex = 0;
 
 
-        public void InitBattlePanel(BattlePanelData _data)
+        public void InitBattlePanel(BattlePanelViewModel _data)
         {
             if (expBar == null) FindUIComponents();
 
@@ -95,7 +97,18 @@ namespace MS.UI
 
         private void OnSkillAdded(string _skillKey, SkillSettingData _skillData)
         {
-            skillSlotList[0].InitSkillSlot(_skillKey, _skillData);
+            SkillSlot targetSlot = skillSlotList[curSkillSlotIndex];
+            targetSlot.InitSkillSlot(_skillKey, _skillData);
+
+            targetSlot.OnSkillSlotClicked -= OnSkillSlotClicked;
+            targetSlot.OnSkillSlotClicked += OnSkillSlotClicked;
+
+            curSkillSlotIndex++;
+        }
+
+        private void OnSkillSlotClicked(string _skillKey)
+        {
+            curData.UseSkill(_skillKey);
         }
         #endregion
 
@@ -109,6 +122,9 @@ namespace MS.UI
             curData.PlayerGold.Unsubscribe(OnGoldChanged);
             curData.PlayerLevel.Unsubscribe(OnLevelChanged);
             curData.PlayerCurExp.Unsubscribe(OnExpChanged);
+
+            curData.OnBossSpawned -= OnBossSpawnedCallback;
+            curData.OnSkillAdded -= OnSkillAdded;
         }
     }
 }

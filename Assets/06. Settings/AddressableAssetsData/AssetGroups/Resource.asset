@@ -30,6 +30,56 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a467f959fc196d40938789eeb0e39d9
+    m_Address: Icon_Blizzard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47803bedb894e1a4988f9b8fcb75d2d5
+    m_Address: Icon_SlashGreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d9430f676f4a524093433605b24b5c1
+    m_Address: Icon_FastCrystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 602c6b5dca815de4992d53a1481b2726
+    m_Address: Icon_BigCrystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63dd1c2e251d78c48b545cff2004c31d
+    m_Address: Icon_Teleport
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b02eab698bebf9e49925a9244f235f3d
+    m_Address: Icon_CrystalFront
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be21ab69c1b59bb4b9f90e2387aab197
+    m_Address: Icon_SlashBlue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4aaf531c6e510d4394ea659e851d68e
+    m_Address: Icon_SlashOrange
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfe36a0f39d27d74f88f00f522b6e5ba
+    m_Address: Icon_Meteor
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6df1b4921aafd04cbc55d65de2a84ac
+    m_Address: Icon_FOBS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}
   m_SchemaSet:

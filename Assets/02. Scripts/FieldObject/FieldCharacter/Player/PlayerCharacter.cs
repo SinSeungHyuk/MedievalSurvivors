@@ -45,20 +45,11 @@ namespace MS.Field
             playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
 
             SSC.InitSSC(this, playerAttributeSet);
-            SSC.GiveSkill(_characterData.DefaultSkillKey);
             SSC.GiveSkill("Teleport");
+            SSC.GiveSkill(_characterData.DefaultSkillKey);
 
             LevelSystem.InitLevelSystem(); // 레벨 세팅
             hpBar.InitHPBar(this);
-
-            // TODO TEST
-            SSC.GiveSkill("FOBS");
-            SSC.GiveSkill("Meteor");
-            SSC.GiveSkill("Blizzard");
-            SSC.GiveSkill("FastCrystal");
-            SSC.GiveSkill("BigCrystal"); 
-            SSC.GiveSkill("SlashBlue"); 
-           
         }
 
         public void SetMovementLock(bool isLocked)
