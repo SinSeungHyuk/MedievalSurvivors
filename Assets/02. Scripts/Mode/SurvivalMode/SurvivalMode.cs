@@ -57,6 +57,10 @@ namespace MS.Mode
             SkillObjectManager.Instance.OnUpdate(_dt);
             MonsterManager.Instance.OnUpdate(_dt);
             EffectManager.Instance.OnUpdate(_dt);
+            if (battlePanel != null)
+            {
+                battlePanel.OnUpdate(_dt);
+            }
         }
 
 

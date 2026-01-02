@@ -17,11 +17,14 @@ namespace MS.Skill
         protected SkillSettingData skillData;
 
         private float curCooltime;
+        private float elapsedCooltime;
         private int curSkillLevel;
 
-        public bool IsCooltime => curCooltime > 0;
+        public SkillSettingData SkillData => skillData;
+        public bool IsCooltime => elapsedCooltime > 0;
         public bool IsPostUseCooltime => skillData.IsPostUseCooltime;
         public int CurSkillLevel => curSkillLevel;
+        public float CooltimeRatio => elapsedCooltime / curCooltime;
 
 
         public virtual void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
@@ -31,6 +34,7 @@ namespace MS.Skill
             owner = ownerSSC.Owner;
             skillData = _skillData;
             curCooltime = 0;
+            elapsedCooltime = 0;
             curSkillLevel = 1;
         }
 
@@ -47,6 +51,7 @@ namespace MS.Skill
             }
 
             curCooltime = cooltime;
+            elapsedCooltime = cooltime;
         }
 
 
@@ -63,9 +68,9 @@ namespace MS.Skill
 
         public void OnUpdate(float _deltaTime)
         {
-            if (curCooltime > 0)
+            if (elapsedCooltime > 0)
             {
-                curCooltime -= _deltaTime;
+                elapsedCooltime -= _deltaTime;
             }
         }
     }

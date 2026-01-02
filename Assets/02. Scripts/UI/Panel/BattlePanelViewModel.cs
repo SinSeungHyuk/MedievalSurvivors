@@ -18,7 +18,7 @@ namespace MS.Data
         public MSReactProp<float> PlayerCurExp { get; private set; }
 
         public event Action OnBossSpawned;
-        public event Action<string, SkillSettingData> OnSkillAdded;
+        public event Action<string, BaseSkill> OnSkillAdded;
 
         private SkillSystemComponent playerSSC;
 
@@ -34,7 +34,7 @@ namespace MS.Data
             PlayerCurExp = _player.LevelSystem.CurExp;
 
             _mode.OnBossSpawned += () => OnBossSpawned?.Invoke();
-            _player.SSC.OnSkillAdded += (_skillKey, _skillData) => OnSkillAdded?.Invoke(_skillKey, _skillData);
+            _player.SSC.OnSkillAdded += (_skillKey, _skill) => OnSkillAdded?.Invoke(_skillKey, _skill);
 
             playerSSC = _player.SSC;
         }

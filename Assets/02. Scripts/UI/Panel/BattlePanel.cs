@@ -1,8 +1,10 @@
 using MS.Data;
+using MS.Skill;
 using MS.Utils;
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace MS.UI
 {
@@ -37,6 +39,14 @@ namespace MS.UI
 
             curData.OnBossSpawned += OnBossSpawnedCallback;
             curData.OnSkillAdded += OnSkillAdded;
+        }
+
+        public void OnUpdate(float _dt)
+        {
+            for (int i = 0; i < curSkillSlotIndex; i++)
+            {
+                skillSlotList[i].OnUpdate(_dt);
+            }
         }
 
         private void FindUIComponents()
@@ -95,10 +105,10 @@ namespace MS.UI
             txtTimer.text = "Boss";
         }
 
-        private void OnSkillAdded(string _skillKey, SkillSettingData _skillData)
+        private void OnSkillAdded(string _skillKey, BaseSkill _skill)
         {
             SkillSlot targetSlot = skillSlotList[curSkillSlotIndex];
-            targetSlot.InitSkillSlot(_skillKey, _skillData);
+            targetSlot.InitSkillSlot(_skillKey, _skill);
 
             targetSlot.OnSkillSlotClicked -= OnSkillSlotClicked;
             targetSlot.OnSkillSlotClicked += OnSkillSlotClicked;
