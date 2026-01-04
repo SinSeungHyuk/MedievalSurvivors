@@ -17,7 +17,6 @@ namespace MS.Skill
         public override async UniTask ActivateSkill(CancellationToken token)
         {
             await UniTask.WaitForSeconds(0.5f);
-            Debug.Log("##");
             CheckHit();
         }
 

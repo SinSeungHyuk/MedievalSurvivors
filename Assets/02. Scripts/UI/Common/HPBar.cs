@@ -3,6 +3,7 @@ using MS.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 namespace MS.UI
@@ -16,7 +17,7 @@ namespace MS.UI
         {
             imgBar = transform.FindChildComponentDeep<Image>("ResourceBar");
             imgBar.fillAmount = 1;
-            _owner.SSC.AttributeSet.OnHealthChanged += UpdateHPBar;
+            _owner.SSC.OnHealthChanged += UpdateHPBar;
         }
 
         private void UpdateHPBar(float _curHp, float _maxHp)

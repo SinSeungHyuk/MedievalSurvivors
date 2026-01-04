@@ -42,7 +42,7 @@ namespace MS.Field
             }
 
             PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
-            playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
+            playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData); // 최초로 스탯 세팅하면서 이벤트 호출 유도
 
             SSC.InitSSC(this, playerAttributeSet);
             SSC.GiveSkill("Teleport");

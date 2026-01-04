@@ -28,15 +28,15 @@
     "AttackPower": "공격력",
     "Defense": "방어",
     "MoveSpeed": "이동 속도",
-    "CriticChance": "치명타 확률",
-    "CriticMultiple": "치명타 배수",
+    "CriticChance": "치명타 확률(%)",
+    "CriticMultiple": "치명타 배수(x)",
     "Evasion": "회피",
-    "LifeSteal": "생명 흡수",
+    "LifeSteal": "생명 흡수(%)",
     "CooltimeAccel": "쿨타임 가속",
     "ProjectileCount": "추가 투사체",
-    "AreaRangeMultiple": "범위 배수",
-    "KnockbackMultiple": "넉백 배수",
-    "CoinMultiple": "코인 배수"
+    "AreaRangeMultiple": "범위 배수(x)",
+    "KnockbackMultiple": "넉백 배수(x)",
+    "CoinMultiple": "코인 배수(x)"
   },
   "SkillName": {
     "Teleport": "순간이동",

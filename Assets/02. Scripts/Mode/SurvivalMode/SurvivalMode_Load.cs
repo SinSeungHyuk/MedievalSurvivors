@@ -44,7 +44,7 @@ namespace MS.Mode
             battlePanel.InitBattlePanel(data);
 
             player.InitPlayer("TestCharacter"); // todo
-
+            player.LevelSystem.CurLevel.Subscribe(OnPlayerLevelUpCallback);
 
             modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
             UIManager.Instance.CloseUI("LoadingPanel");

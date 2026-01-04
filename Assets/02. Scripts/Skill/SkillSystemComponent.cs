@@ -14,6 +14,7 @@ namespace MS.Skill
     public class SkillSystemComponent : MonoBehaviour
     {
         public event Action<string, BaseSkill> OnSkillAdded;
+        public event Action<float, float> OnHealthChanged; // 어트리뷰트셋 래핑용 이벤트
         public event Action<int, bool> OnHitCallback;
         public event Action OnDeadCallback;
 
@@ -73,6 +74,10 @@ namespace MS.Skill
         {
             owner = _owner;
             attributeSet = _attributeSet;
+            attributeSet.OnHealthChanged += OnHealthChangedCallback;
+            Stat maxHealthStat = attributeSet.GetStatByType(EStatType.MaxHealth);
+            maxHealthStat.OnValueChanged += OnMaxHealthChangedCallback;
+            OnMaxHealthChangedCallback(maxHealthStat.Value);
         }
 
         public void GiveSkill(string _skillKey)
@@ -238,6 +243,17 @@ namespace MS.Skill
             runningSkillDict.Clear();
         }
         #endregion
+
+        // 어트리뷰트셋의 OnHealthChanged 래핑용 이벤트 콜백
+        private void OnHealthChangedCallback(float _curHP, float _maxHP)
+        {
+            OnHealthChanged?.Invoke(_curHP, _maxHP);
+        }
+        private void OnMaxHealthChangedCallback(float _maxHP)
+        {
+            OnHealthChanged?.Invoke(attributeSet.Health, _maxHP);
+        }
+
 
         public void ClearSSC()
         {

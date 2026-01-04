@@ -36,6 +36,12 @@ public class Stat
         bonusStatDict = new Dictionary<string, BonusStat>();
     }
 
+    public void AddBaseValue(float _amount)
+    {
+        baseValue += _amount;
+        OnValueChanged?.Invoke(Value);
+    }
+
     public void AddBonusStat(string _key, EBonusType _bonusType, float _value)
     {
         BonusStat newBonusStat = new BonusStat { Type = _bonusType, Value = _value };

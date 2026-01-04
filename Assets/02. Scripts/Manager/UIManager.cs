@@ -17,6 +17,8 @@ namespace MS.Manager
         private Dictionary<string, GameObject> uiPrefabDict = new Dictionary<string, GameObject>(); // 어드레서블을 통해 로드한 UI 원본
         private Dictionary<string, BaseUI> cachedUIDict = new Dictionary<string, BaseUI>(); // 실제 씬에 배치되어 있는 캐시
 
+        private Stack<BasePopup> popupStack = new Stack<BasePopup>();
+
         private Transform viewCanvas;
         private Transform popupCanvas;
         private Transform systemCanvas;
@@ -66,10 +68,41 @@ namespace MS.Manager
             return null;
         }
 
-        //public BasePopup ShowPopup(string _key)
-        //{
+        public T ShowPopup<T>(string _key) where T : BasePopup
+        {
+            BasePopup popup = null;
+            if (cachedUIDict.TryGetValue(_key, out BaseUI _cachedUI))
+            {
+                popup = _cachedUI as BasePopup;
+            }
+            else if (uiPrefabDict.TryGetValue(_key, out GameObject _prefab))
+            {
+                popup = Instantiate(_prefab, popupCanvas).GetComponent<BasePopup>();
+                popup.name = _key;
+                cachedUIDict.Add(_key, popup);
+            }
 
-        //}
+            popupStack.Push(popup);
+            popup.Show();
+
+            int order = 1 + (popupStack.Count * 10);
+            popup.gameObject.GetComponent<Canvas>().sortingOrder = order;
+
+            return popup.GetComponent<T>();
+        }
+
+        public void ClosePopup(BasePopup _popup)
+        {
+            if (popupStack.Count == 0) return;
+
+            if (popupStack.Peek() != _popup)
+            {
+                Debug.LogWarning("ClosePopup : _popup is not Peek BasePopup");
+                return;
+            }
+
+            popupStack.Pop();
+        }
 
         public BaseUI ShowSystemUI(string _key)
         {

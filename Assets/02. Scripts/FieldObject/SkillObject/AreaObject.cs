@@ -15,6 +15,7 @@ namespace MS.Field
 
         public void InitArea()
         {
+            attackTargetList.Clear();
             attackInterval = 0f;
             elapsedAttackTime = 0f;
             delayTime = 0f;

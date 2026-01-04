@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -29,6 +30,21 @@ namespace MS.Utils
             if (findTransform != null)
             {
                 return findTransform.GetComponent<T>();
+            }
+            return null;
+        }
+
+        public static T GetOrAddComponent<T>(this Transform parent, string childName) where T : Component
+        {
+            var findTransform = FindChildDeep(parent, childName);
+            if (findTransform != null)
+            {
+                T result = findTransform.GetComponent<T>();
+                if (result == null)
+                {
+                    result = findTransform.gameObject.AddComponent<T>();
+                }
+                return result;
             }
             return null;
         }

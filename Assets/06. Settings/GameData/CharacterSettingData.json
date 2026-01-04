@@ -1,6 +1,6 @@
 {
   "LevelSettingData": {
-    "BaseExp": 50.0,
+    "BaseExp": 5.0,
     "IncreaseExpPerLevel": 5.0
   },
   "CharacterSettingDataDict": {

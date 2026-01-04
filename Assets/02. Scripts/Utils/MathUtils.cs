@@ -1,3 +1,4 @@
+using MS.Data;
 using UnityEngine;
 
 
@@ -54,6 +55,24 @@ namespace MS.Utils
             float scale = (f_value / (f_value + Settings.BattleScalingConstant) * 100f);
 
             return scale;
+        }
+
+        // 등급 구하기 =================================================================
+        public static EGrade GetRandomGrade()
+        {
+            int randomPoint = Random.Range(0, 100);
+            int currentSum = 0;
+
+            foreach (var pair in GlobalDefine.GradeProbDict)
+            {
+                currentSum += pair.Value;
+                if (randomPoint < currentSum)
+                {
+                    return pair.Key;
+                }
+            }
+
+            return EGrade.Normal;
         }
     }
 }

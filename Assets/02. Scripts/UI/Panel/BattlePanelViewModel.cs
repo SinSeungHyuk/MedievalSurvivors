@@ -19,6 +19,7 @@ namespace MS.Data
 
         public event Action OnBossSpawned;
         public event Action<string, BaseSkill> OnSkillAdded;
+        public event Action<float, float> OnPlayerHPChanged;
 
         private SkillSystemComponent playerSSC;
 
@@ -35,6 +36,7 @@ namespace MS.Data
 
             _mode.OnBossSpawned += () => OnBossSpawned?.Invoke();
             _player.SSC.OnSkillAdded += (_skillKey, _skill) => OnSkillAdded?.Invoke(_skillKey, _skill);
+            _player.SSC.OnHealthChanged += (_curHP, _maxHP) => OnPlayerHPChanged?.Invoke(_curHP, _maxHP);
 
             playerSSC = _player.SSC;
         }

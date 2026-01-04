@@ -2,7 +2,7 @@
   "Coin": {
     "GameplayCueKey": "GC_Test",
     "ItemType": "Coin",
-    "ItemValue": 10.0
+    "ItemValue": 30.0
   },
   "BlueCrystal": {
     "GameplayCueKey": "GC_Acquire_BlueCrystal",

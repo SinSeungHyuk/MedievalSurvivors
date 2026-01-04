@@ -33,7 +33,6 @@ namespace MS.Manager
             MeshFilter weaponMeshFilter = player.gameObject.transform.FindChildComponentDeep<MeshFilter>("Weapon");
             if (weaponMeshFilter) weaponMeshFilter.mesh = weaponMesh;
 
-            // player.InitPlayer(_key);
             CameraManager.Instance.InitMainCamera(player.transform);
 
             return player;

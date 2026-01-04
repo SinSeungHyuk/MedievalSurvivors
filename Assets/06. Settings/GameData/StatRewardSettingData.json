@@ -2,22 +2,22 @@
   "MaxHealthNormal": {
     "StatType": "MaxHealth",
     "Grade": "Normal",
-    "RewardValue": 10.0
+    "RewardValue": 20.0
   },
   "MaxHealthRare": {
     "StatType": "MaxHealth",
     "Grade": "Rare",
-    "RewardValue": 20.0
+    "RewardValue": 40.0
   },
   "MaxHealthUnique": {
     "StatType": "MaxHealth",
     "Grade": "Unique",
-    "RewardValue": 30.0
+    "RewardValue": 80.0
   },
   "MaxHealthLegendary": {
     "StatType": "MaxHealth",
     "Grade": "Legendary",
-    "RewardValue": 50.0
+    "RewardValue": 150.0
   },
   "AttackPowerNormal": {
     "StatType": "AttackPower",
@@ -32,12 +32,12 @@
   "AttackPowerUnique": {
     "StatType": "AttackPower",
     "Grade": "Unique",
-    "RewardValue": 15.0
+    "RewardValue": 20.0
   },
   "AttackPowerLegendary": {
     "StatType": "AttackPower",
     "Grade": "Legendary",
-    "RewardValue": 25.0
+    "RewardValue": 40.0
   },
   "DefenseNormal": {
     "StatType": "Defense",
@@ -52,71 +52,136 @@
   "DefenseUnique": {
     "StatType": "Defense",
     "Grade": "Unique",
-    "RewardValue": 8.0
+    "RewardValue": 10.0
   },
   "DefenseLegendary": {
     "StatType": "Defense",
     "Grade": "Legendary",
-    "RewardValue": 12.0
+    "RewardValue": 20.0
   },
   "MoveSpeedNormal": {
     "StatType": "MoveSpeed",
     "Grade": "Normal",
-    "RewardValue": 1.0
+    "RewardValue": 0.2
   },
   "MoveSpeedRare": {
     "StatType": "MoveSpeed",
     "Grade": "Rare",
-    "RewardValue": 2.0
+    "RewardValue": 0.5
   },
   "MoveSpeedUnique": {
     "StatType": "MoveSpeed",
     "Grade": "Unique",
-    "RewardValue": 3.0
+    "RewardValue": 0.8
   },
   "MoveSpeedLegendary": {
     "StatType": "MoveSpeed",
     "Grade": "Legendary",
-    "RewardValue": 5.0
+    "RewardValue": 1.2
   },
   "CriticChanceNormal": {
     "StatType": "CriticChance",
     "Grade": "Normal",
-    "RewardValue": 1.0
+    "RewardValue": 3.0
   },
   "CriticChanceRare": {
     "StatType": "CriticChance",
     "Grade": "Rare",
-    "RewardValue": 2.5
+    "RewardValue": 6.0
   },
   "CriticChanceUnique": {
     "StatType": "CriticChance",
     "Grade": "Unique",
-    "RewardValue": 5.0
+    "RewardValue": 12.0
   },
   "CriticChanceLegendary": {
     "StatType": "CriticChance",
     "Grade": "Legendary",
-    "RewardValue": 10.0
+    "RewardValue": 25.0
   },
   "CriticMultipleNormal": {
     "StatType": "CriticMultiple",
     "Grade": "Normal",
-    "RewardValue": 10.0
+    "RewardValue": 0.1
   },
   "CriticMultipleRare": {
     "StatType": "CriticMultiple",
     "Grade": "Rare",
-    "RewardValue": 20.0
+    "RewardValue": 0.2
   },
   "CriticMultipleUnique": {
     "StatType": "CriticMultiple",
     "Grade": "Unique",
-    "RewardValue": 35.0
+    "RewardValue": 0.4
   },
   "CriticMultipleLegendary": {
     "StatType": "CriticMultiple",
     "Grade": "Legendary",
-    "RewardValue": 50.0
+    "RewardValue": 0.8
+  },
+  "CooltimeAccelNormal": {
+    "StatType": "CooltimeAccel",
+    "Grade": "Normal",
+    "RewardValue": 5.0
+  },
+  "CooltimeAccelRare": {
+    "StatType": "CooltimeAccel",
+    "Grade": "Rare",
+    "RewardValue": 10.0
+  },
+  "CooltimeAccelUnique": {
+    "StatType": "CooltimeAccel",
+    "Grade": "Unique",
+    "RewardValue": 20.0
+  },
+  "CooltimeAccelLegendary": {
+    "StatType": "CooltimeAccel",
+    "Grade": "Legendary",
+    "RewardValue": 40.0
+  },
+  "ProjectileCountLegendary": {
+    "StatType": "ProjectileCount",
+    "Grade": "Legendary",
+    "RewardValue": 1.0
+  },
+  "AreaRangeMultipleNormal": {
+    "StatType": "AreaRangeMultiple",
+    "Grade": "Normal",
+    "RewardValue": 0.05
+  },
+  "AreaRangeMultipleRare": {
+    "StatType": "AreaRangeMultiple",
+    "Grade": "Rare",
+    "RewardValue": 0.1
+  },
+  "AreaRangeMultipleUnique": {
+    "StatType": "AreaRangeMultiple",
+    "Grade": "Unique",
+    "RewardValue": 0.2
+  },
+  "AreaRangeMultipleLegendary": {
+    "StatType": "AreaRangeMultiple",
+    "Grade": "Legendary",
+    "RewardValue": 0.4
+  },
+  "CoinMultipleNormal": {
+    "StatType": "CoinMultiple",
+    "Grade": "Normal",
+    "RewardValue": 0.1
+  },
+  "CoinMultipleRare": {
+    "StatType": "CoinMultiple",
+    "Grade": "Rare",
+    "RewardValue": 0.2
+  },
+  "CoinMultipleUnique": {
+    "StatType": "CoinMultiple",
+    "Grade": "Unique",
+    "RewardValue": 0.3
+  },
+  "CoinMultipleLegendary": {
+    "StatType": "CoinMultiple",
+    "Grade": "Legendary",
+    "RewardValue": 0.5
   }
 }

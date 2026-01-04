@@ -6,6 +6,7 @@ using MS.Manager;
 using MS.UI;
 using MS.Utils;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MS.Mode
@@ -83,6 +84,40 @@ namespace MS.Mode
             KillCount.Value++;
             ActivateNextWaveAsync().Forget();
         }
+
+        private void OnPlayerLevelUpCallback(int _prevLv, int _curLv)
+        {
+            List<StatRewardSettingData> selectedRewards = GetRandomStatRewards(4);
+
+            var popup = UIManager.Instance.ShowPopup<StatRewardPopup>("StatRewardPopup");
+            popup.InitStatRewardPopup(selectedRewards, player);
+        }
         #endregion
+
+
+        private List<StatRewardSettingData> GetRandomStatRewards(int _count)
+        {
+            List<StatRewardSettingData> results = new List<StatRewardSettingData>();
+            var statRewardDict = DataManager.Instance.StatRewardSettingDataDict;
+            var statTypes = (EStatType[])Enum.GetValues(typeof(EStatType));
+
+            while (results.Count < _count)
+            {
+                EGrade rndGrade = MathUtils.GetRandomGrade();
+                EStatType rndStat = statTypes[UnityEngine.Random.Range(0, statTypes.Length)];
+
+                string key = rndStat.ToString() + rndGrade.ToString(); // 데이터 검색할 키값 조합
+
+                if (statRewardDict.TryGetValue(key, out StatRewardSettingData data))
+                {
+                    if (!results.Contains(data))
+                    {
+                        results.Add(data);
+                    }
+                }
+            }
+
+            return results;
+        }
     }
 }

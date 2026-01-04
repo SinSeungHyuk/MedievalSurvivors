@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MS.UI
 {
@@ -16,6 +17,8 @@ namespace MS.UI
         private TextMeshProUGUI txtTimer;
         private TextMeshProUGUI txtWaveCount;
         private TextMeshProUGUI txtLevel;
+        private TextMeshProUGUI txtHPBar;
+        private Image imgHPBar;
         private List<SkillSlot> skillSlotList = new List<SkillSlot>();
 
         private BattlePanelViewModel curData;
@@ -39,6 +42,7 @@ namespace MS.UI
 
             curData.OnBossSpawned += OnBossSpawnedCallback;
             curData.OnSkillAdded += OnSkillAdded;
+            curData.OnPlayerHPChanged += OnPlayerHPChanged;
         }
 
         public void OnUpdate(float _dt)
@@ -57,6 +61,8 @@ namespace MS.UI
             txtTimer = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtTimer");
             txtWaveCount = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtWaveCount");
             txtLevel = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtLevel");
+            txtHPBar = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtHPBar");
+            imgHPBar = transform.FindChildComponentDeep<Image>("ImgHPBar");
 
             for (int i=1; i<=6;i++)
             {
@@ -105,6 +111,12 @@ namespace MS.UI
             txtTimer.text = "Boss";
         }
 
+        private void OnPlayerHPChanged(float _curHP, float _maxHP)
+        {
+            txtHPBar.text = _curHP.ToString("F0") + "/" + _maxHP.ToString("F0");
+            imgHPBar.fillAmount = _curHP / _maxHP;
+        }
+
         private void OnSkillAdded(string _skillKey, BaseSkill _skill)
         {
             SkillSlot targetSlot = skillSlotList[curSkillSlotIndex];
@@ -135,6 +147,7 @@ namespace MS.UI
 
             curData.OnBossSpawned -= OnBossSpawnedCallback;
             curData.OnSkillAdded -= OnSkillAdded;
+            curData.OnPlayerHPChanged -= OnPlayerHPChanged;
         }
     }
 }

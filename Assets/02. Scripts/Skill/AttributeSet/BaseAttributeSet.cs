@@ -11,7 +11,6 @@ public enum EStatType
     AttackPower,
     Defense,
     Evasion,
-    MoveSpeed,
     CriticChance,
     CriticMultiple,
     LifeSteal,
@@ -20,6 +19,7 @@ public enum EStatType
     AreaRangeMultiple,
     KnockbackMultiple,
     CoinMultiple,
+    MoveSpeed,
 
 
     AttackRange,    // 몬스터 전용 스탯
