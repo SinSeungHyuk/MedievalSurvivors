@@ -27,12 +27,25 @@ namespace MS.Manager
             }
         }
 
-        public string Get(string _category, string _key)
+        public string Get(string _category, string _key, params object[] _args)
         {
             if (stringTableDict.TryGetValue(_category, out var val))
             {
-                if (val.TryGetValue(_key, out var _result))
-                    return _result;
+                if (val.TryGetValue(_key, out var rawString))
+                {
+                    if (_args == null || _args.Length == 0) 
+                        return rawString;
+
+                    try
+                    {
+                        return string.Format(rawString, _args); // {0},{1} 같은 {숫자}를 _args로 치환
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError("StringTable::Get => formating error");
+                        return rawString;
+                    }
+                }
             }
             return "";
         }

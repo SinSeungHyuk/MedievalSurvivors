@@ -51,15 +51,15 @@
     "SlashOrange": "레드 슬래쉬"
   },
   "SkillDesc": {
-    "Teleport": "바라보고 있는 방향으로 순간이동합니다.",
-    "FOBS": "가장 가까운 지역에 무수히 많은 폭격을 일으킵니다.",
-    "Meteor": "가장 가까운 지역에 운석들을 떨어트립니다.",
-    "Blizzard": "가장 가까운 지역에 눈보라를 일으킵니다.",
-    "BigCrystal": "거대한 얼음 수정을 떨어트립니다.",
-    "CrystalFront": "전방으로 얼음조각을 뿌립니다.",
-    "FastCrystal": "빠르게 얼음 수정을 떨어트립니다.",
-    "SlashBlue": "사방에 파란색 검기를 날립니다.",
-    "SlashGreen": "이동속도가 잠시 증가하며 사방에 초록색 검기를 날립니다.",
-    "SlashOrange": "사방에 불꽃 검기를 날립니다."
+    "Teleport": "바라보고 있는 방향으로 {Move}만큼 순간이동합니다.",
+    "FOBS": "가장 가까운 지역에 무수히 많은 폭격을 일으켜 발당 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
+    "Meteor": "가장 가까운 지역에 운석들을 떨어트려 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
+    "Blizzard": "가장 가까운 지역에 눈보라를 일으켜 {Default} + (공격력의 {Damage}) 피해를 주고 적의 속도를 {Buff}% 감소시킵니다.",
+    "BigCrystal": "{Casting}초 동안 기를 모아 거대한 얼음 수정을 떨어트려 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
+    "CrystalFront": "전방으로 얼음조각을 뿌려 각각 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
+    "FastCrystal": "빠르게 얼음 수정을 떨어트려 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
+    "SlashBlue": "사방에 파란색 검기를 날려 {Default} + (공격력의 {Damage}) 피해를 주고 적을 {Knockback}만큼 밀쳐냅니다.",
+    "SlashGreen": "잠시 동안 이동속도가 {Buff}% 증가하며 사방에 {Default} + (공격력의 {Damage}) 피해를 주는 초록색 검기를 날립니다.",
+    "SlashOrange": "사방에 불꽃 검기를 날려 {Default} + (공격력의 {Damage}) 피해를 줍니다."
   }
 }

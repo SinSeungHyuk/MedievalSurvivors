@@ -22,8 +22,8 @@ namespace MS.Data
         {
             SkillValueDict.TryGetValue(_valueType, out float value);
             return value;
-    }
         }
+    }
 
     public enum ESkillValueType
     {

@@ -15,7 +15,7 @@ namespace MS.Utils
         public static float DefaultMaxSpawnDistance = 10f;
         public static float BossScaleMultiple = 1.5f;
 
-        public static float WaveTimer = 10f; // 웨이브 당 시간
+        public static float WaveTimer = 5f; // 웨이브 당 시간
         public static float AddWaveTimePerWave = 5f; // 웨이브마다 추가되는 시간
         #endregion
 
