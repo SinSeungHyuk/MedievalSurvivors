@@ -82,7 +82,12 @@ namespace MS.UI
             txtSkillDesc = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtSkillDesc");
             imgSkillIcon = transform.FindChildComponentDeep<Image>("ImgSkillIcon");
             btnStatReward = GetComponent<Button>();
-            btnStatReward.onClick.AddListener(OnBtnSkillRewardClickedCallback);
+
+            if (btnStatReward != null)
+            {
+                btnStatReward.onClick.RemoveListener(OnBtnSkillRewardClickedCallback);
+                btnStatReward.onClick.AddListener(OnBtnSkillRewardClickedCallback);
+            }
         }
 
         public void InitSkillRewardInfoRow(string _skillKey, Action<string> _callback)
@@ -96,6 +101,8 @@ namespace MS.UI
             imgSkillIcon.sprite = icon;
 
             skillKey = _skillKey;
+
+            OnBtnSkillRewardClicked = null;
             OnBtnSkillRewardClicked += _callback;
         }
 

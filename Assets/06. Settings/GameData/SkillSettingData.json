@@ -10,6 +10,7 @@
   "FOBS": {
     "OwnerType": "Player",
     "IconKey": "Icon_FOBS",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Electric",
     "Cooltime": 5,
     "SkillValueDict": {
@@ -20,6 +21,7 @@
   "Meteor": {
     "OwnerType": "Player",
     "IconKey": "Icon_Meteor",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Fire",
     "Cooltime": 5,
     "SkillValueDict": {
@@ -30,6 +32,7 @@
   "Blizzard": {
     "OwnerType": "Player",
     "IconKey": "Icon_Blizzard",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Ice",
     "Cooltime": 5,
     "SkillValueDict": {
@@ -41,6 +44,7 @@
   "BigCrystal": {
     "OwnerType": "Player",
     "IconKey": "Icon_BigCrystal",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Ice",
     "Cooltime": 5,
     "IsPostUseCooltime": true,
@@ -53,6 +57,7 @@
   "CrystalFront": {
     "OwnerType": "Player",
     "IconKey": "Icon_CrystalFront",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Ice",
     "Cooltime": 5,
     "SkillValueDict": {
@@ -63,6 +68,7 @@
   "FastCrystal": {
     "OwnerType": "Player",
     "IconKey": "Icon_FastCrystal",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Ice",
     "Cooltime": 5,
     "SkillValueDict": {
@@ -73,6 +79,7 @@
   "SlashBlue": {
     "OwnerType": "Player",
     "IconKey": "Icon_SlashBlue",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Ice",
     "Cooltime": 5,
     "IsPostUseCooltime": true,
@@ -85,6 +92,7 @@
   "SlashGreen": {
     "OwnerType": "Player",
     "IconKey": "Icon_SlashGreen",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Wind",
     "Cooltime": 5,
     "IsPostUseCooltime": true,
@@ -97,6 +105,7 @@
   "SlashOrange": {
     "OwnerType": "Player",
     "IconKey": "Icon_SlashOrange",
+    "CategoryKeyList": ["Area"],
     "AttributeType": "Fire",
     "Cooltime": 5,
     "IsPostUseCooltime": true,

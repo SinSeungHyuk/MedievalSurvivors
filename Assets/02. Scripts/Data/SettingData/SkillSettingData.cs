@@ -12,6 +12,7 @@ namespace MS.Data
     {
         public FieldObjectType OwnerType { get; set; }
         public string IconKey { get; set; }
+        public List<string> CategoryKeyList { get; set; }
         public EDamageAttributeType AttributeType { get; set; }
         public float Cooltime { get; set; }
         public bool IsPostUseCooltime { get; set; } // 스킬을 사용한 후에 쿨타임이 시작되는지 여부
