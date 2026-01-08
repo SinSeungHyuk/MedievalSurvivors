@@ -44,6 +44,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb282d028556481459634dd4ab5d6932
+    m_Address: Tooltip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d741ade825504d9409c29643f2d71e27
     m_Address: SkillRewardPopup
     m_ReadOnly: 0

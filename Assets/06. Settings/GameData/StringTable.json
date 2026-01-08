@@ -38,6 +38,33 @@
     "KnockbackMultiple": "넉백 배수(x)",
     "CoinMultiple": "코인 배수(x)"
   },
+  "Tooltip": {
+    "MaxHealth": "캐릭터가 보유할 수 있는\n최대 생명력입니다.",
+    "AttackPower": "적에게 입히는\n모든 피해량이 증가합니다.",
+    "Defense": "받는 피해량을 경감시킵니다.\n현재 피해 감소율: {0}",
+    "MoveSpeed": "캐릭터의 이동 속도입니다.",
+    "CriticChance": "공격 시 치명타가\n발생할 확률입니다.",
+    "CriticMultiple": "치명타 발생 시\n적용되는 피해 배율입니다.",
+    "Evasion": "적의 공격을\n완전히 무시할 확률입니다.\n현재 회피율: {0}",
+    "LifeSteal": "공격 시 생명력 1을\n회복할 확률입니다.",
+    "CooltimeAccel": "스킬의 재사용 대기시간을\n단축시킵니다.\n현재 쿨타임 감소율: {0}",
+    "ProjectileCount": "발사되는 투사체의 개수가\n증가합니다.",
+    "AreaRangeMultiple": "범위 공격 스킬의\n크기가 커집니다.",
+    "KnockbackMultiple": "적을 밀어내는 힘이\n증가합니다.",
+    "CoinMultiple": "획득하는 골드와 경험치의\n양이 증가합니다."
+  },
+  "AttributeType": {
+    "Fire": "화염",
+    "Ice": "빙결",
+    "Electric": "전격",
+    "Wind": "바람",
+    "Saint": "신성",
+    "Dark": "암흑"
+  },
+  "SkillCategory": {
+    "Projectile": "투사체",
+    "Area": "범위"
+  },
   "SkillName": {
     "Teleport": "순간이동",
     "FOBS": "궤도폭격",

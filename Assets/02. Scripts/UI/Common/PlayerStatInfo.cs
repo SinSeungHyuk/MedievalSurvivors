@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 namespace MS.UI
@@ -35,13 +37,8 @@ namespace MS.UI
 
                 PlayerStatInfoRow newRowObj = Instantiate(statInfoRowTemplate, statRowContainer);
                 newRowObj.gameObject.SetActive(true);
-
-                // StringTable을 이용해 스탯 이름을 로컬라이징하여 전달
-                string statName = StringTable.Instance.Get("StatType", statType.ToString());
-                if (string.IsNullOrEmpty(statName)) statName = statType.ToString();
                 float statValue = targetStat.Value;
-
-                newRowObj.InitPlayerStatInfoRow(statName, statValue);
+                newRowObj.InitPlayerStatInfoRow(statType, statValue);
             }
         }
 
@@ -55,11 +52,14 @@ namespace MS.UI
         }
     }
 
-    public class PlayerStatInfoRow : MonoBehaviour
+    public class PlayerStatInfoRow : MonoBehaviour, IPointerClickHandler
     {
         private TextMeshProUGUI txtStatType;
         private TextMeshProUGUI txtStatValue;
 
+        private string curStatType;
+        private float scalingStatValue;
+        
 
         private void Awake()
         {
@@ -67,10 +67,22 @@ namespace MS.UI
             txtStatValue = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtStatValue");
         }
 
-        public void InitPlayerStatInfoRow(string _statName, float _statValue)
+        public void InitPlayerStatInfoRow(EStatType _statType, float _statValue)
         {
-            txtStatType.text = _statName;
+            curStatType = _statType.ToString();
+            scalingStatValue = MathUtils.BattleScaling(_statValue);
+
+            string statName = StringTable.Instance.Get("StatType", curStatType);
+            if (string.IsNullOrEmpty(statName)) statName = curStatType;
+
+            txtStatType.text = statName;
             txtStatValue.text = _statValue.ToString("0.#");
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Tooltip tooltip = UIManager.Instance.ShowSystemUI<Tooltip>("Tooltip");
+            tooltip.InitTooltip(curStatType, eventData.position, scalingStatValue);
         }
     }
 }

@@ -10,7 +10,7 @@
           }
         ],
         "BossMonsterKey": "Skeleton_Tier1",
-        "SpawnInterval": 5,
+        "SpawnInterval": 2,
         "CountPerSpawn": 1,
         "FieldItemSpawnChance": 10.0
       },

@@ -33,18 +33,10 @@ namespace MS.Manager
             {
                 if (val.TryGetValue(_key, out var rawString))
                 {
-                    if (_args == null || _args.Length == 0) 
+                    if (_args != null && _args.Length > 0 && rawString.Contains("{")) 
+                        return string.Format(rawString, _args); 
+                    else 
                         return rawString;
-
-                    try
-                    {
-                        return string.Format(rawString, _args); // {0},{1} 같은 {숫자}를 _args로 치환
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.LogError("StringTable::Get => formating error");
-                        return rawString;
-                    }
                 }
             }
             return "";

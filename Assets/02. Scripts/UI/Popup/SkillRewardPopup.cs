@@ -72,6 +72,8 @@ namespace MS.UI
         private Image imgSkillIcon;
         private TextMeshProUGUI txtSkillName;
         private TextMeshProUGUI txtSkillDesc;
+        private RectTransform categoryContainer;
+        private CategoryRow categoryTemplate;
         private Button btnStatReward;
         private string skillKey;
 
@@ -80,6 +82,9 @@ namespace MS.UI
         {
             txtSkillName = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtSkillName");
             txtSkillDesc = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtSkillDesc");
+            categoryContainer = transform.FindChildComponentDeep<RectTransform>("CategoryContainer");
+            categoryTemplate = transform.GetOrAddComponent<CategoryRow>("CategoryTemplate");
+            categoryTemplate.gameObject.SetActive(false);
             imgSkillIcon = transform.FindChildComponentDeep<Image>("ImgSkillIcon");
             btnStatReward = GetComponent<Button>();
 
@@ -97,6 +102,21 @@ namespace MS.UI
             txtSkillName.text = StringTable.Instance.Get("SkillName", _skillKey);
             txtSkillDesc.text = DataUtils.GetSkillDesc(_skillKey);
 
+            for (int i = 0; i < skillData.CategoryKeyList.Count; i++)
+            {
+                CategoryRow rewardRow = Instantiate(categoryTemplate, categoryContainer);
+                rewardRow.gameObject.SetActive(true);
+                string category = StringTable.Instance.Get("SkillCategory", skillData.CategoryKeyList[i]);
+                rewardRow.InitCategoryRow(category);
+            }
+            for (int i = 0; i < skillData.CategoryKeyList.Count; i++)
+            {
+                CategoryRow rewardRow = Instantiate(categoryTemplate, categoryContainer);
+                rewardRow.gameObject.SetActive(true);
+                string category = StringTable.Instance.Get("AttributeType", skillData.AttributeType.ToString());
+                rewardRow.InitCategoryRow(category);
+            }
+
             Sprite icon = AddressableManager.Instance.LoadResource<Sprite>(skillData.IconKey);
             imgSkillIcon.sprite = icon;
 
@@ -109,6 +129,21 @@ namespace MS.UI
         private void OnBtnSkillRewardClickedCallback()
         {
             OnBtnSkillRewardClicked?.Invoke(skillKey);
+        }
+    }
+
+    public class CategoryRow : MonoBehaviour
+    {
+        private TextMeshProUGUI txtCategory;
+
+        private void Awake()
+        {
+            txtCategory = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtCategory");
+        }
+
+        public void InitCategoryRow(string _category)
+        {
+            txtCategory.text = _category;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace MS.Manager
         {
             try
             {
-                UIManager.Instance.ShowSystemUI("LoadingPanel");
+                UIManager.Instance.ShowSystemUI<BaseUI>("LoadingPanel");
 
                 await DataManager.Instance.LoadAllGameSettingDataAsync();
                 await StringTable.Instance.LoadStringTable();

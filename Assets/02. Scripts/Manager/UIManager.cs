@@ -104,21 +104,21 @@ namespace MS.Manager
             popupStack.Pop();
         }
 
-        public BaseUI ShowSystemUI(string _key)
+        public T ShowSystemUI<T>(string _key) where T : BaseUI
         {
             if (cachedUIDict.TryGetValue(_key, out BaseUI _systemUI))
             {
                 _systemUI.Show();
-                return _systemUI;
+                return _systemUI.GetComponent<T>();
             }
             if (uiPrefabDict.TryGetValue(_key, out GameObject _loadUI))
             {
-                BaseUI viewInstance = Instantiate(_loadUI, viewCanvas).GetComponent<BaseUI>();
+                BaseUI viewInstance = Instantiate(_loadUI, systemCanvas).GetComponent<BaseUI>();
                 viewInstance.name = _key;
                 viewInstance.Show();
 
                 cachedUIDict.Add(_key, viewInstance);
-                return viewInstance;
+                return viewInstance.GetComponent<T>();
             }
 
             Debug.LogError($"[UIManager] ShowView :: Key '{_key}' not found.");

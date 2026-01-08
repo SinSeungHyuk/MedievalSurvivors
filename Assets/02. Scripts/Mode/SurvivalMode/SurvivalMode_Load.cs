@@ -27,7 +27,7 @@ namespace MS.Mode
 
         private async UniTaskVoid LoadSurvivalModeAsync()
         {
-            UIManager.Instance.ShowSystemUI("LoadingPanel");
+            UIManager.Instance.ShowSystemUI<BaseUI>("LoadingPanel");
 
             await EffectManager.Instance.LoadAllEffectAsync();
             await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
