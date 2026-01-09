@@ -76,5 +76,11 @@ namespace MS.Core
         }
         public void ClearTraceTarget()
             => traceTarget = null;
+
+        public void StopEffect()
+        {
+            if (particle == null) return;
+            particle.Stop();
+        }
     }
 }

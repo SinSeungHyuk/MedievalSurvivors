@@ -20,7 +20,7 @@
         "KnockbackMultiple": 1.0,
         "CoinMultiple": 1.5
       },
-      "DefaultSkillKey": "CrystalFront",
+      "DefaultSkillKey": "BigCrystal",
       "DefaultWeaponKey": "Staff02Polyart"
     }
   }

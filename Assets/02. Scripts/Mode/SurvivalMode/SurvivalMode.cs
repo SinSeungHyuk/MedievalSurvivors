@@ -73,7 +73,6 @@ namespace MS.Mode
                 Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
                 FieldItemManager.Instance.SpawnRandomFieldItem(spawnPos);
             }
-            // TODO :: UI 업데이트 (킬카운트)
 
             KillCount.Value++;
         }
@@ -87,6 +86,9 @@ namespace MS.Mode
 
         private void OnPlayerLevelUpCallback(int _prevLv, int _curLv)
         {
+            EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
+
+
             List<StatRewardSettingData> selectedRewards = GetRandomStatRewards(4);
 
             var popup = UIManager.Instance.ShowPopup<StatRewardPopup>("StatRewardPopup");

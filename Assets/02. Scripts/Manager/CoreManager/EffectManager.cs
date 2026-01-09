@@ -53,6 +53,16 @@ namespace MS.Manager
             }
         }
 
+        public void StopEffectsByKey(string poolKey)
+        {
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                var e = effectList[i];
+                if (e == null) { effectList.RemoveAt(i); continue; }
+                if (e.PoolKey == poolKey) e.StopEffect();
+            }
+        }
+
         public void ClearEffect()
         {
             effectList.Clear();
@@ -73,6 +83,7 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainMoveSpeed", 3),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_MonsterHit", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_BossPortal", 1),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Firework", 1),
                     // ... 
                 };
 

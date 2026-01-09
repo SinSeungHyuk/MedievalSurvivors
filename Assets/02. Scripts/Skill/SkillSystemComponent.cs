@@ -104,8 +104,8 @@ namespace MS.Skill
         {
             if (!ownedSkillDict.TryGetValue(_skillKey, out BaseSkill skillToUse)) return;
             if (skillToUse.IsCooltime) return;
-
-            CancelSkill(_skillKey);
+            if (!skillToUse.CanActivateSkill()) return;
+            if (runningSkillDict.ContainsKey(_skillKey)) return;
 
             CancellationTokenSource cts = new CancellationTokenSource();
             runningSkillDict[_skillKey] = cts;

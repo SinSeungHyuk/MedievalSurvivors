@@ -56,6 +56,9 @@ namespace MS.Skill
 
 
         #region Util
+        public virtual bool CanActivateSkill()
+            => true;
+
         // 스킬 캐스팅 세팅 (플레이어만 호출할 함수)
         public async UniTask SetSkillCasting(CancellationToken token)
         {

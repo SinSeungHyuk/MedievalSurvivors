@@ -71,6 +71,7 @@ namespace MS.UI
         {
             base.Close();
 
+            EffectManager.Instance.StopEffectsByKey("Eff_Firework");
             Time.timeScale = 1f;
         }
     }

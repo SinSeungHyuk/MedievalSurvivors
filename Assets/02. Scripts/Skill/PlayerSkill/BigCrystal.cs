@@ -16,6 +16,12 @@ namespace MS.Skill
             base.InitSkill(_owner, _skillData);
         }
 
+        public override bool CanActivateSkill()
+        {
+            MonsterCharacter monster = MonsterManager.Instance.GetNearestMonster(owner.Position, 25f);
+            return monster != null;
+        }
+
         public override async UniTask ActivateSkill(CancellationToken token)
         {
             await SetSkillCasting(token);
