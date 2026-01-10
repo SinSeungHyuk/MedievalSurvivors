@@ -10,6 +10,7 @@ namespace MS.Field
 
         public SkillSystemComponent SSC { get; private set; }
         public Animator Animator => animator;
+        public bool IsStunned { get; protected set; }
 
 
         virtual protected void Awake()
@@ -19,5 +20,7 @@ namespace MS.Field
         }
 
         public abstract void ApplyKnockback(Vector3 _dir, float _force);
+
+        public abstract void ApplyStun(bool _isStunned);
     }
 }

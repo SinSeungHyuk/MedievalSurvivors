@@ -22,7 +22,7 @@ MonoBehaviour:
     - GameplayCue
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cdb4525de5e52d4c9ec7db882eaaa32
-    m_Address: GC_Acquire_GreenCrystal
+    m_Address: GC_Acquire_GainHealth
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue

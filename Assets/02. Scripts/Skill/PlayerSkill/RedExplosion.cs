@@ -22,10 +22,10 @@ namespace MS.Skill
 
             var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_RedExplosion", owner, Settings.MonsterLayer);
             skillObject.InitArea();
-            skillObject.SetAttackInterval(0.2f);
             skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
-            skillObject.SetDuration(4f);
-            skillObject.SetMaxHitCount(17);
+            skillObject.SetDuration(2f);
+            skillObject.SetDelay(1f);
+            skillObject.SetMaxHitCount(1);
             skillObject.SetHitCountPerAttack(1);
             skillObject.SetHitCallback((_skillObject, _ssc) =>
             {
@@ -42,8 +42,9 @@ namespace MS.Skill
                 );
                 _ssc.TakeDamage(damageInfo);
 
-                float speedDebuff = skillData.GetValue(ESkillValueType.Buff);
-                _ssc.AttributeSet.MoveSpeed.AddBonusStat("Blizzard", EBonusType.Percentage, speedDebuff);
+                float gainHealth = finalDamage * 0.02f;
+                ownerSSC.AttributeSet.Health += (gainHealth);
+                GameplayCueManager.Instance.PlayCue("GC_Acquire_GainHealth", owner);
             });
 
 

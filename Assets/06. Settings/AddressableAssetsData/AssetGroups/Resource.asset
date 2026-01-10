@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Resource
   m_GUID: 02ef724fada4ae84e83729049a5d588c
   m_SerializeEntries:
+  - m_GUID: 086f37d5144e31749b37fbdf61bdc9c6
+    m_Address: Icon_RedExplosion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1663bb1c79860584894707b6ba15db01
     m_Address: LoadingVideo
     m_ReadOnly: 0
@@ -77,6 +82,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6df1b4921aafd04cbc55d65de2a84ac
     m_Address: Icon_FOBS
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee4840b181f6f8a40aa169bc6a6d3c5d
+    m_Address: Icon_Plexus
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -102,6 +102,9 @@ namespace MS.Field
 
         public void OnUpdate(float _deltaTime)
         {
+            if (IsStunned && ObjectLifeState == FieldObjectLifeState.Live) 
+                return; 
+
             monsterStateMachine.OnUpdate(_deltaTime);
         }
 
@@ -115,6 +118,8 @@ namespace MS.Field
             isBoss = true;
         }
 
+
+        #region Override
         public override void ApplyKnockback(Vector3 _dir, float _force)
         {
             if (ObjectLifeState != FieldObjectLifeState.Live) return;
@@ -138,6 +143,24 @@ namespace MS.Field
                 }
             });
         }
+
+        public override void ApplyStun(bool _isStunned)
+        {
+            IsStunned = _isStunned;
+
+            if (IsStunned)
+            {
+                navMeshAgent.isStopped = true;
+                SSC.CancelAllSkills();
+                monsterStateMachine.TransitState((int)MonsterState.Idle);
+                Animator.SetTrigger(Settings.AnimHashIdle);
+            }
+            else
+            {
+                navMeshAgent.isStopped = false;
+            }
+        }
+        #endregion
 
 
         #region Callback

@@ -42,7 +42,7 @@ namespace MS.Field
             }
 
             PlayerAttributeSet playerAttributeSet = new PlayerAttributeSet();
-            playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData); // 최초로 스탯 세팅하면서 이벤트 호출 유도
+            playerAttributeSet.InitAttributeSet(_characterData.AttributeSetSettingData);
 
             SSC.InitSSC(this, playerAttributeSet);
             SSC.GiveSkill("Teleport");
@@ -57,10 +57,18 @@ namespace MS.Field
             IsMovementLocked = isLocked;
         }
 
+
+        #region Override
         public override void ApplyKnockback(Vector3 _dir, float _force)
         {
 
         }
+
+        public override void ApplyStun(bool _isStunned)
+        {
+
+        }
+        #endregion
 
         // TODO :: INPUT TEST
         public void OnInteract(InputValue value)

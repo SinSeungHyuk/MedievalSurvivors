@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 846ea046463027047a2a84c421457e88, type: 3}
-  m_Name: GC_Acquire_GreenCrystal
+  m_Name: GC_Acquire_GainHealth
   m_EditorClassIdentifier: 
   EffectKey: Eff_GainHp
   EffectOffset: {x: 0, y: 0.5, z: 0}

@@ -1,6 +1,7 @@
 using MS.Data;
 using MS.Skill;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 namespace MS.Utils
@@ -56,6 +57,23 @@ namespace MS.Utils
 
             _resultDamage = _baseDamage * _criticMultiple;
             return true;
+        }
+
+        // ¸Ê ·£´ýÇÑ Æ÷ÀÎÆ® ¹ÝÈ¯
+        public static Vector3 GetRandomPoint(Vector3 _center, float _radius)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                Vector2 randomPoint = Random.insideUnitCircle * _radius;
+                Vector3 targetPos = _center + new Vector3(randomPoint.x, 0f, randomPoint.y);
+
+                if (NavMesh.SamplePosition(targetPos, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+                {
+                    return hit.position;
+                }
+            }
+
+            return _center;
         }
     }
 }

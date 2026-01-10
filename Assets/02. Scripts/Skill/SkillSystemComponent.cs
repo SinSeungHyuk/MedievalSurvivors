@@ -164,8 +164,7 @@ namespace MS.Skill
                 if (MathUtils.IsSuccess(lifeSteal))
                 {
                     _damageInfo.Attacker.SSC.attributeSet.Health += Settings.LifeStealValue;
-                    GameplayCueManager.Instance.PlayCue("GC_Acquire_GreenCrystal", _damageInfo.Attacker);
-                    Debug.Log($"[피흡] (남은 체력: {_damageInfo.Attacker.SSC.attributeSet.Health})");
+                    GameplayCueManager.Instance.PlayCue("GC_Acquire_GainHealth", _damageInfo.Attacker);
                 }
             }
 
@@ -257,8 +256,12 @@ namespace MS.Skill
 
         public void ClearSSC()
         {
-            ownedSkillDict.Clear();
+            foreach (var effect in statusEffectDict.Values)
+            {
+                effect.OnEnd();
+            }
             statusEffectDict.Clear();
+            ownedSkillDict.Clear();
             OnDeadCallback = null;
             OnHitCallback = null;
         }

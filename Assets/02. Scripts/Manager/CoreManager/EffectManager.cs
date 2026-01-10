@@ -84,6 +84,9 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_MonsterHit", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_BossPortal", 1),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Firework", 1),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StunLoop", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StunBegin", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Burn", 10),
                     // ... 
                 };
 

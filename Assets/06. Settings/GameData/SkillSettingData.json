@@ -114,6 +114,30 @@
       "Damage": 0.5
     }
   },
+  "Plexus": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_Plexus",
+    "CategoryKeyList": ["Area"],
+    "AttributeType": "Electric",
+    "Cooltime": 5,
+    "IsPostUseCooltime": true,
+    "SkillValueDict": {
+      "Default": 3.0,
+      "Damage": 0.5
+    }
+  },
+  "RedExplosion": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_RedExplosion",
+    "CategoryKeyList": ["Area"],
+    "AttributeType": "None",
+    "Cooltime": 5,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 30.0,
+      "Damage": 0.5
+    }
+  },
 
   "OnehandAttackA": {
     "OwnerType": "Monster",

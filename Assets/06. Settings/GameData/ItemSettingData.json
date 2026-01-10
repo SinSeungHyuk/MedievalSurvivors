@@ -15,7 +15,7 @@
     "ItemValue": 50.0
   },
   "GreenCrystal": {
-    "GameplayCueKey": "GC_Acquire_GreenCrystal",
+    "GameplayCueKey": "GC_Acquire_GainHealth",
     "ItemType": "GreenCrystal",
     "ItemValue": 50.0
   },

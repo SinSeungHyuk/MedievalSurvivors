@@ -5,6 +5,7 @@ using MS.Manager;
 using MS.Utils;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 namespace MS.Skill
@@ -41,8 +42,9 @@ namespace MS.Skill
                     _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
                 );
                 _ssc.TakeDamage(damageInfo);
-            });
 
+                _ssc.Owner.ApplyBurnEffect("Meteor", 3f, 0.5f, 5, owner);
+            });
 
             await UniTask.CompletedTask;
         }
