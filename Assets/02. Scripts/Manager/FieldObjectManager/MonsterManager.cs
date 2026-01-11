@@ -4,6 +4,7 @@ using MS.Data;
 using MS.Field;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -66,6 +67,18 @@ namespace MS.Manager
             }
 
             return nearestMonster;
+        }
+
+        public List<MonsterCharacter> GetNearestMonsters(Vector3 _targetPos, int _count, float _searchRange = float.MaxValue)
+        {
+            float rangeSqr = _searchRange * _searchRange;
+
+            return monsterList
+                .Where(x => x.ObjectLifeState == FieldObjectLifeState.Live)
+                .Where(x => (x.transform.position - _targetPos).sqrMagnitude <= rangeSqr)
+                .OrderBy(x => (x.transform.position - _targetPos).sqrMagnitude)
+                .Take(_count)
+                .ToList();
         }
 
         public void ClearMonster()

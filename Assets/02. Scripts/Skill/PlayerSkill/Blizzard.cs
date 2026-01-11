@@ -43,7 +43,8 @@ namespace MS.Skill
                 _ssc.TakeDamage(damageInfo);
 
                 float speedDebuff = skillData.GetValue(ESkillValueType.Buff);
-                _ssc.Owner.ApplyStatEffect("Blizzard", EStatType.MoveSpeed, -70, EBonusType.Percentage, 5f);
+                float duration = skillData.GetValue(ESkillValueType.Duration);
+                _ssc.Owner.ApplyFrostEffect("Blizzard", duration, speedDebuff);
             });
 
 

@@ -38,7 +38,8 @@
     "SkillValueDict": {
       "Default": 4.0,
       "Damage": 0.2,
-      "Buff": -90
+      "Buff": -90,
+      "Duration": 2.0
     }
   },
   "BigCrystal": {
@@ -136,6 +137,59 @@
     "SkillValueDict": {
       "Default": 30.0,
       "Damage": 0.5
+    }
+  },
+  "StunBall": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_StunBall",
+    "CategoryKeyList": ["Projectile"],
+    "AttributeType": "Electric",
+    "Cooltime": 2,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 3.0,
+      "Damage": 0.5,
+      "Duration": 3.0
+    }
+  },
+  "FireBall": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_FireBall",
+    "CategoryKeyList": ["Projectile"],
+    "AttributeType": "Fire",
+    "Cooltime": 2,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 3.0,
+      "Damage": 0.5,
+      "Duration": 3.0
+    }
+  },
+  "Charm": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_Charm",
+    "CategoryKeyList": ["Projectile"],
+    "AttributeType": "None",
+    "Cooltime": 2,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 3.0,
+      "Damage": 0.5,
+      "Duration": 3.0
+    }
+  }, 
+ "IceBall": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_Charm",
+    "CategoryKeyList": ["Projectile", "Area"],
+    "AttributeType": "Ice",
+    "Cooltime": 2,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 3.0,
+      "Damage": 0.5,
+      "Duration": 3.0,
+      "Buff": -70
     }
   },
 

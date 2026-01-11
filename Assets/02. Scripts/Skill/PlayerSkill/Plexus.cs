@@ -55,7 +55,7 @@ namespace MS.Skill
                             _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
                         );
                         _ssc.TakeDamage(damageInfo);
-                        _ssc.Owner.ApplyStunEffect("Plexus", 5.0f);
+                        _ssc.Owner.ApplyStunEffect("Plexus", 2.0f);
                     });
 
                     // 다음 스폰 대기 (취소 토큰 적용)

@@ -96,5 +96,57 @@ namespace MS.Skill
 
             _target.SSC.ApplyStatusEffect(_key, effect);
         }
+
+        // 매혹
+        public static void ApplyCharmEffect(this FieldCharacter _target, string _key, float _duration, FieldCharacter _charmOwner)
+        {
+            StatusEffect effect = new StatusEffect();
+            effect.InitStatusEffect(_duration);
+
+            Stat moveStat = _target.SSC.AttributeSet.GetStatByType(EStatType.MoveSpeed);
+            Stat defStat = _target.SSC.AttributeSet.GetStatByType(EStatType.Defense);
+            if (moveStat == null || defStat == null) return;
+
+            MSEffect charmEffectLoop = null;
+            effect.OnStatusStartCallback += () =>
+            {
+                charmEffectLoop = EffectManager.Instance.PlayEffect("Eff_Charm", _target.Position, Quaternion.identity);
+                charmEffectLoop.SetTraceTarget(_target, Vector3.up);
+                moveStat.AddBonusStat(_key, EBonusType.Percentage, -50);
+                defStat.AddBonusStat(_key, EBonusType.Percentage, -50);
+            };
+            effect.OnStatusEndCallback += () =>
+            {
+                charmEffectLoop.StopEffect();
+                moveStat.RemoveBonusStat(_key);
+                defStat.RemoveBonusStat(_key);
+            };   
+
+            _target.SSC.ApplyStatusEffect(_key, effect);
+        }
+
+        // 동상
+        public static void ApplyFrostEffect(this FieldCharacter _target, string _key, float _duration, float _value)
+        {
+            StatusEffect effect = new StatusEffect();
+            effect.InitStatusEffect(_duration);
+
+            Stat moveStat = _target.SSC.AttributeSet.GetStatByType(EStatType.MoveSpeed);
+
+            MSEffect freezeEffectLoop = null;
+            effect.OnStatusStartCallback += () =>
+            {
+                freezeEffectLoop = EffectManager.Instance.PlayEffect("Eff_Frost", _target.Position, Quaternion.identity);
+                freezeEffectLoop.SetTraceTarget(_target, Vector3.up);
+                moveStat.AddBonusStat(_key, EBonusType.Percentage, _value);
+            };
+            effect.OnStatusEndCallback += () =>
+            {
+                freezeEffectLoop.StopEffect();
+                moveStat.RemoveBonusStat(_key);
+            };
+
+            _target.SSC.ApplyStatusEffect(_key, effect);
+        }
     }
 }

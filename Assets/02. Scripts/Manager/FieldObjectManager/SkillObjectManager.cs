@@ -56,6 +56,7 @@ namespace MS.Manager
             {
                 var tasks = new List<UniTask>
                 {
+                    // Area Objects
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_FOBS", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_Blizzard", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_Meteor", 10),
@@ -67,7 +68,14 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashBlue", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashGreen", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashOrange", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_FrostCircle", 10),
+
+                    // Projectile Objects
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_MonsterArrow", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projec_StunBall", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projec_FireBall", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projec_Charm", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projec_IceBall", 10),
                     // ...
                 };
 
