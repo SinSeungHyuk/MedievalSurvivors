@@ -22,7 +22,7 @@ namespace MS.Skill
 
             var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_Blizzard", owner, Settings.MonsterLayer);
             skillObject.InitArea();
-            skillObject.SetAttackInterval(0.2f);
+            skillObject.SetAttackInterval(0.3f);
             skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
             skillObject.SetDuration(4f);
             skillObject.SetMaxHitCount(17);

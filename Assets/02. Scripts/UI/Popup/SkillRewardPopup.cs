@@ -109,13 +109,10 @@ namespace MS.UI
                 string category = StringTable.Instance.Get("SkillCategory", skillData.CategoryKeyList[i]);
                 rewardRow.InitCategoryRow(category);
             }
-            for (int i = 0; i < skillData.CategoryKeyList.Count; i++)
-            {
-                CategoryRow rewardRow = Instantiate(categoryTemplate, categoryContainer);
-                rewardRow.gameObject.SetActive(true);
-                string category = StringTable.Instance.Get("AttributeType", skillData.AttributeType.ToString());
-                rewardRow.InitCategoryRow(category);
-            }
+            CategoryRow attributeRow = Instantiate(categoryTemplate, categoryContainer);
+            attributeRow.gameObject.SetActive(true);
+            string attribute = StringTable.Instance.Get("AttributeType", skillData.AttributeType.ToString());
+            attributeRow.InitCategoryRow(attribute);
 
             Sprite icon = AddressableManager.Instance.LoadResource<Sprite>(skillData.IconKey);
             imgSkillIcon.sprite = icon;

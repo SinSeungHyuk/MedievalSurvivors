@@ -15,6 +15,17 @@ namespace MS.Field
             moveSpeed = _moveSpeed;
         }
 
+        public void SetMoveSpeed(float _speed)
+        {
+            moveSpeed = _speed;
+        }
+
+        public void SetMoveDir(Vector3 _dir)
+        {
+            moveDir = _dir;
+        }
+
+
         public void OnTriggerEnter(Collider _other)
         {
             if (IsValidTarget(_other, out SkillSystemComponent _ssc))

@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace MS.Skill
 {
-    public class IceBall : BaseSkill
+    public class GravitationalField : BaseSkill
     {
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
@@ -41,16 +41,17 @@ namespace MS.Skill
                     fireDir = new Vector3(randomCircle.x, 0, randomCircle.y);
                 }
 
-                ProjectileObject iceBall = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
-                "Projec_IceBall", owner, Settings.MonsterLayer);
-                iceBall.InitProjectile(fireDir, 10f);
-                iceBall.SetDuration(2f);
-                iceBall.SetMaxHitCount(1);
-                iceBall.SetHitCallback((_obj, _ssc) =>
+                ProjectileObject gravitField = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
+                "Projec_GravitationalField", owner, Settings.MonsterLayer);
+                gravitField.InitProjectile(fireDir, 5f);
+                if (i < targetList.Count) gravitField.SetTraceTarget(targetList[i]);
+                gravitField.SetDuration(5f);
+                gravitField.SetMaxHitCount(1);
+                gravitField.SetHitCallback((_obj, _ssc) =>
                 {
-                    var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_FrostCircle", owner, Settings.MonsterLayer);
+                    var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_GravitationalField", owner, Settings.MonsterLayer);
                     skillObject.InitArea();
-                    skillObject.SetAttackInterval(0.5f);
+                    skillObject.SetAttackInterval(1f);
                     skillObject.transform.position = _obj.Position;
                     skillObject.SetDuration(4f);
                     skillObject.SetHitCallback((_skillObject, _ssc) =>
@@ -68,9 +69,9 @@ namespace MS.Skill
                         );
                         _ssc.TakeDamage(damageInfo);
 
-                        float speedDebuff = skillData.GetValue(ESkillValueType.Buff);
-                        float duration = skillData.GetValue(ESkillValueType.Duration);
-                        _ssc.Owner.ApplyFrostEffect("IceBall", duration, speedDebuff);
+                        _ssc.Owner.ApplyStatEffect("GravitationalField", EStatType.MoveSpeed, -40, EBonusType.Percentage, 1f);
+                        Vector3 pullDir = (_skillObject.Position - _ssc.Owner.Position).normalized;
+                        _ssc.Owner.ApplyKnockback(pullDir, 25.0f);
                     });
                 });
             }

@@ -63,7 +63,11 @@
   },
   "SkillCategory": {
     "Projectile": "투사체",
-    "Area": "범위"
+    "Area": "범위",
+    "Stun": "기절",
+    "Burn": "화상",
+    "Frost": "오한",
+    "Knockback": "넉백"
   },
   "SkillName": {
     "Teleport": "순간이동",
@@ -75,18 +79,34 @@
     "FastCrystal": "패스트 크리스탈",
     "SlashBlue": "블루 슬래쉬",
     "SlashGreen": "그린 슬래쉬",
-    "SlashOrange": "레드 슬래쉬"
+    "SlashOrange": "레드 슬래쉬",
+    "Plexus": "플렉서스",
+    "RedExplosion": "레드 익스플로전",
+    "StunBall": "스턴 볼",
+    "FireBall": "파이어 볼",
+    "Charm": "매혹",
+    "IceBall": "아이스 볼",
+    "GravitationalField": "중력장",
+    "BloodBall": "블러드 볼"
   },
   "SkillDesc": {
     "Teleport": "바라보고 있는 방향으로 {Move}만큼 순간이동합니다.",
-    "FOBS": "가장 가까운 지역에 무수히 많은 폭격을 일으켜 발당 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
-    "Meteor": "가장 가까운 지역에 운석들을 떨어트려 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
-    "Blizzard": "가장 가까운 지역에 눈보라를 일으켜 {Default} + (공격력의 {Damage}) 피해를 주고 적의 속도를 {Buff}% 감소시킵니다.",
-    "BigCrystal": "{Casting}초 동안 기를 모아 거대한 얼음 수정을 떨어트려 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
-    "CrystalFront": "전방으로 얼음조각을 뿌려 각각 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
-    "FastCrystal": "빠르게 얼음 수정을 떨어트려 {Default} + (공격력의 {Damage}) 피해를 줍니다.",
-    "SlashBlue": "사방에 파란색 검기를 날려 {Default} + (공격력의 {Damage}) 피해를 주고 적을 {Knockback}만큼 밀쳐냅니다.",
-    "SlashGreen": "잠시 동안 이동속도가 {Buff}% 증가하며 사방에 {Default} + (공격력의 {Damage}) 피해를 주는 초록색 검기를 날립니다.",
-    "SlashOrange": "사방에 불꽃 검기를 날려 {Default} + (공격력의 {Damage}) 피해를 줍니다."
+    "FOBS": "가장 가까운 지역에 무수히 많은 폭격을 일으켜 발당 ({Default} + {Damage}AD) 피해를 줍니다.",
+    "Meteor": "가장 가까운 지역에 운석들을 떨어트려 발당 ({Default} + {Damage}AD) 피해를 줍니다.",
+    "Blizzard": "가장 가까운 지역에 눈보라를 일으켜 발당 ({Default} + {Damage}AD) 피해를 주고 적의 속도를 {Duration}초 동안 {Buff}% 감소시킵니다.",
+    "BigCrystal": "{Casting}초 동안 기를 모아 거대한 얼음 수정을 떨어트려 ({Default} + {Damage}AD) 피해를 주고 적의 속도를 {Duration}초 동안 {Buff}% 감소시킵니다.",
+    "CrystalFront": "전방으로 얼음조각을 뿌려 ({Default} + {Damage}AD) 피해를 줍니다.",
+    "FastCrystal": "빠르게 얼음 수정을 떨어트려 ({Default} + {Damage}AD) 피해를 줍니다.",
+    "SlashBlue": "사방에 파란색 검기를 날려 ({Default} + {Damage}AD) 피해를 주고 적을 밀쳐냅니다.",
+    "SlashGreen": "잠시 동안 이동속도가 {Buff}% 증가하며 사방에 ({Default} + {Damage}AD) 피해를 주고 적을 밀쳐냅니다.",
+    "SlashOrange": "사방에 불꽃 검기를 날려 ({Default} + {Damage}AD) 피해와 화상을 부여하고 적을 밀쳐냅니다.",
+    "Plexus": "가장 가까운 적들에게 낙뢰를 떨어트려 ({Default} + {Damage}AD) 피해를 주고 {Duration}초 동안 기절시킵니다.",
+    "RedExplosion": "1초 뒤 붉은 폭발을 일으켜 ({Default} + {Damage}AD) 피해를 주고 피해량의 일부만큼 체력을 회복합니다.",
+    "StunBall": "가장 가까운 적에게 전기 구체를 날려 ({Default} + {Damage}AD) 피해를 주고 {Duration}초 동안 기절시킵니다.",
+    "FireBall": "전방으로 화염구를 날려 ({Default} + {Damage}AD) 피해를 주고 화상을 입힙니다.",
+    "Charm": "전방으로 매혹구를 날려 ({Default} + {Damage}AD) 피해를 주고 {Duration}초 동안 매혹시킵니다.",
+    "IceBall": "얼음 구체를 던져 적중시 자리에 얼음지대를 생성합니다. 지대는 ({Default} + {Damage}AD) 피해를 줍니다.",
+    "GravitationalField": "적을 추적하는 중력장을 생성하여 ({Default} + {Damage}AD) 피해를 주고 적들을 중앙으로 끌어당깁니다.",
+    "BloodBall": "적의 생명력을 흡수하는 구체를 날려 ({Default} + {Damage}AD) 피해를 입히고 돌아올 때 체력을 회복합니다."
   }
 }

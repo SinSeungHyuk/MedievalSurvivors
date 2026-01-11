@@ -42,7 +42,7 @@ namespace MS.Skill
                 );
                 _ssc.TakeDamage(damageInfo);
 
-                float gainHealth = finalDamage * 0.02f;
+                float gainHealth = finalDamage * 0.03f;
                 ownerSSC.AttributeSet.Health += (gainHealth);
                 GameplayCueManager.Instance.PlayCue("GC_Acquire_GainHealth", owner);
             });

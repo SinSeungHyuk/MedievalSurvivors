@@ -20,7 +20,7 @@
         "KnockbackMultiple": 1.0,
         "CoinMultiple": 1.5
       },
-      "DefaultSkillKey": "IceBall",
+      "DefaultSkillKey": "BloodBall",
       "DefaultWeaponKey": "Staff02Polyart"
     }
   }

@@ -34,11 +34,11 @@ namespace MS.Skill
                 float currentAngle = startAngle + (i * angleStep);
                 Vector3 fireDir = GetRotatedDirection(owner.transform.forward, currentAngle);
 
-                ProjectileObject stunBall = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
+                ProjectileObject fireBall = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
                 "Projec_FireBall", owner, Settings.MonsterLayer);
-                stunBall.InitProjectile(fireDir, 7f);
-                stunBall.SetDuration(3f);
-                stunBall.SetHitCallback((_obj, _ssc) =>
+                fireBall.InitProjectile(fireDir, 7f);
+                fireBall.SetDuration(3f);
+                fireBall.SetHitCallback((_obj, _ssc) =>
                 {
                     float damage = BattleUtils.CalcSkillBaseDamage(attributeSet.GetStatValueByType(EStatType.AttackPower), skillData);
                     bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, attributeSet.GetStatValueByType(EStatType.CriticChance), attributeSet.GetStatValueByType(EStatType.CriticMultiple), out float finalDamage);
@@ -52,8 +52,7 @@ namespace MS.Skill
                         _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
                     );
                     _ssc.TakeDamage(damageInfo);
-                    float duration = skillData.GetValue(ESkillValueType.Duration);
-                    _ssc.Owner.ApplyBurnEffect("FireBall", duration, 0.5f, 5, owner);
+                    _ssc.Owner.ApplyBurnEffect("FireBall", owner);
                 });
             }
 

@@ -27,7 +27,7 @@ namespace MS.Field
                     var rewards = new List<string>();
 
                     var playerSkillKeys = SkillDict
-                        .Where(x => x.Value.OwnerType == FieldObjectType.Player)
+                        .Where(x => x.Value.OwnerType == FieldObjectType.Player && !_player.SSC.HasSkill(x.Key))
                         .Select(x => x.Key)
                         .ToList();
 

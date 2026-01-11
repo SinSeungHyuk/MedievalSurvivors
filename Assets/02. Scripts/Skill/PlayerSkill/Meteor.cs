@@ -23,7 +23,7 @@ namespace MS.Skill
 
             var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_Meteor", owner, Settings.MonsterLayer);
             skillObject.InitArea();
-            skillObject.SetAttackInterval(0.2f);
+            skillObject.SetAttackInterval(0.4f);
             skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
             skillObject.SetDuration(4f);
             skillObject.SetMaxHitCount(17);
@@ -43,7 +43,7 @@ namespace MS.Skill
                 );
                 _ssc.TakeDamage(damageInfo);
 
-                _ssc.Owner.ApplyBurnEffect("Meteor", 3f, 0.5f, 5, owner);
+                _ssc.Owner.ApplyBurnEffect("Meteor", owner);
             });
 
             await UniTask.CompletedTask;

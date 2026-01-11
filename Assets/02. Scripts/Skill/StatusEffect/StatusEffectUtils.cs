@@ -57,13 +57,16 @@ namespace MS.Skill
         }
 
         // È­»ó
-        public static void ApplyBurnEffect(this FieldCharacter _target, string _key, float _duration, float _tickInterval, float _damagePerTick, FieldCharacter _source = null)
+        public static void ApplyBurnEffect(this FieldCharacter _target, string _key, FieldCharacter _source = null)
         {
             StatusEffect effect = new StatusEffect();
-            effect.InitStatusEffect(_duration);
+            effect.InitStatusEffect(4.1f);
 
             float elapsedTime = 0f;
             MSEffect burnEffectLoop = null;
+
+            float damagePerTick = _target.SSC.AttributeSet.GetStatValueByType(EStatType.MaxHealth) * 0.02f;
+
             effect.OnStatusStartCallback += () =>
             {
                 burnEffectLoop = EffectManager.Instance.PlayEffect("Eff_Burn", _target.Position, Quaternion.identity);
@@ -73,7 +76,7 @@ namespace MS.Skill
             {
                 elapsedTime += _deltaTime;
 
-                if (elapsedTime >= _tickInterval)
+                if (elapsedTime >= 1f)
                 {
                     elapsedTime = 0f;
 
@@ -81,7 +84,7 @@ namespace MS.Skill
                         _attacker: _source,
                         _target: _target,
                         _attributeType: EDamageAttributeType.Fire,
-                        _damage: _damagePerTick,
+                        _damage: damagePerTick,
                         _isCritic: false,
                         _knockbackForce: 0f
                     );

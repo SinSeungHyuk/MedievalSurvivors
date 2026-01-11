@@ -27,7 +27,7 @@ namespace MS.Skill
             Vector3 finalDirection = rotationOffset * owner.transform.forward;
             skillObject.transform.rotation = Quaternion.LookRotation(finalDirection);
             skillObject.SetDuration(2f);
-            skillObject.SetDelay(0.35f);
+            skillObject.SetDelay(0.3f);
             skillObject.SetMaxHitCount(1);
             skillObject.SetHitCountPerAttack(3);
             skillObject.SetHitCallback((_skillObject, _ssc) =>

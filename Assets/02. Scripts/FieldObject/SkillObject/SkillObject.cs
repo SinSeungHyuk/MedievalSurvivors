@@ -43,6 +43,7 @@ namespace MS.Field
             owner = _owner;
             targetLayer = _targetLayer;
 
+            traceTarget = null;
             elapsedTime = 0;
             duration = INFINITE_DURATION;
             maxAttackCount = INFINITE_ATTACK;

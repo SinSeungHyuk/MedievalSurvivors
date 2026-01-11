@@ -34,11 +34,11 @@ namespace MS.Skill
                 float currentAngle = startAngle + (i * angleStep);
                 Vector3 fireDir = GetRotatedDirection(owner.transform.forward, currentAngle);
 
-                ProjectileObject stunBall = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
+                ProjectileObject charm = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
                 "Projec_Charm", owner, Settings.MonsterLayer);
-                stunBall.InitProjectile(fireDir, 7f);
-                stunBall.SetDuration(1.5f);
-                stunBall.SetHitCallback((_obj, _ssc) =>
+                charm.InitProjectile(fireDir, 7f);
+                charm.SetDuration(1.5f);
+                charm.SetHitCallback((_obj, _ssc) =>
                 {
                     float damage = BattleUtils.CalcSkillBaseDamage(attributeSet.GetStatValueByType(EStatType.AttackPower), skillData);
                     bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, attributeSet.GetStatValueByType(EStatType.CriticChance), attributeSet.GetStatValueByType(EStatType.CriticMultiple), out float finalDamage);

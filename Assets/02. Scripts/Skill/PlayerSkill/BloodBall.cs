@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace MS.Skill
 {
-    public class IceBall : BaseSkill
+    public class BloodBall : BaseSkill
     {
         public override void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
         {
@@ -21,6 +21,9 @@ namespace MS.Skill
         public override async UniTask ActivateSkill(CancellationToken token)
         {
             owner.Animator.SetTrigger(Settings.AnimHashAttack);
+            bool isReturn = false;
+            float totalDamage = 0f;
+            List<ProjectileObject> projecList = new List<ProjectileObject>();
 
             int projecCnt = 1 + (int)ownerSSC.AttributeSet.GetStatValueByType(EStatType.ProjectileCount);
             List<MonsterCharacter> targetList = MonsterManager.Instance.GetNearestMonsters(owner.Position, projecCnt);
@@ -41,19 +44,14 @@ namespace MS.Skill
                     fireDir = new Vector3(randomCircle.x, 0, randomCircle.y);
                 }
 
-                ProjectileObject iceBall = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
-                "Projec_IceBall", owner, Settings.MonsterLayer);
-                iceBall.InitProjectile(fireDir, 10f);
-                iceBall.SetDuration(2f);
-                iceBall.SetMaxHitCount(1);
-                iceBall.SetHitCallback((_obj, _ssc) =>
+                LayerMask layer = Settings.MonsterLayer | Settings.PlayerLayer;
+                ProjectileObject bloodBall = SkillObjectManager.Instance.SpawnSkillObject<ProjectileObject>(
+                "Projec_BloodBall", owner, layer);
+                bloodBall.InitProjectile(fireDir, 13f);
+                projecList.Add(bloodBall);
+                bloodBall.SetHitCallback((_obj, _ssc) =>
                 {
-                    var skillObject = SkillObjectManager.Instance.SpawnSkillObject<AreaObject>("Area_FrostCircle", owner, Settings.MonsterLayer);
-                    skillObject.InitArea();
-                    skillObject.SetAttackInterval(0.5f);
-                    skillObject.transform.position = _obj.Position;
-                    skillObject.SetDuration(4f);
-                    skillObject.SetHitCallback((_skillObject, _ssc) =>
+                    if (_ssc.Owner.ObjectType == FieldObject.FieldObjectType.Monster)
                     {
                         float damage = BattleUtils.CalcSkillBaseDamage(attributeSet.GetStatValueByType(EStatType.AttackPower), skillData);
                         bool isCritic = BattleUtils.CalcSkillCriticDamage(damage, attributeSet.GetStatValueByType(EStatType.CriticChance), attributeSet.GetStatValueByType(EStatType.CriticMultiple), out float finalDamage);
@@ -67,12 +65,23 @@ namespace MS.Skill
                             _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
                         );
                         _ssc.TakeDamage(damageInfo);
-
-                        float speedDebuff = skillData.GetValue(ESkillValueType.Buff);
-                        float duration = skillData.GetValue(ESkillValueType.Duration);
-                        _ssc.Owner.ApplyFrostEffect("IceBall", duration, speedDebuff);
-                    });
+                        totalDamage += finalDamage;
+                    }
+                    else if (_ssc.Owner.ObjectType == FieldObject.FieldObjectType.Player && isReturn)
+                    {
+                        ownerSSC.AttributeSet.Health += (totalDamage / projecCnt) * 0.05f;
+                        bloodBall.SetDuration(0f);
+                    }
                 });
+            }
+
+            await UniTask.WaitForSeconds(0.75f, cancellationToken: token);
+
+            isReturn = true;
+            foreach (var projec in projecList)
+            {
+                projec.SetMoveSpeed(8f);
+                projec.SetTraceTarget(owner);
             }
 
             await UniTask.CompletedTask;

@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 214c15522670b1a4e981ae6b6b61a76b
+    m_Address: Icon_Charm
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34d9a1c8832b3cc44b0b3e55ab3fd0ab
     m_Address: TitleVideo
     m_ReadOnly: 0
@@ -37,6 +42,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a467f959fc196d40938789eeb0e39d9
     m_Address: Icon_Blizzard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4435dbe22b7bdbb4f9854390b683645f
+    m_Address: Icon_GravitationalField
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -50,6 +60,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58796d22e6fce7f458fea288285d26d7
+    m_Address: Icon_BloodBall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 602c6b5dca815de4992d53a1481b2726
     m_Address: Icon_BigCrystal
     m_ReadOnly: 0
@@ -60,8 +75,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ffbdeb95727aa143bdcfbd8121fd561
+    m_Address: Icon_IceBall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b02eab698bebf9e49925a9244f235f3d
     m_Address: Icon_CrystalFront
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4fbb29720d5c0743a9fac04783b0fa2
+    m_Address: Icon_StunBall
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

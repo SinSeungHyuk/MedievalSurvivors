@@ -12,47 +12,49 @@
     "IconKey": "Icon_FOBS",
     "CategoryKeyList": ["Area"],
     "AttributeType": "Electric",
-    "Cooltime": 5,
+    "Cooltime": 7,
     "SkillValueDict": {
-      "Default": 5.0,
-      "Damage": 0.3
+      "Default": 15.0,
+      "Damage": 0.2
     }
   },
   "Meteor": {
     "OwnerType": "Player",
     "IconKey": "Icon_Meteor",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Burn"],
     "AttributeType": "Fire",
-    "Cooltime": 5,
+    "Cooltime": 9,
     "SkillValueDict": {
-      "Default": 2.5,
-      "Damage": 0.5
+      "Default": 5.0,
+      "Damage": 0.25
     }
   },
   "Blizzard": {
     "OwnerType": "Player",
     "IconKey": "Icon_Blizzard",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Frost"],
     "AttributeType": "Ice",
-    "Cooltime": 5,
+    "Cooltime": 10,
     "SkillValueDict": {
-      "Default": 4.0,
-      "Damage": 0.2,
-      "Buff": -90,
+      "Default": 8.0,
+      "Damage": 0.3,
+      "Buff": -40,
       "Duration": 2.0
     }
   },
   "BigCrystal": {
     "OwnerType": "Player",
     "IconKey": "Icon_BigCrystal",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Frost"],
     "AttributeType": "Ice",
-    "Cooltime": 5,
+    "Cooltime": 11,
     "IsPostUseCooltime": true,
     "SkillValueDict": {
-      "Default": 10.0,
-      "Damage": 0.7,
-      "Casting": 3
+      "Default": 75.0,
+      "Damage": 0.9,
+      "Casting": 2,
+      "Buff": -50,
+      "Duration": 3.0
     }
   },
   "CrystalFront": {
@@ -62,8 +64,8 @@
     "AttributeType": "Ice",
     "Cooltime": 5,
     "SkillValueDict": {
-      "Default": 2.0,
-      "Damage": 0.2
+      "Default": 50.0,
+      "Damage": 0.5
     }
   },
   "FastCrystal": {
@@ -73,58 +75,61 @@
     "AttributeType": "Ice",
     "Cooltime": 5,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5
+      "Default": 40.0,
+      "Damage": 0.65
     }
   },
   "SlashBlue": {
     "OwnerType": "Player",
     "IconKey": "Icon_SlashBlue",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Knockback"],
     "AttributeType": "Ice",
-    "Cooltime": 5,
+    "Cooltime": 7,
     "IsPostUseCooltime": true,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5,
-      "Knockback": 50
+      "Default": 80.0,
+      "Damage": 0.8,
+      "Knockback": 55
     }
   },
   "SlashGreen": {
     "OwnerType": "Player",
     "IconKey": "Icon_SlashGreen",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Knockback"],
     "AttributeType": "Wind",
-    "Cooltime": 5,
+    "Cooltime": 7,
     "IsPostUseCooltime": true,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5,
-      "Buff": 100
+      "Default": 70.0,
+      "Damage": 0.7,
+      "Buff": 50,
+      "Knockback": 35
     }
   },
   "SlashOrange": {
     "OwnerType": "Player",
     "IconKey": "Icon_SlashOrange",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Burn", "Knockback"],
     "AttributeType": "Fire",
-    "Cooltime": 5,
+    "Cooltime": 8,
     "IsPostUseCooltime": true,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5
+      "Default": 50.0,
+      "Damage": 0.5,
+      "Knockback": 45
     }
   },
   "Plexus": {
     "OwnerType": "Player",
     "IconKey": "Icon_Plexus",
-    "CategoryKeyList": ["Area"],
+    "CategoryKeyList": ["Area", "Stun"],
     "AttributeType": "Electric",
-    "Cooltime": 5,
+    "Cooltime": 8,
     "IsPostUseCooltime": true,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5
+      "Default": 25.0,
+      "Damage": 1.0,
+      "Duration": 2.0
     }
   },
   "RedExplosion": {
@@ -132,37 +137,36 @@
     "IconKey": "Icon_RedExplosion",
     "CategoryKeyList": ["Area"],
     "AttributeType": "None",
-    "Cooltime": 5,
+    "Cooltime": 6,
     "IsPostUseCooltime": false,
     "SkillValueDict": {
-      "Default": 30.0,
-      "Damage": 0.5
+      "Default": 45.0,
+      "Damage": 0.6
     }
   },
   "StunBall": {
     "OwnerType": "Player",
     "IconKey": "Icon_StunBall",
-    "CategoryKeyList": ["Projectile"],
+    "CategoryKeyList": ["Projectile", "Stun"],
     "AttributeType": "Electric",
-    "Cooltime": 2,
+    "Cooltime": 10,
     "IsPostUseCooltime": false,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5,
+      "Default": 20.0,
+      "Damage": 0.8,
       "Duration": 3.0
     }
   },
   "FireBall": {
     "OwnerType": "Player",
     "IconKey": "Icon_FireBall",
-    "CategoryKeyList": ["Projectile"],
+    "CategoryKeyList": ["Projectile", "Burn"],
     "AttributeType": "Fire",
-    "Cooltime": 2,
+    "Cooltime": 7,
     "IsPostUseCooltime": false,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5,
-      "Duration": 3.0
+      "Default": 30.0,
+      "Damage": 0.4
     }
   },
   "Charm": {
@@ -170,26 +174,50 @@
     "IconKey": "Icon_Charm",
     "CategoryKeyList": ["Projectile"],
     "AttributeType": "None",
-    "Cooltime": 2,
+    "Cooltime": 8,
     "IsPostUseCooltime": false,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5,
+      "Default": 85.0,
+      "Damage": 0.3,
       "Duration": 3.0
     }
   }, 
  "IceBall": {
     "OwnerType": "Player",
-    "IconKey": "Icon_Charm",
+    "IconKey": "Icon_IceBall",
     "CategoryKeyList": ["Projectile", "Area"],
     "AttributeType": "Ice",
-    "Cooltime": 2,
+    "Cooltime": 11,
     "IsPostUseCooltime": false,
     "SkillValueDict": {
-      "Default": 3.0,
-      "Damage": 0.5,
-      "Duration": 3.0,
-      "Buff": -70
+      "Default": 25.0,
+      "Damage": 0.4,
+      "Duration": 1.5,
+      "Buff": -50
+    }
+  },
+ "GravitationalField": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_GravitationalField",
+    "CategoryKeyList": ["Projectile", "Area"],
+    "AttributeType": "Wind",
+    "Cooltime": 9,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 25.0,
+      "Damage": 0.85
+    }
+  },
+ "BloodBall": {
+    "OwnerType": "Player",
+    "IconKey": "Icon_BloodBall",
+    "CategoryKeyList": ["Projectile"],
+    "AttributeType": "None",
+    "Cooltime": 10,
+    "IsPostUseCooltime": false,
+    "SkillValueDict": {
+      "Default": 60.0,
+      "Damage": 0.6
     }
   },
 

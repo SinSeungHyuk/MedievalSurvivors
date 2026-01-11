@@ -24,7 +24,7 @@ namespace MS.Skill
             skillObject.InitArea();
             skillObject.transform.position = MonsterManager.Instance.GetNearestMonster(owner.Position).Position;
             skillObject.SetDuration(1.5f);
-            skillObject.SetDelay(0.5f);
+            skillObject.SetDelay(0.45f);
             skillObject.SetMaxHitCount(1);
             skillObject.SetHitCountPerAttack(1);
             skillObject.SetHitCallback((_skillObject, _ssc) =>

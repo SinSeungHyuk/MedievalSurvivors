@@ -41,6 +41,7 @@ namespace MS.Skill
                     _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
                 );
                 _ssc.TakeDamage(damageInfo);
+                _ssc.Owner.ApplyBurnEffect("SlashOrange", owner);
             });
 
 

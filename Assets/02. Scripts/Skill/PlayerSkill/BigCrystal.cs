@@ -47,6 +47,9 @@ namespace MS.Skill
                         _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
                     );
                 _ssc.TakeDamage(damageInfo);
+                float speedDebuff = skillData.GetValue(ESkillValueType.Buff);
+                float duration = skillData.GetValue(ESkillValueType.Duration);
+                _ssc.Owner.ApplyFrostEffect("BigCrystal", duration, speedDebuff);
             });
 
             await UniTask.CompletedTask;

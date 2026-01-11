@@ -219,6 +219,11 @@ namespace MS.Skill
 
             return true;
         }
+
+        public bool HasSkill(string _skillKey)
+        {
+            return ownedSkillDict.ContainsKey(_skillKey);
+        }
         #endregion
 
 
