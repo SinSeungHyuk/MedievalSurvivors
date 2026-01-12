@@ -53,6 +53,11 @@
     "KnockbackMultiple": "적을 밀어내는 힘이\n증가합니다.",
     "CoinMultiple": "획득하는 골드와 경험치의\n양이 증가합니다."
   },
+  "Notification": {
+    "Warning": "경 고",
+    "BossAppear": "보스가 등장했습니다.",
+    "LastWave": "하늘에서 운석이 떨어집니다."
+  },
   "AttributeType": {
     "Fire": "화염",
     "Ice": "빙결",

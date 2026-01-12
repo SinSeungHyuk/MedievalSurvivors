@@ -216,7 +216,7 @@
     "Cooltime": 10,
     "IsPostUseCooltime": false,
     "SkillValueDict": {
-      "Default": 60.0,
+      "Default": 30.0,
       "Damage": 0.6
     }
   },

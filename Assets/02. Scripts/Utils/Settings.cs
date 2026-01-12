@@ -6,7 +6,7 @@ namespace MS.Utils
     public static class Settings
     {
         #region BATTLE SETTING
-        public static int MaxWaveCount = 5;
+        public static int MaxWaveCount = 2;
         public static int BattleScalingConstant = 100;
         public static float WeaknessAttributeMultiple = 1.3f; // 약점속성 추가 데미지
         public static int LifeStealValue = 1;

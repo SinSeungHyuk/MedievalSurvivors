@@ -33,6 +33,7 @@ namespace MS.Mode
         {
             Load,
             BattleStart,
+            LastWave,
             BattleEnd,
         }
 
@@ -40,6 +41,7 @@ namespace MS.Mode
         {
             modeStateMachine.RegisterState((int)SurvivalModeState.Load, OnLoadEnter, OnLoadUpdate, OnLoadExit);
             modeStateMachine.RegisterState((int)SurvivalModeState.BattleStart, OnBattleStartEnter, OnBattleStartUpdate, OnBattleStartExit);
+            modeStateMachine.RegisterState((int)SurvivalModeState.LastWave, OnLastWaveEnter, OnLastWaveUpdate, OnLastWaveExit);
             modeStateMachine.TransitState((int)SurvivalModeState.Load);
         }
 
