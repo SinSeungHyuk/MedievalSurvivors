@@ -1,7 +1,7 @@
 {
   "Skeleton_Tier1": {
     "AttributeSetSettingData": {
-      "MaxHealth": 100.0,
+      "MaxHealth": 10.0,
       "AttackPower": 6.0,
       "Defense": 0.0,
       "MoveSpeed": 2.5,

@@ -9,7 +9,7 @@
         "MaxHealth": 100.0,
         "AttackPower": 10.0,
         "Defense": 0.0,
-        "Evasion": 150.0,
+        "Evasion": 0.0,
         "MoveSpeed": 4.0,
         "CriticChance": 5.0,
         "CriticMultiple": 1.5,

@@ -89,6 +89,8 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Burn", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Charm", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Frost", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_WaveMeteor", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_WaveMeteorHit", 10),
                     // ... 
                 };
 

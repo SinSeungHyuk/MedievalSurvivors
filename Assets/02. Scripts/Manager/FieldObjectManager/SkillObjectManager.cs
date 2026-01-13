@@ -6,6 +6,8 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.UI.GridLayoutGroup;
 
 
 namespace MS.Manager
@@ -26,6 +28,12 @@ namespace MS.Manager
                 skillObject.InitSkillObject(_key, _owner , _targetLayer);
             }
             return skillObject;
+        }
+
+        public void SpawnIndicator(Vector3 _spawnPos, float _range, float _duration, Action<Vector3> _callback)
+        {
+            IndicatorObject indicator = ObjectPoolManager.Instance.Get("Indicator", _spawnPos, Quaternion.identity).GetComponent<IndicatorObject>();
+            indicator.InitIndicator(_range, _duration, _callback);
         }
 
         public void OnUpdate(float _deltaTime)
@@ -79,6 +87,9 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_IceBall", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_GravitationalField", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_BloodBall", 10),
+
+                    // ETC
+                    ObjectPoolManager.Instance.CreatePoolAsync("Indicator", 10),
                     // ...
                 };
 

@@ -1,18 +1,27 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using MS.Core;
 using MS.Data;
 using MS.Field;
 using MS.Manager;
+using MS.Skill;
 using MS.UI;
 using MS.Utils;
 using NUnit.Framework;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace MS.Mode
 {
     public partial class SurvivalMode
     {
+        private float randMeteorInterval;
+        private int randMeteorCount;
+        private float elapsedMeteorTime;
+
+
         private void OnLastWaveEnter(int _prev, object[] _params)
         {
             Notification notification = UIManager.Instance.ShowSystemUI<Notification>("Notification");
@@ -20,6 +29,10 @@ namespace MS.Mode
             {
                 notification.InitNotification("Warning", "LastWave");
             }
+
+            elapsedMeteorTime = 0f;
+            randMeteorInterval = 3f;
+            randMeteorCount = Random.Range(1, 5);
         }
 
         private void OnLastWaveUpdate(float _dt)
@@ -48,6 +61,17 @@ namespace MS.Mode
                     Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
                     MonsterCharacter monster = MonsterManager.Instance.SpawnMonster(monsterKey, spawnPos, Quaternion.identity);
                     monster.SSC.OnDeadCallback += OnMonsterDead;
+                }
+            }
+
+            elapsedMeteorTime += _dt;
+            if (elapsedMeteorTime >= randMeteorInterval)
+            {
+                elapsedMeteorTime = 0f;
+                for (int i = 0; i < randMeteorCount; i++)
+                {
+                    Vector3 spawnPos = BattleUtils.GetRandomPoint(player.Position, 15f);
+                    SkillObjectManager.Instance.SpawnIndicator(spawnPos,4f, 1f, WaveMeteor);
                 }
             }
 
@@ -85,6 +109,37 @@ namespace MS.Mode
             {
                 notification.InitNotification("Warning", "BossAppear");
             }
+        }
+
+        private void WaveMeteor(Vector3 _pos)
+        {
+            Vector3 spawnPos = new Vector3(_pos.x, _pos.y + 10f, _pos.z);
+
+            MSEffect meteor = EffectManager.Instance.PlayEffect("Eff_WaveMeteor", spawnPos, Quaternion.identity);
+            Vector3 endPos = _pos;
+
+            meteor.transform.DOMove(endPos, 0.5f).SetEase(Ease.InQuad).OnComplete(() =>
+            {
+                ObjectPoolManager.Instance.Return("Eff_WaveMeteor", meteor.gameObject);
+                EffectManager.Instance.PlayEffect("Eff_WaveMeteorHit", _pos, Quaternion.identity);
+
+                Collider[] hitColliders = Physics.OverlapSphere(_pos, 2f, Settings.PlayerLayer);
+                foreach (var hit in hitColliders)
+                {
+                    if (hit.TryGetComponent<PlayerCharacter>(out var player))
+                    {
+                        DamageInfo damageInfo = new DamageInfo(
+                            _attacker: null,
+                            _target: player,
+                            _attributeType: EDamageAttributeType.None,
+                            _damage: 50f,
+                            _isCritic: false,
+                            _knockbackForce: 0f
+                        );
+                        player.SSC.TakeDamage(damageInfo);
+                    }
+                }
+            });
         }
     }
 }
