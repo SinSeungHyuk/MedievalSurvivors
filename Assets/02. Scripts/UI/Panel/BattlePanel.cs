@@ -1,4 +1,5 @@
 using MS.Data;
+using MS.Field;
 using MS.Skill;
 using MS.Utils;
 using System;
@@ -12,6 +13,7 @@ namespace MS.UI
     public class BattlePanel : BaseUI
     {
         private ExpBar expBar;
+        private HPBar bossHPBar;
         private TextMeshProUGUI txtGold;
         private TextMeshProUGUI txtKillCount;
         private TextMeshProUGUI txtTimer;
@@ -31,6 +33,7 @@ namespace MS.UI
             if (expBar == null) FindUIComponents();
 
             expBar.InitExpBar();
+            bossHPBar.gameObject.SetActive(false);
 
             curData = _data;
             curData.KillCount.Subscribe(OnKillCountChanged);
@@ -56,20 +59,20 @@ namespace MS.UI
         private void FindUIComponents()
         {
             expBar = transform.FindChildComponentDeep<ExpBar>("ExpBar");
+            bossHPBar = transform.FindChildComponentDeep<HPBar>("BossHPBar");
             txtGold = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtGold");
             txtKillCount = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtKillCount");
             txtTimer = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtTimer");
             txtWaveCount = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtWaveCount");
             txtLevel = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtLevel");
-            txtHPBar = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtHPBar");
-            imgHPBar = transform.FindChildComponentDeep<Image>("ImgHPBar");
+            txtHPBar = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtPlayerHPBar");
+            imgHPBar = transform.FindChildComponentDeep<Image>("ImgPlayerHPBar");
 
             for (int i=1; i<=6;i++)
             {
                 SkillSlot skillSlot = transform.FindChildComponentDeep<SkillSlot>("SkillSlot_"+i);
                 skillSlotList.Add(skillSlot);
             }
-
         }
 
         #region Bind
@@ -106,9 +109,11 @@ namespace MS.UI
             expBar.UpdateExpBar(ratio);
         }
 
-        private void OnBossSpawnedCallback()
+        private void OnBossSpawnedCallback(MonsterCharacter _boss)
         {
             txtTimer.text = "Boss";
+            bossHPBar.gameObject.SetActive(true);
+            bossHPBar.InitHPBar(_boss);
         }
 
         private void OnPlayerHPChanged(float _curHP, float _maxHP)

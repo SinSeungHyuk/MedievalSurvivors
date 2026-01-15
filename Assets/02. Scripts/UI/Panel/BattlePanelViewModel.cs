@@ -17,7 +17,7 @@ namespace MS.Data
         public MSReactProp<float> PlayerMaxExp { get; private set; }
         public MSReactProp<float> PlayerCurExp { get; private set; }
 
-        public event Action OnBossSpawned;
+        public event Action<MonsterCharacter> OnBossSpawned;
         public event Action<string, BaseSkill> OnSkillAdded;
         public event Action<float, float> OnPlayerHPChanged;
 
@@ -34,7 +34,7 @@ namespace MS.Data
             PlayerMaxExp = _player.LevelSystem.MaxExp;
             PlayerCurExp = _player.LevelSystem.CurExp;
 
-            _mode.OnBossSpawned += () => OnBossSpawned?.Invoke();
+            _mode.OnBossSpawned += (boss) => OnBossSpawned?.Invoke(boss);
             _player.SSC.OnSkillAdded += (_skillKey, _skill) => OnSkillAdded?.Invoke(_skillKey, _skill);
             _player.SSC.OnHealthChanged += (_curHP, _maxHP) => OnPlayerHPChanged?.Invoke(_curHP, _maxHP);
 

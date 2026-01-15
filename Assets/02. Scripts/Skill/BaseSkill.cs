@@ -20,11 +20,26 @@ namespace MS.Skill
         private float elapsedCooltime;
         private int curSkillLevel;
 
+        private float totalDamageDealt; // 스킬로 누적된 총 데미지
+        private float acquiredTime; // 스킬이 획득된 시간
+
+
         public SkillSettingData SkillData => skillData;
         public bool IsCooltime => elapsedCooltime > 0;
         public bool IsPostUseCooltime => skillData.IsPostUseCooltime;
         public int CurSkillLevel => curSkillLevel;
         public float CooltimeRatio => elapsedCooltime / curCooltime;
+
+        public float TotalDamageDealt => totalDamageDealt;
+        public float DPS
+        {
+            get
+            {
+                float duration = Time.time - acquiredTime;
+                if (duration <= 0) return 0;
+                return totalDamageDealt / duration;
+            }
+        }
 
 
         public virtual void InitSkill(SkillSystemComponent _owner, SkillSettingData _skillData)
@@ -36,6 +51,8 @@ namespace MS.Skill
             curCooltime = 0;
             elapsedCooltime = 0;
             curSkillLevel = 1;
+            totalDamageDealt = 0f;
+            acquiredTime = Time.time;
         }
 
         public abstract UniTask ActivateSkill(CancellationToken token);
@@ -65,6 +82,11 @@ namespace MS.Skill
             owner.Animator.SetBool(Settings.AnimHashCasting, true);
             await UniTask.WaitForSeconds(skillData.SkillValueDict[ESkillValueType.Casting]);
             owner.Animator.SetBool(Settings.AnimHashCasting, false);
+        }
+
+        public void AddTotalDamageDealt(float _damage)
+        {
+            totalDamageDealt += _damage;
         }
         #endregion
 

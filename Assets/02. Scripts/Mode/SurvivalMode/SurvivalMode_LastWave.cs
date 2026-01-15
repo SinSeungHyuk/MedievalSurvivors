@@ -11,12 +11,16 @@ using NUnit.Framework;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.UI.GridLayoutGroup;
 
 namespace MS.Mode
 {
     public partial class SurvivalMode
     {
+        private const float METEOR_INTERVAL_MIN = 2f;
+        private const float METEOR_INTERVAL_MAX = 4f;
+        private const int METEOR_COUNT_MIN = 2;
+        private const int METEOR_COUNT_MAX = 4;
+
         private float randMeteorInterval;
         private int randMeteorCount;
         private float elapsedMeteorTime;
@@ -31,8 +35,7 @@ namespace MS.Mode
             }
 
             elapsedMeteorTime = 0f;
-            randMeteorInterval = 3f;
-            randMeteorCount = Random.Range(1, 5);
+            SetRandMeteorParams();
         }
 
         private void OnLastWaveUpdate(float _dt)
@@ -73,6 +76,7 @@ namespace MS.Mode
                     Vector3 spawnPos = BattleUtils.GetRandomPoint(player.Position, 15f);
                     SkillObjectManager.Instance.SpawnIndicator(spawnPos,4f, 1f, WaveMeteor);
                 }
+                SetRandMeteorParams();
             }
 
             if (!isBossLive)
@@ -93,16 +97,15 @@ namespace MS.Mode
         private async UniTask EndLastWaveAsync()
         {
             isBossLive = true;
-            Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
-
+            Vector3 spawnPos = curFieldMap.BossSpawnPoint.position;
             GameplayCueManager.Instance.PlayCue("GC_BossPortal", spawnPos);
-            OnBossSpawned?.Invoke();
 
             await UniTask.WaitForSeconds(1.5f);
 
             MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
             boss.SetBossMonster();
-            boss.SSC.OnDeadCallback += OnBossMonsterDead;
+            boss.SSC.OnDeadCallback += OnLastBossMonsterDead;
+            OnBossSpawned?.Invoke(boss);
 
             Notification notification = UIManager.Instance.ShowSystemUI<Notification>("Notification");
             if (notification)
@@ -140,6 +143,12 @@ namespace MS.Mode
                     }
                 }
             });
+        }
+
+        private void SetRandMeteorParams()
+        {
+            randMeteorInterval = Random.Range(METEOR_INTERVAL_MIN, METEOR_INTERVAL_MAX);
+            randMeteorCount = Random.Range(METEOR_COUNT_MIN, METEOR_COUNT_MAX + 1);
         }
     }
 }

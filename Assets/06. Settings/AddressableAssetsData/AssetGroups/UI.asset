@@ -50,6 +50,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8be4761b88ebb024c88f0179141715cb
+    m_Address: StageEndPopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb282d028556481459634dd4ab5d6932
     m_Address: Tooltip
     m_ReadOnly: 0

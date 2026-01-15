@@ -24,8 +24,9 @@ namespace MS.Skill
         public float Damage; // 데미지 (치명타,스킬계수,공격력 등 모두 계산한 값)
         public bool IsCritic; // 크리티컬 여부
         public float KnockbackForce; // 넉백
+        public BaseSkill sourceSkill; // 원본 스킬
 
-        public DamageInfo(FieldCharacter _attacker, FieldCharacter _target, EDamageAttributeType _attributeType, float _damage, bool _isCritic, float _knockbackForce)
+        public DamageInfo(FieldCharacter _attacker, FieldCharacter _target, EDamageAttributeType _attributeType, float _damage, bool _isCritic, float _knockbackForce,BaseSkill _sourceSkill = null)
         {
             Attacker = _attacker;
             Target = _target;
@@ -33,6 +34,7 @@ namespace MS.Skill
             Damage = _damage;
             IsCritic = _isCritic;
             KnockbackForce = _knockbackForce;
+            sourceSkill = _sourceSkill;
         }
     }
 }

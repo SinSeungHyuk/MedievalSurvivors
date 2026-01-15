@@ -81,15 +81,14 @@ namespace MS.Mode
         {
             isBossLive = true;
             Vector3 spawnPos = curFieldMap.GetRandomSpawnPoint(player.Position, CurWaveCount.Value);
-
             GameplayCueManager.Instance.PlayCue("GC_BossPortal", spawnPos);
-            OnBossSpawned?.Invoke();
 
             await UniTask.WaitForSeconds(1.5f);
 
             MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
             boss.SetBossMonster();
             boss.SSC.OnDeadCallback += OnBossMonsterDead;
+            OnBossSpawned?.Invoke(boss);
 
             Notification notification = UIManager.Instance.ShowSystemUI<Notification>("Notification");
             if (notification)

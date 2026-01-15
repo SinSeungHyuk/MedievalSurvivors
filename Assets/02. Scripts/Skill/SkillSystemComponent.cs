@@ -136,15 +136,15 @@ namespace MS.Skill
             }
         }
 
-        public void TakeDamage(DamageInfo _damageInfo)
+        public float TakeDamage(DamageInfo _damageInfo)
         {
-            if (attributeSet.Health <= 0) return;
+            if (attributeSet.Health <= 0) return 0;
             if (attributeSet.GetStatValueByType(EStatType.Evasion) > 0)
             {
                 if (BattleUtils.CalcEvasionStat(attributeSet.GetStatValueByType(EStatType.Evasion)))
                 {
                     UIManager.Instance.ShowEvasionText(_damageInfo.Target.Position);
-                    return;
+                    return 0;
                 }
             }
 
@@ -174,6 +174,12 @@ namespace MS.Skill
             {
                 OnDeadCallback?.Invoke();
             }
+            if (_damageInfo.sourceSkill != null)
+            {
+                _damageInfo.sourceSkill.AddTotalDamageDealt(finalDamage);
+            }
+
+            return finalDamage;
         }
 
         private void ApplyKnockback(DamageInfo _damageInfo)
@@ -223,6 +229,27 @@ namespace MS.Skill
         public bool HasSkill(string _skillKey)
         {
             return ownedSkillDict.ContainsKey(_skillKey);
+        }
+
+        public List<SkillStatisticsInfo> GetSkillStatistics()
+        {
+            List<SkillStatisticsInfo> list = new List<SkillStatisticsInfo>();
+
+            foreach (var pair in ownedSkillDict)
+            {
+                BaseSkill skill = pair.Value;
+                list.Add(new SkillStatisticsInfo
+                {
+                    SkillKey = pair.Key,
+                    IconKey = skill.SkillData.IconKey,
+                    TotalDamage = skill.TotalDamageDealt,
+                    DPS = skill.DPS,
+                });
+            }
+
+            // 데미지 높은 순 정렬
+            list.Sort((a, b) => b.TotalDamage.CompareTo(a.TotalDamage));
+            return list;
         }
         #endregion
 

@@ -13,10 +13,12 @@ namespace MS.Field
 {
     public class FieldMap : MonoBehaviour
     {
+        private const int MAX_SPAWN_ATTEMPS = 50;
+
         private List<Transform> floorList = new List<Transform>();
         private List<Transform> navBlockerList = new List<Transform>();
 
-        private int maxSpawnAttempts = 50;
+        public Transform BossSpawnPoint { get; private set; }
 
 
         private void Awake()
@@ -30,11 +32,12 @@ namespace MS.Field
             {
                 navBlockerList.Add(this.gameObject.transform.FindChildDeep("NavBlocker_" + i));
             }
+            BossSpawnPoint = this.gameObject.transform.FindChildDeep("BossSpawnPoint");
         }
 
         public Vector3 GetRandomSpawnPoint(Vector3 _origin, int _waveCount)
         {
-            for (int i = 0; i < maxSpawnAttempts; i++)
+            for (int i = 0; i < MAX_SPAWN_ATTEMPS; i++)
             {
                 Vector2 randomDir = Random.insideUnitCircle.normalized;
                 float randomDistance = Random.Range(Settings.DefaultMinSpawnDistance, Settings.DefaultMaxSpawnDistance + (_waveCount-1 * 5.0f));

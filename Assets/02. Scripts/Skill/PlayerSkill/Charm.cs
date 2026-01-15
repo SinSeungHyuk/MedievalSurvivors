@@ -49,7 +49,8 @@ namespace MS.Skill
                         _attributeType: skillData.AttributeType,
                         _damage: finalDamage,
                         _isCritic: isCritic,
-                        _knockbackForce: skillData.GetValue(ESkillValueType.Knockback)
+                        _knockbackForce: skillData.GetValue(ESkillValueType.Knockback),
+                        _sourceSkill: this
                     );
                     _ssc.TakeDamage(damageInfo);
                     float duration = skillData.GetValue(ESkillValueType.Duration);

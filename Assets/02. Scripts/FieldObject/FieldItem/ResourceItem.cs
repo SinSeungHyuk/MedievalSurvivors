@@ -53,7 +53,7 @@ namespace MS.Field
                     _player.SSC.AttributeSet.Health += itemValue;
                     break;
                 case EItemType.BlueCrystal: // 이동속도 증가
-                    _player.ApplyStatEffect("BlueCrystal", EStatType.MoveSpeed, itemValue, EBonusType.Flat, 5f);
+                    _player.ApplyStatEffect("BlueCrystal", EStatType.MoveSpeed, itemValue, EBonusType.Percentage, 5f);
                     break;
             }
 

@@ -45,6 +45,7 @@ namespace MS.Mode
 
             player.InitPlayer("TestCharacter"); // todo
             player.LevelSystem.CurLevel.Subscribe(OnPlayerLevelUpCallback);
+            player.SSC.OnDeadCallback += OnPlayerDeadCallback;
 
             modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
             UIManager.Instance.CloseUI("LoadingPanel");

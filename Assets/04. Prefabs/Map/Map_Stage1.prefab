@@ -1591,6 +1591,7 @@ Transform:
   - {fileID: 7297962597244885139}
   - {fileID: 6199923217718320721}
   - {fileID: 603591177668442242}
+  - {fileID: 6577983250721730921}
   - {fileID: 2789985988863319066}
   m_Father: {fileID: 6073540743375687811}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1729,6 +1730,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &1935089226073578300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6577983250721730921}
+  m_Layer: 0
+  m_Name: BossSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6577983250721730921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935089226073578300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.43, y: 0, z: 15.89}
+  m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3745020345534953297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2118084000434205303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2789985988863319066}
   m_Layer: 0
-  m_Name: BossSpawnPoint
+  m_Name: BossStatue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

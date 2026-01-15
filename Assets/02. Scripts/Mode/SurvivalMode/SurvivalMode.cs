@@ -13,7 +13,7 @@ namespace MS.Mode
 {
     public partial class SurvivalMode : GameModeBase
     {
-        public event Action OnBossSpawned;
+        public event Action<MonsterCharacter> OnBossSpawned;
 
         private StageSettingData stageSettingData;
         private PlayerCharacter player;
@@ -86,15 +86,37 @@ namespace MS.Mode
             ActivateNextWaveAsync().Forget();
         }
 
+        private void OnLastBossMonsterDead()
+        {
+            EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
+            var popup = UIManager.Instance.ShowPopup<StageEndPopup>("StageEndPopup");
+            //popup.InitStageEndPopup(player);
+            
+        }
+
         private void OnPlayerLevelUpCallback(int _prevLv, int _curLv)
         {
             EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
-
 
             List<StatRewardSettingData> selectedRewards = GetRandomStatRewards(4);
 
             var popup = UIManager.Instance.ShowPopup<StatRewardPopup>("StatRewardPopup");
             popup.InitStatRewardPopup(selectedRewards, player);
+        }
+
+        private void OnPlayerDeadCallback()
+        {
+            StageStatisticsData stageData = new StageStatisticsData()
+            {
+                KillCount = KillCount.Value,
+                Gold = player.LevelSystem.Gold.Value,
+                PlayerLevel = player.LevelSystem.CurLevel.Value,
+                SkillStatList = player.SSC.GetSkillStatistics(),
+                IsClear = false
+            };
+
+            var popup = UIManager.Instance.ShowPopup<StageEndPopup>("StageEndPopup");
+            popup.InitStageEndPopup(stageData, player);
         }
         #endregion
 

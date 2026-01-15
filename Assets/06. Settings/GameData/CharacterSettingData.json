@@ -1,6 +1,6 @@
 {
   "LevelSettingData": {
-    "BaseExp": 5.0,
+    "BaseExp": 25.0,
     "IncreaseExpPerLevel": 5.0
   },
   "CharacterSettingDataDict": {
@@ -13,14 +13,14 @@
         "MoveSpeed": 4.0,
         "CriticChance": 5.0,
         "CriticMultiple": 1.5,
-        "LifeSteal": 50.0,
-        "CooltimeAccel": 100.0,
+        "LifeSteal": 0.0,
+        "CooltimeAccel": 0.0,
         "ProjectileCount": 0.0,
         "AreaRangeMultiple": 1.0,
         "KnockbackMultiple": 1.0,
-        "CoinMultiple": 1.5
+        "CoinMultiple": 1.0
       },
-      "DefaultSkillKey": "BloodBall",
+      "DefaultSkillKey": "FireBall",
       "DefaultWeaponKey": "Staff02Polyart"
     }
   }
