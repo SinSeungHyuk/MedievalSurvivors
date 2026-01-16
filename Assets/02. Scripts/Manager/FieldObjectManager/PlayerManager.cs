@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Field;
 using MS.Utils;
+using System;
 using UnityEngine;
 
 
@@ -36,6 +37,12 @@ namespace MS.Manager
             CameraManager.Instance.InitMainCamera(player.transform);
 
             return player;
+        }
+
+        public void ClearPlayerCharacter()
+        {
+            UnityEngine.Object.Destroy(player.gameObject);
+            player = null;
         }
     }
 }

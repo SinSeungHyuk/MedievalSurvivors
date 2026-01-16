@@ -1,6 +1,7 @@
 using MS.Data;
 using MS.Field;
 using MS.Manager;
+using MS.Mode;
 using MS.Skill;
 using MS.UI;
 using MS.Utils;
@@ -20,6 +21,7 @@ namespace MS.UI
         private PlayerCharacter player;
 
         private TextMeshProUGUI txtTitle;
+        private Button btnExit;
 
         // PlayerStatisticsContainer
         private TextMeshProUGUI txtKillCount;
@@ -65,12 +67,24 @@ namespace MS.UI
 
             playerStatInfo = transform.FindChildComponentDeep<PlayerStatInfo>("PlayerStatInfo");
             txtTitle = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtTitle");
+            btnExit = transform.FindChildComponentDeep<Button>("BtnExit");
             txtKillCount = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtKillCount");
             txtPlayerLevel = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtPlayerLevel");
             txtGold = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtGold");
             skillContainer = transform.FindChildComponentDeep<RectTransform>("SkillContainer");
             skillInfoRowTemplate = transform.GetOrAddComponent<SkillInfoRow>("SkillInfoRowTemplate");
             skillInfoRowTemplate.gameObject.SetActive(false);
+
+            btnExit.onClick.AddListener(OnBtnExitClicked);
+        }
+
+        private void OnBtnExitClicked()
+        {
+            Time.timeScale = 1f;
+            EffectManager.Instance.StopEffectsByKey("Eff_Firework");
+            GameManager.Instance.ChangeMode(new LobbyMode());
+
+            Close();
         }
     }
 

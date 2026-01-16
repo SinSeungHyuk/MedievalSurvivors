@@ -39,7 +39,7 @@ namespace MS.Manager
                 await GameplayCueManager.Instance.LoadAllGameplayCueAsync();
                 await UIManager.Instance.LoadAllUIPrefabAsync();
 
-                UIManager.Instance.ShowView<BaseUI>("MainPanel");
+                ChangeMode(new LobbyMode());
 
                 UIManager.Instance.CloseUI("LoadingPanel");
             }
@@ -51,6 +51,7 @@ namespace MS.Manager
 
         public void ChangeMode(GameModeBase _mode)
         {
+            if (curGameMode != null) curGameMode.EndMode();
             curGameMode = _mode;
             curGameMode.StartMode();
         }

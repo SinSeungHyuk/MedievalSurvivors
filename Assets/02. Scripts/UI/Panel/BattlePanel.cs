@@ -43,6 +43,13 @@ namespace MS.UI
             curData.PlayerLevel.Subscribe(OnLevelChanged);
             curData.PlayerCurExp.Subscribe(OnExpChanged);
 
+            curData.KillCount.ForceNotify();
+            curData.WaveTimer.ForceNotify();
+            curData.WaveCount.ForceNotify();
+            curData.PlayerGold.ForceNotify();
+            curData.PlayerLevel.ForceNotify();
+            curData.PlayerCurExp.ForceNotify();
+
             curData.OnBossSpawned += OnBossSpawnedCallback;
             curData.OnSkillAdded += OnSkillAdded;
             curData.OnPlayerHPChanged += OnPlayerHPChanged;
@@ -143,6 +150,12 @@ namespace MS.UI
         {
             base.Close();
 
+            foreach (var slot in skillSlotList)
+            {
+                slot.ClearSlot();
+            }
+            curSkillSlotIndex = 0;
+
             curData.KillCount.Unsubscribe(OnKillCountChanged);
             curData.WaveTimer.Unsubscribe(OnTimerChanged);
             curData.WaveCount.Unsubscribe(OnWaveCountChanged);
@@ -153,6 +166,8 @@ namespace MS.UI
             curData.OnBossSpawned -= OnBossSpawnedCallback;
             curData.OnSkillAdded -= OnSkillAdded;
             curData.OnPlayerHPChanged -= OnPlayerHPChanged;
+
+            curData = null;
         }
     }
 }

@@ -46,11 +46,16 @@ namespace MS.Mode
         }
 
         public override void EndMode() 
-        { 
+        {
             SkillObjectManager.Instance.ClearSkillObject();
             EffectManager.Instance.ClearEffect();
-            ObjectPoolManager.Instance.ClearAllPools();
             MonsterManager.Instance.ClearMonster();
+            FieldItemManager.Instance.ClearFieldItem();
+            PlayerManager.Instance.ClearPlayerCharacter();
+
+            curFieldMap.Destroy();
+
+            ObjectPoolManager.Instance.ClearAllPools();
         }
 
         public override void OnUpdate(float _dt)
@@ -89,9 +94,17 @@ namespace MS.Mode
         private void OnLastBossMonsterDead()
         {
             EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
+
+            StageStatisticsData stageData = new StageStatisticsData()
+            {
+                KillCount = KillCount.Value,
+                Gold = player.LevelSystem.Gold.Value,
+                PlayerLevel = player.LevelSystem.CurLevel.Value,
+                SkillStatList = player.SSC.GetSkillStatistics(),
+                IsClear = true
+            };
             var popup = UIManager.Instance.ShowPopup<StageEndPopup>("StageEndPopup");
-            //popup.InitStageEndPopup(player);
-            
+            popup.InitStageEndPopup(stageData, player);
         }
 
         private void OnPlayerLevelUpCallback(int _prevLv, int _curLv)
@@ -106,15 +119,17 @@ namespace MS.Mode
 
         private void OnPlayerDeadCallback()
         {
+            EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
+
+
             StageStatisticsData stageData = new StageStatisticsData()
             {
                 KillCount = KillCount.Value,
                 Gold = player.LevelSystem.Gold.Value,
                 PlayerLevel = player.LevelSystem.CurLevel.Value,
                 SkillStatList = player.SSC.GetSkillStatistics(),
-                IsClear = false
+                IsClear = true
             };
-
             var popup = UIManager.Instance.ShowPopup<StageEndPopup>("StageEndPopup");
             popup.InitStageEndPopup(stageData, player);
         }

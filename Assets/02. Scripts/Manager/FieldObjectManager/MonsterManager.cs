@@ -83,6 +83,14 @@ namespace MS.Manager
 
         public void ClearMonster()
         {
+            for (int i = monsterList.Count - 1; i >= 0; i--)
+            {
+                var monster = monsterList[i];
+                if (monster != null)
+                {
+                    monster.SSC.ClearSSC();
+                }
+            }
             monsterList.Clear();
         }
 

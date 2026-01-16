@@ -292,6 +292,7 @@ namespace MS.Skill
             {
                 effect.OnEnd();
             }
+            CancelAllSkills();
             statusEffectDict.Clear();
             ownedSkillDict.Clear();
             OnDeadCallback = null;

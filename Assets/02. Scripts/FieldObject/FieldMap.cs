@@ -65,5 +65,11 @@ namespace MS.Field
 
             navBlockerList[_floorIdx].gameObject.SetActive(false);
         }
+
+
+        public void Destroy()
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

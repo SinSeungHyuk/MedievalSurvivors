@@ -25,6 +25,7 @@ namespace MS.UI
         public void InitSkillSlot(string _key, BaseSkill _skill)
         {
             imgSkillIcon = transform.FindChildComponentDeep<Image>("ImgSkillIcon");
+            imgSkillIcon.enabled = true;
             overlayCooltime = transform.FindChildComponentDeep<Image>("OverlayCooltime");
             imgCooltime = transform.FindChildComponentDeep<Image>("ImgCooltime");
             btnSkillSlot = GetComponent<Button>();
@@ -52,9 +53,14 @@ namespace MS.UI
             }
         }
 
-        public void UpdateExpBar(float _ratio)
+        public void ClearSlot()
         {
-            imgCooltime.fillAmount = _ratio;
+            targetSkill = null;
+            skillKey = "";
+
+            if(imgSkillIcon != null) imgSkillIcon.enabled = false;
+            if (overlayCooltime != null) overlayCooltime.gameObject.SetActive(false);
+            if (btnSkillSlot != null) btnSkillSlot.onClick.RemoveAllListeners();
         }
 
         private void OnSkillSlotClickedCallback()
