@@ -17,9 +17,20 @@ namespace MS.UI
             btnTitle.onClick.AddListener(OnBtnTitleClicked);
         }
 
+        private void Start()
+        {
+            PlayTitleBGMAsync().Forget();
+        }
+
         private void OnBtnTitleClicked()
         {
             GameManager.Instance.StartGameAsync().Forget();
+        }
+
+        private async UniTask PlayTitleBGMAsync()
+        {
+            await SoundManager.Instance.InitSoundAsync();
+            SoundManager.Instance.PlayBGM("BGM_Title");
         }
     }
 }

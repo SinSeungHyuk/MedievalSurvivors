@@ -28,7 +28,8 @@ namespace MS.Mode
         #region MainMenu State
         private void OnMainMenuEnter(int arg1, object[] arg2)
         {
-            UIManager.Instance.ShowView<BaseUI>("MainPanel");
+            MainPanel MainPanel = UIManager.Instance.ShowView<MainPanel>("MainPanel");
+            MainPanel.InitMainPanel();
         }
         private void OnMainMenuUpdate(float obj)
         {

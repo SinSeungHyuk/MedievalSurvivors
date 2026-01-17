@@ -69,7 +69,7 @@ namespace MS.Manager
             Debug.Log($"[PoolManager] 풀 생성 완료: '{key}' (수량: {initialCount})");
         }
 
-        public GameObject Get(string key, Vector3 pos, Quaternion rot)
+        public GameObject Get(string key, Vector3 pos = default, Quaternion rot = default)
         {
             GameObject instance = Get(key);
             if (instance)

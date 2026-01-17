@@ -46,12 +46,12 @@ namespace MS.Core
 
             if (!string.IsNullOrEmpty(SoundKey))
             {
-                // SoundManager.Instance.PlaySound(SoundKey);
+                SoundManager.Instance.PlaySFX(SoundKey);
             }
 
             if (CameraShakeIntensity > 0)
             {
-                // CameraManager.Instance.Shake(CameraShakeIntensity, CameraShakeDuration);
+                CameraManager.Instance.ShakeCamera(CameraShakeIntensity, CameraShakeDuration);
             }
         }
 
@@ -72,12 +72,12 @@ namespace MS.Core
 
             if (!string.IsNullOrEmpty(SoundKey))
             {
-                // SoundManager.Instance.PlaySound(SoundKey);
+                SoundManager.Instance.PlaySFX(SoundKey);
             }
 
             if (CameraShakeIntensity > 0)
             {
-                // CameraManager.Instance.Shake(CameraShakeIntensity, CameraShakeDuration);
+                CameraManager.Instance.ShakeCamera(CameraShakeIntensity, CameraShakeDuration);
             }
         }
     }

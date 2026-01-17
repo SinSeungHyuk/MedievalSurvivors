@@ -1,0 +1,12 @@
+{
+  "FX_LevelUp": {
+    "MinVolume": 1.0,
+    "MaxVolume": 1.0,
+    "Loop": false
+  },
+  "FX_GainCoin": {
+    "MinVolume": 1.0,
+    "MaxVolume": 0.7,
+    "Loop": false
+  }
+}

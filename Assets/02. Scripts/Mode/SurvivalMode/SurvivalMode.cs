@@ -52,6 +52,7 @@ namespace MS.Mode
             MonsterManager.Instance.ClearMonster();
             FieldItemManager.Instance.ClearFieldItem();
             PlayerManager.Instance.ClearPlayerCharacter();
+            CameraManager.Instance.StopShake();
 
             curFieldMap.Destroy();
 

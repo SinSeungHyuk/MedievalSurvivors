@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Resource
   m_GUID: 02ef724fada4ae84e83729049a5d588c
   m_SerializeEntries:
+  - m_GUID: 04841b8a9cae96b42aa2a2689b689515
+    m_Address: Icon_FireBall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 086f37d5144e31749b37fbdf61bdc9c6
     m_Address: Icon_RedExplosion
     m_ReadOnly: 0

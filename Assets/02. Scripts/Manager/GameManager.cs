@@ -38,6 +38,7 @@ namespace MS.Manager
                 await StringTable.Instance.LoadStringTable();
                 await GameplayCueManager.Instance.LoadAllGameplayCueAsync();
                 await UIManager.Instance.LoadAllUIPrefabAsync();
+                await SoundManager.Instance.LoadAllSoundAsync();
 
                 ChangeMode(new LobbyMode());
 

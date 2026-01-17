@@ -15,7 +15,8 @@ MonoBehaviour:
   EffectKey: Eff_StoneSlash
   EffectOffset: {x: 0, y: 0, z: 2.5}
   EffectRotation: {x: 0, y: -90, z: 0}
+  EffectDuration: 0
   AttachToOwner: 0
-  SoundKey: 
+  SoundKey: FX_GainCoin
   CameraShakeIntensity: 0
   CameraShakeDuration: 0
