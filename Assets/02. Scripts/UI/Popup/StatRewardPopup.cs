@@ -58,6 +58,7 @@ namespace MS.UI
 
         private void OnBtnStatRewardClicked(StatRewardSettingData _rewardData)
         {
+            SoundManager.Instance.PlaySFX("FX_StatReward"); 
             Stat targetStat = player.SSC.AttributeSet.GetStatByType(_rewardData.StatType);
             if (targetStat != null)
             {

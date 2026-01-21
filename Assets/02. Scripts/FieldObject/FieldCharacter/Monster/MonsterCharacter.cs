@@ -166,7 +166,7 @@ namespace MS.Field
         #region Callback
         private void OnHitCallback(int _damage, bool _isCritic)
         {
-            EffectManager.Instance.PlayEffect("Eff_MonsterHit", Position, Rotation);
+            GameplayCueManager.Instance.PlayCue("GC_MonsterHit", this);
             UIManager.Instance.ShowDamageText(Position,_damage, _isCritic);
         }
 

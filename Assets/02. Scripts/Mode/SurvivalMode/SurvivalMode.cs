@@ -95,6 +95,7 @@ namespace MS.Mode
         private void OnLastBossMonsterDead()
         {
             EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
+            SoundManager.Instance.PlaySFX("FX_StageClear");
 
             StageStatisticsData stageData = new StageStatisticsData()
             {
@@ -111,7 +112,8 @@ namespace MS.Mode
         private void OnPlayerLevelUpCallback(int _prevLv, int _curLv)
         {
             EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
-
+            SoundManager.Instance.PlaySFX("FX_LevelUp");
+            
             List<StatRewardSettingData> selectedRewards = GetRandomStatRewards(4);
 
             var popup = UIManager.Instance.ShowPopup<StatRewardPopup>("StatRewardPopup");
@@ -120,16 +122,14 @@ namespace MS.Mode
 
         private void OnPlayerDeadCallback()
         {
-            EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
-
-
+            SoundManager.Instance.PlaySFX("FX_StageClear");
             StageStatisticsData stageData = new StageStatisticsData()
             {
                 KillCount = KillCount.Value,
                 Gold = player.LevelSystem.Gold.Value,
                 PlayerLevel = player.LevelSystem.CurLevel.Value,
                 SkillStatList = player.SSC.GetSkillStatistics(),
-                IsClear = true
+                IsClear = false
             };
             var popup = UIManager.Instance.ShowPopup<StageEndPopup>("StageEndPopup");
             popup.InitStageEndPopup(stageData, player);

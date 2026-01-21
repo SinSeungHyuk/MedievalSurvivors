@@ -36,6 +36,13 @@ MonoBehaviour:
     - GameplayCue
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48351f9d18039894a9adfd296faa6ddc
+    m_Address: GC_MonsterHit
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameplayCue
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58de33f7349e5044896a40e206d70388
     m_Address: GC_Acquire_BlueCrystal
     m_ReadOnly: 0
@@ -43,15 +50,22 @@ MonoBehaviour:
     - GameplayCue
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6904f5ff69b6d1d46a375ba4aa89aa59
-    m_Address: GC_Test
+  - m_GUID: 6d84569c982ced14986a88fec56e9e24
+    m_Address: GC_BossPortal
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6d84569c982ced14986a88fec56e9e24
-    m_Address: GC_BossPortal
+  - m_GUID: 81acc7f76f82b6142818e71ee6ddf885
+    m_Address: GC_GainCoin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameplayCue
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b48f3323d5e23f143b806d73e09f8e09
+    m_Address: GC_LevelUp
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue

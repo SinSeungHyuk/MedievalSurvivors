@@ -1,6 +1,6 @@
 {
   "Coin": {
-    "GameplayCueKey": "GC_Test",
+    "GameplayCueKey": "GC_GainCoin",
     "ItemType": "Coin",
     "ItemValue": 3.0
   },

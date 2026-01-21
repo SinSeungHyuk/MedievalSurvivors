@@ -9,4 +9,24 @@
     "MaxVolume": 0.7,
     "Loop": false
   }
+  "FX_GainHp": {
+    "MinVolume": 1.0,
+    "MaxVolume": 1.0,
+    "Loop": false
+  },
+  "FX_Hit": {
+    "MinVolume": 1.0,
+    "MaxVolume": 0.8,
+    "Loop": false
+  },
+  "FX_StageClear": {
+    "MinVolume": 1.0,
+    "MaxVolume": 1.0,
+    "Loop": false
+  },
+  "FX_StatReward": {
+    "MinVolume": 1.0,
+    "MaxVolume": 1.0,
+    "Loop": false
+  }
 }

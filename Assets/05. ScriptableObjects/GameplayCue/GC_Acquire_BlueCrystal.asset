@@ -15,7 +15,8 @@ MonoBehaviour:
   EffectKey: Eff_GainMoveSpeed
   EffectOffset: {x: 0, y: 0.5, z: 0}
   EffectRotation: {x: 0, y: 0, z: 0}
+  EffectDuration: 0
   AttachToOwner: 1
-  SoundKey: 
+  SoundKey: FX_GainHp
   CameraShakeIntensity: 0
   CameraShakeDuration: 0
