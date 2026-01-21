@@ -35,9 +35,11 @@ namespace MS.Manager
             systemCanvas = transform.FindChildDeep("SystemCanvas");
 
             BaseUI titlePanel = transform.FindChildComponentDeep<BaseUI>("TitlePanel");
-            BaseUI loadingPanel = transform.FindChildComponentDeep<BaseUI>("LoadingPanel");
+            BaseUI loadingPanel = transform.FindChildComponentDeep<BaseUI>("LoadingPanel"); 
+            BaseUI downloadPopup = transform.FindChildComponentDeep<BaseUI>("DownloadPopup"); 
             cachedUIDict.Add("TitlePanel", titlePanel);
             cachedUIDict.Add("LoadingPanel", loadingPanel);
+            cachedUIDict.Add("DownloadPopup", downloadPopup);
             curViewUI = titlePanel;
         }
 

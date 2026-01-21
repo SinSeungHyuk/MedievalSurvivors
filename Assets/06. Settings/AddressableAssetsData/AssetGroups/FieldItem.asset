@@ -18,27 +18,32 @@ MonoBehaviour:
   - m_GUID: 00bba72dbda252a4eac12e218848cb44
     m_Address: GreenCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 491bd2f8e55e1db45a195465b18740bd
     m_Address: BlueCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c49b35febea4514b87b37f643064ed4
     m_Address: RedCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9656f9480316da84396cf93236e6cd57
     m_Address: Coin
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2a060732547fe64581bb0cb3c2bdf1d
     m_Address: BossChest
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

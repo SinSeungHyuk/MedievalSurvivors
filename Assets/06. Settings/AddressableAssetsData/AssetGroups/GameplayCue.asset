@@ -20,36 +20,42 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cdb4525de5e52d4c9ec7db882eaaa32
     m_Address: GC_Acquire_GainHealth
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40e75f7fbd2a27e418c0769a45b0be96
     m_Address: GC_Acquire_RedCrystal
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58de33f7349e5044896a40e206d70388
     m_Address: GC_Acquire_BlueCrystal
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6904f5ff69b6d1d46a375ba4aa89aa59
     m_Address: GC_Test
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d84569c982ced14986a88fec56e9e24
     m_Address: GC_BossPortal
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameplayCue
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

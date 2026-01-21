@@ -18,77 +18,92 @@ MonoBehaviour:
   - m_GUID: 1eb833340b41fb444b576c4dced8d4dc
     m_Address: Eff_Teleport
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20a1cdc5aeb97484cb471b4eaccf190b
     m_Address: Eff_StunLoop
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e07e5ba5a6e8b74d8206f9be0e29d37
     m_Address: Eff_StunBegin
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3138a83bedbd6ad4481ba0b061da2eb6
     m_Address: Eff_GainBuff
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3407e378c048bb5438424b28c7740b48
     m_Address: Eff_StoneSlash
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 356cf4dca1465b54fabbb8cd9b1cd190
     m_Address: Eff_GainHp
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43d1d06cf70fcb2488255051aaae40a5
     m_Address: Eff_Charm
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a919ff208278c347a4582e77e55ed83
     m_Address: Eff_Firework
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52c7d057cba585641bb68312c10d7791
     m_Address: Eff_BossPortal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cb22858a3fe68f4481d3fb2200addd6
     m_Address: Eff_Frost
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b21333b068a5084ba09535839bee3c8
     m_Address: Eff_MonsterHit
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a164e676dbbd6e54587237e619372c98
     m_Address: Eff_GainMoveSpeed
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5f2e1a561eda814091741bf454dd28c
     m_Address: Eff_WaveMeteorHit
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2f6a8962aac3814aa56cb9647c93470
     m_Address: Eff_Burn
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eccbc655050af0b4f81d8db39f84a58e
     m_Address: Eff_WaveMeteor
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

@@ -18,107 +18,128 @@ MonoBehaviour:
   - m_GUID: 04841b8a9cae96b42aa2a2689b689515
     m_Address: Icon_FireBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 086f37d5144e31749b37fbdf61bdc9c6
     m_Address: Icon_RedExplosion
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1663bb1c79860584894707b6ba15db01
     m_Address: LoadingVideo
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c728f7cc6548f24cadceb6478fa25cc
     m_Address: bone_skull
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 214c15522670b1a4e981ae6b6b61a76b
     m_Address: Icon_Charm
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34d9a1c8832b3cc44b0b3e55ab3fd0ab
     m_Address: TitleVideo
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a467f959fc196d40938789eeb0e39d9
     m_Address: Icon_Blizzard
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4435dbe22b7bdbb4f9854390b683645f
     m_Address: Icon_GravitationalField
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47803bedb894e1a4988f9b8fcb75d2d5
     m_Address: Icon_SlashGreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d9430f676f4a524093433605b24b5c1
     m_Address: Icon_FastCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58796d22e6fce7f458fea288285d26d7
     m_Address: Icon_BloodBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 602c6b5dca815de4992d53a1481b2726
     m_Address: Icon_BigCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63dd1c2e251d78c48b545cff2004c31d
     m_Address: Icon_Teleport
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ffbdeb95727aa143bdcfbd8121fd561
     m_Address: Icon_IceBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b02eab698bebf9e49925a9244f235f3d
     m_Address: Icon_CrystalFront
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4fbb29720d5c0743a9fac04783b0fa2
     m_Address: Icon_StunBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be21ab69c1b59bb4b9f90e2387aab197
     m_Address: Icon_SlashBlue
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4aaf531c6e510d4394ea659e851d68e
     m_Address: Icon_SlashOrange
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfe36a0f39d27d74f88f00f522b6e5ba
     m_Address: Icon_Meteor
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6df1b4921aafd04cbc55d65de2a84ac
     m_Address: Icon_FOBS
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee4840b181f6f8a40aa169bc6a6d3c5d
     m_Address: Icon_Plexus
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

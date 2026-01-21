@@ -18,42 +18,50 @@ MonoBehaviour:
   - m_GUID: 2536acffc8986df42b3c0ca7b1a2cef4
     m_Address: MonsterSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31e2755f5568713468873bec71efba79
     m_Address: CharacterSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4293b1e9c14ebfe429783b0ef993cf7e
     m_Address: StageSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5567f05ee38b4464bac7331ca979bc6c
     m_Address: StatRewardSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b78979b3964b1b94d9a6c726caf91f23
     m_Address: ItemSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb79deb4fa052dc4a8824e4b73fb8cdb
     m_Address: StringTable
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d0516c3b352fb6548b8ac8ef44e6579f
     m_Address: SkillSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e47683a4bddba3c49ac089dad8f59de0
     m_Address: SoundSettingData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

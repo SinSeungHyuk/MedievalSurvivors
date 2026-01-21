@@ -18,57 +18,68 @@ MonoBehaviour:
   - m_GUID: 37030c5c7c1b6674dac293a85cc7d5a6
     m_Address: Skeleton_Tier2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a367ca1b4f5a1a47bda6e98e7ba1f43
     m_Address: Skeleton_Tier9
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77ad0facb2a27504ab8edf68c35a1346
     m_Address: Skeleton_Tier10
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95af6d03dc5e07142b1a349a829d8b30
     m_Address: Skeleton_Tier5
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a27aaa9514020fa44bb6081abd5f14fc
     m_Address: Skeleton_Tier1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2951f8d32af933468dd00c41bb3f7d8
     m_Address: Skeleton_Tier7
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b806d07906e3ec2418b856b830337dcf
     m_Address: Skeleton_Tier3
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf1f48d2327ff8640a3ed8e9673685ac
     m_Address: Skeleton_Tier6
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d86c716d338a1a04d89b6ee52d44933c
     m_Address: Skeleton_Tier4
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d96a5f9d42753b740ac5eeadba0fd115
     m_Address: PlayerCharacter
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e967c42ede832ae4d964d682b25ec538
     m_Address: Skeleton_Tier8
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

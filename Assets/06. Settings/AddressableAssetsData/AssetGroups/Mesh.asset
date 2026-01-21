@@ -18,17 +18,20 @@ MonoBehaviour:
   - m_GUID: 199d5221dad59a74aa0d8d47e83e6e03
     m_Address: Staff01PolyArt
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c0ecfd652b241a49bd3082fed66c356
     m_Address: Staff02Polyart
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4568399afa0fdc64bb50a337c6acb100
     m_Address: Staff03PolyArt
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

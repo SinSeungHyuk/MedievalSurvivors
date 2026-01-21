@@ -18,62 +18,74 @@ MonoBehaviour:
   - m_GUID: 019e9dd6b3f56ad459b431e44d491383
     m_Address: MasterMixer
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15baf00ffdc8dad4cbd7646ed991a904
     m_Address: BGM_Lobby
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ceb90518f79d6346965ebbb328f16f0
     m_Address: FX_Gold
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3f2f5193b11109240bbc7e3711994e73
     m_Address: FX_LevelUp
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c522a4da963bfd45a4a788f1f590de5
     m_Address: SFXEmitter
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acb1a52a412ca974fa5a5183b7e6f0f6
     m_Address: FX_GainHp
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5e94400daf4b614c974f268a2cfd847
     m_Address: BGMEmitter
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf3dbc90570e6164189dfc714afee6f4
     m_Address: BGM_Title
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c34727c168fc77f439b2192396217d82
     m_Address: FX_StageClear
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce4cc246efa868f4db6c199970cc33dd
     m_Address: FX_GainCoin
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2b25c8439a1b3346b648ea8301aa69b
     m_Address: FX_StatReward
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd04347957f1acf41917b3821dc9ea1b
     m_Address: FX_Hit
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}

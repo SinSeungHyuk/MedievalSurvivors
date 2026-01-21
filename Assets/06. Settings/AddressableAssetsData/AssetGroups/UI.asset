@@ -19,59 +19,76 @@ MonoBehaviour:
     m_Address: Notification
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ac3ab4ba69457243ac396529d43efc2
     m_Address: LoadingPanel
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 711dfb11193c31843b12960747794dbe
     m_Address: MainPanel
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 755fd2ffe2c3bfe4bacae49367c8bf76
     m_Address: StatRewardPopup
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75a0506895f7a23458b498ee94961304
     m_Address: DamageText
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84e4634dfe5ef8a4cad697d7855d5ab3
     m_Address: BattlePanel
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8be4761b88ebb024c88f0179141715cb
     m_Address: StageEndPopup
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb282d028556481459634dd4ab5d6932
     m_Address: Tooltip
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7051b3c3fbcb6b4e8419b6212b26688
+    m_Address: DownloadPopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d741ade825504d9409c29643f2d71e27
     m_Address: SkillRewardPopup
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f82ac0c76ff94a1498ba1781cf06f9b6
     m_Address: TitlePanel
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0

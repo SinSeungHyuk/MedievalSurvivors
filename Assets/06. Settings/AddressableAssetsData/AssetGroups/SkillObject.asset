@@ -18,107 +18,128 @@ MonoBehaviour:
   - m_GUID: 035ce8c9cfc34104991ce416daf8aebe
     m_Address: Area_SlashBlue
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 05ce920d629922a4eb4795ef7494ce5c
     m_Address: Area_Blizzard
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e5709a7ddb77924090c112cf73bb98a
     m_Address: Area_FrostCircle
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1336648bc1d8baf46a4515860950c9d4
     m_Address: Area_SlashOrange
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 198228f0fe8bbf34e9d8ce089110ce88
     m_Address: Projec_Charm
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3355f6bfa6db8b24281b827de929694c
     m_Address: Area_Meteor
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46009f57772e5e743bec9df57a49ed66
     m_Address: Area_FastCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 490d7e6154f0d5c4ab1975c3d63d1757
     m_Address: Projec_GravitationalField
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d3c8045dd8857a4b8d34c2361c61045
     m_Address: Area_FOBS
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 645ebd7cef59b7b40b27c29bf3e99cf2
     m_Address: Area_CrystalFront
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 709b0bd6b0b625249a98409dd7a87343
     m_Address: Area_Plexus
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cb25977e4aa24a46bdda78e9139f83d
     m_Address: Projec_IceBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 867c572a5be680d42a042d2349f10143
     m_Address: Area_RedExplosion
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86e6c7d81766295418601bcd9d9ae6b9
     m_Address: Projec_StunBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a43d9f68490c374a93a9e8085555c02
     m_Address: Area_SlashGreen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9431ffec20e42cd46bb440d59b762e94
     m_Address: Projec_BloodBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ae7c6a54c5c57d40ae625cea0ecf986
     m_Address: Projec_FireBall
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1ae5055f08b8284d9e996465d1d37e3
     m_Address: Area_BigCrystal
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b376db00fbe96d6488e3f97c97f66e75
     m_Address: Area_GravitationalField
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cff4c024d20095a458a66e6e0d47bf1b
     m_Address: Projec_MonsterArrow
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f72915f9e35cfcf43a735ef370ba46f1
     m_Address: Indicator
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Remote
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1c5a580b84baf4348bb0344a3a4cfd75, type: 2}
