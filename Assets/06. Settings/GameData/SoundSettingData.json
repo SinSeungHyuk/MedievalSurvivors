@@ -6,17 +6,17 @@
   },
   "FX_GainCoin": {
     "MinVolume": 1.0,
-    "MaxVolume": 0.7,
+    "MaxVolume": 0.6,
     "Loop": false
-  }
+  },
   "FX_GainHp": {
     "MinVolume": 1.0,
     "MaxVolume": 1.0,
     "Loop": false
   },
   "FX_Hit": {
-    "MinVolume": 1.0,
-    "MaxVolume": 0.8,
+    "MinVolume": 0.5,
+    "MaxVolume": 0.2,
     "Loop": false
   },
   "FX_StageClear": {

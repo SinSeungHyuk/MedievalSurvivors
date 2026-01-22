@@ -1,5 +1,6 @@
 using MS.Data;
 using MS.Field;
+using MS.Manager;
 using MS.Skill;
 using MS.Utils;
 using System;
@@ -14,6 +15,7 @@ namespace MS.UI
     {
         private ExpBar expBar;
         private HPBar bossHPBar;
+        private Button btnPause;
         private TextMeshProUGUI txtGold;
         private TextMeshProUGUI txtKillCount;
         private TextMeshProUGUI txtTimer;
@@ -67,6 +69,7 @@ namespace MS.UI
         {
             expBar = transform.FindChildComponentDeep<ExpBar>("ExpBar");
             bossHPBar = transform.FindChildComponentDeep<HPBar>("BossHPBar");
+            btnPause = transform.FindChildComponentDeep<Button>("BtnPause");
             txtGold = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtGold");
             txtKillCount = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtKillCount");
             txtTimer = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtTimer");
@@ -74,6 +77,12 @@ namespace MS.UI
             txtLevel = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtLevel");
             txtHPBar = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtPlayerHPBar");
             imgHPBar = transform.FindChildComponentDeep<Image>("ImgPlayerHPBar");
+
+            btnPause.onClick.AddListener(() =>
+            {
+                PausePopup pausePopup = UIManager.Instance.ShowPopup<PausePopup>("PausePopup");
+                pausePopup.InitPausePopup();
+            });
 
             for (int i=1; i<=6;i++)
             {

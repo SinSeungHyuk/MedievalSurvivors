@@ -36,6 +36,13 @@ MonoBehaviour:
     - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 723806caf4a16c546a986069ad470dfb
+    m_Address: PausePopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 755fd2ffe2c3bfe4bacae49367c8bf76
     m_Address: StatRewardPopup
     m_ReadOnly: 0

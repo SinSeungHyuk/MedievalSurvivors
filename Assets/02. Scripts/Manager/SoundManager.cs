@@ -13,8 +13,6 @@ namespace MS.Manager
     public class SoundManager : Singleton<SoundManager>
     {
         private AudioMixer masterMixer;
-        private AudioMixerGroup bgmGroup;
-        private AudioMixerGroup sfxGroup;
 
         private AudioSource curBGM;
         private List<AudioSource> sfxList = new List<AudioSource>();
@@ -57,6 +55,24 @@ namespace MS.Manager
             }
         }
 
+        public void SetBGMVolume(float _volume)
+        {
+            if (masterMixer != null)
+            {
+                float volume = _volume <= 0.0001f ? -80f : Mathf.Log10(_volume) * 20;
+                masterMixer.SetFloat("BGMVolume", volume);
+            }
+        }
+
+        public void SetSFXVolume(float _volume)
+        {
+            if (masterMixer != null)
+            {
+                float volume = _volume <= 0.0001f ? -80f : Mathf.Log10(_volume) * 20;
+                masterMixer.SetFloat("SFXVolume", volume);
+            }
+        }
+
         public void StopBGM()
         {
             if (curBGM != null)
@@ -84,13 +100,6 @@ namespace MS.Manager
         public async UniTask InitSoundAsync()
         {
             masterMixer = await AddressableManager.Instance.LoadResourceAsync<AudioMixer>("MasterMixer");
-            if (masterMixer != null)
-            {
-                var bgmGroups = masterMixer.FindMatchingGroups("BGM");
-                var sfxGroups = masterMixer.FindMatchingGroups("SFX");
-                if (bgmGroups.Length > 0) bgmGroup = bgmGroups[0];
-                if (sfxGroups.Length > 0) sfxGroup = sfxGroups[0];
-            }
             await AddressableManager.Instance.LoadResourceAsync<AudioClip>("BGM_Title");
             await ObjectPoolManager.Instance.CreatePoolAsync("BGMEmitter", 1);
         }
