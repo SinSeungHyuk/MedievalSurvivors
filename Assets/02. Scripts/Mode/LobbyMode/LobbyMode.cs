@@ -21,7 +21,7 @@ namespace MS.Mode
 
         public override void EndMode()
         {
-            // todo :: bgm ²ô±â Á¤µµ?
+            SoundManager.Instance.StopBGM();
         }
 
 
@@ -30,6 +30,8 @@ namespace MS.Mode
         {
             MainPanel MainPanel = UIManager.Instance.ShowView<MainPanel>("MainPanel");
             MainPanel.InitMainPanel();
+
+            SoundManager.Instance.PlayBGM("BGM_Lobby");
         }
         private void OnMainMenuUpdate(float obj)
         {

@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using MS.Core;
 using MS.Data;
 using MS.Field;
@@ -7,6 +8,7 @@ using MS.UI;
 using MS.Utils;
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental;
 using UnityEngine;
 
 namespace MS.Mode
@@ -90,10 +92,30 @@ namespace MS.Mode
             // 다음 웨이브로 넘어가는 연출 호출하기 + UI 업데이트
             KillCount.Value++;
             ActivateNextWaveAsync().Forget();
+
+            Notification notification = UIManager.Instance.ShowSystemUI<Notification>("Notification");
+            if (notification)
+            {
+                notification.InitNotification("Info", "Artifact");
+            }
+
+            Vector3 targetPos = curFieldMap.GetRandomSpawnPoint(curBoss.Position, CurWaveCount.Value);
+            FieldItem artifact = FieldItemManager.Instance.SpawnFieldItem("Artifact", curBoss.Position);
+            artifact.GetComponent<Collider>().enabled = false;
+
+            artifact.transform.DOJump(targetPos, 7.5f, 1, 1.5f)
+                .SetEase(Ease.Linear)
+                .onComplete = () =>
+                {
+                    artifact.GetComponent<Collider>().enabled = true;
+                };
+
+            curBoss = null;
         }
 
         private void OnLastBossMonsterDead()
         {
+            curBoss = null;
             EffectManager.Instance.PlayEffect("Eff_Firework", player.Position, Quaternion.identity);
             SoundManager.Instance.PlaySFX("FX_StageClear");
 

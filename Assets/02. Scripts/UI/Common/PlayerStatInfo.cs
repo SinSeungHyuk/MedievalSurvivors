@@ -76,7 +76,7 @@ namespace MS.UI
             if (string.IsNullOrEmpty(statName)) statName = curStatType;
 
             txtStatType.text = statName;
-            txtStatValue.text = _statValue.ToString("0.#");
+            txtStatValue.text = _statValue.ToString("0.##");
         }
 
         public void OnPointerClick(PointerEventData eventData)

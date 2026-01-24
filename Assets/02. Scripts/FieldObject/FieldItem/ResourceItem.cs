@@ -1,6 +1,7 @@
 using DG.Tweening;
 using MS.Data;
 using MS.Skill;
+using MS.Utils;
 using UnityEngine;
 
 
@@ -35,6 +36,12 @@ namespace MS.Field
                 Debug.Log("OnAcquire :: Player null");
                 return;
             }
+
+            _player.PlayerArtifact.OnTriggerArtifact(ArtifactTriggerType.OnItemAcquire, new ArtifactContext()
+            {
+                StringVal = FieldItemKey,
+                FloatVal = itemValue
+            });
 
             switch (itemType)
             {

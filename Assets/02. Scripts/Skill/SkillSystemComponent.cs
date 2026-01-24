@@ -14,6 +14,7 @@ namespace MS.Skill
     public class SkillSystemComponent : MonoBehaviour
     {
         public event Action<string, BaseSkill> OnSkillAdded;
+        public event Action<string> OnSkillUsed;
         public event Action<float, float> OnHealthChanged; // 어트리뷰트셋 래핑용 이벤트
         public event Action<int, bool> OnHitCallback;
         public event Action OnDeadCallback;
@@ -30,21 +31,6 @@ namespace MS.Skill
         public BaseAttributeSet AttributeSet => attributeSet;
         public FieldCharacter Owner => owner;
 
-
-        // TODO :: GIZMO
-        [Header("Gizmo Test Settings")]
-        [SerializeField] private float testAttackRadius = 1.0f;
-        [SerializeField] private float testForwardOffset = 1.4f;
-        [SerializeField] private bool showGizmos = true;
-        private void OnDrawGizmosSelected()
-        {
-            if (!showGizmos) return;
-
-            Gizmos.color = Color.red;
-
-            Vector3 center = transform.position + (transform.forward * testForwardOffset);
-            Gizmos.DrawWireSphere(center, testAttackRadius);
-        }
 
 
         void Update()
@@ -114,6 +100,7 @@ namespace MS.Skill
             {
                 if (!skillToUse.IsPostUseCooltime) skillToUse.SetCooltime();
                 await skillToUse.ActivateSkill(cts.Token);
+                OnSkillUsed?.Invoke(_skillKey);
             }
             catch (OperationCanceledException)
             {

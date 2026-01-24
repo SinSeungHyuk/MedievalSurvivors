@@ -20,6 +20,7 @@ namespace MS.Mode
 
         private bool isActivateNextFloor = false; // 다음 웨이브 연출 중인지 여부
         private bool isBossLive = false;          // 보스가 살아있는지 여부
+        private MonsterCharacter curBoss;
 
 
         private void OnBattleStartEnter(int _prev, object[] _params)
@@ -28,6 +29,7 @@ namespace MS.Mode
             elapsedSpawnTime = 0f;
             curWaveTime = Settings.WaveTimer;
             CurWaveTimer.Value = curWaveTime;
+            curBoss = null;
         }
 
         private void OnBattleStartUpdate(float _dt)
@@ -85,10 +87,10 @@ namespace MS.Mode
 
             await UniTask.WaitForSeconds(1.5f);
 
-            MonsterCharacter boss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
-            boss.SetBossMonster();
-            boss.SSC.OnDeadCallback += OnBossMonsterDead;
-            OnBossSpawned?.Invoke(boss);
+            curBoss = MonsterManager.Instance.SpawnMonster(curWaveSpawnInfo.BossMonsterKey, spawnPos, Quaternion.identity);
+            curBoss.SetBossMonster();
+            curBoss.SSC.OnDeadCallback += OnBossMonsterDead;
+            OnBossSpawned?.Invoke(curBoss);
 
             Notification notification = UIManager.Instance.ShowSystemUI<Notification>("Notification");
             if (notification)

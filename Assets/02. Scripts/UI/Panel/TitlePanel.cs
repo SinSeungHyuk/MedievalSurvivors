@@ -15,10 +15,9 @@ namespace MS.UI
     public class TitlePanel : BaseUI
     {
         private Button btnTitle;
-
-        // todo test
         private TextMeshProUGUI txtTitle;
         private long downloadSize;
+        private bool isPatchProcessFinished = false;
 
 
         private void Awake()
@@ -26,39 +25,72 @@ namespace MS.UI
             btnTitle = transform.FindChildComponentDeep<Button>("BtnTitle");
             txtTitle = transform.FindChildComponentDeep<TextMeshProUGUI>("TxtTitle"); 
             btnTitle.onClick.AddListener(OnBtnTitleClicked);
+            btnTitle.interactable = false; // 패치 체크 전까지 클릭 방지
         }
 
         private void Start()
         {
             PlayTitleBGMAsync().Forget();
-            DownloadFirstRun().Forget();
+            CheckPatchInfoAsync().Forget();
         }
 
-        private async UniTask DownloadFirstRun()
+        private async UniTask CheckPatchInfoAsync()
         {
-            string key = "Remote";
-            downloadSize = await Addressables.GetDownloadSizeAsync(key);
-
-            if (downloadSize > 0)
+            try
             {
-                float mbSize = downloadSize / (1024f * 1024f);
-                txtTitle.text = $"화면을 터치하여 {mbSize:F2}MB 리소스를 다운로드 할 수 있습니다.";
+                txtTitle.text = "리소스 정보를 확인 중입니다...";
+
+                // 1. 어드레서블 초기화
+                await Addressables.InitializeAsync();
+
+                // 2. 카탈로그 업데이트 확인 (CCD 변경 사항 감지)
+                var checkHandle = Addressables.CheckForCatalogUpdates(false);
+                List<string> catalogs = await checkHandle.ToUniTask();
+                Addressables.Release(checkHandle);
+
+                if (catalogs != null && catalogs.Count > 0)
+                {
+                    txtTitle.text = "리소스 목록을 갱신 중입니다...";
+                    var updateHandle = Addressables.UpdateCatalogs(catalogs, false);
+                    await updateHandle.ToUniTask();
+                    Addressables.Release(updateHandle);
+                }
+
+                // 3. 다운로드 사이즈 체크
+                downloadSize = await Addressables.GetDownloadSizeAsync("Remote");
+                if (downloadSize > 0)
+                {
+                    float mbSize = downloadSize / (1024f * 1024f);
+                    txtTitle.text = $"터치하여 데이터 다운로드 ({mbSize:F2}MB)";
+                }
+                else
+                {
+                    txtTitle.text = "터치하여 게임 시작";
+                }
+
+                isPatchProcessFinished = true;
+                btnTitle.interactable = true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Patch Check Failed: {e.Message}");
+                txtTitle.text = "네트워크 오류";
+                btnTitle.interactable = true;
             }
         }
 
         private void OnBtnTitleClicked()
         {
             if (downloadSize > 0)
-            {
-                DownloadFirstRunAsync().Forget();
-
-            }
-
-            else GameManager.Instance.StartGameAsync().Forget();
+                DownloadPatchAsync().Forget();
+            else
+                GameManager.Instance.StartGameAsync().Forget();
         }
 
-        private async UniTask DownloadFirstRunAsync()
+        private async UniTask DownloadPatchAsync()
         {
+            btnTitle.interactable = false;
+
             DownloadPopup downloadPanel = UIManager.Instance.ShowPopup<DownloadPopup>("DownloadPopup");
             downloadPanel.InitDownloadPopup(downloadSize);
 
@@ -66,7 +98,9 @@ namespace MS.UI
 
             while (!downloadHandle.IsDone)
             {
-                float percent = downloadHandle.PercentComplete;
+                DownloadStatus status = downloadHandle.GetDownloadStatus();
+                float percent = status.Percent;
+
                 downloadPanel.UpdateProgress(percent);
                 await UniTask.Yield();
             }
@@ -75,6 +109,7 @@ namespace MS.UI
             {
                 Addressables.Release(downloadHandle);
                 downloadPanel.Close();
+                downloadSize = 0;
                 GameManager.Instance.StartGameAsync().Forget();
             }
             else

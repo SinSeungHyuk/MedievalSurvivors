@@ -81,6 +81,14 @@ namespace MS.Manager
                 .ToList();
         }
 
+        public MonsterCharacter GetRandMonster()
+        {
+            if (monsterList.Count == 0)
+                return null;
+            int randIndex = UnityEngine.Random.Range(0, monsterList.Count);
+            return monsterList[randIndex];
+        }
+
         public void ClearMonster()
         {
             for (int i = monsterList.Count - 1; i >= 0; i--)
@@ -124,7 +132,7 @@ namespace MS.Manager
                 var tasks = new List<UniTask>();
                 foreach (var key in uniqueMonsterKeys)
                 {
-                    tasks.Add(ObjectPoolManager.Instance.CreatePoolAsync(key, 5));
+                    tasks.Add(ObjectPoolManager.Instance.CreatePoolAsync(key, 50));
                 }
 
                 await UniTask.WhenAll(tasks);

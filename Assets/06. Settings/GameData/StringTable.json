@@ -55,8 +55,10 @@
   },
   "Notification": {
     "Warning": "경 고",
+    "Info": "알 림",
     "BossAppear": "보스가 등장했습니다.",
-    "LastWave": "하늘에서 운석이 떨어집니다."
+    "LastWave": "하늘에서 운석이 떨어집니다.",
+    "Artifact": "유물이 등장했습니다."
   },
   "AttributeType": {
     "Fire": "화염",
@@ -113,5 +115,17 @@
     "IceBall": "얼음 구체를 던져 적중시 자리에 얼음지대를 생성합니다. 지대는 ({Default} + {Damage}AD) 피해를 줍니다.",
     "GravitationalField": "적을 추적하는 중력장을 생성하여 ({Default} + {Damage}AD) 피해를 주고 적들을 중앙으로 끌어당깁니다.",
     "BloodBall": "적의 생명력을 흡수하는 구체를 날려 ({Default} + {Damage}AD) 피해를 입히고 돌아올 때 체력을 회복합니다."
+  },
+  "ArtifactName": {
+    "LightningTeleport": "번개이동",
+    "CoinSheild": "코인 쉴드",
+    "Star": "황금 물약",
+    "StarAura": "별의 상의"
+  },
+  "ArtifactDesc": {
+    "LightningTeleport": "순간이동시 해당 지역에 적을 기절시키는 번개 구름을 남깁니다.",
+    "CoinSheild": "코인을 획득할 때마다 일정 확률로 주변 적을 밀쳐냅니다.",
+    "Star": "스킬 사용시 일정 확률로 무작위 적을 향해 빠르게 날아가는 별을 추가로 발사합니다.",
+    "StarAura": "별의 기운이 몸을 감싸 공격력,치명타 확률,치명타 배수가 증가합니다."
   }
 }

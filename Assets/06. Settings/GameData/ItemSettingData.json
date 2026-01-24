@@ -22,5 +22,9 @@
   "BossChest": {
     "GameplayCueKey": "GC_Acquire_BossChest",
     "ItemType": "BossChest"
+  },
+  "Artifact": {
+    "GameplayCueKey": "GC_Acquire_BossChest",
+    "ItemType": "Artifact"
   }
 }

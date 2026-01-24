@@ -78,6 +78,7 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_SlashOrange", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_FrostCircle", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Area_GravitationalField", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Area_LightningAura", 10),
 
                     // Projectile Objects
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_MonsterArrow", 10),
@@ -87,6 +88,7 @@ namespace MS.Manager
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_IceBall", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_GravitationalField", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Projec_BloodBall", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Projec_Star", 10),
 
                     // ETC
                     ObjectPoolManager.Instance.CreatePoolAsync("Indicator", 10),

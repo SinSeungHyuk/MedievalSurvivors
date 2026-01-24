@@ -42,6 +42,26 @@ namespace MS.Field
                     popup.InitSkillRewardPopup(rewards, _player);
 
                     break;
+
+                case EItemType.Artifact:
+                    var ownedSet = _player.PlayerArtifact.OwnedArtifactList.Values
+                                            .SelectMany(list => list)
+                                            .ToHashSet();
+
+                    string artifactKey = DataManager.Instance.ArtifactSettingDataDict
+                        .Where(pair => !ownedSet.Contains(pair.Value))
+                        .Select(pair => pair.Key)
+                        .OrderBy(_ => UnityEngine.Random.value)
+                        .FirstOrDefault();
+
+                    if (!string.IsNullOrEmpty(artifactKey))
+                    {
+                        var artifactPopup = UIManager.Instance.ShowPopup<ArtifactPopup>("ArtifactPopup");
+                        artifactPopup.InitArtifactPopup(artifactKey);
+
+                        _player.PlayerArtifact.AddArtifact(artifactKey);
+                    }
+                    break;
             }
         }
     }

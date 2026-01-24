@@ -39,6 +39,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3f445a8edb546a4d89240975d9e791d
+    m_Address: ArtifactSettingData
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b78979b3964b1b94d9a6c726caf91f23
     m_Address: ItemSettingData
     m_ReadOnly: 0

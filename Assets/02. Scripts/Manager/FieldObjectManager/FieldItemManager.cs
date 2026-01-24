@@ -15,7 +15,7 @@ namespace MS.Manager
         private List<FieldItem> fieldItemList = new List<FieldItem>();
 
 
-        public void SpawnFieldItem(string _key, Vector3 _spawnPos)
+        public FieldItem SpawnFieldItem(string _key, Vector3 _spawnPos)
         {
             FieldItem fieldItem = ObjectPoolManager.Instance.Get(_key, _spawnPos, Quaternion.identity).GetComponent<FieldItem>();
 
@@ -24,12 +24,14 @@ namespace MS.Manager
                 if (!DataManager.Instance.ItemSettingDataDict.TryGetValue(_key, out ItemSettingData _itemData))
                 {
                     Debug.LogError($"SpawnFieldItem Key Missing : {_key}");
-                    return;
+                    return null;
                 }
                 
                 fieldItem.InitFieldItem(_key, _itemData);
                 fieldItemList.Add(fieldItem);
             }
+
+            return fieldItem;
         }
 
         public void SpawnRandomFieldItem(Vector3 _spawnPos)
@@ -54,11 +56,12 @@ namespace MS.Manager
             {
                 var tasks = new List<UniTask>
                 {
-                    ObjectPoolManager.Instance.CreatePoolAsync("Coin", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("BlueCrystal", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("GreenCrystal", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("RedCrystal", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("BossChest", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Coin", 100),
+                    ObjectPoolManager.Instance.CreatePoolAsync("BlueCrystal", 50),
+                    ObjectPoolManager.Instance.CreatePoolAsync("GreenCrystal", 50),
+                    ObjectPoolManager.Instance.CreatePoolAsync("RedCrystal", 50),
+                    ObjectPoolManager.Instance.CreatePoolAsync("BossChest", 5),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Artifact", 5),
                     // ...
                 };
 

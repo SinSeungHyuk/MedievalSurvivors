@@ -74,23 +74,23 @@ namespace MS.Manager
             {
                 var tasks = new List<UniTask>
                 {
-                    ObjectPoolManager.Instance.CreatePoolAsync("DamageText", 30),
+                    ObjectPoolManager.Instance.CreatePoolAsync("DamageText", 100),
 
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StoneSlash", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 3),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Teleport", 1),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainBuff", 3),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainHp", 3),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_GainMoveSpeed", 3),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_MonsterHit", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_MonsterHit", 200),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_BossPortal", 1),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_Firework", 1),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StunLoop", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StunBegin", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Burn", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Charm", 10),
-                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Frost", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StunLoop", 100),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StunBegin", 100),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Burn", 100),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Charm", 100),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_Frost", 100),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_WaveMeteor", 10),
                     ObjectPoolManager.Instance.CreatePoolAsync("Eff_WaveMeteorHit", 10),
+                    ObjectPoolManager.Instance.CreatePoolAsync("Eff_StarAura", 1),
                     // ... 
                 };
 

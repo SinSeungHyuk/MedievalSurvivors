@@ -69,6 +69,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d9a3b35b3bc07649b697df7fb497b6d
+    m_Address: Area_LightningAura
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 645ebd7cef59b7b40b27c29bf3e99cf2
     m_Address: Area_CrystalFront
     m_ReadOnly: 0
@@ -125,6 +131,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b376db00fbe96d6488e3f97c97f66e75
     m_Address: Area_GravitationalField
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb5a4a858a148644084e4055e498c1f4
+    m_Address: Projec_Star
     m_ReadOnly: 0
     m_SerializedLabels:
     - Remote

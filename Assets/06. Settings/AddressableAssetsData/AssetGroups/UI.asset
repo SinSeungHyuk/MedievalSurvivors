@@ -70,6 +70,13 @@ MonoBehaviour:
     - Remote
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9f40bd9cf9d18a4fa999d987b5485f3
+    m_Address: ArtifactPopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb282d028556481459634dd4ab5d6932
     m_Address: Tooltip
     m_ReadOnly: 0

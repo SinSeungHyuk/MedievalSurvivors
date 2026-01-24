@@ -18,6 +18,7 @@ namespace MS.Field
 
         public PlayerController PlayerController {  get; private set; }
         public PlayerLevelSystem LevelSystem { get; private set; }
+        public PlayerArtifact PlayerArtifact { get; private set; }
         public bool IsMovementLocked { get; private set; }
 
 
@@ -27,6 +28,7 @@ namespace MS.Field
 
             PlayerController = GetComponent<PlayerController>();
             LevelSystem = GetComponent<PlayerLevelSystem>();
+            PlayerArtifact = GetComponent<PlayerArtifact>();
             hpBar = GetComponentInChildren<HPBar>();
         }
 
@@ -49,6 +51,7 @@ namespace MS.Field
             SSC.GiveSkill(_characterData.DefaultSkillKey);
 
             LevelSystem.InitLevelSystem(); // 레벨 세팅
+            PlayerArtifact.InitPlayerArtifact(this); // 아티팩트 시스템 세팅
             hpBar.InitHPBar(this);
         }
 
@@ -69,15 +72,5 @@ namespace MS.Field
 
         }
         #endregion
-
-        // TODO :: INPUT TEST
-        public void OnInteract(InputValue value)
-        {
-            if (value.isPressed)
-            {
-                //SSC.UseSkill("Blizzard").Forget();
-                SSC.GiveSkill("SlashGreen");
-            }
-        }
     }
 }

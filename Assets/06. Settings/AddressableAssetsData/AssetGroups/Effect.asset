@@ -45,6 +45,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 354b6251e950209409c75ab984acf000
+    m_Address: Eff_StarAura
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 356cf4dca1465b54fabbb8cd9b1cd190
     m_Address: Eff_GainHp
     m_ReadOnly: 0

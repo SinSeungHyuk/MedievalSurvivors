@@ -75,8 +75,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Remote
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e9677621fcb7df4c8fbcac3242e4c2d
+    m_Address: Icon_Star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58796d22e6fce7f458fea288285d26d7
     m_Address: Icon_BloodBall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c43af9fc8739294f87141681bbafcb3
+    m_Address: Icon_CoinSheild
     m_ReadOnly: 0
     m_SerializedLabels:
     - Remote
@@ -95,6 +107,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ffbdeb95727aa143bdcfbd8121fd561
     m_Address: Icon_IceBall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8a1f3276b622f44da4fc94eedab96c2
+    m_Address: Icon_LightningTeleport
     m_ReadOnly: 0
     m_SerializedLabels:
     - Remote
@@ -137,6 +155,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee4840b181f6f8a40aa169bc6a6d3c5d
     m_Address: Icon_Plexus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Remote
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef5905a84ca3b924885750311afd9bed
+    m_Address: Icon_StarAura
     m_ReadOnly: 0
     m_SerializedLabels:
     - Remote

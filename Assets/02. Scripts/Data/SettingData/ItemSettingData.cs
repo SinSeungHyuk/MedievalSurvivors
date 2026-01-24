@@ -20,5 +20,6 @@ namespace MS.Data
         BlueCrystal,
 
         BossChest,
+        Artifact,
     }
 }

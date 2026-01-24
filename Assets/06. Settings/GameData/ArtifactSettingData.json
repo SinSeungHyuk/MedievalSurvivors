@@ -1,0 +1,79 @@
+{
+  "LightningTeleport": {
+    "IconKey": "Icon_LightningTeleport",
+    "TriggerType": "OnSkillUse",
+    "ConditionList": [
+      {
+        "ConditionType": "SkillNameEqual",
+        "StringVal": "Teleport",
+        "FloatVal": 0.0
+      }
+    ],
+    "ActionList": [
+      {
+        "ActionType": "SpawnLightningAura",
+        "StringVal": "",
+        "FloatVal": 1.0
+      }
+    ]
+  },
+  "CoinSheild": {
+    "IconKey": "Icon_CoinSheild",
+    "TriggerType": "OnItemAcquire",
+    "ConditionList": [
+      {
+        "ConditionType": "AcquireItem",
+        "StringVal": "Coin",
+        "FloatVal": 0.0
+      },
+      {
+        "ConditionType": "RandPercent",
+        "StringVal": "",
+        "FloatVal": 75.0
+      }
+    ],
+    "ActionList": [
+      {
+        "ActionType": "KnockbackMonster",
+        "StringVal": "",
+        "FloatVal": 35.0
+      }
+    ]
+  },
+  "Star": {
+    "IconKey": "Icon_Star",
+    "TriggerType": "OnSkillUse",
+    "ConditionList": [
+      {
+        "ConditionType": "RandPercent",
+        "StringVal": "",
+        "FloatVal": 50.0
+      }
+    ],
+    "ActionList": [
+      {
+        "ActionType": "SpawnStar",
+        "StringVal": "",
+        "FloatVal": 0.25
+      }
+    ]
+  },
+  "StarAura": {
+    "IconKey": "Icon_StarAura",
+    "TriggerType": "OnAcquire",
+    "ConditionList": [
+      {
+        "ConditionType": "RandPercent",
+        "StringVal": "",
+        "FloatVal": 100.0
+      }
+    ],
+    "ActionList": [
+      {
+        "ActionType": "StarAura",
+        "StringVal": "",
+        "FloatVal": 25.0
+      }
+    ]
+  }
+}
