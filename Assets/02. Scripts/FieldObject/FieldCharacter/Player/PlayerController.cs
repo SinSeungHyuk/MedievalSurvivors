@@ -30,7 +30,7 @@ namespace MS.Field
                 moveInput = Vector2.zero;
             }
 
-            if (Time.deltaTime > 0) // 새로 추가한 조건
+            if (Time.timeScale > 0)
             {
                 HandleGravity();
                 HandleMovement();
@@ -50,25 +50,24 @@ namespace MS.Field
             MoveDir = new Vector3(moveInput.x, 0f, moveInput.y);
             float inputMagnitude = MoveDir.sqrMagnitude;
 
-            Vector3 finalMoveVelocity = Vector3.up * verticalVelocity;
+            Vector3 frameMovement = Vector3.up * verticalVelocity * Time.deltaTime;
 
             if (inputMagnitude > 0.01f)
             {
                 float moveSpeed = player.SSC.AttributeSet.GetStatValueByType(EStatType.MoveSpeed);
                 Vector3 targetPosition = transform.position + (MoveDir * moveSpeed * Time.deltaTime);
 
-                // NavMesh 위에서 AllAreas 중 이동가능한 위치를 반환
                 if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, 1f, NavMesh.AllAreas))
                 {
                     Vector3 moveOffset = hit.position - transform.position;
                     moveOffset.y = 0f;
-                    finalMoveVelocity += moveOffset / Time.deltaTime;
+                    frameMovement += moveOffset;
                 }
 
                 transform.rotation = Quaternion.LookRotation(MoveDir);
             }
 
-            characterController.Move(finalMoveVelocity * Time.deltaTime);
+            characterController.Move(frameMovement);
             player.Animator.SetFloat(Settings.AnimHashSpeed, inputMagnitude);
         }
 
