@@ -30,8 +30,11 @@ namespace MS.Field
                 moveInput = Vector2.zero;
             }
 
-            HandleGravity();
-            HandleMovement();
+            if (Time.deltaTime > 0) // 새로 추가한 조건
+            {
+                HandleGravity();
+                HandleMovement();
+            }
         }
 
         private void HandleGravity()
