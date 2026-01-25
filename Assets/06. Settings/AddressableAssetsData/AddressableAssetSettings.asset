@@ -85,7 +85,7 @@ MonoBehaviour:
       m_ProfileName: Default
       m_Values:
       - m_Id: 1114f12e8eb054c4b89c745dc38fad91
-        m_Value: CCDBuildData/ea1537bd-15fd-4ac4-913a-2eb8cc32ec8e/be59c30b-33f5-48f7-9cc5-2f8861fc7e1b/latest
+        m_Value: CCDBuildData/ManagedEnvironment/ManagedBucket/ManagedBadge
       - m_Id: 24e86746e059fc64a87cb36c0c616b87
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 96c608c4db02e654a9e6c173b59c37d2
@@ -136,8 +136,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc58ee8b2b46f154b999070decfe91a6, type: 2}
   m_ActiveProfileId: 758b86f60d97a2541aea06d8ea4fb845
   m_CcdManagedData:
-    EnvironmentId: 
-    EnvironmentName: 
-    BucketId: 
-    Badge: 
+    EnvironmentId: ea1537bd-15fd-4ac4-913a-2eb8cc32ec8e
+    EnvironmentName: ccd
+    BucketId: be59c30b-33f5-48f7-9cc5-2f8861fc7e1b
+    Badge: latest
     State: 0

@@ -6,7 +6,7 @@ namespace MS.Utils
     public static class Settings
     {
         #region BATTLE SETTING
-        public static int MaxWaveCount = 2;
+        public static int MaxWaveCount =5;
         public static int BattleScalingConstant = 100;
         public static float WeaknessAttributeMultiple = 1.3f; // 약점속성 추가 데미지
         public static int LifeStealValue = 1;
@@ -15,7 +15,7 @@ namespace MS.Utils
         public static float DefaultMaxSpawnDistance = 10f;
         public static float BossScaleMultiple = 1.5f;
 
-        public static float WaveTimer = 5f; // 웨이브 당 시간
+        public static float WaveTimer = 30f; // 웨이브 당 시간
         public static float AddWaveTimePerWave = 5f; // 웨이브마다 추가되는 시간
         #endregion
 

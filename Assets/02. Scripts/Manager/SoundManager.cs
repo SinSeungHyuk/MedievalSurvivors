@@ -12,6 +12,9 @@ namespace MS.Manager
 {
     public class SoundManager : Singleton<SoundManager>
     {
+        private const string BGM_VOLUME_KEY = "BGM_Volume";
+        private const string SFX_VOLUME_KEY = "SFX_Volume";
+
         private AudioMixer masterMixer;
 
         private AudioSource curBGM;
@@ -61,6 +64,9 @@ namespace MS.Manager
             {
                 float volume = _volume <= 0.0001f ? -80f : Mathf.Log10(_volume) * 20;
                 masterMixer.SetFloat("BGMVolume", volume);
+
+                PlayerPrefs.SetFloat(BGM_VOLUME_KEY, _volume);
+                PlayerPrefs.Save();
             }
         }
 
@@ -70,6 +76,9 @@ namespace MS.Manager
             {
                 float volume = _volume <= 0.0001f ? -80f : Mathf.Log10(_volume) * 20;
                 masterMixer.SetFloat("SFXVolume", volume);
+
+                PlayerPrefs.SetFloat(SFX_VOLUME_KEY, _volume);
+                PlayerPrefs.Save();
             }
         }
 
@@ -102,6 +111,9 @@ namespace MS.Manager
             masterMixer = await AddressableManager.Instance.LoadResourceAsync<AudioMixer>("MasterMixer");
             await AddressableManager.Instance.LoadResourceAsync<AudioClip>("BGM_Title");
             await ObjectPoolManager.Instance.CreatePoolAsync("BGMEmitter", 1);
+
+            SetBGMVolume(PlayerPrefs.GetFloat(BGM_VOLUME_KEY, 1.0f));
+            SetSFXVolume(PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 1.0f));
         }
 
         public async UniTask LoadAllSoundAsync()

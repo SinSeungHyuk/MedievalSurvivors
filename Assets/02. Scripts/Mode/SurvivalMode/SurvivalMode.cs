@@ -59,6 +59,7 @@ namespace MS.Mode
             curFieldMap.Destroy();
 
             ObjectPoolManager.Instance.ClearAllPools();
+            SoundManager.Instance.StopBGM();
         }
 
         public override void OnUpdate(float _dt)
@@ -103,7 +104,7 @@ namespace MS.Mode
             FieldItem artifact = FieldItemManager.Instance.SpawnFieldItem("Artifact", curBoss.Position);
             artifact.GetComponent<Collider>().enabled = false;
 
-            artifact.transform.DOJump(targetPos, 7.5f, 1, 1.5f)
+            artifact.transform.DOJump(targetPos, 5f, 1, 1.5f)
                 .SetEase(Ease.Linear)
                 .onComplete = () =>
                 {

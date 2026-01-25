@@ -30,6 +30,8 @@ namespace MS.Skill
             {
                 if (hit.gameObject == owner.gameObject) continue;
 
+                float damage = attributeSet.GetStatValueByType(EStatType.AttackPower);
+
                 if (hit.gameObject.TryGetComponent(out SkillSystemComponent targetSSC))
                 {
                     // 데미지 정보 생성
@@ -37,7 +39,7 @@ namespace MS.Skill
                         _attacker: owner,
                         _target: targetSSC.Owner,
                         _attributeType: EDamageAttributeType.None,
-                        _damage: 30f,
+                        _damage: damage,
                         _isCritic: false,
                         _knockbackForce: 0f
                     );

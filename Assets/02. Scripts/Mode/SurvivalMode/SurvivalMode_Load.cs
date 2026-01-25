@@ -12,6 +12,7 @@ namespace MS.Mode
     {
         private void OnLoadEnter(int _prev, object[] _params)
         {
+            SoundManager.Instance.PlayBGM("BGM_Stage");
             LoadSurvivalModeAsync().Forget();
         }
 

@@ -34,11 +34,13 @@ namespace MS.Skill
             projecArrow.transform.rotation = Quaternion.LookRotation(fireDir);
             projecArrow.SetHitCallback((_obj, _ssc) =>
             {
+                float damage = attributeSet.GetStatValueByType(EStatType.AttackPower);
+
                 DamageInfo damageInfo = new DamageInfo(
                     _attacker: owner,
                     _target: _ssc.Owner,
                     _attributeType: EDamageAttributeType.None,
-                    _damage: 30f,
+                    _damage: damage,
                     _isCritic: false,
                     _knockbackForce: 10f
                 );

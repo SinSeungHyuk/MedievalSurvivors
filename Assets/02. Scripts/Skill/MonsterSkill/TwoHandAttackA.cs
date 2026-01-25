@@ -17,7 +17,6 @@ namespace MS.Skill
         public override async UniTask ActivateSkill(CancellationToken token)
         {
             await UniTask.WaitForSeconds(0.8f);
-            Debug.Log("##");
             CheckHit();
         }
 
@@ -33,12 +32,14 @@ namespace MS.Skill
 
                 if (hit.gameObject.TryGetComponent(out SkillSystemComponent targetSSC))
                 {
+                    float damage = attributeSet.GetStatValueByType(EStatType.AttackPower);
+
                     // 데미지 정보 생성
                     DamageInfo damageInfo = new DamageInfo(
                         _attacker: owner,
                         _target: targetSSC.Owner,
                         _attributeType: EDamageAttributeType.None,
-                        _damage: 30f,
+                        _damage: damage,
                         _isCritic: false,
                         _knockbackForce: 0f
                     );
