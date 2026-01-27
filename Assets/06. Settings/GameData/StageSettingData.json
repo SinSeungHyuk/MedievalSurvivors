@@ -28,7 +28,7 @@
         "BossMonsterKey": "Skeleton_Tier3",
         "SpawnInterval": 3,
         "CountPerSpawn": 2,
-        "FieldItemSpawnChance": 8.0
+        "FieldItemSpawnChance": 5.0
       },
       {
         "MonsterSpawnInfoList": [
@@ -48,7 +48,7 @@
         "BossMonsterKey": "Skeleton_Tier4",
         "SpawnInterval": 3,
         "CountPerSpawn": 3,
-        "FieldItemSpawnChance": 10.0
+        "FieldItemSpawnChance": 5.0
       },
       {
         "MonsterSpawnInfoList": [
@@ -68,7 +68,7 @@
         "BossMonsterKey": "Skeleton_Tier9",
         "SpawnInterval": 2,
         "CountPerSpawn": 3,
-        "FieldItemSpawnChance": 12.5
+        "FieldItemSpawnChance": 5.5
       },
       {
         "MonsterSpawnInfoList": [
@@ -88,7 +88,7 @@
         "BossMonsterKey": "Skeleton_Tier10",
         "SpawnInterval": 2,
         "CountPerSpawn": 4,
-        "FieldItemSpawnChance": 15.0
+        "FieldItemSpawnChance": 5.0
       }
     ]
   }

@@ -59,6 +59,26 @@
     "Grade": "Legendary",
     "RewardValue": 25.0
   },
+  "EvasionNormal": {
+    "StatType": "Evasion",
+    "Grade": "Normal",
+    "RewardValue": 5.0
+  },
+  "EvasionRare": {
+    "StatType": "Evasion",
+    "Grade": "Rare",
+    "RewardValue": 8.0
+  },
+  "EvasionUnique": {
+    "StatType": "Evasion",
+    "Grade": "Unique",
+    "RewardValue": 15.0
+  },
+  "EvasionLegendary": {
+    "StatType": "Evasion",
+    "Grade": "Legendary",
+    "RewardValue": 25.0
+  },
   "MoveSpeedNormal": {
     "StatType": "MoveSpeed",
     "Grade": "Normal",
@@ -119,6 +139,27 @@
     "Grade": "Legendary",
     "RewardValue": 0.5
   },
+"LifeStealNormal": {
+    "StatType": "LifeSteal",
+    "Grade": "Normal",
+    "RewardValue": 2.0
+  },
+  "LifeStealRare": {
+    "StatType": "LifeSteal",
+    "Grade": "Rare",
+    "RewardValue": 4.0
+  },
+  "LifeStealUnique": {
+    "StatType": "LifeSteal",
+    "Grade": "Unique",
+    "RewardValue": 6.0
+  },
+  "LifeStealLegendary": {
+    "StatType": "LifeSteal",
+    "Grade": "Legendary",
+    "RewardValue": 10.0
+  },
+
   "CooltimeAccelNormal": {
     "StatType": "CooltimeAccel",
     "Grade": "Normal",

@@ -40,7 +40,7 @@
   "Skeleton_Tier3": {
     "AttributeSetSettingData": {
       "MaxHealth": 50.0,
-      "AttackPower": 15.0,
+      "AttackPower": 10.0,
       "Defense": 2.0,
       "MoveSpeed": 2.5,
       "AttackRange": 7.0,
@@ -78,7 +78,7 @@
   "Skeleton_Tier5": {
     "AttributeSetSettingData": {
       "MaxHealth": 170.0,
-      "AttackPower": 35.0,
+      "AttackPower": 15.0,
       "Defense": 10.0,
       "MoveSpeed": 2.5,
       "AttackRange": 2.7,
@@ -97,7 +97,7 @@
   "Skeleton_Tier6": {
     "AttributeSetSettingData": {
       "MaxHealth": 200.0,
-      "AttackPower": 55.0,
+      "AttackPower": 15.0,
       "Defense": 5.0,
       "MoveSpeed": 2.5,
       "AttackRange": 8.0,
@@ -116,7 +116,7 @@
   "Skeleton_Tier7": {
     "AttributeSetSettingData": {
       "MaxHealth": 260.0,
-      "AttackPower": 25.0,
+      "AttackPower": 15.0,
       "Defense": 35.0,
       "MoveSpeed": 2.5,
       "AttackRange": 2.5,
@@ -135,7 +135,7 @@
   "Skeleton_Tier8": {
     "AttributeSetSettingData": {
       "MaxHealth": 350.0,
-      "AttackPower": 30.0,
+      "AttackPower": 10.0,
       "Defense": 50.0,
       "MoveSpeed": 2.5,
       "AttackRange": 2.5,
@@ -154,7 +154,7 @@
   "Skeleton_Tier9": {
     "AttributeSetSettingData": {
       "MaxHealth": 500.0,
-      "AttackPower": 40.0,
+      "AttackPower": 10.0,
       "Defense": 75.0,
       "MoveSpeed": 2.5,
       "AttackRange": 2.5,
@@ -173,7 +173,7 @@
   "Skeleton_Tier10": {
     "AttributeSetSettingData": {
       "MaxHealth": 750.0,
-      "AttackPower": 180.0,
+      "AttackPower": 10.0,
       "Defense": 60.0,
       "MoveSpeed": 2.5,
       "AttackRange": 2.7,

@@ -17,6 +17,6 @@ MonoBehaviour:
   EffectRotation: {x: 0, y: 0, z: 0}
   EffectDuration: 0
   AttachToOwner: 1
-  SoundKey: FX_GainHp
+  SoundKey: 
   CameraShakeIntensity: 0
   CameraShakeDuration: 0

@@ -38,8 +38,6 @@ namespace MS.Field
         {
             base.Awake();
 
-            SSC.OnDeadCallback += OnDeadCallback;
-
             navMeshAgent = GetComponent<NavMeshAgent>();
             monsterStateMachine = new MSStateMachine<MonsterCharacter>(this);
             monsterStateMachine.RegisterState((int)MonsterState.Idle, OnIdleEnter, OnIdleUpdate, OnIdleExit);
@@ -146,6 +144,8 @@ namespace MS.Field
 
         public override void ApplyStun(bool _isStunned)
         {
+            if (ObjectLifeState != FieldObjectLifeState.Live) return;
+
             IsStunned = _isStunned;
 
             if (IsStunned)
@@ -172,6 +172,7 @@ namespace MS.Field
 
         private void OnDeadCallback()
         {
+            ObjectLifeState = FieldObjectLifeState.Dying;
             monsterStateMachine.TransitState((int)MonsterState.Dead);
         }
 
@@ -296,10 +297,10 @@ namespace MS.Field
         private void OnDeadEnter(int _prev, object[] _params)
         {
             elapsedDeadTime = 0f;
+            IsStunned = false;
             navMeshAgent.ResetPath();
             Animator.SetTrigger(Settings.AnimHashDead);
             SSC.CancelAllSkills();
-            ObjectLifeState = FieldObjectLifeState.Dying;
 
             FieldItemManager.Instance.SpawnFieldItem(dropItemKey, Position);
         }
