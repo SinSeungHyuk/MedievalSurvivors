@@ -10,7 +10,7 @@ class JenkinsBuild
 
     static void PerformBuild()
     {
-        BuildPipeline.BuildPlayer(FindEnabledEditorScenes(), "Builds/Windows/MedievalSurvival.exe", BuildTarget.StandaloneWindows, BuildOptions.None);
+        BuildPipeline.BuildPlayer(FindEnabledEditorScenes(), "Builds/Windows/MedievalSurvival.apk", BuildTarget.Android, BuildOptions.None);
     }
     private static string[] FindEnabledEditorScenes()
     {
