@@ -70,7 +70,7 @@ namespace MS.Skill
         {
             if (DataManager.Instance.SkillSettingDataDict.TryGetValue(_skillKey, out SkillSettingData _skillData))
             {
-                // namespace 규칙이 반드시 보장되어야 합니다.
+                // namespace 규칙이 반드시 보장되어야함
                 var skillType = Type.GetType("MS.Skill." +  _skillKey);
                 try
                 {
