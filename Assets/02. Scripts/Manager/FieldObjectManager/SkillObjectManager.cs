@@ -22,7 +22,7 @@ namespace MS.Manager
         {
             T skillObject = ObjectPoolManager.Instance.Get(_key, _owner.transform).GetComponent<T>();
 
-            if (skillObject != null)
+            if (skillObject)
             {
                 skillObjectList.Add(skillObject);
                 skillObject.InitSkillObject(_key, _owner , _targetLayer);

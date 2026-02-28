@@ -1,8 +1,7 @@
-using Cysharp.Threading.Tasks;
 using MS.Manager;
 using MS.Utils;
 using System;
-using System.Threading;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ namespace MS.UI
         private float duration = 0.8f;
         private Vector3 baseScale = new Vector3(0.1f, 0.1f, 0.1f);
         private static Camera mainCam;
+        private Coroutine damageTextEffectCoroutine;
 
 
         private void Awake()
@@ -34,7 +34,7 @@ namespace MS.UI
             txtDamage.text = _damage.ToString();
             txtDamage.color = _isCritic ? Settings.Critical : Color.white;
 
-            DamageTextEffectAsync().Forget();
+            StartDamageTextEffect();
         }
 
         public void InitEvasionText()
@@ -46,26 +46,40 @@ namespace MS.UI
             txtDamage.text = StringTable.Instance.Get("Battle", "Evasion");
             txtDamage.color = Settings.Green;
 
-            DamageTextEffectAsync().Forget();
+            StartDamageTextEffect();
         }
 
-        private async UniTaskVoid DamageTextEffectAsync()
+        private void StartDamageTextEffect()
+        {
+            if (damageTextEffectCoroutine != null)
+            {
+                StopCoroutine(damageTextEffectCoroutine);
+            }
+
+            damageTextEffectCoroutine = StartCoroutine(DamageTextEffectCoroutine());
+        }
+        
+        private IEnumerator DamageTextEffectCoroutine()
         {
             float elapsedTime = 0f;
-            CancellationToken token = this.GetCancellationTokenOnDestroy();
 
             while (elapsedTime < duration)
             {
-                if (token.IsCancellationRequested || !gameObject.activeInHierarchy) return;
+                if (!gameObject.activeInHierarchy)
+                {
+                    damageTextEffectCoroutine = null;
+                    yield break;
+                }
 
                 float dt = Time.deltaTime;
                 elapsedTime += dt;
 
-                transform.Translate(Vector3.up * moveSpeed * dt, Space.World);
+                transform.Translate(Vector3.up * (moveSpeed * dt), Space.World);
 
-                await UniTask.Yield(PlayerLoopTiming.Update, token);
+                yield return null;
             }
 
+            damageTextEffectCoroutine = null;
             ObjectPoolManager.Instance.Return("DamageText", this.gameObject);
         }
     }

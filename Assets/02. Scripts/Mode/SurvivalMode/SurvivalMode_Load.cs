@@ -1,10 +1,10 @@
+using System;
 using Cysharp.Threading.Tasks;
 using MS.Data;
 using MS.Field;
 using MS.Manager;
 using MS.UI;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace MS.Mode
 {
@@ -25,31 +25,41 @@ namespace MS.Mode
         {
 
         }
-
-        private async UniTaskVoid LoadSurvivalModeAsync()
+        
+        private async UniTask LoadSurvivalModeAsync()
         {
-            UIManager.Instance.ShowSystemUI<BaseUI>("LoadingPanel");
+            try
+            {
+                UIManager.Instance.ShowSystemUI<BaseUI>("LoadingPanel");
+                
+                await EffectManager.Instance.LoadAllEffectAsync();
+                await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
+                await FieldItemManager.Instance.LoadAllFieldItemAsync();
+                await MonsterManager.Instance.LoadAllMonsterAsync(stageSettingData);
 
-            await EffectManager.Instance.LoadAllEffectAsync();
-            await SkillObjectManager.Instance.LoadAllSkillObjectAsync();
-            await FieldItemManager.Instance.LoadAllFieldItemAsync();
-            await MonsterManager.Instance.LoadAllMonsterAsync(stageSettingData);
+                GameObject map = await AddressableManager.Instance.LoadResourceAsync<GameObject>(stageSettingData.MapKey);
+                curFieldMap = GameObject.Instantiate(map,Vector3.zero, Quaternion.identity).GetComponent<FieldMap>();
 
-            GameObject map = await AddressableManager.Instance.LoadResourceAsync<GameObject>(stageSettingData.MapKey);
-            curFieldMap = GameObject.Instantiate(map,Vector3.zero, Quaternion.identity).GetComponent<FieldMap>();
+                player = await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
 
-            player = await PlayerManager.Instance.SpawnPlayerCharacter("TestCharacter");
+                battlePanel = UIManager.Instance.ShowView<BattlePanel>("BattlePanel");
+                BattlePanelViewModel data = new BattlePanelViewModel(this, player);
+                battlePanel.InitBattlePanel(data);
 
-            battlePanel = UIManager.Instance.ShowView<BattlePanel>("BattlePanel");
-            BattlePanelViewModel data = new BattlePanelViewModel(this, player);
-            battlePanel.InitBattlePanel(data);
+                player.InitPlayer("TestCharacter");
+                player.LevelSystem.CurLevel.Subscribe(OnPlayerLevelUpCallback);
+                player.SSC.OnDeadCallback += OnPlayerDeadCallback;
 
-            player.InitPlayer("TestCharacter"); // todo
-            player.LevelSystem.CurLevel.Subscribe(OnPlayerLevelUpCallback);
-            player.SSC.OnDeadCallback += OnPlayerDeadCallback;
-
-            modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
-            UIManager.Instance.CloseUI("LoadingPanel");
+                modeStateMachine.TransitState((int)SurvivalModeState.BattleStart);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"SurvivalMode::LoadSurvivalModeAsync() Failed: {e.Message}");
+            }
+            finally
+            {
+                UIManager.Instance.CloseUI("LoadingPanel");
+            }
         }
     }
 }
