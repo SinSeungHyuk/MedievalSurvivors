@@ -20,6 +20,7 @@ namespace MS.Manager
             base.Awake();
 
             Application.targetFrameRate = 60;
+            InitializeGooglePlayAutoLogin();
         }
 
         private void Update()

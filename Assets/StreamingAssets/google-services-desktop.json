@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "164378779084",
+    "project_id": "medievalsurvivors",
+    "storage_bucket": "medievalsurvivors.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164378779084:android:a6e1f64ff91a2d55d59169",
+        "android_client_info": {
+          "package_name": "com.SSH.MedievalSurvivors"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLByTjC2jpf-HH2wBhxrnsgbItJXvgaRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

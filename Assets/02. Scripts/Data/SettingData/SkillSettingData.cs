@@ -17,8 +17,7 @@ namespace MS.Data
         public float Cooltime { get; set; }
         public bool IsPostUseCooltime { get; set; } // 스킬을 사용한 후에 쿨타임이 시작되는지 여부
         public Dictionary<ESkillValueType, float> SkillValueDict { get; set; }
-
-
+        
         public float GetValue(ESkillValueType _valueType)
         {
             SkillValueDict.TryGetValue(_valueType, out float value);
