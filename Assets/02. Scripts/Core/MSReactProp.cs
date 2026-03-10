@@ -36,7 +36,7 @@ namespace MS.Core
         }
         public void Unsubscribe(Action<T, T> _callback)
         {
-            onValueChanged += _callback;
+            onValueChanged -= _callback;
         }
         public void Clear()
         {

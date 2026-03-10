@@ -21,6 +21,10 @@ namespace MS.Field
             gameplayCueKey = _itemData.GameplayCueKey;
             itemType = _itemData.ItemType;
 
+            // GPU Instancingìœ¼ë¡œ ë Œë”ë§í•˜ë¯€ë¡œ MeshRenderer ë¹„í™œì„±í™” (í’€ í™•ì¥ìœ¼ë¡œ ìƒˆ ì¸ìŠ¤í„´ìŠ¤ ìƒì„± ì‹œì—ë„ ì²˜ë¦¬)
+            MeshRenderer meshRenderer = GetComponentInChildren<MeshRenderer>();
+            if (meshRenderer != null) meshRenderer.enabled = false;
+
             ObjectLifeState = FieldObjectLifeState.Live;
             ObjectType = FieldObjectType.FieldItem;
         }
@@ -31,7 +35,7 @@ namespace MS.Field
         {
             if (other.TryGetComponent<PlayerCharacter>(out PlayerCharacter player))
             {
-                // °øÅë È¹µæ ·ÎÁ÷À» ½ÇÇà
+                // ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 GameplayCueManager.Instance.PlayCue(gameplayCueKey, player);
                 OnAcquire(player);
                 ObjectPoolManager.Instance.Return(fieldItemKey, this.gameObject);

@@ -69,6 +69,7 @@ namespace MS.Mode
             SkillObjectManager.Instance.OnUpdate(_dt);
             MonsterManager.Instance.OnUpdate(_dt);
             EffectManager.Instance.OnUpdate(_dt);
+            FieldItemManager.Instance.OnUpdate();
             if (battlePanel != null)
             {
                 battlePanel.OnUpdate(_dt);
@@ -90,7 +91,7 @@ namespace MS.Mode
 
         private void OnBossMonsterDead()
         {
-            // ´ÙÀ½ ¿þÀÌºê·Î ³Ñ¾î°¡´Â ¿¬Ãâ È£ÃâÇÏ±â + UI ¾÷µ¥ÀÌÆ®
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï±ï¿½ + UI ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
             KillCount.Value++;
             ActivateNextWaveAsync().Forget();
 
@@ -171,7 +172,7 @@ namespace MS.Mode
                 EGrade rndGrade = MathUtils.GetRandomGrade();
                 EStatType rndStat = statTypes[UnityEngine.Random.Range(0, statTypes.Length)];
 
-                string key = rndStat.ToString() + rndGrade.ToString(); // µ¥ÀÌÅÍ °Ë»öÇÒ Å°°ª Á¶ÇÕ
+                string key = rndStat.ToString() + rndGrade.ToString(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
                 if (statRewardDict.TryGetValue(key, out StatRewardSettingData data))
                 {

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(xargs basename:*)",
+      "mcp__notion__notion-fetch",
+      "mcp__notion__notion-search",
+      "Bash(npx:*)",
+      "Bash(node:*)"
+    ]
+  }
+}

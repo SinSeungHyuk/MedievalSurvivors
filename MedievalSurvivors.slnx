@@ -2,6 +2,8 @@
   <Project Path="UniTask.Linq.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="UniTask.csproj" />
+  <Project Path="Google.Play.Games.Editor.csproj" />
+  <Project Path="Google.Play.Games.csproj" />
   <Project Path="UniTask.DOTween.csproj" />
   <Project Path="UniTask.Editor.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
